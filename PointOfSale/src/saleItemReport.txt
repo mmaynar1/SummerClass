@@ -1,0 +1,12 @@
+Sales Item Summary
+
+Sale Item           Sale Item Count     Total               
+Smoothie            2                   $20.00              
+Towel               1                   $10.00              
+Protein Bar         2                   $20.00              
+Personal Training   2                   $20.00              
+Vitamins            1                   $10.00              
+Muscle Milk         5                   $50.00              
+Water               1                   $10.00              
+T-Shirt             2                   $20.00              
+Gloves              5                   $50.00              

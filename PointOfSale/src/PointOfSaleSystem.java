@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +8,14 @@ public class PointOfSaleSystem
     public List<Sale> getRandomSales( int size )
     {
         List<Member> members = getRandomMembers();
+        List<SaleItem> saleItems = createSaleItems();
+        List<PaymentMethod> paymentMethods = createPaymentMethods();
+
         List<Sale> sales = new ArrayList<Sale>();
         for (int i = 0; i < size; i++)
         {
-            List<SaleItem> saleItems = getRandomSaleItems();
-            sales.add( new Sale( members.get( i ), saleItems, getPaymentDetails( getRandomPaymentMethods(), saleItems ) ) );
+            List<SaleItem> items = getRandomSaleItems( saleItems );
+            sales.add( new Sale( members.get( i ), items, getPaymentDetails( getRandomPaymentMethods( paymentMethods ), items ) ) );
         }
         return sales;
     }
@@ -47,29 +49,37 @@ public class PointOfSaleSystem
         return paymentDetails;
     }
 
-
-    private List<PaymentMethod> getRandomPaymentMethods()
+    private List<PaymentMethod> createPaymentMethods()
     {
         List<PaymentMethod> paymentMethods = new ArrayList<PaymentMethod>();
         paymentMethods.add( PaymentMethod.CASH );
         paymentMethods.add( PaymentMethod.VISA );
         paymentMethods.add( PaymentMethod.MC );
         paymentMethods.add( PaymentMethod.COUPON );
+        return paymentMethods;
+    }
+
+    private List<PaymentMethod> getRandomPaymentMethods( List<PaymentMethod> paymentMethods )
+    {
 
         List<PaymentMethod> randomPaymentMethods = new ArrayList<PaymentMethod>();
-
+        List<PaymentMethod> usedPaymentMethods = new ArrayList<PaymentMethod>();
         int randomNumberOfPaymentMethods = RandomGenerator.getInt( 1, 4 );
-        for (int i = 0; i < randomNumberOfPaymentMethods; i++)
+
+        while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
         {
             int randomIndex = RandomGenerator.getInt( 0, paymentMethods.size() );
-            randomPaymentMethods.add( paymentMethods.get( randomIndex ) );
+            if ( !usedPaymentMethods.contains( paymentMethods.get( randomIndex ) ) )
+            {
+                randomPaymentMethods.add( paymentMethods.get( randomIndex ) );
+                usedPaymentMethods.add( paymentMethods.get( randomIndex ) );
+            }
         }
 
         return randomPaymentMethods;
     }
 
-
-    private List<SaleItem> getRandomSaleItems()
+    private List<SaleItem> createSaleItems()
     {
         List<SaleItem> saleItems = new ArrayList<SaleItem>();
         saleItems.add( new SaleItem( "Water", 10 ) );
@@ -83,6 +93,12 @@ public class PointOfSaleSystem
         saleItems.add( new SaleItem( "Vitamins", 10 ) );
         saleItems.add( new SaleItem( "Gloves", 10 ) );
 
+        return saleItems;
+    }
+
+
+    private List<SaleItem> getRandomSaleItems( List<SaleItem> saleItems )
+    {
         List<SaleItem> randomSaleItems = new ArrayList<SaleItem>();
 
         int randomNumberOfSaleItems = RandomGenerator.getInt( 1, 5 );

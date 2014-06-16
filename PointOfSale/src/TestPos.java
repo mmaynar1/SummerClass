@@ -9,5 +9,7 @@ public class TestPos
 
         List<Sale> sales = pointOfSaleSystem.getRandomSales( 10 );
         reports.generateMemberReport(sales);
+        reports.generateSalesItemReport( sales );
+        reports.generatePaymentMethodReport( sales );
     }
 }

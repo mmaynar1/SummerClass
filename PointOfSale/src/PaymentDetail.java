@@ -16,6 +16,16 @@ public final class PaymentDetail
         this(paymentMethod, new BigDecimal( amount ));
     }
 
+    public String getAbcCode()
+    {
+        return getPaymentMethod().getAbcCode();
+    }
+
+    public String getName()
+    {
+        return getPaymentMethod().getName();
+    }
+
     public PaymentMethod getPaymentMethod()
     {
         return paymentMethod;

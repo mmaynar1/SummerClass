@@ -9,9 +9,70 @@ import java.util.*;
 //todo should this class just be static methods?
 public final class Reports
 {
+
+    public static final int SPACES = 20;
+    public static final boolean APPEND_MODE = true;
+
+    public void generatePaymentMethodReport( List<Sale> sales )
+    {
+        List<PaymentMethodReportDetail> paymentMethodReportDetails = getPaymentMethodReportDetails( sales );
+
+        try
+        {
+            printPaymentMethodReport( paymentMethodReportDetails );
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException( "Could not generate Member Report" );
+        }
+    }
+
+    private void printPaymentMethodReport( List<PaymentMethodReportDetail> paymentMethodReportDetails ) throws IOException
+    {
+        String fileName = "src\\paymentMethodReport.txt";
+        final String TITLE = "Payment Method Summary";
+        final List<String> HEADERS = Arrays.asList( "Payment Method", "Payment Item Count", "Total" );
+
+        printReportHeader( fileName, TITLE, HEADERS );
+
+        File file = getFile( fileName );
+        FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+        for (PaymentMethodReportDetail detail : paymentMethodReportDetails)
+        {
+            bufferedWriter.write( leftJustify( detail.getPaymentMethod(), SPACES ) +
+                                  leftJustify( detail.getPaymentItemCount(), SPACES ) +
+                                  leftJustify( formatMoney( detail.getTotal() ), SPACES ) );
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
+    }
+
+    private List<PaymentMethodReportDetail> getPaymentMethodReportDetails( List<Sale> sales )
+    {
+        Map<String, PaymentMethodReportDetail> line = new HashMap<String, PaymentMethodReportDetail>();
+        for (Sale sale : sales)
+        {
+            for (PaymentDetail paymentDetail : sale.getPaymentDetails())
+            {
+                PaymentMethodReportDetail detail = line.get( paymentDetail.getAbcCode() );
+                if ( detail == null )
+                {
+                    line.put( paymentDetail.getAbcCode(), new PaymentMethodReportDetail( paymentDetail.getName(), paymentDetail.getAmount() ) );
+                }
+                else
+                {
+                    detail.update( paymentDetail );
+                }
+            }
+
+        }
+        return new ArrayList<PaymentMethodReportDetail>( line.values() );
+    }
+
     public void generateMemberReport( List<Sale> sales )
     {
-        Map<String, MemberReportDetail> memberReportDetails = getMemberReportDetails( sales );
+        List<MemberReportDetail> memberReportDetails = getMemberReportDetails( sales );
 
         try
         {
@@ -23,28 +84,95 @@ public final class Reports
         }
     }
 
-    private void printMemberReport( Map<String, MemberReportDetail> memberReportDetails ) throws IOException
+    public void generateSalesItemReport( List<Sale> sales )
     {
-        File file = getFile( "src\\memberReport.txt" );
+        List<SaleItemReportDetail> saleItemReportDetails = getSaleItemReportDetails( sales );
+        try
+        {
+            printSaleItemReport( saleItemReportDetails );
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException( "Could not generate Sale Item Report" );
+        }
+    }
 
-        FileWriter fileWriter = new FileWriter( file.getAbsoluteFile() );
+    private List<SaleItemReportDetail> getSaleItemReportDetails( List<Sale> sales )
+    {
+        Map<String, SaleItemReportDetail> line = new HashMap<String, SaleItemReportDetail>();
+        for (Sale sale : sales)
+        {
+            for (SaleItem item : sale.getSaleItems())
+            {
+                SaleItemReportDetail detail = line.get( item.getId() );
+                if ( detail == null )
+                {
+                    line.put( item.getId(), new SaleItemReportDetail( item.getName(), item.getUnitPrice() ) );
+                }
+                else
+                {
+                    detail.update( item );
+                }
+            }
+
+        }
+        return new ArrayList<SaleItemReportDetail>( line.values() );
+    }
+
+
+    private void printSaleItemReport( List<SaleItemReportDetail> saleItemReportDetails ) throws IOException
+    {
+        String fileName = "src\\saleItemReport.txt";
+        final String TITLE = "Sales Item Summary";
+        final List<String> HEADERS = Arrays.asList( "Sale Item", "Sale Item Count", "Total" );
+
+        printReportHeader( fileName, TITLE, HEADERS );
+
+        File file = getFile( fileName );
+        FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+        for (SaleItemReportDetail detail : saleItemReportDetails)
+        {
+            bufferedWriter.write( leftJustify( detail.getSaleItem(), SPACES ) +
+                                  leftJustify( detail.getSaleItemCount(), SPACES ) +
+                                  leftJustify( formatMoney( detail.getTotal() ), SPACES ) );
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
+    }
+
+    private void printReportHeader( String fileName, String title, List<String> headers ) throws IOException
+    {
+        File file = getFile( fileName );
+
+        FileWriter fileWriter = new FileWriter( file );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
-        final String TITLE = "Sales Summary";
-        final List<String> HEADER = Arrays.asList( "Member", "Sales Count", "Sale Item Count", "Total" );
-        final int SPACES = 20;
+        bufferedWriter.write( title );
+        bufferedWriter.newLine();
+        bufferedWriter.newLine();
 
-        bufferedWriter.write( TITLE );
-        bufferedWriter.newLine();
-        bufferedWriter.newLine();
-        for (String header : HEADER)
+        for (String header : headers)
         {
             bufferedWriter.write( leftJustify( header, SPACES ) );
         }
 
         bufferedWriter.newLine();
+        bufferedWriter.close();
+    }
 
-        for (MemberReportDetail detail : memberReportDetails.values())
+    private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException
+    {
+        String fileName = "src\\memberReport.txt";
+        final String TITLE = "Sales Summary";
+        final List<String> HEADERS = Arrays.asList( "Member", "Sales Count", "Sale Item Count", "Total" );
+
+        printReportHeader( fileName, TITLE, HEADERS );
+
+        File file = getFile( fileName );
+        FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+        for (MemberReportDetail detail : memberReportDetails)
         {
             bufferedWriter.write( leftJustify( detail.getMemberName(), SPACES ) +
                                   leftJustify( detail.getSalesCount(), SPACES ) +
@@ -67,7 +195,7 @@ public final class Reports
         return file;
     }
 
-    private Map<String, MemberReportDetail> getMemberReportDetails( List<Sale> sales )
+    private List<MemberReportDetail> getMemberReportDetails( List<Sale> sales )
     {
         Map<String, MemberReportDetail> line = new HashMap<String, MemberReportDetail>();
         for (Sale sale : sales)
@@ -82,7 +210,7 @@ public final class Reports
                 detail.update( sale );
             }
         }
-        return line;
+        return new ArrayList<MemberReportDetail>( line.values() );
     }
 
     private static String leftJustify( String value, int width )
