@@ -1,0 +1,7 @@
+Payment Method Summary
+
+Payment Method      Payment Item Count  Total               
+Visa                5                   $28.33              
+Coupon              8                   $63.33              
+Master Card         6                   $51.67              
+Cash                4                   $46.67              

@@ -43,10 +43,10 @@ public class SaleItemReportDetail
         this.total = total;
     }
 
-    public void update( SaleItem saleItem )
+    public void update( InventoryItem inventoryItem )
     {
         incrementSaleItemCount();
-        setTotal( getTotal().add( saleItem.getUnitPrice() ) );
+        setTotal( getTotal().add( inventoryItem.getUnitPrice() ) );
     }
 
     private void incrementSaleItemCount()

@@ -2,8 +2,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.*;
 
 //todo should this class just be static methods?
@@ -40,9 +38,9 @@ public final class Reports
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         for (PaymentMethodReportDetail detail : paymentMethodReportDetails)
         {
-            bufferedWriter.write( leftJustify( detail.getPaymentMethod(), SPACES ) +
-                                  leftJustify( detail.getPaymentItemCount(), SPACES ) +
-                                  leftJustify( formatMoney( detail.getTotal() ), SPACES ) );
+            bufferedWriter.write( Format.leftJustify( detail.getPaymentMethod(), SPACES ) +
+                                  Format.leftJustify( detail.getPaymentItemCount(), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
             bufferedWriter.newLine();
         }
         bufferedWriter.close();
@@ -102,7 +100,7 @@ public final class Reports
         Map<String, SaleItemReportDetail> line = new HashMap<String, SaleItemReportDetail>();
         for (Sale sale : sales)
         {
-            for (SaleItem item : sale.getSaleItems())
+            for (InventoryItem item : sale.getInventoryItems())
             {
                 SaleItemReportDetail detail = line.get( item.getId() );
                 if ( detail == null )
@@ -133,9 +131,9 @@ public final class Reports
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         for (SaleItemReportDetail detail : saleItemReportDetails)
         {
-            bufferedWriter.write( leftJustify( detail.getSaleItem(), SPACES ) +
-                                  leftJustify( detail.getSaleItemCount(), SPACES ) +
-                                  leftJustify( formatMoney( detail.getTotal() ), SPACES ) );
+            bufferedWriter.write( Format.leftJustify( detail.getSaleItem(), SPACES ) +
+                                  Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
             bufferedWriter.newLine();
         }
         bufferedWriter.close();
@@ -154,7 +152,7 @@ public final class Reports
 
         for (String header : headers)
         {
-            bufferedWriter.write( leftJustify( header, SPACES ) );
+            bufferedWriter.write( Format.leftJustify( header, SPACES ) );
         }
 
         bufferedWriter.newLine();
@@ -174,10 +172,10 @@ public final class Reports
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         for (MemberReportDetail detail : memberReportDetails)
         {
-            bufferedWriter.write( leftJustify( detail.getMemberName(), SPACES ) +
-                                  leftJustify( detail.getSalesCount(), SPACES ) +
-                                  leftJustify( detail.getSaleItemCount(), SPACES ) +
-                                  leftJustify( formatMoney( detail.getTotal() ), SPACES ) );
+            bufferedWriter.write( Format.leftJustify( detail.getMemberName(), SPACES ) +
+                                  Format.leftJustify( detail.getSalesCount(), SPACES ) +
+                                  Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
             bufferedWriter.newLine();
         }
         bufferedWriter.close();
@@ -213,37 +211,4 @@ public final class Reports
         return new ArrayList<MemberReportDetail>( line.values() );
     }
 
-    private static String leftJustify( String value, int width )
-    {
-        return String.format( "%-" + width + "s", value );
-    }
-
-    private static String leftJustify( int value, int width )
-    {
-        String stringValue = Integer.toString( value );
-        return leftJustify( stringValue, width );
-    }
-
-    private static String leftJustify( BigDecimal value, int width )
-    {
-        String stringValue = value.toString();
-        return leftJustify( stringValue, width );
-    }
-
-    private static String formatMoney( BigDecimal money )
-    {
-        String formattedMoney;
-
-        if ( money == null )
-        {
-            formattedMoney = "$0.00";
-        }
-        else
-        {
-            final DecimalFormat moneyFormat = new DecimalFormat( "$#,##0.00" );
-            formattedMoney = moneyFormat.format( money );
-        }
-
-        return formattedMoney;
-    }
 }

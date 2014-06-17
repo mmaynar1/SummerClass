@@ -1,17 +1,17 @@
 import java.math.BigDecimal;
 
-public final class SaleItem
+public final class InventoryItem
 {
     private final String name;
     private final BigDecimal unitPrice;
     private final String id;
 
-    public SaleItem( String name, double unitPrice )
+    public InventoryItem( String name, double unitPrice )
     {
         this(name, new BigDecimal( unitPrice ));
     }
 
-    public SaleItem( String name, BigDecimal unitPrice )
+    public InventoryItem( String name, BigDecimal unitPrice )
     {
         this.name = name;
         this.unitPrice = unitPrice;

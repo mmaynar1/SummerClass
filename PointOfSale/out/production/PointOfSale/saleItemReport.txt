@@ -1,11 +1,11 @@
 Sales Item Summary
 
 Sale Item           Sale Item Count     Total               
+Muscle Milk         1                   $10.00              
 Personal Training   2                   $20.00              
-Vitamins            2                   $20.00              
-Smoothie            1                   $10.00              
-Tanning             2                   $20.00              
-Protein Bar         5                   $50.00              
 Gloves              5                   $50.00              
-Muscle Milk         2                   $20.00              
-Towel               5                   $50.00              
+Towel               2                   $20.00              
+Protein Bar         4                   $40.00              
+Water               3                   $30.00              
+Smoothie            1                   $10.00              
+T-Shirt             1                   $10.00              

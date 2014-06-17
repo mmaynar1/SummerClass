@@ -1,15 +1,10 @@
-import java.util.List;
-
 public class TestPos
 {
     public static void main( String[] args )
     {
         PointOfSaleSystem pointOfSaleSystem = new PointOfSaleSystem();
-        Reports reports = new Reports();
 
-        List<Sale> sales = pointOfSaleSystem.getRandomSales( 10 );
-        reports.generateMemberReport(sales);
-        reports.generateSalesItemReport( sales );
-        reports.generatePaymentMethodReport( sales );
+        int numberOfSales = 10;
+        pointOfSaleSystem.simulateRandomSales( numberOfSales );
     }
 }
