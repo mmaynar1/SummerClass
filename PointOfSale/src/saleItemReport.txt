@@ -1,13 +1,12 @@
 Sales Item Summary
 
-Sale Item           Sale Item Count     Total               
-Personal Training   4                   $40.00              
-Gloves              6                   $60.00              
-Towel               4                   $40.00              
-Muscle Milk         2                   $20.00              
-Smoothie            4                   $40.00              
-Tanning             2                   $20.00              
-Water               5                   $50.00              
-Vitamins            1                   $10.00              
-Protein Bar         3                   $30.00              
-T-Shirt             3                   $30.00              
+Sale Item           Sale Item Count     Extended Price      Tax                 Total               
+Tanning             15                  $150.00             $1.00               $151.00             
+Gloves              4                   $40.00              $2.00               $42.00              
+Smoothie            4                   $40.00              $0.00               $40.00              
+Towel               6                   $60.00              $0.50               $60.50              
+Personal Training   7                   $70.00              $0.50               $70.50              
+T-Shirt             3                   $30.00              $1.50               $31.50              
+Protein Bar         14                  $140.00             $0.00               $140.00             
+Vitamins            5                   $50.00              $0.00               $50.00              
+Muscle Milk         8                   $80.00              $0.00               $80.00              

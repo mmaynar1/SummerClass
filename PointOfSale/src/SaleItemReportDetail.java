@@ -2,25 +2,27 @@ import java.math.BigDecimal;
 
 public class SaleItemReportDetail
 {
-    private final String saleItem;
+    private final String inventoryItemName;
     private int saleItemCount;
-    private BigDecimal total;
+    private BigDecimal extendedPrice;
+    private final BigDecimal tax;
 
-    public SaleItemReportDetail( String saleItem, int saleItemCount, BigDecimal total )
+    public SaleItemReportDetail( String inventoryItemName, int saleItemCount, BigDecimal extendedPrice, BigDecimal tax )
     {
-        this.saleItem = saleItem;
+        this.inventoryItemName = inventoryItemName;
         setSaleItemCount( saleItemCount );
-        setTotal( total );
+        setExtendedPrice( extendedPrice );
+        this.tax = tax;
     }
 
-    public SaleItemReportDetail( String saleItem, BigDecimal unitPrice )
+    public SaleItemReportDetail( String inventoryItemName, BigDecimal unitPrice, BigDecimal tax )
     {
-        this( saleItem, 1, unitPrice );
+        this( inventoryItemName, 1, unitPrice ,tax);
     }
 
-    public String getSaleItem()
+    public String getInventoryItemName()
     {
-        return saleItem;
+        return inventoryItemName;
     }
 
     public int getSaleItemCount()
@@ -33,24 +35,29 @@ public class SaleItemReportDetail
         this.saleItemCount = saleItemCount;
     }
 
-    public BigDecimal getTotal()
+    public BigDecimal getExtendedPrice()
     {
-        return total;
+        return extendedPrice;
     }
 
-    private void setTotal( BigDecimal total )
+    private void setExtendedPrice( BigDecimal extendedPrice )
     {
-        this.total = total;
+        this.extendedPrice = extendedPrice;
     }
 
-    public void update( InventoryItem inventoryItem )
+    public void update( SaleItem saleItem )
     {
-        incrementSaleItemCount();
-        setTotal( getTotal().add( inventoryItem.getUnitPrice() ) );
+        incrementSaleItemCount(saleItem);
+        setExtendedPrice( getExtendedPrice().add( saleItem.getExtendedPrice() ) );
     }
 
-    private void incrementSaleItemCount()
+    private void incrementSaleItemCount(SaleItem saleItem)
     {
-        setSaleItemCount( getSaleItemCount() + 1 );
+        setSaleItemCount( getSaleItemCount() + saleItem.getQuantity() );
+    }
+
+    public BigDecimal getTax()
+    {
+        return tax;
     }
 }

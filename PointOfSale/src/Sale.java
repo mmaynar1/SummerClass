@@ -3,41 +3,42 @@ import java.util.List;
 
 public final class Sale
 {
-
     private final Member member;
-   // private final String memberId;
-    private final List<InventoryItem> inventoryItems;
+    private final List<SaleItem> saleItems;
     private final List<PaymentDetail> paymentDetails;
     private final String id;
 
-    public Sale( /*String memberId*/ Member member, List<InventoryItem> inventoryItems, List<PaymentDetail> paymentDetails )
+    public Sale( Member member, List<SaleItem> saleItems, List<PaymentDetail> paymentDetails )
     {
         //todo should Sale accept List<PaymentMethods> instead of PaymentDetails and figure it out?
         //todo splitting payments unevenly would be a problem
         this.member = member;
-        //this.memberId = memberId;
-        this.inventoryItems = inventoryItems;
+        this.saleItems = saleItems;
         this.paymentDetails = paymentDetails;
         this.id = RandomGenerator.getGuid();
     }
 
     public Sale( Sale sale )
     {
-        this( /*sale.getMemberId()*/sale.getMember(), sale.getInventoryItems(), sale.getPaymentDetails() );
+        this( sale.getMember(), sale.getSaleItems(), sale.getPaymentDetails() );
     }
 
     @Override
     public String toString()
     {
-        String output = "Name: " + getMemberName() + ", \n" + "Sale Items: ";
-        for (InventoryItem item : getInventoryItems())
+        String output = "Member: " + getMemberName() + " " + getMemberId() + "\n";
+        output += "Items:\n";
+        for (SaleItem saleItem : getSaleItems())
         {
-            output += item.getName() + " " + Format.formatMoney( item.getUnitPrice() ) + " " + item.getId() + ", ";
+            output += "\tName: " + saleItem.getInventoryItemName() +
+                      " Id: " + saleItem.getInventoryItemId() +
+                      " Ext Price: " + Format.formatMoney( saleItem.getExtendedPrice()) +
+                      " Quantity: " + saleItem.getQuantity() +
+                      " Tax: " + Format.formatMoney(  saleItem.getTax()) + "\n";
         }
-        output += "\nPayment Details: ";
-        for (PaymentDetail detail : getPaymentDetails())
+        for(PaymentDetail paymentDetail : getPaymentDetails())
         {
-            output += detail.getName() + " " + Format.formatMoney( detail.getAmount() ) + ", ";
+            output += paymentDetail.getName() + " " + Format.formatMoney(  paymentDetail.getAmount()) + "\n";
         }
         output += "\n\n";
         return output;
@@ -46,16 +47,24 @@ public final class Sale
     public BigDecimal getTotal()
     {
         BigDecimal total = BigDecimal.ZERO;
-        for (InventoryItem inventoryItem : getInventoryItems())
+        for (SaleItem saleItem : getSaleItems())
         {
-            total = total.add( inventoryItem.getUnitPrice() );
+            total = total.add( saleItem.getExtendedPrice() );
+
+            BigDecimal tax = saleItem.getExtendedPrice().multiply( saleItem.getTaxRate() );
+            total = total.add( tax );
         }
         return total;
     }
 
     public int getSaleItemCount()
     {
-        return getInventoryItems().size();
+        int count = 0;
+        for (SaleItem saleItem : getSaleItems())
+        {
+            count += saleItem.getQuantity();
+        }
+        return count;
     }
 
 
@@ -75,11 +84,6 @@ public final class Sale
         return member;
     }
 
-    public List<InventoryItem> getInventoryItems()
-    {
-        return inventoryItems;
-    }
-
     public List<PaymentDetail> getPaymentDetails()
     {
         return paymentDetails;
@@ -88,5 +92,10 @@ public final class Sale
     public String getId()
     {
         return id;
+    }
+
+    public List<SaleItem> getSaleItems()
+    {
+        return saleItems;
     }
 }

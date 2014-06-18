@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -6,67 +7,103 @@ import java.util.Map;
 
 public class Database
 {
-    private final Map<String, Member> members = new HashMap<String, Member>();
-    private final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
-    private final Map<String, PaymentMethod> paymentMethods = new HashMap<String, PaymentMethod>();
-
-    private static Database database = new Database();
+    private static final Map<String, Member> members = new HashMap<String, Member>();
+    private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
+    private static final Map<String, PaymentMethod> paymentMethods = new HashMap<String, PaymentMethod>();
 
     private Database()
+    {
+    }
+
+    static
     {
         initializeMembers();
         initializeInventoryItems();
         initializePaymentMethods();
     }
 
-    public static Database getInstance()
+    public static BigDecimal getUnitPrice( String inventoryItemId )
     {
-        return database;
+        return getInventoryItems().get( inventoryItemId ).getUnitPrice();
+    }
+
+    public static String getInventoryItemName( String inventoryItemId )
+    {
+        return getInventoryItems().get( inventoryItemId ).getName();
+    }
+
+    public static BigDecimal getInventoryItemTaxRate( String inventoryItemId )
+    {
+        return getInventoryItems().get( inventoryItemId ).getTax().getRate();
     }
 
 
-    public List<Sale> getRandomSales( int size )
+    public static List<Sale> getRandomSales( int size )
     {
         List<Member> randomMembers = getRandomMembers();
 
         List<Sale> sales = new ArrayList<Sale>();
         for (int i = 0; i < size; i++)
         {
-            List<InventoryItem> items = getRandomInventoryItems();
-            sales.add( new Sale( randomMembers.get( i ), items, getPaymentDetails( getRandomPaymentMethods(), items ) ) );
+            List<InventoryItem> inventoryItems = getRandomInventoryItems();
+            List<SaleItem> saleItems = getSaleItems( inventoryItems );
+            sales.add( new Sale( randomMembers.get( i ), saleItems, getPaymentDetails( getRandomPaymentMethods(), saleItems ) ) );
         }
         return sales;
     }
 
-    private List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<InventoryItem> inventoryItems )
+    private static List<SaleItem> getSaleItems( List<InventoryItem> inventoryItems )
+    {
+        List<SaleItem> saleItems = new ArrayList<SaleItem>();
+        for (InventoryItem item : inventoryItems)
+        {
+            int quantity = RandomGenerator.getInt( 1, 6 );
+            saleItems.add( new SaleItem( item.getId(), quantity ) );
+        }
+        return saleItems;
+    }
+
+    private static List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
     {
         //Divides payments equally over the different payment methods
         int paymentMethodsCount = paymentMethods.size();
 
         BigDecimal total = BigDecimal.ZERO;
-        for (InventoryItem item : inventoryItems)
+        for (SaleItem saleItem : saleItems)
         {
-            total = total.add( item.getUnitPrice() );
+            total = total.add( saleItem.getExtendedPrice() );
+            total = total.add( saleItem.getTax() );
         }
 
         List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
         if ( paymentMethodsCount > 0 )
         {
             final int CALCULATION_DECIMAL_PLACES = 30;
-            BigDecimal amountPerPaymentMethod = total.divide( new BigDecimal( paymentMethodsCount ), CALCULATION_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+            BigDecimal amountPerPaymentMethod = total.divide( new BigDecimal( paymentMethodsCount ), 2, BigDecimal.ROUND_HALF_UP );
 
 
             //todo calculate to the penny
-    /*            BigDecimal roundedTotal = amountPerPaymentMethod.multiply(  new BigDecimal(  paymentMethodsCount));
-                if(roundedTotal.compareTo( total ) > 0)
-                {
-                    BigDecimal extraMoney = total.subtract( roundedTotal );
+            BigDecimal extraMoney = BigDecimal.ZERO;
+            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethodsCount ), MathContext.UNLIMITED );
 
-                }*/
+            if ( total.compareTo( roundedTotal ) != 0 )
+            {
+                extraMoney = total.subtract( roundedTotal );
+            }
 
+            boolean isFirst = true;
             for (PaymentMethod method : paymentMethods)
             {
-                paymentDetails.add( new PaymentDetail( method, amountPerPaymentMethod ) );
+                if(isFirst)
+                {
+                    paymentDetails.add( new PaymentDetail( method, amountPerPaymentMethod.add( extraMoney )));
+                    isFirst = false;
+                }
+                else
+                {
+                    paymentDetails.add( new PaymentDetail( method, amountPerPaymentMethod ) );
+                }
+
             }
         }
         else
@@ -77,7 +114,7 @@ public class Database
         return paymentDetails;
     }
 
-    private List<Member> getRandomMembers()
+    private static List<Member> getRandomMembers()
     {
         List<Member> randomMembers = new ArrayList<Member>();
         for (int i = 0; i < getListOfMembers().size(); i++)
@@ -90,7 +127,7 @@ public class Database
     }
 
 
-    private List<PaymentMethod> getRandomPaymentMethods()
+    private static List<PaymentMethod> getRandomPaymentMethods()
     {
 
         List<PaymentMethod> randomPaymentMethods = new ArrayList<PaymentMethod>();
@@ -111,7 +148,7 @@ public class Database
     }
 
 
-    private List<InventoryItem> getRandomInventoryItems()
+    private static List<InventoryItem> getRandomInventoryItems()
     {
         List<InventoryItem> randomInventoryItems = new ArrayList<InventoryItem>();
 
@@ -125,7 +162,7 @@ public class Database
         return randomInventoryItems;
     }
 
-    private void initializePaymentMethods()
+    private static void initializePaymentMethods()
     {
         getPaymentMethods().put( PaymentMethod.CASH.getAbcCode(), PaymentMethod.CASH );
         getPaymentMethods().put( PaymentMethod.VISA.getAbcCode(), PaymentMethod.VISA );
@@ -133,19 +170,19 @@ public class Database
         getPaymentMethods().put( PaymentMethod.COUPON.getAbcCode(), PaymentMethod.COUPON );
     }
 
-    private void initializeInventoryItems()
+    private static void initializeInventoryItems()
     {
         List<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
-        inventoryItems.add( new InventoryItem( "Water", 10 ) );
-        inventoryItems.add( new InventoryItem( "Smoothie", 10 ) );
-        inventoryItems.add( new InventoryItem( "Muscle Milk", 10 ) );
-        inventoryItems.add( new InventoryItem( "Personal Training", 10 ) );
-        inventoryItems.add( new InventoryItem( "Tanning", 10 ) );
-        inventoryItems.add( new InventoryItem( "T-Shirt", 10 ) );
-        inventoryItems.add( new InventoryItem( "Towel", 10 ) );
-        inventoryItems.add( new InventoryItem( "Protein Bar", 10 ) );
-        inventoryItems.add( new InventoryItem( "Vitamins", 10 ) );
-        inventoryItems.add( new InventoryItem( "Gloves", 10 ) );
+        inventoryItems.add( new InventoryItem( "Water", 10, Tax.None ) );
+        inventoryItems.add( new InventoryItem( "Smoothie", 10, Tax.None ) );
+        inventoryItems.add( new InventoryItem( "Muscle Milk", 10, Tax.None ) );
+        inventoryItems.add( new InventoryItem( "Personal Training", 10, Tax.Tax ) );
+        inventoryItems.add( new InventoryItem( "Tanning", 10, Tax.Tax ) );
+        inventoryItems.add( new InventoryItem( "T-Shirt", 10, Tax.Tax ) );
+        inventoryItems.add( new InventoryItem( "Towel", 10, Tax.Tax ) );
+        inventoryItems.add( new InventoryItem( "Protein Bar", 10, Tax.None ) );
+        inventoryItems.add( new InventoryItem( "Vitamins", 10, Tax.None ) );
+        inventoryItems.add( new InventoryItem( "Gloves", 10, Tax.Tax ) );
 
         for (InventoryItem item : inventoryItems)
         {
@@ -153,7 +190,7 @@ public class Database
         }
     }
 
-    private void initializeMembers()
+    private static void initializeMembers()
     {
         List<Member> members = new ArrayList<Member>();
         members.add( new Member( "Mitch Maynard" ) );
@@ -173,32 +210,32 @@ public class Database
         }
     }
 
-    private List<Member> getListOfMembers()
+    private static List<Member> getListOfMembers()
     {
         return new ArrayList<Member>( getMembers().values() );
     }
 
-    private List<PaymentMethod> getListOfPaymentMethods()
+    private static List<PaymentMethod> getListOfPaymentMethods()
     {
         return new ArrayList<PaymentMethod>( getPaymentMethods().values() );
     }
 
-    private List<InventoryItem> getListOfInventoryItems()
+    private static List<InventoryItem> getListOfInventoryItems()
     {
         return new ArrayList<InventoryItem>( getInventoryItems().values() );
     }
 
-    private Map<String, Member> getMembers()
+    private static Map<String, Member> getMembers()
     {
         return members;
     }
 
-    private Map<String, InventoryItem> getInventoryItems()
+    private static Map<String, InventoryItem> getInventoryItems()
     {
         return inventoryItems;
     }
 
-    private Map<String, PaymentMethod> getPaymentMethods()
+    private static Map<String, PaymentMethod> getPaymentMethods()
     {
         return paymentMethods;
     }

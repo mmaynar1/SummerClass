@@ -7,8 +7,7 @@ public class PointOfSaleSystem
     public void simulateRandomSales( int numberOfSales )
     {
         //Database database = new Database();
-        Database database = Database.getInstance();
-        List<Sale> sales = database.getRandomSales( numberOfSales );
+        List<Sale> sales = Database.getRandomSales( numberOfSales );
         System.out.println( "---------- SALES MADE ----------" );
         for (Sale sale : sales)
         {
@@ -20,21 +19,6 @@ public class PointOfSaleSystem
         reports.generateSalesItemReport( sales );
         reports.generatePaymentMethodReport( sales );
 
-        System.out.println();
-        System.out.println("******************************");
-
-        Database database2 = Database.getInstance();
-        List<Sale> sales2 = database.getRandomSales( numberOfSales );
-        System.out.println( "---------- SALES MADE ----------" );
-        for (Sale sale : sales2)
-        {
-            System.out.println( sale );
-        }
-
-        Reports reports2 = new Reports();
-        reports2.generateMemberReport( sales2 );
-        reports2.generateSalesItemReport( sales2 );
-        reports2.generatePaymentMethodReport( sales2 );
     }
 
     /*private List<Sale> getRandomSales( int size )

@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.*;
 
 //todo should this class just be static methods?
@@ -95,21 +96,26 @@ public final class Reports
         }
     }
 
+
     private List<SaleItemReportDetail> getSaleItemReportDetails( List<Sale> sales )
     {
         Map<String, SaleItemReportDetail> line = new HashMap<String, SaleItemReportDetail>();
         for (Sale sale : sales)
         {
-            for (InventoryItem item : sale.getInventoryItems())
+            for (SaleItem saleItem : sale.getSaleItems())
             {
-                SaleItemReportDetail detail = line.get( item.getId() );
+                SaleItemReportDetail detail = line.get( saleItem.getInventoryItemId() );
+                String inventoryItemName = Database.getInventoryItemName( saleItem.getInventoryItemId() );
+                BigDecimal extendedPrice = saleItem.getExtendedPrice();
+                BigDecimal tax = extendedPrice.multiply( saleItem.getTaxRate() );
+                /*BigDecimal total = extendedPrice.add( tax );*/
                 if ( detail == null )
                 {
-                    line.put( item.getId(), new SaleItemReportDetail( item.getName(), item.getUnitPrice() ) );
+                    line.put( saleItem.getInventoryItemId(), new SaleItemReportDetail( inventoryItemName, saleItem.getQuantity(), saleItem.getExtendedPrice(), tax ) );
                 }
                 else
                 {
-                    detail.update( item );
+                    detail.update( saleItem );
                 }
             }
 
@@ -117,12 +123,11 @@ public final class Reports
         return new ArrayList<SaleItemReportDetail>( line.values() );
     }
 
-
     private void printSaleItemReport( List<SaleItemReportDetail> saleItemReportDetails ) throws IOException
     {
         String fileName = "src\\saleItemReport.txt";
         final String TITLE = "Sales Item Summary";
-        final List<String> HEADERS = Arrays.asList( "Sale Item", "Sale Item Count", "Total" );
+        final List<String> HEADERS = Arrays.asList( "Sale Item", "Sale Item Count", "Extended Price", "Tax", "Total" );
 
         printReportHeader( fileName, TITLE, HEADERS );
 
@@ -131,9 +136,12 @@ public final class Reports
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         for (SaleItemReportDetail detail : saleItemReportDetails)
         {
-            bufferedWriter.write( Format.leftJustify( detail.getSaleItem(), SPACES ) +
+
+            bufferedWriter.write( Format.leftJustify( detail.getInventoryItemName(), SPACES ) +
                                   Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+                                  Format.leftJustify( Format.formatMoney( detail.getExtendedPrice() ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( detail.getTax() ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( detail.getExtendedPrice().add( detail.getTax() ) ), SPACES ) );
             bufferedWriter.newLine();
         }
         bufferedWriter.close();
