@@ -1,18 +1,12 @@
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.*;
 
 public class Database
 {
-    public static final int MONEY_DECIMAL_PLACES = 2;
-    public static final int NUMBER_OF_SALES = 100;
-
     private static final Map<String, Member> members = new HashMap<String, Member>();
     private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
     private static final Map<String, PaymentMethod> paymentMethods = new HashMap<String, PaymentMethod>();
-    private static final Map<String, Sale> sales = new HashMap<String, Sale>();
-
+    private static Map<String, Sale> sales = new HashMap<String, Sale>();
 
     private Database()
     {
@@ -23,21 +17,6 @@ public class Database
         initializeMembers();
         initializeInventoryItems();
         initializePaymentMethods();
-        initializeRandomSales();
-    }
-
-    public static Map<String, Sale> getRandomSales( int size )
-    {
-        List<Member> randomMembers = getRandomMembers( size );
-
-        for (int i = 0; i < size; i++)
-        {
-            Map<String, SaleItem> saleItems = Database.getRandomSaleItems();
-
-            Sale sale = new Sale( randomMembers.get( i ).getId(), new ArrayList<SaleItem>( saleItems.values() ), getPaymentDetails( getRandomPaymentMethods(), new ArrayList<SaleItem>( saleItems.values() ) ) );
-            getSales().put( sale.getId(), sale );
-        }
-        return sales;
     }
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
@@ -83,161 +62,6 @@ public class Database
         return saleItems;
     }
 
-    public static List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
-    {
-        //Divides payments equally over the different payment methods
-
-        BigDecimal grandTotal = getGrandTotal( saleItems );
-
-        List<PaymentDetail> paymentDetails;
-        if ( paymentMethods.size() > 0 )
-        {
-            BigDecimal amountPerPaymentMethod = grandTotal.divide( new BigDecimal( paymentMethods.size() ), MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
-
-            BigDecimal extraMoney = BigDecimal.ZERO;
-            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethods.size() ), MathContext.UNLIMITED );
-
-            if ( grandTotal.compareTo( roundedTotal ) != 0 )
-            {
-                extraMoney = grandTotal.subtract( roundedTotal );
-            }
-
-            paymentDetails = generatePaymentDetails( paymentMethods, amountPerPaymentMethod, extraMoney );
-        }
-        else
-        {
-            throw new RuntimeException( "There must be at least one payment method" );
-        }
-
-        return paymentDetails;
-    }
-
-    private static List<PaymentDetail> generatePaymentDetails( List<PaymentMethod> paymentMethods, BigDecimal amountPerPaymentMethod, BigDecimal extraMoney )
-    {
-        List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
-
-        boolean isFirst = true;
-        final BigDecimal cost = amountPerPaymentMethod;
-        final BigDecimal oddCost = cost.add( extraMoney );
-        for (PaymentMethod paymentMethod : paymentMethods)
-        {
-            if ( isFirst )
-            {
-                if ( paymentMethod == PaymentMethod.CASH )
-                {
-
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, getCashPayment( oddCost ) ) );
-                    isFirst = false;
-                }
-                else
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, oddCost ) );
-                    isFirst = false;
-                }
-            }
-            else
-            {
-                if ( paymentMethod == PaymentMethod.CASH )
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, getCashPayment( cost ) ) );
-                }
-                else
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, cost ) );
-                }
-
-            }
-
-        }
-        return paymentDetails;
-    }
-
-    private static BigDecimal getCashPayment( BigDecimal cost )
-    {
-        BigDecimal cashPayment = cost.setScale( 2 , RoundingMode.HALF_UP);
-        BigDecimal dollar = new BigDecimal( 1 );
-        if ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO)) )
-        {
-            cashPayment = cashPayment.add( BigDecimal.TEN );
-
-            boolean isFirst = true;
-            while ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO )) )
-            {
-                if(isFirst)
-                {
-                    cashPayment = cashPayment.add( new BigDecimal( .99 ) );
-                    cashPayment = new BigDecimal( cashPayment.intValue());
-                    isFirst = false;
-                }
-
-                cashPayment = cashPayment.subtract( dollar );
-            }
-        }
-
-        return cashPayment;
-    }
-
-    private static BigDecimal getGrandTotal( List<SaleItem> saleItems )
-    {
-        BigDecimal total = BigDecimal.ZERO;
-        for (SaleItem saleItem : saleItems)
-        {
-            total = total.add( saleItem.getExtendedPrice() );
-            total = total.add( saleItem.getTax() );
-        }
-        return total;
-    }
-
-    private static List<Member> getRandomMembers( int size )
-    {
-        List<Member> randomMembers = new ArrayList<Member>();
-        for (int i = 0; i < size; i++)
-        {
-            int randomIndex = RandomGenerator.getInt( 0, getListOfMembers().size() );
-            randomMembers.add( getListOfMembers().get( randomIndex ) );
-        }
-
-        return randomMembers;
-    }
-
-    private static List<PaymentMethod> getRandomPaymentMethods()
-    {
-
-        int percentage = RandomGenerator.getInt( 1, 100 );
-        int randomNumberOfPaymentMethods;
-        if ( percentage <= 80 )
-        {
-            randomNumberOfPaymentMethods = 1;
-        }
-        else if ( percentage > 80 && percentage < 95 )
-        {
-            randomNumberOfPaymentMethods = 2;
-        }
-        else
-        {
-            randomNumberOfPaymentMethods = 3;
-        }
-
-        List<PaymentMethod> randomPaymentMethods = new ArrayList<PaymentMethod>();
-        List<PaymentMethod> usedPaymentMethods = new ArrayList<PaymentMethod>();
-
-        int randomIndex = RandomGenerator.getInt( 0, getPaymentMethods().size() );
-        randomPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
-        usedPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
-
-        while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
-        {
-            randomIndex = RandomGenerator.getInt( 0, getPaymentMethods().size() );
-            if ( !(getListOfPaymentMethods().get( randomIndex ) == PaymentMethod.CASH && usedPaymentMethods.contains( PaymentMethod.CASH )) )
-            {
-                randomPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
-                usedPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
-            }
-        }
-
-        return randomPaymentMethods;
-    }
-
 
     public static List<InventoryItem> getRandomInventoryItems()
     {
@@ -251,11 +75,6 @@ public class Database
         }
 
         return randomInventoryItems;
-    }
-
-    private static void initializeRandomSales()
-    {
-        getRandomSales( NUMBER_OF_SALES );
     }
 
     private static void initializePaymentMethods()
@@ -306,7 +125,7 @@ public class Database
         }
     }
 
-    private static List<Member> getListOfMembers()
+    public static List<Member> getListOfMembers()
     {
         return new ArrayList<Member>( getMembers().values() );
     }
@@ -345,5 +164,16 @@ public class Database
     public static PaymentMethod getPaymentMethod( String paymentMethodId )
     {
         return getPaymentMethods().get( paymentMethodId );
+    }
+
+    public static int getPaymentMethodsCount()
+    {
+        return getPaymentMethods().size();
+    }
+
+    public static PaymentMethod getRandomPaymentMethod()
+    {
+        int randomIndex = RandomGenerator.getInt( 0, Database.getPaymentMethodsCount() );
+        return Database.getListOfPaymentMethods().get( randomIndex );
     }
 }

@@ -28,7 +28,6 @@ public class Drawer
         }
     }
 
-
     public BigDecimal getBalance()
     {
         return balance;
