@@ -5,7 +5,7 @@ public class SaleItemReportDetail
     private final String inventoryItemName;
     private int saleItemCount;
     private BigDecimal extendedPrice;
-    private final BigDecimal tax;
+    private BigDecimal tax;
 
     public SaleItemReportDetail( String inventoryItemName, int saleItemCount, BigDecimal extendedPrice, BigDecimal tax )
     {
@@ -49,6 +49,7 @@ public class SaleItemReportDetail
     {
         incrementSaleItemCount(saleItem);
         setExtendedPrice( getExtendedPrice().add( saleItem.getExtendedPrice() ) );
+        setTax( getTax().add( saleItem.getTax() ) );
     }
 
     private void incrementSaleItemCount(SaleItem saleItem)
@@ -59,5 +60,10 @@ public class SaleItemReportDetail
     public BigDecimal getTax()
     {
         return tax;
+    }
+
+    private void setTax( BigDecimal tax )
+    {
+        this.tax = tax;
     }
 }

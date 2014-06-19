@@ -46,7 +46,7 @@ public class PaymentMethodReportDetail
     public void update( PaymentDetail paymentDetail )
     {
         incrementPaymentItemCount();
-        setTotal( getTotal().add( paymentDetail.getAmount() ) );
+        setTotal( getTotal().add( paymentDetail.getCost() ) );
     }
 
     private void incrementPaymentItemCount()

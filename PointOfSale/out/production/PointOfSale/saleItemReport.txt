@@ -1,12 +1,13 @@
 Sales Item Summary
 
 Sale Item           Sale Item Count     Extended Price      Tax                 Total               
-Gloves              2                   $20.00              $0.50               $20.50              
-Tanning             10                  $100.00             $2.00               $102.00             
-Water               15                  $150.00             $0.00               $150.00             
-Vitamins            12                  $120.00             $0.00               $120.00             
-Protein Bar         10                  $100.00             $0.00               $100.00             
-Personal Training   8                   $80.00              $0.50               $80.50              
-Muscle Milk         6                   $60.00              $0.00               $60.00              
-Towel               5                   $50.00              $2.50               $52.50              
-T-Shirt             6                   $60.00              $1.00               $61.00              
+Towel               51                  $510.00             $25.50              $535.50             
+Muscle Milk         82                  $820.00             $0.00               $820.00             
+T-Shirt             74                  $740.00             $37.00              $777.00             
+Water               43                  $430.00             $0.00               $430.00             
+Gloves              82                  $820.00             $41.00              $861.00             
+Protein Bar         75                  $750.00             $0.00               $750.00             
+Smoothie            41                  $410.00             $0.00               $410.00             
+Personal Training   75                  $750.00             $37.50              $787.50             
+Vitamins            44                  $440.00             $0.00               $440.00             
+Tanning             91                  $910.00             $45.50              $955.50             

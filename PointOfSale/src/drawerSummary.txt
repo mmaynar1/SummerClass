@@ -1,0 +1,4 @@
+Drawer Summary
+
+Payment Method      Starting Balance    In                  Out                 Ending Balance      
+Cash                $500.00             $1,400.00           $131.58             $1,768.42           

@@ -12,6 +12,37 @@ public final class Reports
     public static final int SPACES = 20;
     public static final boolean APPEND_MODE = true;
 
+    public void generateDrawerSummary( Drawer drawer )
+    {
+
+        String fileName = "src\\drawerSummary.txt";
+        final String TITLE = "Drawer Summary";
+        final List<String> HEADERS = Arrays.asList( "Payment Method", "Starting Balance", "In", "Out", "Ending Balance" );
+        try
+        {
+            printReportHeader( fileName, TITLE, HEADERS );
+            File file = getFile( fileName );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            bufferedWriter.write( Format.leftJustify( PaymentMethod.CASH.getName(), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( Drawer.STARTING_BALANCE ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( drawer.getCashIn() ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( drawer.getCashOut() ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( drawer.getBalance() ), SPACES ) );
+
+            bufferedWriter.newLine();
+
+            bufferedWriter.close();
+        }
+        catch (IOException exception)
+        {
+            throw new RuntimeException( "Could not generate Drawer Summary" );
+        }
+
+
+    }
+
     public void generatePaymentMethodReport( List<Sale> sales )
     {
         List<PaymentMethodReportDetail> paymentMethodReportDetails = getPaymentMethodReportDetails( sales );
@@ -20,7 +51,7 @@ public final class Reports
         {
             printPaymentMethodReport( paymentMethodReportDetails );
         }
-        catch (IOException e)
+        catch (IOException exception)
         {
             throw new RuntimeException( "Could not generate Member Report" );
         }
@@ -57,7 +88,7 @@ public final class Reports
                 PaymentMethodReportDetail detail = line.get( paymentDetail.getAbcCode() );
                 if ( detail == null )
                 {
-                    line.put( paymentDetail.getAbcCode(), new PaymentMethodReportDetail( paymentDetail.getName(), paymentDetail.getAmount() ) );
+                    line.put( paymentDetail.getAbcCode(), new PaymentMethodReportDetail( paymentDetail.getName(), paymentDetail.getCost() ) );
                 }
                 else
                 {
@@ -105,7 +136,7 @@ public final class Reports
             for (SaleItem saleItem : sale.getSaleItems())
             {
                 SaleItemReportDetail detail = line.get( saleItem.getInventoryItemId() );
-                String inventoryItemName = Database.getInventoryItemName( saleItem.getInventoryItemId() );
+                String inventoryItemName = Database.getInventoryItemName( saleItem.getInventoryItemId() ); //todo make this a method of SaleItem
                 BigDecimal extendedPrice = saleItem.getExtendedPrice();
                 BigDecimal tax = extendedPrice.multiply( saleItem.getTaxRate() );
                 /*BigDecimal total = extendedPrice.add( tax );*/

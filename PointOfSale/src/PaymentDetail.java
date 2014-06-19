@@ -2,37 +2,76 @@ import java.math.BigDecimal;
 
 public final class PaymentDetail
 {
-    private final PaymentMethod paymentMethod;
-    private final BigDecimal amount;
+    private final String paymentMethodId;
+    private final BigDecimal cost;
+    private final BigDecimal payment;
+    private BigDecimal change;
 
-    public PaymentDetail( PaymentMethod paymentMethod, BigDecimal amount )
+    public PaymentDetail( String paymentMethodId, BigDecimal cost, BigDecimal payment )
     {
-        this.paymentMethod = paymentMethod;
-        this.amount = amount;
+        this.paymentMethodId = paymentMethodId;
+        this.cost = cost;
+        this.payment = payment;
+        setChange();
     }
 
-    public PaymentDetail( PaymentMethod paymentMethod, double amount)
+    private void setChange()
     {
-        this(paymentMethod, new BigDecimal( amount ));
+        BigDecimal change;
+        if ( isCash() && needsChange() )
+        {
+            change = getPayment().subtract( getCost() );
+        }
+        else
+        {
+            change = BigDecimal.ZERO;
+        }
+
+        this.change = change;
+    }
+
+    private boolean needsChange()
+    {
+        return getPayment().compareTo( getCost() ) > 0;
+    }
+
+    private boolean isCash()
+    {
+        return getPaymentMethod() == PaymentMethod.CASH;
     }
 
     public String getAbcCode()
     {
-        return getPaymentMethod().getAbcCode();
+        return Database.getPaymentMethodAbcCode( getPaymentMethodId() );
     }
 
     public String getName()
     {
-        return getPaymentMethod().getName();
+        return Database.getPaymentMethodName( getPaymentMethodId() );
     }
 
     public PaymentMethod getPaymentMethod()
     {
-        return paymentMethod;
+        return Database.getPaymentMethod( getPaymentMethodId() );
     }
 
-    public BigDecimal getAmount()
+    public String getPaymentMethodId()
     {
-        return amount;
+        return paymentMethodId;
+    }
+
+    public BigDecimal getCost()
+    {
+        return cost;
+    }
+
+    public BigDecimal getPayment()
+    {
+        return payment;
+    }
+
+    public BigDecimal getChange()
+    {
+        return change;
     }
 }

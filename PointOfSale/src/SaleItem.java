@@ -4,11 +4,13 @@ public class SaleItem
 {
     private final String inventoryItemId;
     private final int quantity;
+    private final String id;
 
     public SaleItem( String inventoryItemId, int quantity )
     {
         this.inventoryItemId = inventoryItemId;
         this.quantity = quantity;
+        this.id = RandomGenerator.getGuid();
     }
 
     public String getInventoryItemName()
@@ -26,8 +28,6 @@ public class SaleItem
         return getExtendedPrice().multiply( getTaxRate() );
     }
 
-
-
     public BigDecimal getExtendedPrice()
     {
         BigDecimal unitPrice = Database.getUnitPrice( getInventoryItemId() );
@@ -42,5 +42,10 @@ public class SaleItem
     public int getQuantity()
     {
         return quantity;
+    }
+
+    public String getId()
+    {
+        return id;
     }
 }

@@ -1,15 +1,18 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.RoundingMode;
+import java.util.*;
 
 public class Database
 {
+    public static final int MONEY_DECIMAL_PLACES = 2;
+    public static final int NUMBER_OF_SALES = 100;
+
     private static final Map<String, Member> members = new HashMap<String, Member>();
     private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
     private static final Map<String, PaymentMethod> paymentMethods = new HashMap<String, PaymentMethod>();
+    private static final Map<String, Sale> sales = new HashMap<String, Sale>();
+
 
     private Database()
     {
@@ -20,6 +23,21 @@ public class Database
         initializeMembers();
         initializeInventoryItems();
         initializePaymentMethods();
+        initializeRandomSales();
+    }
+
+    public static Map<String, Sale> getRandomSales( int size )
+    {
+        List<Member> randomMembers = getRandomMembers( size );
+
+        for (int i = 0; i < size; i++)
+        {
+            Map<String, SaleItem> saleItems = Database.getRandomSaleItems();
+
+            Sale sale = new Sale( randomMembers.get( i ).getId(), new ArrayList<SaleItem>( saleItems.values() ), getPaymentDetails( getRandomPaymentMethods(), new ArrayList<SaleItem>( saleItems.values() ) ) );
+            getSales().put( sale.getId(), sale );
+        }
+        return sales;
     }
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
@@ -37,74 +55,54 @@ public class Database
         return getInventoryItems().get( inventoryItemId ).getTax().getRate();
     }
 
-
-    public static List<Sale> getRandomSales( int size )
+    public static String getMemberName( String memberId )
     {
-        List<Member> randomMembers = getRandomMembers();
-
-        List<Sale> sales = new ArrayList<Sale>();
-        for (int i = 0; i < size; i++)
-        {
-            List<InventoryItem> inventoryItems = getRandomInventoryItems();
-            List<SaleItem> saleItems = getSaleItems( inventoryItems );
-            sales.add( new Sale( randomMembers.get( i ), saleItems, getPaymentDetails( getRandomPaymentMethods(), saleItems ) ) );
-        }
-        return sales;
+        return getMembers().get( memberId ).getName();
     }
 
-    private static List<SaleItem> getSaleItems( List<InventoryItem> inventoryItems )
+    public static String getPaymentMethodName( String paymentMethodId )
     {
-        List<SaleItem> saleItems = new ArrayList<SaleItem>();
-        for (InventoryItem item : inventoryItems)
+        return getPaymentMethods().get( paymentMethodId ).getName();
+    }
+
+    public static String getPaymentMethodAbcCode( String paymentMethodId )
+    {
+        return getPaymentMethods().get( paymentMethodId ).getAbcCode();
+    }
+
+    public static Map<String, SaleItem> getRandomSaleItems()
+    {
+        Map<String, SaleItem> saleItems = new HashMap<String, SaleItem>();
+        List<InventoryItem> inventoryItems = getRandomInventoryItems();
+        for (InventoryItem inventoryItem : inventoryItems)
         {
             int quantity = RandomGenerator.getInt( 1, 6 );
-            saleItems.add( new SaleItem( item.getId(), quantity ) );
+            SaleItem saleItem = new SaleItem( inventoryItem.getId(), quantity );
+            saleItems.put( saleItem.getId(), saleItem );
         }
         return saleItems;
     }
 
-    private static List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
+    public static List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
     {
         //Divides payments equally over the different payment methods
-        int paymentMethodsCount = paymentMethods.size();
 
-        BigDecimal total = BigDecimal.ZERO;
-        for (SaleItem saleItem : saleItems)
+        BigDecimal grandTotal = getGrandTotal( saleItems );
+
+        List<PaymentDetail> paymentDetails;
+        if ( paymentMethods.size() > 0 )
         {
-            total = total.add( saleItem.getExtendedPrice() );
-            total = total.add( saleItem.getTax() );
-        }
+            BigDecimal amountPerPaymentMethod = grandTotal.divide( new BigDecimal( paymentMethods.size() ), MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
 
-        List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
-        if ( paymentMethodsCount > 0 )
-        {
-            final int CALCULATION_DECIMAL_PLACES = 30;
-            BigDecimal amountPerPaymentMethod = total.divide( new BigDecimal( paymentMethodsCount ), 2, BigDecimal.ROUND_HALF_UP );
-
-
-            //todo calculate to the penny
             BigDecimal extraMoney = BigDecimal.ZERO;
-            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethodsCount ), MathContext.UNLIMITED );
+            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethods.size() ), MathContext.UNLIMITED );
 
-            if ( total.compareTo( roundedTotal ) != 0 )
+            if ( grandTotal.compareTo( roundedTotal ) != 0 )
             {
-                extraMoney = total.subtract( roundedTotal );
+                extraMoney = grandTotal.subtract( roundedTotal );
             }
 
-            boolean isFirst = true;
-            for (PaymentMethod method : paymentMethods)
-            {
-                if(isFirst)
-                {
-                    paymentDetails.add( new PaymentDetail( method, amountPerPaymentMethod.add( extraMoney )));
-                    isFirst = false;
-                }
-                else
-                {
-                    paymentDetails.add( new PaymentDetail( method, amountPerPaymentMethod ) );
-                }
-
-            }
+            paymentDetails = generatePaymentDetails( paymentMethods, amountPerPaymentMethod, extraMoney );
         }
         else
         {
@@ -114,10 +112,86 @@ public class Database
         return paymentDetails;
     }
 
-    private static List<Member> getRandomMembers()
+    private static List<PaymentDetail> generatePaymentDetails( List<PaymentMethod> paymentMethods, BigDecimal amountPerPaymentMethod, BigDecimal extraMoney )
+    {
+        List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
+
+        boolean isFirst = true;
+        final BigDecimal cost = amountPerPaymentMethod;
+        final BigDecimal oddCost = cost.add( extraMoney );
+        for (PaymentMethod paymentMethod : paymentMethods)
+        {
+            if ( isFirst )
+            {
+                if ( paymentMethod == PaymentMethod.CASH )
+                {
+
+                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, getCashPayment( oddCost ) ) );
+                    isFirst = false;
+                }
+                else
+                {
+                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, oddCost ) );
+                    isFirst = false;
+                }
+            }
+            else
+            {
+                if ( paymentMethod == PaymentMethod.CASH )
+                {
+                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, getCashPayment( cost ) ) );
+                }
+                else
+                {
+                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, cost ) );
+                }
+
+            }
+
+        }
+        return paymentDetails;
+    }
+
+    private static BigDecimal getCashPayment( BigDecimal cost )
+    {
+        BigDecimal cashPayment = cost.setScale( 2 , RoundingMode.HALF_UP);
+        BigDecimal dollar = new BigDecimal( 1 );
+        if ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO)) )
+        {
+            cashPayment = cashPayment.add( BigDecimal.TEN );
+
+            boolean isFirst = true;
+            while ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO )) )
+            {
+                if(isFirst)
+                {
+                    cashPayment = cashPayment.add( new BigDecimal( .99 ) );
+                    cashPayment = new BigDecimal( cashPayment.intValue());
+                    isFirst = false;
+                }
+
+                cashPayment = cashPayment.subtract( dollar );
+            }
+        }
+
+        return cashPayment;
+    }
+
+    private static BigDecimal getGrandTotal( List<SaleItem> saleItems )
+    {
+        BigDecimal total = BigDecimal.ZERO;
+        for (SaleItem saleItem : saleItems)
+        {
+            total = total.add( saleItem.getExtendedPrice() );
+            total = total.add( saleItem.getTax() );
+        }
+        return total;
+    }
+
+    private static List<Member> getRandomMembers( int size )
     {
         List<Member> randomMembers = new ArrayList<Member>();
-        for (int i = 0; i < getListOfMembers().size(); i++)
+        for (int i = 0; i < size; i++)
         {
             int randomIndex = RandomGenerator.getInt( 0, getListOfMembers().size() );
             randomMembers.add( getListOfMembers().get( randomIndex ) );
@@ -126,18 +200,35 @@ public class Database
         return randomMembers;
     }
 
-
     private static List<PaymentMethod> getRandomPaymentMethods()
     {
 
+        int percentage = RandomGenerator.getInt( 1, 100 );
+        int randomNumberOfPaymentMethods;
+        if ( percentage <= 80 )
+        {
+            randomNumberOfPaymentMethods = 1;
+        }
+        else if ( percentage > 80 && percentage < 95 )
+        {
+            randomNumberOfPaymentMethods = 2;
+        }
+        else
+        {
+            randomNumberOfPaymentMethods = 3;
+        }
+
         List<PaymentMethod> randomPaymentMethods = new ArrayList<PaymentMethod>();
         List<PaymentMethod> usedPaymentMethods = new ArrayList<PaymentMethod>();
-        int randomNumberOfPaymentMethods = RandomGenerator.getInt( 1, 4 );
+
+        int randomIndex = RandomGenerator.getInt( 0, getPaymentMethods().size() );
+        randomPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
+        usedPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
 
         while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
         {
-            int randomIndex = RandomGenerator.getInt( 0, getListOfPaymentMethods().size() );
-            if ( !usedPaymentMethods.contains( getListOfPaymentMethods().get( randomIndex ) ) )
+            randomIndex = RandomGenerator.getInt( 0, getPaymentMethods().size() );
+            if ( !(getListOfPaymentMethods().get( randomIndex ) == PaymentMethod.CASH && usedPaymentMethods.contains( PaymentMethod.CASH )) )
             {
                 randomPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
                 usedPaymentMethods.add( getListOfPaymentMethods().get( randomIndex ) );
@@ -148,7 +239,7 @@ public class Database
     }
 
 
-    private static List<InventoryItem> getRandomInventoryItems()
+    public static List<InventoryItem> getRandomInventoryItems()
     {
         List<InventoryItem> randomInventoryItems = new ArrayList<InventoryItem>();
 
@@ -160,6 +251,11 @@ public class Database
         }
 
         return randomInventoryItems;
+    }
+
+    private static void initializeRandomSales()
+    {
+        getRandomSales( NUMBER_OF_SALES );
     }
 
     private static void initializePaymentMethods()
@@ -225,6 +321,12 @@ public class Database
         return new ArrayList<InventoryItem>( getInventoryItems().values() );
     }
 
+    public static Map<String, Sale> getSales()
+    {
+        return sales;
+    }
+
+
     private static Map<String, Member> getMembers()
     {
         return members;
@@ -238,5 +340,10 @@ public class Database
     private static Map<String, PaymentMethod> getPaymentMethods()
     {
         return paymentMethods;
+    }
+
+    public static PaymentMethod getPaymentMethod( String paymentMethodId )
+    {
+        return getPaymentMethods().get( paymentMethodId );
     }
 }

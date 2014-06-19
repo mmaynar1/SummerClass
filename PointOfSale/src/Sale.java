@@ -1,18 +1,18 @@
+//todo change to Guids
+
 import java.math.BigDecimal;
 import java.util.List;
 
 public final class Sale
 {
-    private final Member member;
+    private final String memberId;
     private final List<SaleItem> saleItems;
     private final List<PaymentDetail> paymentDetails;
     private final String id;
 
-    public Sale( Member member, List<SaleItem> saleItems, List<PaymentDetail> paymentDetails )
+    public Sale( String memberId,  List<SaleItem> saleItems, List<PaymentDetail> paymentDetails )
     {
-        //todo should Sale accept List<PaymentMethods> instead of PaymentDetails and figure it out?
-        //todo splitting payments unevenly would be a problem
-        this.member = member;
+        this.memberId = memberId;
         this.saleItems = saleItems;
         this.paymentDetails = paymentDetails;
         this.id = RandomGenerator.getGuid();
@@ -20,7 +20,7 @@ public final class Sale
 
     public Sale( Sale sale )
     {
-        this( sale.getMember(), sale.getSaleItems(), sale.getPaymentDetails() );
+        this( sale.getMemberId(), sale.getSaleItems(), sale.getPaymentDetails() );
     }
 
     @Override
@@ -36,9 +36,13 @@ public final class Sale
                       " Quantity: " + saleItem.getQuantity() +
                       " Tax: " + Format.formatMoney(  saleItem.getTax()) + "\n";
         }
+        output += "Payment Details:\n";
         for(PaymentDetail paymentDetail : getPaymentDetails())
         {
-            output += paymentDetail.getName() + " " + Format.formatMoney(  paymentDetail.getAmount()) + "\n";
+            output += "\t" + "Name: " + paymentDetail.getName() +
+                      " Cost: " +Format.formatMoney(  paymentDetail.getCost()) +
+                      " Payment: " + Format.formatMoney( paymentDetail.getPayment() ) +
+                      " Change: " + Format.formatMoney( paymentDetail.getChange() ) + "\n";
         }
         output += "\n\n";
         return output;
@@ -67,21 +71,14 @@ public final class Sale
         return count;
     }
 
-
     public String getMemberId()
     {
-        return getMember().getId();
+        return memberId;
     }
 
     public String getMemberName()
     {
-        return getMember().getName();
-    }
-
-
-    public Member getMember()
-    {
-        return member;
+        return Database.getMemberName(getMemberId());
     }
 
     public List<PaymentDetail> getPaymentDetails()
