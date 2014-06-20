@@ -2,14 +2,14 @@ import java.math.BigDecimal;
 
 public final class PaymentDetail
 {
-    private final String paymentMethodId;
+    private final String paymentMethodAbcCode;
     private final BigDecimal cost;
     private final BigDecimal payment;
     private final BigDecimal change;
 
-    public PaymentDetail( String paymentMethodId, BigDecimal cost, BigDecimal payment )
+    public PaymentDetail( String paymentMethodAbcCode, BigDecimal cost, BigDecimal payment )
     {
-        this.paymentMethodId = paymentMethodId;
+        this.paymentMethodAbcCode = paymentMethodAbcCode;
         this.cost = cost;
         this.payment = payment;
         this.change = setChange();
@@ -42,22 +42,22 @@ public final class PaymentDetail
 
     public String getAbcCode()
     {
-        return Database.getPaymentMethodAbcCode( getPaymentMethodId() );
+        return getPaymentMethodAbcCode();
     }
 
     public String getName()
     {
-        return Database.getPaymentMethodName( getPaymentMethodId() );
+        return getPaymentMethod().getName();
     }
 
     public PaymentMethod getPaymentMethod()
     {
-        return Database.getPaymentMethod( getPaymentMethodId() );
+        return PaymentMethod.getPaymentMethod( getAbcCode() );
     }
 
-    public String getPaymentMethodId()
+    private String getPaymentMethodAbcCode()
     {
-        return paymentMethodId;
+        return paymentMethodAbcCode;
     }
 
     public BigDecimal getCost()

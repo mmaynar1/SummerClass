@@ -29,7 +29,7 @@ public final class Reports
             BigDecimal grandTotal = BigDecimal.ZERO;
             for (Drawer drawer : drawers)
             {
-                bufferedWriter.write( Format.leftJustify( Database.getPaymentMethodName( drawer.getPaymentMethodAbcCode() ), SPACES ) +
+                bufferedWriter.write( Format.leftJustify( PaymentMethod.getPaymentMethodName( drawer.getPaymentMethodAbcCode() ), SPACES ) +
                                       Format.leftJustify( Format.formatMoney( drawer.getStartingBalance() ), SPACES ) +
                                       Format.leftJustify( Format.formatMoney( drawer.getCashIn() ), SPACES ) +
                                       Format.leftJustify( Format.formatMoney( drawer.getCashOut() ), SPACES ) +
@@ -237,13 +237,12 @@ public final class Reports
         @Override
         public int compare( Drawer first, Drawer second )
         {
-            String firstName = Database.getPaymentMethodName( first.getPaymentMethodAbcCode() );
-            String secondName = Database.getPaymentMethodName( second.getPaymentMethodAbcCode() );
+            String firstName = PaymentMethod.getPaymentMethodName( first.getPaymentMethodAbcCode() );
+            String secondName = PaymentMethod.getPaymentMethodName( second.getPaymentMethodAbcCode() );
             return firstName.compareTo( secondName );
         }
 
     }
-
 
     private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException
     {

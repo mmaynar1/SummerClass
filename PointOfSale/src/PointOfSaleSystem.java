@@ -60,12 +60,17 @@ public class PointOfSaleSystem
     {
         for (Drawer drawer : getDrawers())
         {
-            for (PaymentDetail paymentDetail : sale.getPaymentDetails())
+            updateDrawer( sale, drawer );
+        }
+    }
+
+    private void updateDrawer( Sale sale, Drawer drawer )
+    {
+        for (PaymentDetail paymentDetail : sale.getPaymentDetails())
+        {
+            if ( drawer.getPaymentMethodAbcCode().equals( paymentDetail.getAbcCode() ) )
             {
-                if ( drawer.getPaymentMethodAbcCode().equals( paymentDetail.getAbcCode() ) )
-                {
-                    drawer.update( paymentDetail );
-                }
+                drawer.update( paymentDetail );
             }
         }
     }
@@ -122,15 +127,14 @@ public class PointOfSaleSystem
         List<PaymentMethod> randomPaymentMethods = new ArrayList<PaymentMethod>();
         List<PaymentMethod> usedPaymentMethods = new ArrayList<PaymentMethod>();
 
-
-        PaymentMethod randomPaymentMethod = Database.getRandomPaymentMethod();
+        PaymentMethod randomPaymentMethod = PaymentMethod.getRandomPaymentMethod();
         randomPaymentMethods.add( randomPaymentMethod );
         usedPaymentMethods.add( randomPaymentMethod );
 
         int randomNumberOfPaymentMethods = getRandomNumberOfPaymentMethods();
         while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
         {
-            randomPaymentMethod = Database.getRandomPaymentMethod();
+            randomPaymentMethod = PaymentMethod.getRandomPaymentMethod();
             boolean onlyOneInstanceAllowed = randomPaymentMethod.getNumberOfInstancesAllowed() == 1;
             boolean paymentMethodHasBeenUsed = usedPaymentMethods.contains( randomPaymentMethod );
 
@@ -147,7 +151,7 @@ public class PointOfSaleSystem
     private int getRandomNumberOfPaymentMethods()
     {
         final int mostCommon = 80;
-        final int secondMostCommon = 95;
+        final int leastCommon = 95;
 
         int percentage = RandomGenerator.getInt( 1, 101 );
         int randomNumberOfPaymentMethods;
@@ -155,7 +159,7 @@ public class PointOfSaleSystem
         {
             randomNumberOfPaymentMethods = 1;
         }
-        else if ( percentage > mostCommon && percentage < secondMostCommon )
+        else if ( percentage > mostCommon && percentage < leastCommon )
         {
             randomNumberOfPaymentMethods = 2;
         }

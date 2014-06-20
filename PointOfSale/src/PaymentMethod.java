@@ -1,14 +1,16 @@
+
+
 import java.math.BigDecimal;
 
 public enum PaymentMethod
 {
-    CASH( "CASH", "Cash", 1, new BigDecimal( 500 ), BigDecimal.TEN ),
-    VISA( "VISA", "Visa" ),
-    MC( "MC", "Master Card" ),
-    COUPON( "COUPON", "Coupon" ),
+    cash( "cash", "Cash", 1, new BigDecimal( 500 ), BigDecimal.TEN ),
+    visa( "visa", "Visa" ),
+    masterCard( "masterCard", "Master Card" ),
+    coupon( "coupon", "Coupon" ),
     americanExpress( "AMEX", "American Express" ),
     discover( "DISCOVER", "Discover" ),
-    goldBucks( "GBUCK", "Gold Bucks", 1, new BigDecimal( 1000 ) , new BigDecimal( 5 ));
+    goldBucks( "GBUCK", "Gold Bucks", 1, new BigDecimal( 1000 ), new BigDecimal( 5 ) );
 
     public static final int MAX_NUMBER_INSTANCES_ALLOWED = 20;
 
@@ -29,7 +31,44 @@ public enum PaymentMethod
 
     private PaymentMethod( String abcCode, String name )
     {
-        this( abcCode, name, MAX_NUMBER_INSTANCES_ALLOWED, BigDecimal.ZERO , BigDecimal.ZERO);
+        this( abcCode, name, MAX_NUMBER_INSTANCES_ALLOWED, BigDecimal.ZERO, BigDecimal.ZERO );
+    }
+
+    public static PaymentMethod getRandomPaymentMethod()
+    {
+        PaymentMethod randomPaymentMethod = null;
+
+        final int numberOfPaymentMethods = PaymentMethod.values().length;
+        int randomOrdinal = RandomGenerator.getInt( 0, numberOfPaymentMethods );
+        for (PaymentMethod paymentMethod : PaymentMethod.values())
+        {
+            if ( paymentMethod.ordinal() == randomOrdinal )
+            {
+                randomPaymentMethod = paymentMethod;
+            }
+        }
+
+        return randomPaymentMethod;
+    }
+
+    public static String getPaymentMethodName(String abcCode)
+    {
+        return getPaymentMethod( abcCode ).getName();
+    }
+
+    public static PaymentMethod getPaymentMethod( String abcCode )
+    {
+        PaymentMethod matchingPaymentMethod = null;
+
+        for (PaymentMethod paymentMethod : PaymentMethod.values())
+        {
+            if ( paymentMethod.getAbcCode().equals( abcCode ) )
+            {
+                matchingPaymentMethod = paymentMethod;
+            }
+        }
+
+        return matchingPaymentMethod;
     }
 
     public boolean isRounded()

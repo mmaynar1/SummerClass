@@ -5,7 +5,6 @@ public class Database
 {
     private static final Map<String, Member> members = new HashMap<String, Member>();
     private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
-    private static final Map<String, PaymentMethod> paymentMethods = new HashMap<String, PaymentMethod>();
     private static Map<String, Sale> sales = new HashMap<String, Sale>();
 
     private Database()
@@ -16,7 +15,6 @@ public class Database
     {
         initializeMembers();
         initializeInventoryItems();
-        initializePaymentMethods();
     }
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
@@ -37,16 +35,6 @@ public class Database
     public static String getMemberName( String memberId )
     {
         return getMembers().get( memberId ).getName();
-    }
-
-    public static String getPaymentMethodName( String paymentMethodId )
-    {
-        return getPaymentMethods().get( paymentMethodId ).getName();
-    }
-
-    public static String getPaymentMethodAbcCode( String paymentMethodId )
-    {
-        return getPaymentMethods().get( paymentMethodId ).getAbcCode();
     }
 
     public static Map<String, SaleItem> getRandomSaleItems()
@@ -78,17 +66,6 @@ public class Database
         return randomInventoryItems;
     }
 
-    private static void initializePaymentMethods()
-    {
-        getPaymentMethods().put( PaymentMethod.CASH.getAbcCode(), PaymentMethod.CASH );
-        getPaymentMethods().put( PaymentMethod.VISA.getAbcCode(), PaymentMethod.VISA );
-        getPaymentMethods().put( PaymentMethod.MC.getAbcCode(), PaymentMethod.MC );
-        getPaymentMethods().put( PaymentMethod.COUPON.getAbcCode(), PaymentMethod.COUPON );
-        getPaymentMethods().put( PaymentMethod.americanExpress.getAbcCode(), PaymentMethod.americanExpress );
-        getPaymentMethods().put( PaymentMethod.discover.getAbcCode(), PaymentMethod.discover );
-        getPaymentMethods().put( PaymentMethod.goldBucks.getAbcCode(), PaymentMethod.goldBucks );
-    }
-
     private static void initializeInventoryItems()
     {
         List<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
@@ -112,9 +89,9 @@ public class Database
     private static void initializeMembers()
     {
         List<Member> members = new ArrayList<Member>();
-        members.add( new Member( "Mitch Maynard" ) );
+        members.add( new Member( "Ken Griffey Jr." ) );
         members.add( new Member( "Bill Cosby" ) );
-        members.add( new Member( "Katniss Everdeen" ) );
+        members.add( new Member( "Forrest Gump" ) );
         members.add( new Member( "Walter White" ) );
         members.add( new Member( "Babe Ruth" ) );
         members.add( new Member( "Reggie Miller" ) );
@@ -132,11 +109,6 @@ public class Database
     public static List<Member> getListOfMembers()
     {
         return new ArrayList<Member>( getMembers().values() );
-    }
-
-    private static List<PaymentMethod> getListOfPaymentMethods()
-    {
-        return new ArrayList<PaymentMethod>( getPaymentMethods().values() );
     }
 
     private static List<InventoryItem> getListOfInventoryItems()
@@ -158,26 +130,5 @@ public class Database
     private static Map<String, InventoryItem> getInventoryItems()
     {
         return inventoryItems;
-    }
-
-    private static Map<String, PaymentMethod> getPaymentMethods()
-    {
-        return paymentMethods;
-    }
-
-    public static PaymentMethod getPaymentMethod( String paymentMethodId )
-    {
-        return getPaymentMethods().get( paymentMethodId );
-    }
-
-    public static int getPaymentMethodsCount()
-    {
-        return getPaymentMethods().size();
-    }
-
-    public static PaymentMethod getRandomPaymentMethod()
-    {
-        int randomIndex = RandomGenerator.getInt( 0, Database.getPaymentMethodsCount() );
-        return Database.getListOfPaymentMethods().get( randomIndex );
     }
 }

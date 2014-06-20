@@ -1,13 +1,13 @@
 Payment Method Summary
 
 Payment Method      Payment Item Count  Total               
-Visa                21                  $3,196.18           
-Gold Bucks          22                  $3,139.92           
-Discover            18                  $2,416.88           
-Coupon              19                  $2,741.95           
-Cash                11                  $2,250.04           
-Master Card         24                  $3,772.20           
-American Express    21                  $3,185.25           
+Gold Bucks          21                  $2,084.03           
+Cash                22                  $2,864.13           
+Discover            16                  $1,994.15           
+Master Card         13                  $1,195.49           
+Visa                12                  $2,368.09           
+Coupon              14                  $1,699.73           
+American Express    19                  $2,583.75           
 
 
-Grand Total: $20,702.42
+Grand Total: $14,789.37
