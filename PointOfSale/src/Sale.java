@@ -32,6 +32,7 @@ public final class Sale
                       " Id: " + saleItem.getInventoryItemId() +
                       " Ext Price: " + Format.formatMoney( saleItem.getExtendedPrice()) +
                       " Quantity: " + saleItem.getQuantity() +
+                      " Tax Rate: " + Format.formatPercentage( saleItem.getTaxRate() )+
                       " Tax: " + Format.formatMoney(  saleItem.getTax()) + "\n";
         }
         output += "Payment Details:\n";
