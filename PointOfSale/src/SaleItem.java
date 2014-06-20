@@ -25,7 +25,7 @@ public class SaleItem
 
     public BigDecimal getTax()
     {
-        return getExtendedPrice().multiply( getTaxRate() );
+        return getExtendedPrice().multiply( getTaxRate() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
     }
 
     public BigDecimal getExtendedPrice()

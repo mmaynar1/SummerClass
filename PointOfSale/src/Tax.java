@@ -1,9 +1,7 @@
 import java.math.BigDecimal;
 
-public enum Tax
+public class Tax
 {
-    None(0), Tax(.05);
-
     private final BigDecimal rate;
 
     Tax( double rate )

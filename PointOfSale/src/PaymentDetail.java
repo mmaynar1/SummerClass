@@ -18,7 +18,7 @@ public final class PaymentDetail
     private void setChange()
     {
         BigDecimal change;
-        if ( isCash() && needsChange() )
+        if ( hasPaymentRestrictions() && needsChange() )
         {
             change = getPayment().subtract( getCost() );
         }
@@ -35,9 +35,9 @@ public final class PaymentDetail
         return getPayment().compareTo( getCost() ) > 0;
     }
 
-    private boolean isCash()
+    private boolean hasPaymentRestrictions()
     {
-        return getPaymentMethod() == PaymentMethod.CASH;
+        return (getPaymentMethod().getRoundUpValue().compareTo( BigDecimal.ZERO ) > 0);
     }
 
     public String getAbcCode()

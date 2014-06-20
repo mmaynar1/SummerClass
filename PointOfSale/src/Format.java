@@ -22,6 +22,7 @@ public class Format
 
     public static String formatMoney( BigDecimal money )
     {
+        money = money.setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
         String formattedMoney;
 
         if ( money == null )
@@ -36,4 +37,22 @@ public class Format
 
         return formattedMoney;
     }
+
+    public static String formatPercentage( BigDecimal percentage )
+    {
+        String formattedPercentage;
+
+        if ( percentage == null )
+        {
+            formattedPercentage = "0.00%";
+        }
+        else
+        {
+            final DecimalFormat percentageFormat = new DecimalFormat( "#,##0.00%" );
+            formattedPercentage = percentageFormat.format( percentage );
+        }
+
+        return formattedPercentage;
+    }
+
 }

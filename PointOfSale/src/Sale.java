@@ -1,5 +1,3 @@
-//todo change to Guids
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -55,7 +53,7 @@ public final class Sale
         {
             total = total.add( saleItem.getExtendedPrice() );
 
-            BigDecimal tax = saleItem.getExtendedPrice().multiply( saleItem.getTaxRate() );
+            BigDecimal tax = saleItem.getExtendedPrice().multiply( saleItem.getTaxRate() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
             total = total.add( tax );
         }
         return total;

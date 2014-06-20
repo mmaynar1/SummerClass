@@ -1,4 +1,13 @@
 Drawer Summary
 
-Payment Method      Starting Balance    In                  Out                 Ending Balance      
-Cash                $500.00             $2,300.00           $183.74             $2,616.26           
+Payment Method      Starting Balance    In                  Out                 Ending Balance      Net                 
+American Express    $0.00               $2,674.60           $0.00               $2,674.60           $2,674.60           
+Cash                $500.00             $3,920.00           $100.43             $4,319.57           $3,819.57           
+Coupon              $0.00               $2,481.31           $0.00               $2,481.31           $2,481.31           
+Discover            $0.00               $1,810.63           $0.00               $1,810.63           $1,810.63           
+Gold Bucks          $1,000.00           $3,045.00           $50.90              $3,994.10           $2,994.10           
+Master Card         $0.00               $2,503.40           $0.00               $2,503.40           $2,503.40           
+Visa                $0.00               $2,337.10           $0.00               $2,337.10           $2,337.10           
+
+
+Grand Total: $18,620.71

@@ -1,13 +1,16 @@
 Sales Item Summary
 
-Sale Item           Sale Item Count     Extended Price      Tax                 Total               
-Gloves              66                  $660.00             $33.00              $693.00             
-Personal Training   75                  $750.00             $37.50              $787.50             
-Protein Bar         95                  $950.00             $0.00               $950.00             
-Smoothie            75                  $750.00             $0.00               $750.00             
-Water               75                  $750.00             $0.00               $750.00             
-Vitamins            72                  $720.00             $0.00               $720.00             
-Tanning             64                  $640.00             $32.00              $672.00             
-Towel               87                  $870.00             $43.50              $913.50             
-T-Shirt             75                  $750.00             $37.50              $787.50             
-Muscle Milk         76                  $760.00             $0.00               $760.00             
+Sale Item           Sale Item Count     Unit Price          Extended Price      Tax Rate            Tax                 Total               
+Personal Training   72                  $75.73              $5,452.56           15.00%              $817.92             $6,270.48           
+Gloves              60                  $11.95              $717.00             3.00%               $21.51              $738.51             
+Muscle Milk         44                  $9.99               $439.56             5.00%               $22.00              $461.56             
+Protein Bar         67                  $1.25               $83.75              3.00%               $2.49               $86.24              
+Smoothie            47                  $74.73              $3,512.31           13.00%              $456.54             $3,968.85           
+Water               95                  $1.00               $95.00              0.00%               $0.00               $95.00              
+Tanning             58                  $10.00              $580.00             7.00%               $40.60              $620.60             
+Vitamins            89                  $10.99              $978.11             6.00%               $58.74              $1,036.85           
+Towel               107                 $5.68               $607.76             25.00%              $151.94             $759.70             
+T-Shirt             104                 $12.00              $1,248.00           0.00%               $0.00               $1,248.00           
+
+
+Grand Total: $15,285.79

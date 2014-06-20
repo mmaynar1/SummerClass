@@ -68,6 +68,7 @@ public class Database
         List<InventoryItem> randomInventoryItems = new ArrayList<InventoryItem>();
 
         int randomNumberOfSaleItems = RandomGenerator.getInt( 1, 5 );
+
         for (int i = 0; i < randomNumberOfSaleItems; i++)
         {
             int randomIndex = RandomGenerator.getInt( 0, getInventoryItems().size() );
@@ -83,21 +84,24 @@ public class Database
         getPaymentMethods().put( PaymentMethod.VISA.getAbcCode(), PaymentMethod.VISA );
         getPaymentMethods().put( PaymentMethod.MC.getAbcCode(), PaymentMethod.MC );
         getPaymentMethods().put( PaymentMethod.COUPON.getAbcCode(), PaymentMethod.COUPON );
+        getPaymentMethods().put( PaymentMethod.americanExpress.getAbcCode(), PaymentMethod.americanExpress );
+        getPaymentMethods().put( PaymentMethod.discover.getAbcCode(), PaymentMethod.discover );
+        getPaymentMethods().put( PaymentMethod.goldBucks.getAbcCode(), PaymentMethod.goldBucks );
     }
 
     private static void initializeInventoryItems()
     {
         List<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
-        inventoryItems.add( new InventoryItem( "Water", 10, Tax.None ) );
-        inventoryItems.add( new InventoryItem( "Smoothie", 10, Tax.None ) );
-        inventoryItems.add( new InventoryItem( "Muscle Milk", 10, Tax.None ) );
-        inventoryItems.add( new InventoryItem( "Personal Training", 10, Tax.Tax ) );
-        inventoryItems.add( new InventoryItem( "Tanning", 10, Tax.Tax ) );
-        inventoryItems.add( new InventoryItem( "T-Shirt", 10, Tax.Tax ) );
-        inventoryItems.add( new InventoryItem( "Towel", 10, Tax.Tax ) );
-        inventoryItems.add( new InventoryItem( "Protein Bar", 10, Tax.None ) );
-        inventoryItems.add( new InventoryItem( "Vitamins", 10, Tax.None ) );
-        inventoryItems.add( new InventoryItem( "Gloves", 10, Tax.Tax ) );
+        inventoryItems.add( new InventoryItem( "Water", 1.00, new Tax( 0 ) ) );
+        inventoryItems.add( new InventoryItem( "Smoothie", 74.73, new Tax( .13 ) ) );
+        inventoryItems.add( new InventoryItem( "Muscle Milk", 9.99, new Tax( .05 ) ) );
+        inventoryItems.add( new InventoryItem( "Personal Training", 75.73, new Tax( .15 ) ) );
+        inventoryItems.add( new InventoryItem( "Tanning", 10, new Tax( .07 ) ) );
+        inventoryItems.add( new InventoryItem( "T-Shirt", 12, new Tax( 0 ) ) );
+        inventoryItems.add( new InventoryItem( "Towel", 5.68, new Tax( .25 ) ) );
+        inventoryItems.add( new InventoryItem( "Protein Bar", 1.25, new Tax( .03 ) ) );
+        inventoryItems.add( new InventoryItem( "Vitamins", 10.99, new Tax( .06 ) ) );
+        inventoryItems.add( new InventoryItem( "Gloves", 11.95, new Tax( .03 ) ) );
 
         for (InventoryItem item : inventoryItems)
         {

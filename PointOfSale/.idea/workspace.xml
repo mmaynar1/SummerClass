@@ -64,10 +64,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="PointOfSaleSystem.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PointOfSaleSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="36" selection-start="85" selection-end="85" vertical-scroll-proportion="0.11737089" vertical-offset="0" max-vertical-offset="5525">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2371#2379#0" expanded="true" />
+                <element signature="e#4302#4317#0" expanded="true" />
+                <element signature="e#4383#4398#0" expanded="true" />
+                <element signature="e#5999#6014#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="paymentMethodReport.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/paymentMethodReport.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="325">
+            <state line="12" column="23" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaymentMethodReportDetail.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PaymentMethodReportDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="44" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1175">
               <folding />
             </state>
           </provider>
@@ -76,25 +100,45 @@
       <file leaf-file-name="saleItemReport.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/saleItemReport.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
+            <state line="9" column="19" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Member.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Member.java">
+      <file leaf-file-name="Tax.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tax.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="34" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
+            <state line="6" column="4" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentDetail.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PaymentDetail.java">
+      <file leaf-file-name="Drawer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Drawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="31" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1750">
+            <state line="62" column="5" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1250">
+              <folding>
+                <element signature="e#1503#1504#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SaleItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="25" selection-start="625" selection-end="631" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1200">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleItemReportDetail.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SaleItemReportDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" vertical-offset="730" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
@@ -102,34 +146,12 @@
       </file>
       <file leaf-file-name="drawerSummary.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drawerSummary.txt">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="250">
+            <state line="6" column="36" selection-start="536" selection-end="536" vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="450">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaymentMethod.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PaymentMethod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="650">
-              <folding>
-                <element signature="e#389#390#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reports.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Reports.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="68" selection-start="8314" selection-end="8314" vertical-scroll-proportion="1.025878" vertical-offset="4670" max-vertical-offset="6450">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3296#3331#0" expanded="true" />
-                <element signature="e#4899#4929#0" expanded="true" />
-                <element signature="e#9342#9370#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -137,7 +159,7 @@
       <file leaf-file-name="Database.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4600">
+            <state line="31" column="29" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0" vertical-offset="621" max-vertical-offset="4700">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#140#156#0" expanded="true" />
@@ -146,35 +168,17 @@
                 <element signature="e#430#444#0" expanded="true" />
                 <element signature="e#1649#1667#0" expanded="true" />
                 <element signature="e#2187#2202#0" expanded="true" />
-                <element signature="e#3104#3119#0" expanded="true" />
-                <element signature="e#4124#4132#0" expanded="true" />
-                <element signature="e#5272#5273#0" expanded="true" />
-                <element signature="e#5300#5301#0" expanded="true" />
-                <element signature="e#5360#5361#0" expanded="true" />
-                <element signature="e#5390#5391#0" expanded="true" />
-                <element signature="e#5463#5464#0" expanded="true" />
-                <element signature="e#5500#5501#0" expanded="true" />
-                <element signature="e#5573#5574#0" expanded="true" />
-                <element signature="e#5610#5611#0" expanded="true" />
+                <element signature="e#3409#3424#0" expanded="true" />
+                <element signature="e#4510#4518#0" expanded="true" />
+                <element signature="e#5658#5659#0" expanded="true" />
+                <element signature="e#5686#5687#0" expanded="true" />
+                <element signature="e#5746#5747#0" expanded="true" />
+                <element signature="e#5776#5777#0" expanded="true" />
+                <element signature="e#5849#5850#0" expanded="true" />
+                <element signature="e#5886#5887#0" expanded="true" />
+                <element signature="e#5959#5960#0" expanded="true" />
+                <element signature="e#5996#5997#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InventoryItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InventoryItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="11" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestPos.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TestPos.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="46" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="325">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -194,22 +198,24 @@
         <option value="$PROJECT_DIR$/src/reports/MemberReportDetail.java" />
         <option value="$PROJECT_DIR$/src/SaleReports.java" />
         <option value="$PROJECT_DIR$/src/Member.java" />
-        <option value="$PROJECT_DIR$/src/PaymentMethod.java" />
         <option value="$PROJECT_DIR$/src/MemberReportDetail.java" />
+        <option value="$PROJECT_DIR$/src/InventoryItem.java" />
+        <option value="$PROJECT_DIR$/src/Comparator.java" />
+        <option value="$PROJECT_DIR$/src/Tax.java" />
+        <option value="$PROJECT_DIR$/src/Drawer.java" />
+        <option value="$PROJECT_DIR$/src/paymentMethodReport.txt" />
         <option value="$PROJECT_DIR$/src/memberReport.txt" />
         <option value="$PROJECT_DIR$/src/PaymentMethodReportDetail.java" />
-        <option value="$PROJECT_DIR$/src/Format.java" />
-        <option value="$PROJECT_DIR$/src/Tax.java" />
-        <option value="$PROJECT_DIR$/src/InventoryItem.java" />
-        <option value="$PROJECT_DIR$/src/SaleItemReportDetail.java" />
-        <option value="$PROJECT_DIR$/src/SaleItem.java" />
-        <option value="$PROJECT_DIR$/src/paymentMethodReport.txt" />
         <option value="$PROJECT_DIR$/src/PaymentDetail.java" />
-        <option value="$PROJECT_DIR$/src/Reports.java" />
-        <option value="$PROJECT_DIR$/src/Sale.java" />
-        <option value="$PROJECT_DIR$/src/Drawer.java" />
+        <option value="$PROJECT_DIR$/src/PaymentMethod.java" />
+        <option value="$PROJECT_DIR$/src/Format.java" />
         <option value="$PROJECT_DIR$/src/TestPos.java" />
+        <option value="$PROJECT_DIR$/src/Sale.java" />
+        <option value="$PROJECT_DIR$/src/saleItemReport.txt" />
         <option value="$PROJECT_DIR$/src/Database.java" />
+        <option value="$PROJECT_DIR$/src/SaleItem.java" />
+        <option value="$PROJECT_DIR$/src/Reports.java" />
+        <option value="$PROJECT_DIR$/src/SaleItemReportDetail.java" />
         <option value="$PROJECT_DIR$/src/PointOfSaleSystem.java" />
       </list>
     </option>
@@ -540,10 +546,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5170517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46119234" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42464247" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -555,7 +561,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15618336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33443344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46094608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -568,11 +574,11 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5170517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4620155" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42464247" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -583,10 +589,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13646056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15618336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27722773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12651265" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -611,12 +617,10 @@
         <state line="108" column="33" selection-start="3819" selection-end="3819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3800">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1827#1835#0" expanded="true" />
-            <element signature="e#3691#3706#0" expanded="true" />
-            <element signature="e#3772#3787#0" expanded="true" />
-            <element signature="e#5274#5289#0" expanded="true" />
-            <element signature="e#7403#7404#0" expanded="true" />
-            <element signature="e#7432#7433#0" expanded="true" />
+            <element signature="e#2371#2379#0" expanded="true" />
+            <element signature="e#4302#4317#0" expanded="true" />
+            <element signature="e#4383#4398#0" expanded="true" />
+            <element signature="e#5999#6014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,9 +663,7 @@
     <entry file="file://$PROJECT_DIR$/src/PaymentMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="5" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="800">
-          <folding>
-            <element signature="e#389#390#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -686,12 +688,10 @@
         <state line="11" column="50" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1827#1835#0" expanded="true" />
-            <element signature="e#3691#3706#0" expanded="true" />
-            <element signature="e#3772#3787#0" expanded="true" />
-            <element signature="e#5274#5289#0" expanded="true" />
-            <element signature="e#7403#7404#0" expanded="true" />
-            <element signature="e#7432#7433#0" expanded="true" />
+            <element signature="e#2371#2379#0" expanded="true" />
+            <element signature="e#4302#4317#0" expanded="true" />
+            <element signature="e#4383#4398#0" expanded="true" />
+            <element signature="e#5999#6014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -720,9 +720,7 @@
     <entry file="file://$PROJECT_DIR$/src/PaymentMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="5" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="800">
-          <folding>
-            <element signature="e#389#390#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -766,73 +764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PaymentMethodReportDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="57" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
-          <folding>
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Format.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1125">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MemberReportDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="5" selection-start="854" selection-end="854" vertical-scroll-proportion="0.7403189" vertical-offset="375" max-vertical-offset="1700">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SaleItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="59" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <folding>
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SaleItemReportDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="52" selection-start="1375" selection-end="1375" vertical-scroll-proportion="0.0" vertical-offset="994" max-vertical-offset="1875">
-          <folding>
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#794#795#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1095#1096#0" expanded="true" />
-            <element signature="e#1145#1146#0" expanded="true" />
-            <element signature="e#1563#1564#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,107 +778,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tax.java">
+    <entry file="file://$PROJECT_DIR$/src/PaymentDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <folding>
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="19" selection-start="2631" selection-end="2636" vertical-scroll-proportion="0.0" vertical-offset="1414" max-vertical-offset="2275">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Drawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="850" selection-end="850" vertical-scroll-proportion="1.0182585" vertical-offset="0" max-vertical-offset="1200">
+        <state line="31" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/drawerSummary.txt">
+    <entry file="file://$PROJECT_DIR$/src/PaymentMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="250">
+        <state line="36" column="68" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/memberReport.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/Format.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="75" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paymentMethodReport.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saleItemReport.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4600">
+        <state line="17" column="5" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1600">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#140#156#0" expanded="true" />
-            <element signature="e#240#263#0" expanded="true" />
-            <element signature="e#347#370#0" expanded="true" />
-            <element signature="e#430#444#0" expanded="true" />
-            <element signature="e#1649#1667#0" expanded="true" />
-            <element signature="e#2187#2202#0" expanded="true" />
-            <element signature="e#3104#3119#0" expanded="true" />
-            <element signature="e#4124#4132#0" expanded="true" />
-            <element signature="e#5272#5273#0" expanded="true" />
-            <element signature="e#5300#5301#0" expanded="true" />
-            <element signature="e#5360#5361#0" expanded="true" />
-            <element signature="e#5390#5391#0" expanded="true" />
-            <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5610#5611#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestPos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="46" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="325">
+        <state line="7" column="1" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="325">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PointOfSaleSystem.java">
+    <entry file="file://$PROJECT_DIR$/src/Member.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5650">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1827#1835#0" expanded="true" />
-            <element signature="e#3691#3706#0" expanded="true" />
-            <element signature="e#3772#3787#0" expanded="true" />
-            <element signature="e#5274#5289#0" expanded="true" />
-            <element signature="e#7403#7404#0" expanded="true" />
-            <element signature="e#7432#7433#0" expanded="true" />
-          </folding>
+        <state line="8" column="34" selection-start="188" selection-end="188" vertical-scroll-proportion="0.3166287" vertical-offset="61" max-vertical-offset="500">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -954,37 +822,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Member.java">
+    <entry file="file://$PROJECT_DIR$/src/Reports.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PaymentDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="31" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PaymentMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="650">
+        <state line="43" column="35" selection-start="2173" selection-end="2173" vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="7536">
           <folding>
-            <element signature="e#389#390#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4342#4377#0" expanded="true" />
+            <element signature="e#5945#5975#0" expanded="true" />
+            <element signature="e#12146#12174#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reports.java">
+    <entry file="file://$PROJECT_DIR$/src/Drawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="68" selection-start="8314" selection-end="8314" vertical-scroll-proportion="1.025878" vertical-offset="4670" max-vertical-offset="6450">
+        <state line="62" column="5" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1325">
+          <folding>
+            <element signature="e#1503#1504#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="4" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="29" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0" vertical-offset="621" max-vertical-offset="4700">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3296#3331#0" expanded="true" />
-            <element signature="e#4899#4929#0" expanded="true" />
-            <element signature="e#9342#9370#0" expanded="true" />
+            <element signature="e#140#156#0" expanded="true" />
+            <element signature="e#240#263#0" expanded="true" />
+            <element signature="e#347#370#0" expanded="true" />
+            <element signature="e#430#444#0" expanded="true" />
+            <element signature="e#1649#1667#0" expanded="true" />
+            <element signature="e#2187#2202#0" expanded="true" />
+            <element signature="e#3409#3424#0" expanded="true" />
+            <element signature="e#4510#4518#0" expanded="true" />
+            <element signature="e#5658#5659#0" expanded="true" />
+            <element signature="e#5686#5687#0" expanded="true" />
+            <element signature="e#5746#5747#0" expanded="true" />
+            <element signature="e#5776#5777#0" expanded="true" />
+            <element signature="e#5849#5850#0" expanded="true" />
+            <element signature="e#5886#5887#0" expanded="true" />
+            <element signature="e#5959#5960#0" expanded="true" />
+            <element signature="e#5996#5997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SaleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="25" selection-start="625" selection-end="631" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="63" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.3316583" vertical-offset="718" max-vertical-offset="2225">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SaleItemReportDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" vertical-offset="730" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memberReport.txt">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="22" selection-start="930" selection-end="930" vertical-scroll-proportion="0.85679615" vertical-offset="22" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PaymentMethodReportDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="44" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1175">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paymentMethodReport.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="23" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/drawerSummary.txt">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="536" selection-end="536" vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saleItemReport.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="19" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PointOfSaleSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="36" selection-start="85" selection-end="85" vertical-scroll-proportion="0.11737089" vertical-offset="0" max-vertical-offset="5525">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2371#2379#0" expanded="true" />
+            <element signature="e#4302#4317#0" expanded="true" />
+            <element signature="e#4383#4398#0" expanded="true" />
+            <element signature="e#5999#6014#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,19 +1,20 @@
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.util.*;
-
+//todo fix taxes to calculate properly
 public class PointOfSaleSystem
 {
-
     public static final int MONEY_DECIMAL_PLACES = 2;
     public static final int NUMBER_OF_SALES = 100;
 
-    private final Drawer drawer;
+    private final List<Drawer> drawers;
 
-    public PointOfSaleSystem( )
+    public PointOfSaleSystem()
     {
-        this.drawer = new Drawer();
+        this.drawers = new ArrayList<Drawer>();
+        for (PaymentMethod paymentMethod : PaymentMethod.values())
+        {
+            getDrawers().add( new Drawer( paymentMethod.getAbcCode(), paymentMethod.getStartingBalance() ) );
+        }
     }
 
     public void simulateRandomSales()
@@ -26,8 +27,10 @@ public class PointOfSaleSystem
             System.out.println( sale );
         }
 
+
+
         Reports reports = new Reports();
-        reports.generateDrawerSummary( getDrawer() );
+        reports.generateDrawerSummary( getDrawers() );
         reports.generateMemberReport( listOfSales );
         reports.generateSalesItemReport( listOfSales );
         reports.generatePaymentMethodReport( listOfSales );
@@ -43,21 +46,38 @@ public class PointOfSaleSystem
     {
         List<Member> randomMembers = getRandomMembers( size );
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; ++i)
         {
-            Map<String, SaleItem> saleItems = Database.getRandomSaleItems();
+            List<SaleItem> saleItems = new ArrayList<SaleItem>( Database.getRandomSaleItems().values() );
+
             Sale sale = new Sale( randomMembers.get( i ).getId(),
-                                  new ArrayList<SaleItem>( saleItems.values() ),
-                                  getPaymentDetails( getRandomPaymentMethods(), new ArrayList<SaleItem>( saleItems.values() ) ) );
-            getDrawer().updateBalance( sale );
+                                  saleItems,
+                                  getPaymentDetails( getRandomPaymentMethods(), saleItems ) );
+
+            updateDrawers( sale );
+
             Database.getSales().put( sale.getId(), sale );
+        }
+    }
+
+    private void updateDrawers( Sale sale )
+    {
+        for (Drawer drawer : getDrawers())
+        {
+            for (PaymentDetail paymentDetail : sale.getPaymentDetails())
+            {
+                if ( drawer.getPaymentMethodAbcCode().equals( paymentDetail.getAbcCode() ) )
+                {
+                    drawer.update( paymentDetail );
+                }
+            }
         }
     }
 
     private List<Member> getRandomMembers( int size )
     {
         List<Member> randomMembers = new ArrayList<Member>();
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; ++i)
         {
             int randomIndex = RandomGenerator.getInt( 0, Database.getListOfMembers().size() );
             randomMembers.add( Database.getListOfMembers().get( randomIndex ) );
@@ -71,30 +91,25 @@ public class PointOfSaleSystem
         BigDecimal total = BigDecimal.ZERO;
         for (SaleItem saleItem : saleItems)
         {
-            total = total.add( saleItem.getExtendedPrice() );
-            total = total.add( saleItem.getTax() );
+            total = total.add( saleItem.getExtendedPrice() ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+            total = total.add( saleItem.getTax() ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
         }
-        return total;
+        return total.setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
     }
 
     private List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
     {
-        //Divides payments equally over the different payment methods
-
-        BigDecimal grandTotal = getGrandTotal( saleItems );
+        BigDecimal grandTotal = getGrandTotal( saleItems ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
 
         List<PaymentDetail> paymentDetails;
+
         if ( paymentMethods.size() > 0 )
         {
             BigDecimal amountPerPaymentMethod = grandTotal.divide( new BigDecimal( paymentMethods.size() ), MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
 
-            BigDecimal extraMoney = BigDecimal.ZERO;
-            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethods.size() ), MathContext.UNLIMITED );
+            BigDecimal roundedTotal = amountPerPaymentMethod.multiply( new BigDecimal( paymentMethods.size() ) ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
 
-            if ( grandTotal.compareTo( roundedTotal ) != 0 )
-            {
-                extraMoney = grandTotal.subtract( roundedTotal );
-            }
+            BigDecimal extraMoney = grandTotal.subtract( roundedTotal );
 
             paymentDetails = generatePaymentDetails( paymentMethods, amountPerPaymentMethod, extraMoney );
         }
@@ -120,7 +135,7 @@ public class PointOfSaleSystem
         while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
         {
             randomPaymentMethod = Database.getRandomPaymentMethod();
-            if ( !(randomPaymentMethod == PaymentMethod.CASH && usedPaymentMethods.contains( PaymentMethod.CASH )) )
+            if ( !(randomPaymentMethod.getNumberOfInstancesAllowed() == 1 && usedPaymentMethods.contains( randomPaymentMethod )) )
             {
                 randomPaymentMethods.add( randomPaymentMethod );
                 usedPaymentMethods.add( randomPaymentMethod );
@@ -132,13 +147,16 @@ public class PointOfSaleSystem
 
     private int getRandomNumberOfPaymentMethods()
     {
-        int percentage = RandomGenerator.getInt( 1, 100 );
+        final int mostCommon = 80;
+        final int secondMostCommon = 95;
+
+        int percentage = RandomGenerator.getInt( 1, 101 );
         int randomNumberOfPaymentMethods;
-        if ( percentage <= 80 )
+        if ( percentage <= mostCommon )
         {
             randomNumberOfPaymentMethods = 1;
         }
-        else if ( percentage > 80 && percentage < 95 )
+        else if ( percentage > mostCommon && percentage < secondMostCommon )
         {
             randomNumberOfPaymentMethods = 2;
         }
@@ -149,73 +167,53 @@ public class PointOfSaleSystem
         return randomNumberOfPaymentMethods;
     }
 
-    private static List<PaymentDetail> generatePaymentDetails( List<PaymentMethod> paymentMethods, BigDecimal amountPerPaymentMethod, BigDecimal extraMoney )
+    private List<PaymentDetail> generatePaymentDetails( List<PaymentMethod> paymentMethods, BigDecimal amountPerPaymentMethod, BigDecimal extraMoney )
     {
         List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
 
+        final BigDecimal cost = amountPerPaymentMethod.setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+        final BigDecimal oddCost = cost.add( extraMoney ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+
         boolean isFirst = true;
-        final BigDecimal cost = amountPerPaymentMethod;
-        final BigDecimal oddCost = cost.add( extraMoney );
         for (PaymentMethod paymentMethod : paymentMethods)
         {
             if ( isFirst )
             {
-                if ( paymentMethod == PaymentMethod.CASH )
-                {
-
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, getCashPayment( oddCost ) ) );
-                    isFirst = false;
-                }
-                else
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, oddCost ) );
-                    isFirst = false;
-                }
+                paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), oddCost, getPayment( paymentMethod, oddCost ) ) );
+                isFirst = false;
             }
             else
             {
-                if ( paymentMethod == PaymentMethod.CASH )
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, getCashPayment( cost ) ) );
-                }
-                else
-                {
-                    paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, cost ) );
-                }
-
+                paymentDetails.add( new PaymentDetail( paymentMethod.getAbcCode(), cost, getPayment( paymentMethod, cost ) ) );
             }
 
         }
         return paymentDetails;
     }
 
-    private static BigDecimal getCashPayment( BigDecimal cost )
+    private static BigDecimal getPayment( PaymentMethod paymentMethod, BigDecimal cost )
     {
-        BigDecimal cashPayment = cost.setScale( 2, RoundingMode.HALF_UP );
-        BigDecimal dollar = new BigDecimal( 1 );
-        if ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO )) )
+        BigDecimal payment = cost;
+        if ( paymentMethod.isRounded() )
         {
-            cashPayment = cashPayment.add( BigDecimal.TEN );
-
-            boolean isFirst = true;
-            while ( !(cashPayment.remainder( BigDecimal.TEN ).equals( BigDecimal.ZERO )) )
+            BigDecimal dollar = new BigDecimal( 1 );
+            if ( !(payment.remainder( paymentMethod.getRoundUpValue() ).equals( BigDecimal.ZERO )) )
             {
-                if ( isFirst )
-                {
-                    cashPayment = cashPayment.add( new BigDecimal( .99 ) );
-                    cashPayment = new BigDecimal( cashPayment.intValue() );
-                    isFirst = false;
-                }
+                payment = payment.add( paymentMethod.getRoundUpValue() );
+                payment = new BigDecimal( payment.intValue() );
 
-                cashPayment = cashPayment.subtract( dollar );
+                while ( !(payment.remainder( paymentMethod.getRoundUpValue() ).equals( BigDecimal.ZERO )) )
+                {
+                    payment = payment.subtract( dollar );
+                }
             }
         }
 
-        return cashPayment;
+        return payment;
     }
 
-    public Drawer getDrawer()
+    public List<Drawer> getDrawers()
     {
-        return drawer;
+        return drawers;
     }
 }

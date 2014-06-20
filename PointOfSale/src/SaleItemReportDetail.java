@@ -4,20 +4,25 @@ public class SaleItemReportDetail
 {
     private final String inventoryItemName;
     private int saleItemCount;
+    private final BigDecimal unitPrice;
     private BigDecimal extendedPrice;
     private BigDecimal tax;
+    private final BigDecimal taxRate;
 
-    public SaleItemReportDetail( String inventoryItemName, int saleItemCount, BigDecimal extendedPrice, BigDecimal tax )
+    public SaleItemReportDetail( String inventoryItemName, int saleItemCount, BigDecimal unitPrice, BigDecimal extendedPrice, BigDecimal tax, BigDecimal taxRate )
+
     {
         this.inventoryItemName = inventoryItemName;
         setSaleItemCount( saleItemCount );
         setExtendedPrice( extendedPrice );
+        this.unitPrice = unitPrice;
         this.tax = tax;
+        this.taxRate = taxRate;
     }
 
-    public SaleItemReportDetail( String inventoryItemName, BigDecimal unitPrice, BigDecimal tax )
+    public SaleItemReportDetail( String inventoryItemName, BigDecimal unitPrice, BigDecimal extendedPrice, BigDecimal tax, BigDecimal taxRate )
     {
-        this( inventoryItemName, 1, unitPrice ,tax);
+        this( inventoryItemName, 1, unitPrice, extendedPrice, tax, taxRate );
     }
 
     public String getInventoryItemName()
@@ -47,12 +52,12 @@ public class SaleItemReportDetail
 
     public void update( SaleItem saleItem )
     {
-        incrementSaleItemCount(saleItem);
-        setExtendedPrice( getExtendedPrice().add( saleItem.getExtendedPrice() ) );
-        setTax( getTax().add( saleItem.getTax() ) );
+        incrementSaleItemCount( saleItem );
+        setExtendedPrice( getExtendedPrice().add( saleItem.getExtendedPrice() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP ) );
+        setTax( getTax().add( saleItem.getTax() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP ) );
     }
 
-    private void incrementSaleItemCount(SaleItem saleItem)
+    private void incrementSaleItemCount( SaleItem saleItem )
     {
         setSaleItemCount( getSaleItemCount() + saleItem.getQuantity() );
     }
@@ -65,5 +70,15 @@ public class SaleItemReportDetail
     private void setTax( BigDecimal tax )
     {
         this.tax = tax;
+    }
+
+    public BigDecimal getUnitPrice()
+    {
+        return unitPrice;
+    }
+
+    public BigDecimal getTaxRate()
+    {
+        return taxRate;
     }
 }

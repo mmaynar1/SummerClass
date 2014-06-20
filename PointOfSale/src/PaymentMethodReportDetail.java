@@ -46,7 +46,7 @@ public class PaymentMethodReportDetail
     public void update( PaymentDetail paymentDetail )
     {
         incrementPaymentItemCount();
-        setTotal( getTotal().add( paymentDetail.getCost() ) );
+        setTotal( (getTotal().add( paymentDetail.getCost() )).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP ) );
     }
 
     private void incrementPaymentItemCount()

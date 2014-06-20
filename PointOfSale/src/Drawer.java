@@ -2,30 +2,26 @@ import java.math.BigDecimal;
 
 public class Drawer
 {
-    public static final BigDecimal STARTING_BALANCE = new BigDecimal( 500 );
-
+    private final String paymentMethodAbcCode;
+    private final BigDecimal startingBalance;
     private BigDecimal balance;
     private BigDecimal cashIn;
     private BigDecimal cashOut;
 
-    public Drawer()
+    public Drawer( String paymentMethodAbcCode, BigDecimal startingBalance )
     {
-        setBalance( STARTING_BALANCE );
+        this.paymentMethodAbcCode = paymentMethodAbcCode;
+        this.startingBalance = startingBalance;
+        setBalance( getStartingBalance() );
         setCashIn( BigDecimal.ZERO );
         setCashOut( BigDecimal.ZERO );
     }
 
-    public void updateBalance( Sale sale )
+    public void update( PaymentDetail paymentDetail )
     {
-        for (PaymentDetail paymentDetail : sale.getPaymentDetails())
-        {
-            if ( paymentDetail.getPaymentMethod() == PaymentMethod.CASH )
-            {
-                setCashIn( getCashIn().add( paymentDetail.getPayment() ) );
-                setCashOut( getCashOut().add( paymentDetail.getChange() ) );
-                setBalance( getBalance().add( paymentDetail.getCost() ) );
-            }
-        }
+        setCashIn( getCashIn().add( paymentDetail.getPayment() ) );
+        setCashOut( getCashOut().add( paymentDetail.getChange() ) );
+        setBalance( getBalance().add( paymentDetail.getCost() ) );
     }
 
     public BigDecimal getBalance()
@@ -56,5 +52,15 @@ public class Drawer
     private void setCashOut( BigDecimal cashOut )
     {
         this.cashOut = cashOut;
+    }
+
+    public BigDecimal getStartingBalance()
+    {
+        return startingBalance;
+    }
+
+    public String getPaymentMethodAbcCode()
+    {
+        return paymentMethodAbcCode;
     }
 }
