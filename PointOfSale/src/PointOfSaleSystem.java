@@ -1,6 +1,5 @@
 import java.math.BigDecimal;
 import java.util.*;
-//todo fix taxes to calculate properly
 public class PointOfSaleSystem
 {
     public static final int MONEY_DECIMAL_PLACES = 2;
@@ -27,14 +26,11 @@ public class PointOfSaleSystem
             System.out.println( sale );
         }
 
-
-
         Reports reports = new Reports();
         reports.generateDrawerSummary( getDrawers() );
         reports.generateMemberReport( listOfSales );
         reports.generateSalesItemReport( listOfSales );
         reports.generatePaymentMethodReport( listOfSales );
-
     }
 
     private List<Sale> getSalesFromDatabase()
@@ -135,7 +131,10 @@ public class PointOfSaleSystem
         while ( usedPaymentMethods.size() < randomNumberOfPaymentMethods )
         {
             randomPaymentMethod = Database.getRandomPaymentMethod();
-            if ( !(randomPaymentMethod.getNumberOfInstancesAllowed() == 1 && usedPaymentMethods.contains( randomPaymentMethod )) )
+            boolean onlyOneInstanceAllowed = randomPaymentMethod.getNumberOfInstancesAllowed() == 1;
+            boolean paymentMethodHasBeenUsed = usedPaymentMethods.contains( randomPaymentMethod );
+
+            if ( !(onlyOneInstanceAllowed && paymentMethodHasBeenUsed) )
             {
                 randomPaymentMethods.add( randomPaymentMethod );
                 usedPaymentMethods.add( randomPaymentMethod );

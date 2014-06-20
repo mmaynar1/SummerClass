@@ -20,6 +20,7 @@ public final class Reports
         try
         {
             printReportHeader( fileName, TITLE, HEADERS );
+
             File file = getFile( fileName );
             FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
             BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );

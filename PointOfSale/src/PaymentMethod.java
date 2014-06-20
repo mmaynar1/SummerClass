@@ -18,7 +18,7 @@ public enum PaymentMethod
     private final BigDecimal startingBalance;
     private final BigDecimal roundUpValue;
 
-    PaymentMethod( String abcCode, String name, int numberOfInstancesAllowed, BigDecimal startingBalance, BigDecimal roundUpValue )
+    private PaymentMethod( String abcCode, String name, int numberOfInstancesAllowed, BigDecimal startingBalance, BigDecimal roundUpValue )
     {
         this.abcCode = abcCode;
         this.name = name;
@@ -27,7 +27,7 @@ public enum PaymentMethod
         this.roundUpValue = roundUpValue;
     }
 
-    PaymentMethod( String abcCode, String name )
+    private PaymentMethod( String abcCode, String name )
     {
         this( abcCode, name, MAX_NUMBER_INSTANCES_ALLOWED, BigDecimal.ZERO , BigDecimal.ZERO);
     }
