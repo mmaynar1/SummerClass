@@ -5,17 +5,17 @@ public final class PaymentDetail
     private final String paymentMethodId;
     private final BigDecimal cost;
     private final BigDecimal payment;
-    private BigDecimal change;
+    private final BigDecimal change;
 
     public PaymentDetail( String paymentMethodId, BigDecimal cost, BigDecimal payment )
     {
         this.paymentMethodId = paymentMethodId;
         this.cost = cost;
         this.payment = payment;
-        setChange();
+        this.change = setChange();
     }
 
-    private void setChange()
+    private BigDecimal setChange()
     {
         BigDecimal change;
         if ( hasPaymentRestrictions() && needsChange() )
@@ -27,7 +27,7 @@ public final class PaymentDetail
             change = BigDecimal.ZERO;
         }
 
-        this.change = change;
+        return change;
     }
 
     private boolean needsChange()

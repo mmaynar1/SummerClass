@@ -69,7 +69,7 @@ public class Database
 
         int randomNumberOfSaleItems = RandomGenerator.getInt( 1, 5 );
 
-        for (int i = 0; i < randomNumberOfSaleItems; i++)
+        for (int i = 0; i < randomNumberOfSaleItems; ++i)
         {
             int randomIndex = RandomGenerator.getInt( 0, getInventoryItems().size() );
             randomInventoryItems.add( getListOfInventoryItems().get( randomIndex ) );

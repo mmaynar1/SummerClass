@@ -1,16 +1,16 @@
 Sales Summary
 
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           13                  95                  $2,062.98           
-Bill Cosby          8                   70                  $2,186.62           
-George Bush         5                   30                  $511.44             
-Katniss Everdeen    7                   45                  $706.27             
-Larry Bird          14                  99                  $1,927.65           
-Mitch Maynard       11                  80                  $2,442.80           
-Reggie Miller       8                   46                  $1,228.50           
-Taylor Swift        10                  107                 $3,591.92           
-Tiger Woods         14                  104                 $1,901.97           
-Walter White        10                  103                 $2,256.20           
+Babe Ruth           15                  166                 $3,855.48           
+Bill Cosby          11                  84                  $2,249.07           
+George Bush         6                   37                  $1,250.09           
+Katniss Everdeen    5                   44                  $1,532.58           
+Larry Bird          8                   52                  $387.78             
+Mitch Maynard       15                  114                 $3,960.44           
+Reggie Miller       8                   72                  $2,190.01           
+Taylor Swift        14                  110                 $1,910.53           
+Tiger Woods         13                  94                  $2,787.44           
+Walter White        5                   37                  $579.00             
 
 
-Grand Total: $18,816.35
+Grand Total: $20,702.42

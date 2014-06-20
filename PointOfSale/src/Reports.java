@@ -142,7 +142,6 @@ public final class Reports
         }
     }
 
-
     private List<SaleItemReportDetail> getSaleItemReportDetails( List<Sale> sales )
     {
         Map<String, SaleItemReportDetail> line = new HashMap<String, SaleItemReportDetail>();
