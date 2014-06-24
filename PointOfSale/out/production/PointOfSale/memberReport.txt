@@ -1,25 +1,25 @@
-Member Sales Summary - 5000 Sherwood
-Member              Sales Count         Sale Item Count     Total               
-George Bush         7                   55                  $852.35             
-Taylor Swift        11                  112                 $2,161.74           
-Totals:             18                  167                 $3,014.09           
-
 Member Sales Summary - 5001 Conway
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           12                  82                  $2,896.84           
-Bill Cosby          12                  82                  $1,857.00           
-Reggie Miller       9                   89                  $2,762.45           
-Totals:             33                  253                 $7,516.29           
+Forrest Gump        11                  88                  $1,680.10           
+Ken Griffey Jr.     9                   46                  $858.21             
+Larry Bird          9                   76                  $1,849.65           
+Taylor Swift        12                  85                  $1,661.77           
+Walter White        7                   60                  $670.25             
+Totals:             48                  355                 $6,719.98           
+
+Member Sales Summary - 5000 Sherwood
+Member              Sales Count         Sale Item Count     Total               
+Bill Cosby          14                  70                  $849.50             
+Tiger Woods         17                  164                 $2,761.26           
+Totals:             31                  234                 $3,610.76           
 
 Member Sales Summary - 5002 Benton
 Member              Sales Count         Sale Item Count     Total               
-Forrest Gump        7                   60                  $1,135.16           
-Ken Griffey Jr.     7                   63                  $1,034.49           
-Larry Bird          7                   51                  $771.05             
-Tiger Woods         9                   46                  $612.96             
-Walter White        19                  170                 $3,272.14           
-Totals:             49                  390                 $6,825.80           
+Babe Ruth           4                   15                  $421.26             
+George Bush         10                  85                  $1,818.21           
+Reggie Miller       7                   60                  $466.80             
+Totals:             21                  160                 $2,706.27           
 
 
 
-Company Totals:     100                 810                 $17,356.18          
+Company Totals:     100                 749                 $13,037.01          

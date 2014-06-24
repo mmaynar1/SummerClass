@@ -2,6 +2,8 @@ import java.math.BigDecimal;
 
 public final class PaymentDetail
 {
+    public static final String DELIMITER = "@";
+
     private final String paymentMethodAbcCode;
     private final BigDecimal cost;
     private final BigDecimal payment;
@@ -14,6 +16,15 @@ public final class PaymentDetail
         this.payment = payment;
         this.change = setChange();
     }
+
+    public String getTextRepresentation()
+    {
+        return DELIMITER + getPaymentMethodAbcCode() + DELIMITER +
+               getCost() + DELIMITER +
+               getPayment() + DELIMITER +
+               getChange() + DELIMITER;
+    }
+
 
     private BigDecimal setChange()
     {

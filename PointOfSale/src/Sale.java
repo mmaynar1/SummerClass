@@ -3,6 +3,8 @@ import java.util.List;
 
 public final class Sale
 {
+    public static final String DELIMITER = ":";
+
     private final String clubId;
     private final String memberId;
     private final List<SaleItem> saleItems;
@@ -29,7 +31,7 @@ public final class Sale
     public String toString()
     {
         String output = "Member: \n\t" + getMemberName() + " " + getMemberId() + "\n";
-        output += "Discount Rate: " + Format.formatPercentage( getDiscountRate());
+        output += "Discount Rate: " + Format.formatPercentage( getDiscountRate() );
         output += "\n";
         output += "Items:\n";
         for (SaleItem saleItem : getSaleItems())
@@ -90,7 +92,7 @@ public final class Sale
         BigDecimal total = BigDecimal.ZERO;
         for (SaleItem saleItem : getSaleItems())
         {
-            total = total.add(saleItem.getTotal());
+            total = total.add( saleItem.getTotal() );
         }
         return total;
     }
@@ -104,6 +106,32 @@ public final class Sale
         }
         return count;
     }
+
+    public String getTextRepresentation()
+    {
+        String line = getClubId() + DELIMITER +
+                      getMemberId();
+
+        for (SaleItem saleItem : getSaleItems())
+        {
+            line += saleItem.getTextRepresentation();
+        }
+
+        line += DELIMITER;
+
+        for (PaymentDetail paymentDetail : getPaymentDetails())
+        {
+            line += paymentDetail.getTextRepresentation();
+        }
+
+        line += DELIMITER;
+
+        line += getId() + DELIMITER;
+        line += Format.formatRate( getDiscountRate());
+
+        return line;
+    }
+
 
     public String getMemberId()
     {

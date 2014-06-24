@@ -1,25 +1,25 @@
-Member Sales Summary - 5002 Benton
+Member Sales Summary - 5000 Sherwood
 Member              Sales Count         Sale Item Count     Total               
-Bill Cosby          10                  73                  $2,127.03           
-Forrest Gump        11                  97                  $1,633.48           
-Ken Griffey Jr.     10                  69                  $1,661.81           
-Tiger Woods         7                   51                  $543.45             
-Totals:             38                  290                 $5,965.77           
+Forrest Gump        7                   53                  $996.74             
+Taylor Swift        9                   69                  $1,657.92           
+Totals:             16                  122                 $2,654.66           
 
 Member Sales Summary - 5001 Conway
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           12                  116                 $2,735.29           
-Larry Bird          11                  59                  $491.36             
-Walter White        7                   65                  $1,061.92           
-Totals:             30                  240                 $4,288.57           
+Babe Ruth           11                  76                  $1,024.61           
+Bill Cosby          8                   70                  $992.91             
+George Bush         10                  65                  $1,451.77           
+Reggie Miller       9                   71                  $1,224.75           
+Tiger Woods         10                  73                  $1,078.33           
+Walter White        11                  86                  $1,181.55           
+Totals:             59                  441                 $6,953.92           
 
-Member Sales Summary - 5000 Sherwood
+Member Sales Summary - 5002 Benton
 Member              Sales Count         Sale Item Count     Total               
-George Bush         7                   46                  $953.07             
-Reggie Miller       13                  105                 $2,308.45           
-Taylor Swift        12                  83                  $1,664.48           
-Totals:             32                  234                 $4,926.00           
+Ken Griffey Jr.     11                  63                  $2,246.60           
+Larry Bird          14                  108                 $3,270.45           
+Totals:             25                  171                 $5,517.05           
 
 
 
-Company Totals:     100                 764                 $15,180.34          
+Company Totals:     100                 734                 $15,125.63          

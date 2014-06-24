@@ -31,9 +31,17 @@ public class PointOfSaleSystem
         for (Sale sale : listOfSales)
         {
             System.out.println( sale );
+            System.out.println( sale.getTextRepresentation() );
+            System.out.println();
+
         }
 
+
         Reports reports = new Reports();
+
+        reports.createSalesFile( listOfSales );
+
+        reports.createSales();
         reports.generateDrawerSummary( getDrawers() );
         reports.generateMemberReport( listOfSales );
         reports.generateSalesItemReport( listOfSales );

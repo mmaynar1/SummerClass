@@ -38,6 +38,24 @@ public class Format
         return formattedMoney;
     }
 
+    public static String formatRate( BigDecimal rate )
+    {
+        String formattedRate;
+
+        if ( rate == null )
+        {
+            formattedRate = "0.00%";
+        }
+        else
+        {
+            final DecimalFormat percentageFormat = new DecimalFormat( "#0.00" );
+            formattedRate = percentageFormat.format( rate );
+        }
+
+        return formattedRate;
+    }
+
+
     public static String formatPercentage( BigDecimal percentage )
     {
         String formattedPercentage;

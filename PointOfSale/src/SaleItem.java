@@ -2,7 +2,8 @@ import java.math.BigDecimal;
 
 public class SaleItem
 {
-   public static final int MONEY_DECIMAL_PLACES = 2;
+    public static final int MONEY_DECIMAL_PLACES = 2;
+    public static final String DELIMITER = "!";
 
     private final String inventoryItemId;
     private final int quantity;
@@ -11,10 +12,23 @@ public class SaleItem
 
     public SaleItem( String inventoryItemId, int quantity, BigDecimal discountRate )
     {
+        this( inventoryItemId, quantity, discountRate, RandomGenerator.getGuid() );
+    }
+
+    public SaleItem( String inventoryItemId, int quantity, BigDecimal discountRate, String id )
+    {
         this.inventoryItemId = inventoryItemId;
         this.quantity = quantity;
-        this.id = RandomGenerator.getGuid();
+        this.id = id;
         this.discountRate = discountRate;
+    }
+
+    public String getTextRepresentation()
+    {
+        return DELIMITER + getInventoryItemId() + DELIMITER +
+               getQuantity() + DELIMITER +
+               getId() + DELIMITER +
+               Format.formatRate( getDiscountRate());
     }
 
     public BigDecimal getTotal()

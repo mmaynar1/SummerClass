@@ -5,8 +5,18 @@ public final class Member
 
     public Member( String name )
     {
+        this( name, RandomGenerator.getGuid() );
+    }
+
+    public Member( String name, String id )
+    {
         this.name = name;
-        this.id = RandomGenerator.getGuid();
+        this.id = id;
+    }
+
+    public Member( Member member )
+    {
+        this(member.getName(), member.getId());
     }
 
     public String getId()

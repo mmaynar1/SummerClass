@@ -15,11 +15,28 @@ public final class InventoryItem
 
     public InventoryItem( String name, BigDecimal unitPrice, Tax tax )
     {
+        this(name,unitPrice,tax,RandomGenerator.getGuid());
+    }
+
+    public InventoryItem( String name, BigDecimal unitPrice, Tax tax, String id )
+    {
         this.name = name;
         this.unitPrice = unitPrice;
-        this.id = RandomGenerator.getGuid();
+        this.id = id;
         this.tax = tax;
     }
+
+    public InventoryItem (InventoryItem inventoryItem)
+    {
+        this(inventoryItem.getName(), inventoryItem.getUnitPrice(), inventoryItem.getTax(), inventoryItem.getId());
+    }
+
+
+    public InventoryItem (String id)
+    {
+        this(Database.getInventoryItem( id ));
+    }
+
 
     public String getName()
     {

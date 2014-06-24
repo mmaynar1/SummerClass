@@ -5,22 +5,22 @@ public class Drawer
     private final String paymentMethodAbcCode;
     private final BigDecimal startingBalance;
     private BigDecimal balance;
-    private BigDecimal cashIn;
-    private BigDecimal cashOut;
+    private BigDecimal moneyIn;
+    private BigDecimal moneyOut;
 
     public Drawer( String paymentMethodAbcCode, BigDecimal startingBalance )
     {
         this.paymentMethodAbcCode = paymentMethodAbcCode;
         this.startingBalance = startingBalance;
         setBalance( getStartingBalance() );
-        setCashIn( BigDecimal.ZERO );
-        setCashOut( BigDecimal.ZERO );
+        setMoneyIn( BigDecimal.ZERO );
+        setMoneyOut( BigDecimal.ZERO );
     }
 
     public void update( PaymentDetail paymentDetail )
     {
-        setCashIn( getCashIn().add( paymentDetail.getPayment() ) );
-        setCashOut( getCashOut().add( paymentDetail.getChange() ) );
+        setMoneyIn( getMoneyIn().add( paymentDetail.getPayment() ) );
+        setMoneyOut( getMoneyOut().add( paymentDetail.getChange() ) );
         setBalance( getBalance().add( paymentDetail.getCost() ) );
     }
 
@@ -34,24 +34,24 @@ public class Drawer
         this.balance = balance;
     }
 
-    public BigDecimal getCashIn()
+    public BigDecimal getMoneyIn()
     {
-        return cashIn;
+        return moneyIn;
     }
 
-    private void setCashIn( BigDecimal cashIn )
+    private void setMoneyIn( BigDecimal moneyIn )
     {
-        this.cashIn = cashIn;
+        this.moneyIn = moneyIn;
     }
 
-    public BigDecimal getCashOut()
+    public BigDecimal getMoneyOut()
     {
-        return cashOut;
+        return moneyOut;
     }
 
-    private void setCashOut( BigDecimal cashOut )
+    private void setMoneyOut( BigDecimal moneyOut )
     {
-        this.cashOut = cashOut;
+        this.moneyOut = moneyOut;
     }
 
     public BigDecimal getStartingBalance()

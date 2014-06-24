@@ -47,6 +47,17 @@ public class Database
         return getMembers().get( memberId ).getName();
     }
 
+    public static InventoryItem getInventoryItem(String inventoryItemId)
+    {
+        return getInventoryItems().get( inventoryItemId );
+    }
+
+    public static Member getMember(String memberId)
+    {
+        return getMembers().get( memberId );
+    }
+
+
     public static Map<String, SaleItem> getRandomSaleItems( BigDecimal discountRate )
     {
         Map<String, SaleItem> saleItems = new HashMap<String, SaleItem>();

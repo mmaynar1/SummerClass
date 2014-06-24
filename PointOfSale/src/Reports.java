@@ -1,15 +1,94 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class Reports
 {
 
     public static final int SPACES = 20;
     public static final boolean APPEND_MODE = true;
+    public static final String salesFile = "src\\sales.txt";
+
+/*    public static void main( String[] args )
+    {
+
+        new Reports().createSales();
+    }*/
+
+    public void createSales()
+    {
+        try
+        {
+            BufferedReader reader = new BufferedReader( new FileReader( salesFile ) );
+            Scanner scanner = new Scanner( reader );
+
+
+            final String guidPattern = "(\\w{32})";
+
+            Pattern pattern = Pattern.compile( guidPattern + Sale.DELIMITER + guidPattern + ".*" );
+
+            int count = 1;
+
+            while ( scanner.hasNext() )
+            {
+                String line = scanner.next();
+                Matcher matcher = pattern.matcher( line );
+
+                if ( matcher.matches() )
+                {
+                    String clubId = matcher.group( 1 );
+                    String memberId = matcher.group( 2 );
+                    Club club =  new Club(   clubId ) ;
+                    Member member = Database.getMember( memberId ) ;
+                    System.out.println( club.getClubNumber() + " " + club.getName() );
+                    System.out.println( member.getName() );
+
+                }
+
+
+                System.out.println( count + "  " + line );
+                ++count;
+                System.out.println();
+                System.out.println();
+            }
+        }
+        catch (IOException exception)
+        {
+            throw new RuntimeException( "File could not be read" );
+        }
+    }
+
+
+    public void createSalesFile( List<Sale> sales )
+    {
+        try
+        {
+            String fileName = salesFile;
+            clearFile( fileName );
+            File file = getFile( fileName );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            for (Sale sale : sales)
+            {
+                addSaleToFile( sale, bufferedWriter );
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Could not write to sales file" );
+        }
+    }
+
+    private void addSaleToFile( Sale sale, BufferedWriter writer ) throws IOException
+    {
+        writer.write( sale.getTextRepresentation() );
+        writer.newLine();
+    }
 
     public void generateDrawerSummary( Map<String, List<Drawer>> drawers )
     {
@@ -50,15 +129,15 @@ public final class Reports
                 {
                     bufferedWriter.write( Format.leftJustify( PaymentMethod.getPaymentMethodName( drawer.getPaymentMethodAbcCode() ), SPACES ) +
                                           Format.leftJustify( Format.formatMoney( drawer.getStartingBalance() ), SPACES ) +
-                                          Format.leftJustify( Format.formatMoney( drawer.getCashIn() ), SPACES ) +
-                                          Format.leftJustify( Format.formatMoney( drawer.getCashOut() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getMoneyIn() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getMoneyOut() ), SPACES ) +
                                           Format.leftJustify( Format.formatMoney( drawer.getBalance() ), SPACES ) +
                                           Format.leftJustify( Format.formatMoney( drawer.getBalance().subtract( drawer.getStartingBalance() ) ), SPACES ) );
 
                     bufferedWriter.newLine();
                     startingBalance = startingBalance.add( drawer.getStartingBalance() );
-                    moneyIn = moneyIn.add( drawer.getCashIn() );
-                    moneyOut = moneyOut.add( drawer.getCashOut() );
+                    moneyIn = moneyIn.add( drawer.getMoneyIn() );
+                    moneyOut = moneyOut.add( drawer.getMoneyOut() );
                     balance = balance.add( drawer.getBalance() );
                     grandTotal = grandTotal.add( drawer.getBalance().subtract( drawer.getStartingBalance() ) );
                 }
@@ -373,7 +452,7 @@ public final class Reports
 
     }
 
-    private void clearFile( String fileName ) throws IOException
+    public void clearFile( String fileName ) throws IOException
     {
         File file = getFile( fileName );
         FileWriter fileWriter = new FileWriter( file );

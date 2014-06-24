@@ -1,21 +1,21 @@
-Payment Method Summary - 5000 Sherwood
-Payment Method      Payment Item Count  Total               
-Discover            17                  $3,520.52           
-Coupon              22                  $3,043.51           
-Totals:             39                  $6,564.03           
-
 Payment Method Summary - 5001 Conway
 Payment Method      Payment Item Count  Total               
-Cash                9                   $1,006.31           
-Master Card         18                  $2,066.07           
-Visa                15                  $2,772.91           
-Totals:             42                  $5,845.29           
+Cash                15                  $1,330.11           
+Gold Bucks          18                  $2,668.73           
+Master Card         15                  $1,483.46           
+American Express    18                  $2,426.57           
+Totals:             66                  $7,908.87           
+
+Payment Method Summary - 5000 Sherwood
+Payment Method      Payment Item Count  Total               
+Discover            20                  $1,968.39           
+Totals:             20                  $1,968.39           
 
 Payment Method Summary - 5002 Benton
 Payment Method      Payment Item Count  Total               
-Gold Bucks          17                  $2,761.71           
-American Express    19                  $2,185.15           
-Totals:             36                  $4,946.86           
+Visa                16                  $1,016.40           
+Coupon              21                  $2,143.35           
+Totals:             37                  $3,159.75           
 
 
-Company Totals:     117                 $17,356.18          
+Company Totals:     123                 $13,037.01          
