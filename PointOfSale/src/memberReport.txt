@@ -1,16 +1,25 @@
-Sales Summary
-
+Member Sales Summary - 5002 Benton
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           15                  122                 $2,710.74           
-Bill Cosby          11                  80                  $1,760.57           
-Forrest Gump        11                  93                  $1,688.78           
-George Bush         8                   57                  $855.10             
-Ken Griffey Jr.     12                  113                 $2,511.67           
-Larry Bird          6                   52                  $1,073.02           
-Reggie Miller       11                  79                  $1,799.26           
-Taylor Swift        9                   62                  $1,777.89           
-Tiger Woods         9                   72                  $2,162.44           
-Walter White        8                   65                  $2,309.29           
+Bill Cosby          10                  73                  $2,127.03           
+Forrest Gump        11                  97                  $1,633.48           
+Ken Griffey Jr.     10                  69                  $1,661.81           
+Tiger Woods         7                   51                  $543.45             
+Totals:             38                  290                 $5,965.77           
+
+Member Sales Summary - 5001 Conway
+Member              Sales Count         Sale Item Count     Total               
+Babe Ruth           12                  116                 $2,735.29           
+Larry Bird          11                  59                  $491.36             
+Walter White        7                   65                  $1,061.92           
+Totals:             30                  240                 $4,288.57           
+
+Member Sales Summary - 5000 Sherwood
+Member              Sales Count         Sale Item Count     Total               
+George Bush         7                   46                  $953.07             
+Reggie Miller       13                  105                 $2,308.45           
+Taylor Swift        12                  83                  $1,664.48           
+Totals:             32                  234                 $4,926.00           
 
 
-Grand Total: $18,648.76
+
+Company Totals:     100                 764                 $15,180.34          

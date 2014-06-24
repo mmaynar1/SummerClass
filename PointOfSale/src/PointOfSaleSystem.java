@@ -1,18 +1,25 @@
 import java.math.BigDecimal;
 import java.util.*;
+
 public class PointOfSaleSystem
 {
     public static final int MONEY_DECIMAL_PLACES = 2;
     public static final int NUMBER_OF_SALES = 100;
 
-    private final List<Drawer> drawers;
+    private final Map<String, List<Drawer>> drawers;
 
     public PointOfSaleSystem()
     {
-        this.drawers = new ArrayList<Drawer>();
-        for (PaymentMethod paymentMethod : PaymentMethod.values())
+        this.drawers = new HashMap<String, List<Drawer>>();
+        for (Club club : Database.getListOfClubs())
         {
-            getDrawers().add( new Drawer( paymentMethod.getAbcCode(), paymentMethod.getStartingBalance() ) );
+            List<Drawer> drawers = new ArrayList<Drawer>();
+            for (PaymentMethod paymentMethod : PaymentMethod.values())
+            {
+                drawers.add( new Drawer( paymentMethod.getAbcCode(), paymentMethod.getStartingBalance() ) );
+            }
+
+            getDrawers().put( club.getId(), drawers );
         }
     }
 
@@ -33,6 +40,13 @@ public class PointOfSaleSystem
         reports.generatePaymentMethodReport( listOfSales );
     }
 
+    private BigDecimal getRandomDiscountRate()
+    {
+        //todo make this random
+        return new BigDecimal( .10 );
+    }
+
+
     private List<Sale> getSalesFromDatabase()
     {
         return new ArrayList<Sale>( Database.getSales().values() );
@@ -44,11 +58,13 @@ public class PointOfSaleSystem
 
         for (int i = 0; i < size; ++i)
         {
-            List<SaleItem> saleItems = new ArrayList<SaleItem>( Database.getRandomSaleItems().values() );
+            BigDecimal randomDiscountRate = getRandomDiscountRate();
+            List<SaleItem> saleItems = new ArrayList<SaleItem>( Database.getRandomSaleItems( randomDiscountRate ).values() );
 
-            Sale sale = new Sale( randomMembers.get( i ).getId(),
+            Sale sale = new Sale( Database.getRandomClubId( "ABC" ),
+                                  randomMembers.get( i ).getId(),
                                   saleItems,
-                                  getPaymentDetails( getRandomPaymentMethods(), saleItems ) );
+                                  getPaymentDetails( getRandomPaymentMethods(), saleItems ), randomDiscountRate );
 
             updateDrawers( sale );
 
@@ -58,7 +74,7 @@ public class PointOfSaleSystem
 
     private void updateDrawers( Sale sale )
     {
-        for (Drawer drawer : getDrawers())
+        for (Drawer drawer : getDrawers().get( sale.getClubId() ))
         {
             updateDrawer( sale, drawer );
         }
@@ -89,13 +105,20 @@ public class PointOfSaleSystem
 
     private BigDecimal getGrandTotal( List<SaleItem> saleItems )
     {
-        BigDecimal total = BigDecimal.ZERO;
+/*        BigDecimal total = BigDecimal.ZERO;
         for (SaleItem saleItem : saleItems)
         {
             total = total.add( saleItem.getExtendedPrice() ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
             total = total.add( saleItem.getTax() ).setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
         }
-        return total.setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+        return total.setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );*/
+        BigDecimal total = BigDecimal.ZERO;
+        for (SaleItem saleItem : saleItems)
+        {
+            total = total.add( saleItem.getTotal() );
+        }
+
+        return total;
     }
 
     private List<PaymentDetail> getPaymentDetails( List<PaymentMethod> paymentMethods, List<SaleItem> saleItems )
@@ -215,7 +238,7 @@ public class PointOfSaleSystem
         return payment;
     }
 
-    public List<Drawer> getDrawers()
+    public Map<String, List<Drawer>> getDrawers()
     {
         return drawers;
     }

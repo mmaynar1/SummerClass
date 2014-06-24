@@ -6,33 +6,35 @@ public final class MemberReportDetail
     private int salesCount;
     private int saleItemCount;
     private BigDecimal total;
+    private final String clubId;
 
     public MemberReportDetail( Sale sale )
     {
-        this( sale.getMemberName(), sale.getSaleItemCount(), sale.getTotal() );
+        this( sale.getClubId(), sale.getMemberName(), sale.getSaleItemCount(), sale.getTotal() );
     }
 
-    public MemberReportDetail( String memberName, int salesCount, int saleItemCount, BigDecimal total )
+    public MemberReportDetail( String clubId, String memberName, int salesCount, int saleItemCount, BigDecimal total )
     {
         this.memberName = memberName;
+        this.clubId = clubId;
         setSalesCount( salesCount );
         setSaleItemCount( saleItemCount );
         setTotal( total );
     }
 
-    public MemberReportDetail( String memberName, int saleItemCount, BigDecimal total )
+    public MemberReportDetail( String clubId, String memberName, int saleItemCount, BigDecimal total )
     {
-        this( memberName, 1, saleItemCount, total );
+        this( clubId, memberName, 1, saleItemCount, total );
     }
 
-    public MemberReportDetail( String memberName, int salesCount, int saleItemCount, double total )
+    public MemberReportDetail( String clubId, String memberName, int salesCount, int saleItemCount, double total )
     {
-        this( memberName, salesCount, saleItemCount, new BigDecimal( total ) );
+        this( clubId, memberName, salesCount, saleItemCount, new BigDecimal( total ) );
     }
 
-    public MemberReportDetail( String memberName, int saleItemCount, double total )
+    public MemberReportDetail( String clubId, String memberName, int saleItemCount, double total )
     {
-        this( memberName, 1, saleItemCount, new BigDecimal( total ) );
+        this( clubId, memberName, 1, saleItemCount, new BigDecimal( total ) );
     }
 
     public void update( Sale sale )
@@ -80,5 +82,10 @@ public final class MemberReportDetail
     public String getMemberName()
     {
         return memberName;
+    }
+
+    public String getClubId()
+    {
+        return clubId;
     }
 }

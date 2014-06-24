@@ -1,16 +1,22 @@
-Sales Item Summary
+Sales Item Summary - 5000 Sherwood
+Name                Quantity            Unit Price          Extended Price      Discount            Sub Total           Tax Rate            Tax                 Total               
+Gloves              82                  $11.95              $979.90             $98.06              $881.84             3.00%               $26.46              $908.30             
+Smoothie            74                  $74.73              $5,530.02           $552.99             $4,977.03           13.00%              $646.97             $5,624.00           
+Personal Training   89                  $75.73              $6,739.97           $674.01             $6,065.96           15.00%              $909.86             $6,975.82           
+Totals:             245                                     $13,249.89          $1,325.06           $11,924.83                              $1,583.29           $13,508.12          
 
-Sale Item           Sale Item Count     Unit Price          Extended Price      Tax Rate            Tax                 Total               
-Vitamins            69                  $10.99              $758.31             6.00%               $45.54              $803.85             
-Water               74                  $1.00               $74.00              0.00%               $0.00               $74.00              
-Towel               77                  $5.68               $437.36             25.00%              $109.34             $546.70             
-Smoothie            54                  $74.73              $4,035.42           13.00%              $524.56             $4,559.98           
-Protein Bar         92                  $1.25               $115.00             3.00%               $3.44               $118.44             
-Gloves              83                  $11.95              $991.85             3.00%               $29.77              $1,021.62           
-Tanning             88                  $10.00              $880.00             7.00%               $61.60              $941.60             
-Personal Training   59                  $75.73              $4,468.07           15.00%              $670.24             $5,138.31           
-Muscle Milk         63                  $9.99               $629.37             5.00%               $31.50              $660.87             
-T-Shirt             77                  $12.00              $924.00             0.00%               $0.00               $924.00             
+Sales Item Summary - 5001 Conway
+Name                Quantity            Unit Price          Extended Price      Discount            Sub Total           Tax Rate            Tax                 Total               
+Towel               74                  $5.68               $420.32             $42.03              $378.29             25.00%              $94.62              $472.91             
+Muscle Milk         69                  $9.99               $689.31             $69.00              $620.31             5.00%               $31.05              $651.36             
+Totals:             143                                     $1,109.63           $111.03             $998.60                                 $125.67             $1,124.27           
 
+Sales Item Summary - 5002 Benton
+Name                Quantity            Unit Price          Extended Price      Discount            Sub Total           Tax Rate            Tax                 Total               
+Protein Bar         87                  $1.25               $108.75             $10.97              $97.78              3.00%               $2.89               $100.67             
+Water               83                  $1.00               $83.00              $8.30               $74.70              0.00%               $0.00               $74.70              
+Vitamins            74                  $10.99              $813.26             $81.40              $731.86             6.00%               $43.92              $775.78             
+Tanning             128                 $10.00              $1,280.00           $128.00             $1,152.00           7.00%               $80.64              $1,232.64           
+T-Shirt             50                  $12.00              $600.00             $60.00              $540.00             0.00%               $0.00               $540.00             
+Totals:             422                                     $2,885.01           $288.67             $2,596.34                               $127.45             $2,723.79           
 
-Grand Total: $14,789.37

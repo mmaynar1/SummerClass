@@ -5,6 +5,8 @@ public class Database
 {
     private static final Map<String, Member> members = new HashMap<String, Member>();
     private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
+    private static final Map<String, Club> clubs = new HashMap<String, Club>();
+    private static final Map<String, Company> companies = new HashMap<String, Company>();
     private static Map<String, Sale> sales = new HashMap<String, Sale>();
 
     private Database()
@@ -15,6 +17,8 @@ public class Database
     {
         initializeMembers();
         initializeInventoryItems();
+        initializeCompanies();
+        initializeClubs();
     }
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
@@ -27,6 +31,12 @@ public class Database
         return getInventoryItems().get( inventoryItemId ).getName();
     }
 
+    public static Club getClub(String clubId)
+    {
+        return getClubs().get( clubId );
+    }
+
+
     public static BigDecimal getInventoryItemTaxRate( String inventoryItemId )
     {
         return getInventoryItems().get( inventoryItemId ).getTax().getRate();
@@ -37,14 +47,14 @@ public class Database
         return getMembers().get( memberId ).getName();
     }
 
-    public static Map<String, SaleItem> getRandomSaleItems()
+    public static Map<String, SaleItem> getRandomSaleItems( BigDecimal discountRate )
     {
         Map<String, SaleItem> saleItems = new HashMap<String, SaleItem>();
         List<InventoryItem> inventoryItems = getRandomInventoryItems();
         for (InventoryItem inventoryItem : inventoryItems)
         {
             int quantity = RandomGenerator.getInt( 1, 6 );
-            SaleItem saleItem = new SaleItem( inventoryItem.getId(), quantity );
+            SaleItem saleItem = new SaleItem( inventoryItem.getId(), quantity, discountRate );
             saleItems.put( saleItem.getId(), saleItem );
         }
         return saleItems;
@@ -65,6 +75,34 @@ public class Database
 
         return randomInventoryItems;
     }
+
+    private static void initializeClubs()
+    {
+        String companyId = getFirstCompanyId();
+
+        List<Club> clubs = new ArrayList<Club>();
+        clubs.add( new Club( "Sherwood", 5000, companyId ) );
+        clubs.add( new Club( "Conway", 5001, companyId ) );
+        clubs.add( new Club( "Benton", 5002, companyId ) );
+
+        for (Club club : clubs)
+        {
+            getClubs().put( club.getId(), club );
+        }
+
+    }
+
+    private static void initializeCompanies()
+    {
+        List<Company> companies = new ArrayList<Company>();
+        companies.add( new Company( "ABC" ) );
+
+        for (Company company : companies)
+        {
+            getCompanies().put( company.getId(), company );
+        }
+    }
+
 
     private static void initializeInventoryItems()
     {
@@ -111,6 +149,62 @@ public class Database
         return new ArrayList<Member>( getMembers().values() );
     }
 
+    public static String getFirstCompanyId()
+    {
+        return getListOfCompanies().get( 0 ).getId();
+    }
+
+    public static String getCompanyId( String companyName )
+    {
+        String id = null;
+        int count = 0;
+        for (Company company : getListOfCompanies())
+        {
+            if ( company.getName().equals( companyName ) )
+            {
+                id = company.getId();
+                ++count;
+            }
+        }
+
+        if ( count != 1 )
+        {
+            throw new RuntimeException( "Duplicate company names; could not get company id" );
+        }
+
+        return id;
+    }
+
+
+    public static List<Club> getListOfClubs()
+    {
+        return new ArrayList<Club>( getClubs().values() );
+    }
+
+
+    public static String getRandomClubId( String companyName )
+    {
+        String companyId = getCompanyId( companyName );
+        List<Club> clubs = new ArrayList<Club>();
+        for (Club club : getListOfClubs())
+        {
+            if ( club.getCompanyId().equals( companyId ) )
+            {
+                clubs.add( club );
+            }
+        }
+
+        int randomIndex = RandomGenerator.getInt( 0, clubs.size() );
+        return clubs.get( randomIndex ).getId();
+    }
+
+
+    private static List<Company> getListOfCompanies()
+    {
+        return new ArrayList<Company>( getCompanies().values() );
+    }
+
+
     private static List<InventoryItem> getListOfInventoryItems()
     {
         return new ArrayList<InventoryItem>( getInventoryItems().values() );
@@ -130,5 +224,15 @@ public class Database
     private static Map<String, InventoryItem> getInventoryItems()
     {
         return inventoryItems;
+    }
+
+    private static Map<String, Company> getCompanies()
+    {
+        return companies;
+    }
+
+    public static Map<String, Club> getClubs()
+    {
+        return clubs;
     }
 }

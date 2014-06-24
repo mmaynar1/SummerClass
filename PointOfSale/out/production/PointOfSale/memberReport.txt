@@ -1,16 +1,25 @@
-Sales Summary
-
+Member Sales Summary - 5000 Sherwood
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           8                   72                  $2,228.93           
-Bill Cosby          12                  85                  $1,763.59           
-Forrest Gump        7                   53                  $681.93             
-George Bush         10                  72                  $2,042.46           
-Ken Griffey Jr.     2                   14                  $80.90              
-Larry Bird          12                  56                  $500.11             
-Reggie Miller       14                  119                 $2,314.47           
-Taylor Swift        11                  88                  $2,101.77           
-Tiger Woods         12                  96                  $1,474.06           
-Walter White        12                  81                  $1,601.15           
+George Bush         7                   55                  $852.35             
+Taylor Swift        11                  112                 $2,161.74           
+Totals:             18                  167                 $3,014.09           
+
+Member Sales Summary - 5001 Conway
+Member              Sales Count         Sale Item Count     Total               
+Babe Ruth           12                  82                  $2,896.84           
+Bill Cosby          12                  82                  $1,857.00           
+Reggie Miller       9                   89                  $2,762.45           
+Totals:             33                  253                 $7,516.29           
+
+Member Sales Summary - 5002 Benton
+Member              Sales Count         Sale Item Count     Total               
+Forrest Gump        7                   60                  $1,135.16           
+Ken Griffey Jr.     7                   63                  $1,034.49           
+Larry Bird          7                   51                  $771.05             
+Tiger Woods         9                   46                  $612.96             
+Walter White        19                  170                 $3,272.14           
+Totals:             49                  390                 $6,825.80           
 
 
-Grand Total: $14,789.37
+
+Company Totals:     100                 810                 $17,356.18          

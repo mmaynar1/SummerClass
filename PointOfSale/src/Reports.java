@@ -11,37 +11,80 @@ public final class Reports
     public static final int SPACES = 20;
     public static final boolean APPEND_MODE = true;
 
-    public void generateDrawerSummary( List<Drawer> drawers )
+    public void generateDrawerSummary( Map<String, List<Drawer>> drawers )
     {
 
         String fileName = "src\\drawerSummary.txt";
-        final String TITLE = "Drawer Summary";
         final List<String> HEADERS = Arrays.asList( "Payment Method", "Starting Balance", "In", "Out", "Ending Balance", "Net" );
+
         try
         {
-            printReportHeader( fileName, TITLE, HEADERS );
+            clearFile( fileName );
 
             File file = getFile( fileName );
             FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
             BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
-            Collections.sort( drawers, new DrawerNameComparator() );
-            BigDecimal grandTotal = BigDecimal.ZERO;
-            for (Drawer drawer : drawers)
-            {
-                bufferedWriter.write( Format.leftJustify( PaymentMethod.getPaymentMethodName( drawer.getPaymentMethodAbcCode() ), SPACES ) +
-                                      Format.leftJustify( Format.formatMoney( drawer.getStartingBalance() ), SPACES ) +
-                                      Format.leftJustify( Format.formatMoney( drawer.getCashIn() ), SPACES ) +
-                                      Format.leftJustify( Format.formatMoney( drawer.getCashOut() ), SPACES ) +
-                                      Format.leftJustify( Format.formatMoney( drawer.getBalance() ), SPACES ) +
-                                      Format.leftJustify( Format.formatMoney( drawer.getBalance().subtract( drawer.getStartingBalance() ) ), SPACES ) );
 
+            BigDecimal companyStartingBalance = BigDecimal.ZERO;
+            BigDecimal companyMoneyIn = BigDecimal.ZERO;
+            BigDecimal companyMoneyOut = BigDecimal.ZERO;
+            BigDecimal companyBalance = BigDecimal.ZERO;
+            BigDecimal companyGrandTotal = BigDecimal.ZERO;
+            for (String clubId : drawers.keySet())
+            {
+                List<Drawer> clubDrawers = drawers.get( clubId );
+
+                String title = "Drawer Summary - " + Database.getClub( clubId ).getClubNumber() + " " + Database.getClub( clubId ).getName();
                 bufferedWriter.newLine();
-                grandTotal = grandTotal.add( drawer.getBalance().subtract( drawer.getStartingBalance() ) );
+
+                printReportHeader( title, HEADERS, bufferedWriter );
+
+                Collections.sort( clubDrawers, new DrawerNameComparator() );
+                BigDecimal startingBalance = BigDecimal.ZERO;
+                BigDecimal moneyIn = BigDecimal.ZERO;
+                BigDecimal moneyOut = BigDecimal.ZERO;
+                BigDecimal balance = BigDecimal.ZERO;
+                BigDecimal grandTotal = BigDecimal.ZERO;
+                for (Drawer drawer : clubDrawers)
+                {
+                    bufferedWriter.write( Format.leftJustify( PaymentMethod.getPaymentMethodName( drawer.getPaymentMethodAbcCode() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getStartingBalance() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getCashIn() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getCashOut() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getBalance() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( drawer.getBalance().subtract( drawer.getStartingBalance() ) ), SPACES ) );
+
+                    bufferedWriter.newLine();
+                    startingBalance = startingBalance.add( drawer.getStartingBalance() );
+                    moneyIn = moneyIn.add( drawer.getCashIn() );
+                    moneyOut = moneyOut.add( drawer.getCashOut() );
+                    balance = balance.add( drawer.getBalance() );
+                    grandTotal = grandTotal.add( drawer.getBalance().subtract( drawer.getStartingBalance() ) );
+                }
+
+                companyStartingBalance = companyStartingBalance.add( startingBalance );
+                companyMoneyIn = companyMoneyIn.add( moneyIn );
+                companyMoneyOut = companyMoneyOut.add( moneyOut );
+                companyBalance = companyBalance.add( balance );
+                companyGrandTotal = companyGrandTotal.add( grandTotal );
+                bufferedWriter.write( Format.leftJustify( "Totals: ", SPACES ) +
+                                      Format.leftJustify( Format.formatMoney( startingBalance ), SPACES ) +
+                                      Format.leftJustify( Format.formatMoney( moneyIn ), SPACES ) +
+                                      Format.leftJustify( Format.formatMoney( moneyOut ), SPACES ) +
+                                      Format.leftJustify( Format.formatMoney( balance ), SPACES ) +
+                                      Format.leftJustify( Format.formatMoney( grandTotal ), SPACES ) );
+                bufferedWriter.newLine();
+                bufferedWriter.newLine();
             }
             bufferedWriter.newLine();
             bufferedWriter.newLine();
-            bufferedWriter.write( Format.leftJustify( "Grand Total: " + Format.formatMoney( grandTotal ), SPACES ) );
+            bufferedWriter.write( Format.leftJustify( "Company Totals: ", SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( companyStartingBalance ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( companyMoneyIn ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( companyMoneyOut ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( companyBalance ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( companyGrandTotal ), SPACES ) );
             bufferedWriter.close();
         }
         catch (IOException exception)
@@ -69,29 +112,64 @@ public final class Reports
     private void printPaymentMethodReport( List<PaymentMethodReportDetail> paymentMethodReportDetails ) throws IOException
     {
         String fileName = "src\\paymentMethodReport.txt";
-        final String TITLE = "Payment Method Summary";
-        final List<String> HEADERS = Arrays.asList( "Payment Method", "Payment Item Count", "Total" );
 
-        printReportHeader( fileName, TITLE, HEADERS );
+        Set<String> clubIds = getClubIds( paymentMethodReportDetails );
+
+        final List<String> HEADERS = Arrays.asList( "Payment Method", "Payment Item Count", "Total" );
+        clearFile( fileName );
 
         File file = getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
-        BigDecimal grandTotal = BigDecimal.ZERO;
-        for (PaymentMethodReportDetail detail : paymentMethodReportDetails)
+
+        int companyPaymentItemCount = 0;
+        BigDecimal companyGrandTotal = BigDecimal.ZERO;
+        for (String clubId : clubIds)
         {
-            bufferedWriter.write( Format.leftJustify( detail.getPaymentMethod(), SPACES ) +
-                                  Format.leftJustify( detail.getPaymentItemCount(), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+            final String title = "Payment Method Summary - " + Database.getClub( clubId ).getClubNumber() + " " + Database.getClub( clubId ).getName();
+            printReportHeader( title, HEADERS, bufferedWriter );
+
+            int paymentItemCount = 0;
+            BigDecimal grandTotal = BigDecimal.ZERO;
+            for (PaymentMethodReportDetail detail : paymentMethodReportDetails)
+            {
+
+                if ( clubId.equals( detail.getClubId() ) )
+                {
+                    bufferedWriter.write( Format.leftJustify( detail.getPaymentMethod(), SPACES ) +
+                                          Format.leftJustify( detail.getPaymentItemCount(), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+                    bufferedWriter.newLine();
+                    paymentItemCount += detail.getPaymentItemCount();
+                    grandTotal = grandTotal.add( detail.getTotal() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+                }
+            }
+            bufferedWriter.write( Format.leftJustify( "Totals: ", SPACES ) +
+                                  Format.leftJustify( paymentItemCount, SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( grandTotal ), SPACES ) );
             bufferedWriter.newLine();
-            grandTotal = grandTotal.add( detail.getTotal() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+            bufferedWriter.newLine();
+            companyPaymentItemCount += paymentItemCount;
+            companyGrandTotal = companyGrandTotal.add( grandTotal );
         }
         bufferedWriter.newLine();
-        bufferedWriter.newLine();
-        bufferedWriter.write( Format.leftJustify( "Grand Total: " + Format.formatMoney( grandTotal ), SPACES ) );
+        bufferedWriter.write( Format.leftJustify( "Company Totals: ", SPACES ) +
+                              Format.leftJustify( companyPaymentItemCount, SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyGrandTotal ), SPACES ) );
         bufferedWriter.close();
     }
+
+    private Set<String> getClubIds( List<PaymentMethodReportDetail> paymentMethodReportDetails )
+    {
+        Set<String> clubIds = new HashSet<String>();
+        for (PaymentMethodReportDetail detail : paymentMethodReportDetails)
+        {
+            clubIds.add( detail.getClubId() );
+        }
+        return clubIds;
+    }
+
 
     private List<PaymentMethodReportDetail> getPaymentMethodReportDetails( List<Sale> sales )
     {
@@ -103,7 +181,7 @@ public final class Reports
                 PaymentMethodReportDetail detail = line.get( paymentDetail.getAbcCode() );
                 if ( detail == null )
                 {
-                    line.put( paymentDetail.getAbcCode(), new PaymentMethodReportDetail( paymentDetail.getName(), paymentDetail.getCost() ) );
+                    line.put( paymentDetail.getAbcCode(), new PaymentMethodReportDetail( sale.getClubId(), paymentDetail.getName(), paymentDetail.getCost() ) );
                 }
                 else
                 {
@@ -152,11 +230,10 @@ public final class Reports
                 SaleItemReportDetail detail = line.get( saleItem.getInventoryItemId() );
                 String inventoryItemName = saleItem.getInventoryItemName();
                 BigDecimal unitPrice = Database.getUnitPrice( saleItem.getInventoryItemId() );
-                BigDecimal extendedPrice = saleItem.getExtendedPrice();
-                BigDecimal tax = extendedPrice.multiply( saleItem.getTaxRate() );
+                BigDecimal tax = saleItem.getTax();
                 if ( detail == null )
                 {
-                    line.put( saleItem.getInventoryItemId(), new SaleItemReportDetail( inventoryItemName, saleItem.getQuantity(), unitPrice, saleItem.getExtendedPrice(), tax, saleItem.getTaxRate() ) );
+                    line.put( saleItem.getInventoryItemId(), new SaleItemReportDetail( sale.getClubId(), inventoryItemName, saleItem.getQuantity(), unitPrice, saleItem.getExtendedPrice(), saleItem.getDiscount(), saleItem.getSubTotal(), tax, saleItem.getTaxRate() ) );
                 }
                 else
                 {
@@ -171,46 +248,99 @@ public final class Reports
     private void printSaleItemReport( List<SaleItemReportDetail> saleItemReportDetails ) throws IOException
     {
         String fileName = "src\\saleItemReport.txt";
-        final String TITLE = "Sales Item Summary";
-        final List<String> HEADERS = Arrays.asList( "Sale Item", "Sale Item Count", "Unit Price", "Extended Price", "Tax Rate", "Tax", "Total" );
 
-        printReportHeader( fileName, TITLE, HEADERS );
+        final List<String> HEADERS = Arrays.asList( "Name", "Quantity", "Unit Price", "Extended Price", "Discount", "Sub Total", "Tax Rate", "Tax", "Total" );
+        clearFile( fileName );
+
 
         File file = getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
-        BigDecimal grandTotal = BigDecimal.ZERO;
+
+        Set<String> clubIds = new HashSet<String>();
         for (SaleItemReportDetail detail : saleItemReportDetails)
         {
+            clubIds.add( detail.getClubId() );
+        }
 
-            bufferedWriter.write( Format.leftJustify( detail.getInventoryItemName(), SPACES ) +
-                                  Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getUnitPrice() ), SPACES ) +
+        int companyQuantity = 0;
+        BigDecimal companyExtendedPrice = BigDecimal.ZERO;
+        BigDecimal companyDiscount = BigDecimal.ZERO;
+        BigDecimal companySubTotal = BigDecimal.ZERO;
+        BigDecimal companyTax = BigDecimal.ZERO;
+        BigDecimal companyGrandTotal = BigDecimal.ZERO;
 
-                                  Format.leftJustify( Format.formatMoney( detail.getExtendedPrice() ), SPACES ) +
-                                  Format.leftJustify( Format.formatPercentage( detail.getTaxRate() ), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getTax() ), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getExtendedPrice().add( detail.getTax() ) ), SPACES ) );
+        for (String clubId : clubIds)
+        {
+            String title = "Sales Item Summary - " + Database.getClub( clubId ).getClubNumber() + " " + Database.getClub( clubId ).getName();
+            printReportHeader( title, HEADERS, bufferedWriter );
+            int quantity = 0;
+            BigDecimal extendedPrice = BigDecimal.ZERO;
+            BigDecimal discount = BigDecimal.ZERO;
+            BigDecimal subTotal = BigDecimal.ZERO;
+            BigDecimal tax = BigDecimal.ZERO;
+            BigDecimal grandTotal = BigDecimal.ZERO;
+            for (SaleItemReportDetail detail : saleItemReportDetails)
+            {
+                if ( clubId.equals( detail.getClubId() ) )
+                {
+                    bufferedWriter.write( Format.leftJustify( detail.getInventoryItemName(), SPACES ) +
+                                          Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getUnitPrice() ), SPACES ) +
+
+                                          Format.leftJustify( Format.formatMoney( detail.getExtendedPrice() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getDiscount() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getSubTotal() ), SPACES ) +
+                                          Format.leftJustify( Format.formatPercentage( detail.getTaxRate() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getTax() ), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+
+                    bufferedWriter.newLine();
+
+                    quantity = quantity + detail.getSaleItemCount();
+                    extendedPrice = extendedPrice.add( detail.getExtendedPrice() );
+                    discount = discount.add( detail.getDiscount() );
+                    subTotal = subTotal.add( detail.getSubTotal() );
+                    tax = tax.add( detail.getTax() );
+                    grandTotal = grandTotal.add( detail.getTotal() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+                }
+            }
+            bufferedWriter.write( Format.leftJustify( "Totals: ", SPACES ) +
+                                  Format.leftJustify( quantity, SPACES ) +
+                                  Format.leftJustify( "", SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( extendedPrice ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( discount ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( subTotal ), SPACES ) +
+                                  Format.leftJustify( "", SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( tax ), SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( grandTotal ), SPACES ) );
             bufferedWriter.newLine();
-            grandTotal = grandTotal.add( detail.getExtendedPrice().add( detail.getTax() ) ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+            bufferedWriter.newLine();
+            companyQuantity += quantity;
+            companyExtendedPrice = companyExtendedPrice.add( extendedPrice );
+            companyDiscount = companyDiscount.add( discount );
+            companySubTotal = companySubTotal.add( subTotal );
+            companyTax = companyTax.add( tax );
+            companyGrandTotal = companyGrandTotal.add( grandTotal );
         }
         bufferedWriter.newLine();
         bufferedWriter.newLine();
-        bufferedWriter.write( Format.leftJustify( "Grand Total: " + Format.formatMoney( grandTotal ), SPACES ) );
-
+        bufferedWriter.write( Format.leftJustify( "Company Totals: ", SPACES ) +
+                              Format.leftJustify( companyQuantity, SPACES ) +
+                              Format.leftJustify( "", SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyExtendedPrice ), SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyDiscount ), SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companySubTotal ), SPACES ) +
+                              Format.leftJustify( "", SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyTax ), SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyGrandTotal ), SPACES ) );
         bufferedWriter.close();
     }
 
-    private void printReportHeader( String fileName, String title, List<String> headers ) throws IOException
+    private void printReportHeader( String title, List<String> headers, BufferedWriter bufferedWriter ) throws IOException
     {
-        File file = getFile( fileName );
-
-        FileWriter fileWriter = new FileWriter( file );
-        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
-
         bufferedWriter.write( title );
-        bufferedWriter.newLine();
         bufferedWriter.newLine();
 
         for (String header : headers)
@@ -219,7 +349,6 @@ public final class Reports
         }
 
         bufferedWriter.newLine();
-        bufferedWriter.close();
     }
 
     private static class MemberNameComparator implements Comparator<MemberReportDetail>
@@ -244,34 +373,77 @@ public final class Reports
 
     }
 
+    private void clearFile( String fileName ) throws IOException
+    {
+        File file = getFile( fileName );
+        FileWriter fileWriter = new FileWriter( file );
+        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+        bufferedWriter.flush();
+        bufferedWriter.close();
+    }
+
+
     private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException
     {
         String fileName = "src\\memberReport.txt";
-        final String TITLE = "Sales Summary";
+
         final List<String> HEADERS = Arrays.asList( "Member", "Sales Count", "Sale Item Count", "Total" );
 
-        printReportHeader( fileName, TITLE, HEADERS );
+        Set<String> clubIds = new HashSet<String>();
+        for (MemberReportDetail detail : memberReportDetails)
+        {
+            clubIds.add( detail.getClubId() );
+        }
 
+
+        clearFile( fileName );
         File file = getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
-
-        BigDecimal grandTotal = BigDecimal.ZERO;
-
-
-        Collections.sort( memberReportDetails, new MemberNameComparator() );
-        for (MemberReportDetail detail : memberReportDetails)
+        int companySalesCount = 0;
+        int companySalesItemCount = 0;
+        BigDecimal companyGrandTotal = BigDecimal.ZERO;
+        for (String clubId : clubIds)
         {
-            bufferedWriter.write( Format.leftJustify( detail.getMemberName(), SPACES ) +
-                                  Format.leftJustify( detail.getSalesCount(), SPACES ) +
-                                  Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
-                                  Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+            String title = "Member Sales Summary - " + Database.getClub( clubId ).getClubNumber() + " " + Database.getClub( clubId ).getName();
+
+            printReportHeader( title, HEADERS, bufferedWriter );
+            int salesCount = 0;
+            int salesItemCount = 0;
+            BigDecimal grandTotal = BigDecimal.ZERO;
+
+            Collections.sort( memberReportDetails, new MemberNameComparator() );
+            for (MemberReportDetail detail : memberReportDetails)
+            {
+
+                if ( clubId.equals( detail.getClubId() ) )
+                {
+                    bufferedWriter.write( Format.leftJustify( detail.getMemberName(), SPACES ) +
+                                          Format.leftJustify( detail.getSalesCount(), SPACES ) +
+                                          Format.leftJustify( detail.getSaleItemCount(), SPACES ) +
+                                          Format.leftJustify( Format.formatMoney( detail.getTotal() ), SPACES ) );
+                    bufferedWriter.newLine();
+                    salesCount += detail.getSalesCount();
+                    salesItemCount += detail.getSaleItemCount();
+                    grandTotal = grandTotal.add( detail.getTotal() );
+                }
+            }
+            bufferedWriter.write( Format.leftJustify( "Totals: ", SPACES ) +
+                                  Format.leftJustify( salesCount, SPACES ) +
+                                  Format.leftJustify( salesItemCount, SPACES ) +
+                                  Format.leftJustify( Format.formatMoney( grandTotal ), SPACES ) );
             bufferedWriter.newLine();
-            grandTotal = grandTotal.add( detail.getTotal() );
+            bufferedWriter.newLine();
+            companySalesCount += salesCount;
+            companySalesItemCount += salesItemCount;
+            companyGrandTotal = companyGrandTotal.add( grandTotal );
         }
         bufferedWriter.newLine();
         bufferedWriter.newLine();
-        bufferedWriter.write( Format.leftJustify( "Grand Total: " + Format.formatMoney( grandTotal ), SPACES ) );
+        bufferedWriter.write( Format.leftJustify( "Company Totals: ", SPACES ) +
+                              Format.leftJustify( companySalesCount, SPACES ) +
+                              Format.leftJustify( companySalesItemCount, SPACES ) +
+                              Format.leftJustify( Format.formatMoney( companyGrandTotal ), SPACES ) );
         bufferedWriter.close();
     }
 

@@ -3,43 +3,51 @@ import java.util.List;
 
 public final class Sale
 {
+    private final String clubId;
     private final String memberId;
     private final List<SaleItem> saleItems;
     private final List<PaymentDetail> paymentDetails;
     private final String id;
+    private final BigDecimal discountRate;
 
-    public Sale( String memberId,  List<SaleItem> saleItems, List<PaymentDetail> paymentDetails )
+    public Sale( String clubId, String memberId, List<SaleItem> saleItems, List<PaymentDetail> paymentDetails, BigDecimal discountRate )
     {
+        this.clubId = clubId;
         this.memberId = memberId;
         this.saleItems = saleItems;
         this.paymentDetails = paymentDetails;
         this.id = RandomGenerator.getGuid();
+        this.discountRate = discountRate;
     }
 
-    public Sale( Sale sale )
+    public Sale( Sale sale, BigDecimal discountRate )
     {
-        this( sale.getMemberId(), sale.getSaleItems(), sale.getPaymentDetails() );
+        this( sale.getClubId(), sale.getMemberId(), sale.getSaleItems(), sale.getPaymentDetails(), discountRate );
     }
 
     @Override
     public String toString()
     {
-        String output = "Member: " + getMemberName() + " " + getMemberId() + "\n";
+        String output = "Member: \n\t" + getMemberName() + " " + getMemberId() + "\n";
+        output += "Discount Rate: " + Format.formatPercentage( getDiscountRate());
+        output += "\n";
         output += "Items:\n";
         for (SaleItem saleItem : getSaleItems())
         {
             output += "\tName: " + saleItem.getInventoryItemName() +
                       " Id: " + saleItem.getInventoryItemId() +
-                      " Ext Price: " + Format.formatMoney( saleItem.getExtendedPrice()) +
+                      " Ext Price: " + Format.formatMoney( saleItem.getExtendedPrice() ) +
+                      " Discount: " + Format.formatMoney( saleItem.getDiscount() ) +
+                      " Sub Total: " + Format.formatMoney( saleItem.getSubTotal() ) +
                       " Quantity: " + saleItem.getQuantity() +
-                      " Tax Rate: " + Format.formatPercentage( saleItem.getTaxRate() )+
-                      " Tax: " + Format.formatMoney(  saleItem.getTax()) + "\n";
+                      " Tax Rate: " + Format.formatPercentage( saleItem.getTaxRate() ) +
+                      " Tax: " + Format.formatMoney( saleItem.getTax() ) + "\n";
         }
         output += "Payment Details:\n";
-        for(PaymentDetail paymentDetail : getPaymentDetails())
+        for (PaymentDetail paymentDetail : getPaymentDetails())
         {
             output += "\t" + "Name: " + paymentDetail.getName() +
-                      " Cost: " +Format.formatMoney(  paymentDetail.getCost()) +
+                      " Cost: " + Format.formatMoney( paymentDetail.getCost() ) +
                       " Payment: " + Format.formatMoney( paymentDetail.getPayment() ) +
                       " Change: " + Format.formatMoney( paymentDetail.getChange() ) + "\n";
         }
@@ -47,15 +55,42 @@ public final class Sale
         return output;
     }
 
+    public BigDecimal getDiscount()
+    {
+        BigDecimal discount = BigDecimal.ZERO;
+        for (SaleItem saleItem : getSaleItems())
+        {
+            discount = discount.add( saleItem.getDiscount() );
+        }
+        return discount;
+    }
+
+    public BigDecimal getSubTotal()
+    {
+        BigDecimal subTotal = BigDecimal.ZERO;
+        for (SaleItem saleItem : getSaleItems())
+        {
+            subTotal = subTotal.add( saleItem.getSubTotal() );
+        }
+        return subTotal;
+    }
+
+    private BigDecimal getExtendedPrice()
+    {
+        BigDecimal extendedPrice = BigDecimal.ZERO;
+        for (SaleItem saleItem : getSaleItems())
+        {
+            extendedPrice = extendedPrice.add( saleItem.getExtendedPrice() );
+        }
+        return extendedPrice;
+    }
+
     public BigDecimal getTotal()
     {
         BigDecimal total = BigDecimal.ZERO;
         for (SaleItem saleItem : getSaleItems())
         {
-            total = total.add( saleItem.getExtendedPrice() );
-
-            BigDecimal tax = saleItem.getExtendedPrice().multiply( saleItem.getTaxRate() ).setScale( PointOfSaleSystem.MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
-            total = total.add( tax );
+            total = total.add(saleItem.getTotal());
         }
         return total;
     }
@@ -77,7 +112,7 @@ public final class Sale
 
     public String getMemberName()
     {
-        return Database.getMemberName(getMemberId());
+        return Database.getMemberName( getMemberId() );
     }
 
     public List<PaymentDetail> getPaymentDetails()
@@ -93,5 +128,15 @@ public final class Sale
     public List<SaleItem> getSaleItems()
     {
         return saleItems;
+    }
+
+    private BigDecimal getDiscountRate()
+    {
+        return discountRate;
+    }
+
+    public String getClubId()
+    {
+        return clubId;
     }
 }
