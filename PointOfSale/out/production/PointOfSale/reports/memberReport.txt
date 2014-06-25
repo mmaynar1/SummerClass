@@ -1,0 +1,25 @@
+Member Sales Summary - 5002 Benton
+Member              Sales Count         Sale Item Count     Total               
+Forrest Gump        8                   67                  $1,323.87           
+Reggie Miller       9                   62                  $935.07             
+Tiger Woods         15                  102                 $2,073.91           
+Totals:             32                  231                 $4,332.85           
+
+Member Sales Summary - 5001 Conway
+Member              Sales Count         Sale Item Count     Total               
+George Bush         8                   44                  $1,184.35           
+Ken Griffey Jr.     10                  92                  $1,981.47           
+Larry Bird          9                   67                  $1,247.09           
+Taylor Swift        10                  80                  $1,606.80           
+Totals:             37                  283                 $6,019.71           
+
+Member Sales Summary - 5000 Sherwood
+Member              Sales Count         Sale Item Count     Total               
+Babe Ruth           12                  86                  $2,514.75           
+Bill Cosby          9                   58                  $1,299.86           
+Walter White        10                  65                  $1,894.44           
+Totals:             31                  209                 $5,709.05           
+
+
+
+Company Totals:     100                 723                 $16,061.61          

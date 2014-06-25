@@ -1,3 +1,5 @@
+import utility.RandomGenerator;
+
 public class Club
 {
     private final String name;

@@ -1,5 +1,7 @@
 
 
+import utility.RandomGenerator;
+
 import java.math.BigDecimal;
 
 public enum PaymentMethod

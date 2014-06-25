@@ -1,3 +1,5 @@
+import utility.RandomGenerator;
+
 public final class Member
 {
     private final String name;
@@ -14,9 +16,16 @@ public final class Member
         this.id = id;
     }
 
+    public String getTextRepresentation()
+    {
+        final String delimiter = ":";
+        return (getId() + delimiter + getName());
+    }
+
+
     public Member( Member member )
     {
-        this(member.getName(), member.getId());
+        this( member.getName(), member.getId() );
     }
 
     public String getId()

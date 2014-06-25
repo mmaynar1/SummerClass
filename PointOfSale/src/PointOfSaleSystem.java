@@ -1,3 +1,5 @@
+import utility.RandomGenerator;
+
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -25,6 +27,7 @@ public class PointOfSaleSystem
 
     public void simulateRandomSales()
     {
+
         makeRandomSales( NUMBER_OF_SALES );
         List<Sale> listOfSales = getSalesFromDatabase();
         System.out.println( "---------- SALES MADE ----------" );
@@ -57,7 +60,7 @@ public class PointOfSaleSystem
 
     private List<Sale> getSalesFromDatabase()
     {
-        return new ArrayList<Sale>( Database.getSales().values() );
+        return new ArrayList<Sale>( Database.SALES.values() );
     }
 
     private void makeRandomSales( int size )
@@ -76,7 +79,7 @@ public class PointOfSaleSystem
 
             updateDrawers( sale );
 
-            Database.getSales().put( sale.getId(), sale );
+            Database.SALES.put( sale.getId(), sale );
         }
     }
 

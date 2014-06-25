@@ -1,3 +1,8 @@
+
+
+import utility.FileSupport;
+import utility.Format;
+
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
@@ -10,12 +15,62 @@ public final class Reports
     public static final int SPACES = 20;
     public static final boolean APPEND_MODE = true;
     public static final String salesFile = "src\\sales.txt";
+    private String drawerSummaryReportPath;
+    private String paymentMethodReportPath;
+    private String saleItemReportPath;
+    private String memberReportPath;
+
+
+    Reports()
+    {
+        configureFilePath();
+    }
+
 
 /*    public static void main( String[] args )
     {
 
         new Reports().createSales();
     }*/
+
+    private void configureFilePath()
+    {
+        Properties properties = new Properties();
+        InputStream input = null;
+
+        try
+        {
+            input = new FileInputStream( "fileNames.properties" );
+
+            // load a properties file
+            properties.load( input );
+
+            drawerSummaryReportPath = properties.getProperty( "drawerSummaryReport" );
+            paymentMethodReportPath = properties.getProperty( "paymentMethodReport" );
+            saleItemReportPath = properties.getProperty( "saleItemReport" );
+            memberReportPath = properties.getProperty( "memberReport" );
+
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            if ( input != null )
+            {
+                try
+                {
+                    input.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 
     public void createSales()
     {
@@ -40,8 +95,8 @@ public final class Reports
                 {
                     String clubId = matcher.group( 1 );
                     String memberId = matcher.group( 2 );
-                    Club club =  new Club(   clubId ) ;
-                    Member member = Database.getMember( memberId ) ;
+                    Club club = new Club( clubId );
+                    Member member = Database.getMember( memberId );
                     System.out.println( club.getClubNumber() + " " + club.getName() );
                     System.out.println( member.getName() );
 
@@ -66,8 +121,8 @@ public final class Reports
         try
         {
             String fileName = salesFile;
-            clearFile( fileName );
-            File file = getFile( fileName );
+            FileSupport.clearFile( fileName );
+            File file = FileSupport.getFile( fileName );
             FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
             BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
@@ -93,14 +148,15 @@ public final class Reports
     public void generateDrawerSummary( Map<String, List<Drawer>> drawers )
     {
 
-        String fileName = "src\\drawerSummary.txt";
+        String fileName = drawerSummaryReportPath;
         final List<String> HEADERS = Arrays.asList( "Payment Method", "Starting Balance", "In", "Out", "Ending Balance", "Net" );
 
         try
         {
-            clearFile( fileName );
 
-            File file = getFile( fileName );
+            FileSupport.clearFile( fileName );
+
+            File file = FileSupport.getFile( fileName );
             FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
             BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
@@ -166,10 +222,16 @@ public final class Reports
                                   Format.leftJustify( Format.formatMoney( companyGrandTotal ), SPACES ) );
             bufferedWriter.close();
         }
+
+        catch (FileNotFoundException exception)
+        {
+            throw new RuntimeException( "File not found" );
+        }
         catch (IOException exception)
         {
             throw new RuntimeException( "Could not generate Drawer Summary" );
         }
+
 
 
     }
@@ -190,14 +252,14 @@ public final class Reports
 
     private void printPaymentMethodReport( List<PaymentMethodReportDetail> paymentMethodReportDetails ) throws IOException
     {
-        String fileName = "src\\paymentMethodReport.txt";
+        String fileName = paymentMethodReportPath;
 
         Set<String> clubIds = getClubIds( paymentMethodReportDetails );
 
         final List<String> HEADERS = Arrays.asList( "Payment Method", "Payment Item Count", "Total" );
-        clearFile( fileName );
+        FileSupport.clearFile( fileName );
 
-        File file = getFile( fileName );
+        File file = FileSupport.getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
@@ -326,13 +388,13 @@ public final class Reports
 
     private void printSaleItemReport( List<SaleItemReportDetail> saleItemReportDetails ) throws IOException
     {
-        String fileName = "src\\saleItemReport.txt";
+        String fileName = saleItemReportPath;
 
         final List<String> HEADERS = Arrays.asList( "Name", "Quantity", "Unit Price", "Extended Price", "Discount", "Sub Total", "Tax Rate", "Tax", "Total" );
-        clearFile( fileName );
+        FileSupport.clearFile( fileName );
 
 
-        File file = getFile( fileName );
+        File file = FileSupport.getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
@@ -452,19 +514,19 @@ public final class Reports
 
     }
 
-    public void clearFile( String fileName ) throws IOException
+    /*public void clearFile( String fileName ) throws IOException
     {
         File file = getFile( fileName );
         FileWriter fileWriter = new FileWriter( file );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         bufferedWriter.flush();
         bufferedWriter.close();
-    }
+    }*/
 
 
     private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException
     {
-        String fileName = "src\\memberReport.txt";
+        String fileName = memberReportPath;
 
         final List<String> HEADERS = Arrays.asList( "Member", "Sales Count", "Sale Item Count", "Total" );
 
@@ -475,8 +537,8 @@ public final class Reports
         }
 
 
-        clearFile( fileName );
-        File file = getFile( fileName );
+        FileSupport.clearFile( fileName );
+        File file = FileSupport.getFile( fileName );
         FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
         BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
         int companySalesCount = 0;
@@ -526,7 +588,7 @@ public final class Reports
         bufferedWriter.close();
     }
 
-    private File getFile( String filePath ) throws IOException
+   /* private File getFile( String filePath ) throws IOException
     {
         File file = new File( filePath );
 
@@ -536,7 +598,7 @@ public final class Reports
             file.createNewFile();
         }
         return file;
-    }
+    }*/
 
     private List<MemberReportDetail> getMemberReportDetails( List<Sale> sales )
     {

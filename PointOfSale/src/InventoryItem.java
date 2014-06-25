@@ -1,3 +1,5 @@
+import utility.RandomGenerator;
+
 import java.math.BigDecimal;
 
 public final class InventoryItem
@@ -15,7 +17,7 @@ public final class InventoryItem
 
     public InventoryItem( String name, BigDecimal unitPrice, Tax tax )
     {
-        this(name,unitPrice,tax,RandomGenerator.getGuid());
+        this(name,unitPrice,tax, RandomGenerator.getGuid());
     }
 
     public InventoryItem( String name, BigDecimal unitPrice, Tax tax, String id )

@@ -1,3 +1,5 @@
+import utility.RandomGenerator;
+
 public class Company
 {
     private final String name;

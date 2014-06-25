@@ -1,3 +1,6 @@
+import utility.Format;
+import utility.RandomGenerator;
+
 import java.math.BigDecimal;
 
 public class SaleItem
@@ -28,7 +31,7 @@ public class SaleItem
         return DELIMITER + getInventoryItemId() + DELIMITER +
                getQuantity() + DELIMITER +
                getId() + DELIMITER +
-               Format.formatRate( getDiscountRate());
+               Format.formatRate( getDiscountRate() );
     }
 
     public BigDecimal getTotal()

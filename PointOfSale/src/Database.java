@@ -1,25 +1,37 @@
+import utility.RandomGenerator;
+
 import java.math.BigDecimal;
 import java.util.*;
 
 public class Database
 {
-    private static final Map<String, Member> members = new HashMap<String, Member>();
+    private static final Map<String, Member> MEMBERS = new HashMap<String, Member>();
     private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
     private static final Map<String, Club> clubs = new HashMap<String, Club>();
     private static final Map<String, Company> companies = new HashMap<String, Company>();
-    private static Map<String, Sale> sales = new HashMap<String, Sale>();
+    public static Map<String, Sale> SALES = new HashMap<String, Sale>();
 
     private Database()
     {
     }
 
-    static
+    public static void initializeDatabase()
     {
         initializeMembers();
         initializeInventoryItems();
         initializeCompanies();
         initializeClubs();
     }
+
+
+    //todo get rid of static block
+    //todo put objects in collections?
+
+    public static void serializeMembers()
+    {
+
+    }
+
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
     {
@@ -31,7 +43,7 @@ public class Database
         return getInventoryItems().get( inventoryItemId ).getName();
     }
 
-    public static Club getClub(String clubId)
+    public static Club getClub( String clubId )
     {
         return getClubs().get( clubId );
     }
@@ -44,17 +56,17 @@ public class Database
 
     public static String getMemberName( String memberId )
     {
-        return getMembers().get( memberId ).getName();
+        return MEMBERS.get( memberId ).getName();
     }
 
-    public static InventoryItem getInventoryItem(String inventoryItemId)
+    public static InventoryItem getInventoryItem( String inventoryItemId )
     {
         return getInventoryItems().get( inventoryItemId );
     }
 
-    public static Member getMember(String memberId)
+    public static Member getMember( String memberId )
     {
-        return getMembers().get( memberId );
+        return MEMBERS.get( memberId );
     }
 
 
@@ -151,13 +163,13 @@ public class Database
 
         for (Member member : members)
         {
-            getMembers().put( member.getId(), member );
+            MEMBERS.put( member.getId(), member );
         }
     }
 
     public static List<Member> getListOfMembers()
     {
-        return new ArrayList<Member>( getMembers().values() );
+        return new ArrayList<Member>( MEMBERS.values() );
     }
 
     public static String getFirstCompanyId()
@@ -221,16 +233,6 @@ public class Database
         return new ArrayList<InventoryItem>( getInventoryItems().values() );
     }
 
-    public static Map<String, Sale> getSales()
-    {
-        return sales;
-    }
-
-
-    private static Map<String, Member> getMembers()
-    {
-        return members;
-    }
 
     private static Map<String, InventoryItem> getInventoryItems()
     {
