@@ -1,5 +1,8 @@
 import utility.RandomGenerator;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -10,6 +13,7 @@ public class Database
     private static final Map<String, Club> clubs = new HashMap<String, Club>();
     private static final Map<String, Company> companies = new HashMap<String, Company>();
     public static Map<String, Sale> SALES = new HashMap<String, Sale>();
+
 
     private Database()
     {
@@ -26,11 +30,6 @@ public class Database
 
     //todo get rid of static block
     //todo put objects in collections?
-
-    public static void serializeMembers()
-    {
-
-    }
 
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
@@ -172,6 +171,7 @@ public class Database
         return new ArrayList<Member>( MEMBERS.values() );
     }
 
+
     public static String getFirstCompanyId()
     {
         return getListOfCompanies().get( 0 ).getId();
@@ -234,7 +234,7 @@ public class Database
     }
 
 
-    private static Map<String, InventoryItem> getInventoryItems()
+    public static Map<String, InventoryItem> getInventoryItems()
     {
         return inventoryItems;
     }

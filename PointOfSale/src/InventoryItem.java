@@ -1,3 +1,4 @@
+import utility.Format;
 import utility.RandomGenerator;
 
 import java.math.BigDecimal;
@@ -27,6 +28,16 @@ public final class InventoryItem
         this.id = id;
         this.tax = tax;
     }
+
+    public String getTextRepresentation()
+    {
+        String delimiter = ":";
+        return getName() + delimiter +
+               Format.formatMoneyNotPretty( getUnitPrice() ) + delimiter +
+               Format.formatRate( getTax().getRate() ) + delimiter +
+               getId();
+    }
+
 
     public InventoryItem (InventoryItem inventoryItem)
     {

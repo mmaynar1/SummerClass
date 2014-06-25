@@ -6,8 +6,14 @@ public class Tax
 
     Tax( double rate )
     {
-        this.rate = new BigDecimal(  rate );
+        this( new BigDecimal( rate ) );
     }
+
+    Tax( BigDecimal rate )
+    {
+        this.rate = rate;
+    }
+
 
     public BigDecimal getRate()
     {

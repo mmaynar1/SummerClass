@@ -72,7 +72,7 @@ public final class Reports
     }
 
 
-    public void createSales()
+    /*public void createSales()
     {
         try
         {
@@ -80,9 +80,9 @@ public final class Reports
             Scanner scanner = new Scanner( reader );
 
 
-            final String guidPattern = "(\\w{32})";
+            final String GUID_PATTERN = "(\\w{32})";
 
-            Pattern pattern = Pattern.compile( guidPattern + Sale.DELIMITER + guidPattern + ".*" );
+            Pattern pattern = Pattern.compile( GUID_PATTERN + Sale.DELIMITER + GUID_PATTERN + ".*" );
 
             int count = 1;
 
@@ -113,10 +113,10 @@ public final class Reports
         {
             throw new RuntimeException( "File could not be read" );
         }
-    }
+    }*/
 
 
-    public void createSalesFile( List<Sale> sales )
+    /*public void serializeSales( List<Sale> sales )
     {
         try
         {
@@ -144,7 +144,7 @@ public final class Reports
         writer.write( sale.getTextRepresentation() );
         writer.newLine();
     }
-
+*/
     public void generateDrawerSummary( Map<String, List<Drawer>> drawers )
     {
 
@@ -514,14 +514,6 @@ public final class Reports
 
     }
 
-    /*public void clearFile( String fileName ) throws IOException
-    {
-        File file = getFile( fileName );
-        FileWriter fileWriter = new FileWriter( file );
-        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
-        bufferedWriter.flush();
-        bufferedWriter.close();
-    }*/
 
 
     private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException
@@ -588,17 +580,6 @@ public final class Reports
         bufferedWriter.close();
     }
 
-   /* private File getFile( String filePath ) throws IOException
-    {
-        File file = new File( filePath );
-
-        // if file doesn't exist, then create it
-        if ( !file.exists() )
-        {
-            file.createNewFile();
-        }
-        return file;
-    }*/
 
     private List<MemberReportDetail> getMemberReportDetails( List<Sale> sales )
     {

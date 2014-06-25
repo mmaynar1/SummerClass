@@ -1,25 +1,25 @@
 Member Sales Summary - 5000 Sherwood
 Member              Sales Count         Sale Item Count     Total               
-Babe Ruth           11                  85                  $1,969.79           
-Bill Cosby          3                   10                  $53.89              
-Forrest Gump        10                  64                  $1,735.79           
-Totals:             24                  159                 $3,759.47           
+Bill Cosby          13                  111                 $2,884.30           
+Totals:             13                  111                 $2,884.30           
 
 Member Sales Summary - 5001 Conway
 Member              Sales Count         Sale Item Count     Total               
-Larry Bird          10                  84                  $1,895.02           
-Reggie Miller       9                   81                  $1,625.61           
-Taylor Swift        5                   55                  $590.85             
-Tiger Woods         11                  60                  $1,565.62           
-Totals:             35                  280                 $5,677.10           
+Babe Ruth           12                  112                 $1,349.95           
+Reggie Miller       12                  109                 $1,931.90           
+Taylor Swift        11                  79                  $1,418.93           
+Walter White        13                  99                  $2,269.75           
+Totals:             48                  399                 $6,970.53           
 
 Member Sales Summary - 5002 Benton
 Member              Sales Count         Sale Item Count     Total               
-George Bush         16                  117                 $2,300.33           
-Ken Griffey Jr.     12                  97                  $2,877.58           
-Walter White        13                  97                  $2,386.07           
-Totals:             41                  311                 $7,563.98           
+Forrest Gump        3                   12                  $298.23             
+George Bush         9                   84                  $1,570.75           
+Ken Griffey Jr.     8                   45                  $777.18             
+Larry Bird          7                   50                  $566.26             
+Tiger Woods         12                  57                  $647.77             
+Totals:             39                  248                 $3,860.19           
 
 
 
-Company Totals:     100                 750                 $17,000.55          
+Company Totals:     100                 758                 $13,715.02          

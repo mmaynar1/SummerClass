@@ -7,6 +7,7 @@ public class Format
 {
 
     public static final int MONEY_DECIMAL_PLACES = 2;
+
     public static String leftJustify( String value, int width )
     {
         return String.format( "%-" + width + "s", value );
@@ -36,6 +37,24 @@ public class Format
         else
         {
             final DecimalFormat moneyFormat = new DecimalFormat( "$#,##0.00" );
+            formattedMoney = moneyFormat.format( money );
+        }
+
+        return formattedMoney;
+    }
+
+    public static String formatMoneyNotPretty( BigDecimal money )
+    {
+        money = money.setScale( MONEY_DECIMAL_PLACES, BigDecimal.ROUND_HALF_UP );
+        String formattedMoney;
+
+        if ( money == null )
+        {
+            formattedMoney = "0.00";
+        }
+        else
+        {
+            final DecimalFormat moneyFormat = new DecimalFormat( "###0.00" );
             formattedMoney = moneyFormat.format( money );
         }
 

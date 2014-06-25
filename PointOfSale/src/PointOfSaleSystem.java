@@ -1,17 +1,30 @@
+import utility.FileSupport;
 import utility.RandomGenerator;
 
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PointOfSaleSystem
 {
     public static final int MONEY_DECIMAL_PLACES = 2;
-    public static final int NUMBER_OF_SALES = 100;
+    public static final boolean APPEND_MODE = true;
 
     private final Map<String, List<Drawer>> drawers;
 
+    private String membersPath;
+    private String inventoryItemsPath;
+    private String clubsPath;
+    private String drawersPath;
+    private String salesPath;
+
     public PointOfSaleSystem()
     {
+        configureFilePath();
+        serializeDatabase();
+
         this.drawers = new HashMap<String, List<Drawer>>();
         for (Club club : Database.getListOfClubs())
         {
@@ -25,10 +38,154 @@ public class PointOfSaleSystem
         }
     }
 
+    private void configureFilePath()
+    {
+        Properties properties = new Properties();
+        InputStream input = null;
+
+        try
+        {
+            input = new FileInputStream( "fileNames.properties" );
+
+            // load a properties file
+            properties.load( input );
+
+            membersPath = properties.getProperty( "members" );
+            inventoryItemsPath = properties.getProperty( "inventoryItems" );
+            clubsPath = properties.getProperty( "clubs" );
+            drawersPath = properties.getProperty( "drawers" );
+            salesPath = properties.getProperty( "sales" );
+
+
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            if ( input != null )
+            {
+                try
+                {
+                    input.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void serializeDatabase()
+    {
+        serializeMembers();
+        serializeInventoryItems();
+        serializeClubs();
+    }
+
+
+    private void serializeClubs()
+    {
+        try
+        {
+            FileSupport.clearFile( clubsPath );
+            File file = FileSupport.getFile( clubsPath );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            for (Club club : Database.getListOfClubs())
+            {
+                bufferedWriter.write( club.getTextRepresentation() );
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Can't get members file" );
+        }
+    }
+
+
+    private void serializeDrawers()
+    {
+        try
+        {
+            FileSupport.clearFile( drawersPath );
+            File file = FileSupport.getFile( drawersPath );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+            for (String clubId : getDrawers().keySet())
+            {
+                for (Drawer drawer : getDrawers().get( clubId ))
+                {
+                    bufferedWriter.write( clubId + ":" + drawer.getTextRepresentation() );
+                    bufferedWriter.newLine();
+                }
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Can't get members file" );
+        }
+    }
+
+
+    private void serializeMembers()
+    {
+        try
+        {
+            FileSupport.clearFile( membersPath );
+            File file = FileSupport.getFile( membersPath );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            for (Member member : Database.getListOfMembers())
+            {
+                bufferedWriter.write( member.getTextRepresentation() );
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Can't get members file" );
+        }
+    }
+
+    private void serializeInventoryItems()
+    {
+        try
+        {
+            FileSupport.clearFile( inventoryItemsPath );
+            File file = FileSupport.getFile( inventoryItemsPath );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            for (InventoryItem inventoryItem : Database.getInventoryItems().values())
+            {
+                bufferedWriter.write( inventoryItem.getTextRepresentation() );
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Can't get inventory items file" );
+        }
+    }
+
     public void simulateRandomSales()
     {
-
-        makeRandomSales( NUMBER_OF_SALES );
+        final int numberOfSales = (Integer.parseInt( System.getenv( "NUM_SALES" ) ));
+        makeRandomSales( numberOfSales );
         List<Sale> listOfSales = getSalesFromDatabase();
         System.out.println( "---------- SALES MADE ----------" );
         for (Sale sale : listOfSales)
@@ -39,17 +196,50 @@ public class PointOfSaleSystem
 
         }
 
+        serializeDrawers();
 
         Reports reports = new Reports();
 
-        reports.createSalesFile( listOfSales );
+        serializeSales( listOfSales );
 
-        reports.createSales();
+        //reports.createSales();
         reports.generateDrawerSummary( getDrawers() );
         reports.generateMemberReport( listOfSales );
         reports.generateSalesItemReport( listOfSales );
         reports.generatePaymentMethodReport( listOfSales );
     }
+
+    public void serializeSales( List<Sale> sales )
+    {
+        try
+        {
+            String fileName = salesPath;
+            FileSupport.clearFile( fileName );
+            File file = FileSupport.getFile( fileName );
+            FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
+            BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+
+            for (Sale sale : sales)
+            {
+                addSaleToFile( sale, bufferedWriter );
+            }
+
+            bufferedWriter.close();
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Could not write to sales file" );
+        }
+    }
+
+
+
+    private void addSaleToFile( Sale sale, BufferedWriter writer ) throws IOException
+    {
+        writer.write( sale.getTextRepresentation() );
+        writer.newLine();
+    }
+
 
     private BigDecimal getRandomDiscountRate()
     {

@@ -2,6 +2,7 @@ import utility.RandomGenerator;
 
 public final class Member
 {
+    public static final String DELIMITER = ":";
     private final String name;
     private final String id;
 
@@ -18,8 +19,7 @@ public final class Member
 
     public String getTextRepresentation()
     {
-        final String delimiter = ":";
-        return (getId() + delimiter + getName());
+        return (getId() + DELIMITER + getName());
     }
 
 

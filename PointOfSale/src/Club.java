@@ -2,6 +2,8 @@ import utility.RandomGenerator;
 
 public class Club
 {
+   public static final String DELIMITER = ":";
+
     private final String name;
     private final int clubNumber;
     private final String id;
@@ -28,6 +30,14 @@ public class Club
     public Club( Club club )
     {
         this( club.getName(), club.getClubNumber(), club.getCompanyId(), club.getId() );
+    }
+
+    public String getTextRepresentation()
+    {
+        return getName() + DELIMITER +
+               getClubNumber() + DELIMITER +
+               getCompanyId() + DELIMITER +
+               getId();
     }
 
     public String getName()

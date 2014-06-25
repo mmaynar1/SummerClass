@@ -1,3 +1,5 @@
+import utility.Format;
+
 import java.math.BigDecimal;
 
 public class Drawer
@@ -10,11 +12,32 @@ public class Drawer
 
     public Drawer( String paymentMethodAbcCode, BigDecimal startingBalance )
     {
-        this.paymentMethodAbcCode = paymentMethodAbcCode;
+        this( paymentMethodAbcCode, startingBalance, startingBalance, BigDecimal.ZERO, BigDecimal.ZERO );
+/*        this.paymentMethodAbcCode = paymentMethodAbcCode;
         this.startingBalance = startingBalance;
         setBalance( getStartingBalance() );
         setMoneyIn( BigDecimal.ZERO );
-        setMoneyOut( BigDecimal.ZERO );
+        setMoneyOut( BigDecimal.ZERO );*/
+    }
+
+    public Drawer( String paymentMethodAbcCode, BigDecimal startingBalance, BigDecimal balance, BigDecimal moneyIn, BigDecimal moneyOut )
+    {
+        this.paymentMethodAbcCode = paymentMethodAbcCode;
+        this.startingBalance = startingBalance;
+        this.balance = balance;
+        this.moneyIn = moneyIn;
+        this.moneyOut = moneyOut;
+    }
+
+
+    public String getTextRepresentation()
+    {
+        String delimiter = ":";
+        return getPaymentMethodAbcCode() + delimiter +
+               Format.formatMoneyNotPretty( getStartingBalance() ) + delimiter +
+               Format.formatMoneyNotPretty( getBalance() ) + delimiter +
+               Format.formatMoneyNotPretty( getMoneyIn() ) + delimiter +
+               Format.formatMoneyNotPretty( getMoneyOut() );
     }
 
     public void update( PaymentDetail paymentDetail )
