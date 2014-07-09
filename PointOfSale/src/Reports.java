@@ -14,7 +14,7 @@ public final class Reports
 
     public static final int SPACES = 20;
     public static final boolean APPEND_MODE = true;
-    public static final String salesFile = "src\\sales.txt";
+    public static final String DELIMITER = ":";
     private String drawerSummaryReportPath;
     private String paymentMethodReportPath;
     private String saleItemReportPath;
@@ -231,7 +231,6 @@ public final class Reports
         {
             throw new RuntimeException( "Could not generate Drawer Summary" );
         }
-
 
 
     }
@@ -492,6 +491,22 @@ public final class Reports
         bufferedWriter.newLine();
     }
 
+    public void clear()
+    {
+        try
+        {
+            FileSupport.clearFile( drawerSummaryReportPath );
+            FileSupport.clearFile( paymentMethodReportPath );
+            FileSupport.clearFile( saleItemReportPath );
+            FileSupport.clearFile( memberReportPath );
+        }
+        catch (Exception exception)
+        {
+            throw new RuntimeException( "Could not clear files" );
+        }
+
+    }
+
     private static class MemberNameComparator implements Comparator<MemberReportDetail>
     {
         @Override
@@ -513,7 +528,6 @@ public final class Reports
         }
 
     }
-
 
 
     private void printMemberReport( List<MemberReportDetail> memberReportDetails ) throws IOException

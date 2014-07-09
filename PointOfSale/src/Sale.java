@@ -17,11 +17,16 @@ public final class Sale
 
     public Sale( String clubId, String memberId, List<SaleItem> saleItems, List<PaymentDetail> paymentDetails, BigDecimal discountRate )
     {
+        this( clubId, memberId, saleItems, paymentDetails, RandomGenerator.getGuid(), discountRate );
+    }
+
+    public Sale( String clubId, String memberId, List<SaleItem> saleItems, List<PaymentDetail> paymentDetails, String saleId, BigDecimal discountRate )
+    {
         this.clubId = clubId;
         this.memberId = memberId;
         this.saleItems = saleItems;
         this.paymentDetails = paymentDetails;
-        this.id = RandomGenerator.getGuid();
+        this.id = saleId;
         this.discountRate = discountRate;
     }
 
@@ -112,7 +117,7 @@ public final class Sale
 
     public String getTextRepresentation()
     {
-        String line = getClubId() + DELIMITER +
+        String line = DELIMITER + getClubId() + DELIMITER +
                       getMemberId();
 
         for (SaleItem saleItem : getSaleItems())
@@ -120,7 +125,7 @@ public final class Sale
             line += saleItem.getTextRepresentation();
         }
 
-        line += DELIMITER;
+        //line += DELIMITER;
 
         for (PaymentDetail paymentDetail : getPaymentDetails())
         {
@@ -130,7 +135,7 @@ public final class Sale
         line += DELIMITER;
 
         line += getId() + DELIMITER;
-        line += Format.formatRate( getDiscountRate());
+        line += Format.formatRate( getDiscountRate() );
 
         return line;
     }

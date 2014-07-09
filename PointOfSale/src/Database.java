@@ -1,17 +1,14 @@
 import utility.RandomGenerator;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.*;
 
 public class Database
 {
-    private static final Map<String, Member> MEMBERS = new HashMap<String, Member>();
-    private static final Map<String, InventoryItem> inventoryItems = new HashMap<String, InventoryItem>();
-    private static final Map<String, Club> clubs = new HashMap<String, Club>();
-    private static final Map<String, Company> companies = new HashMap<String, Company>();
+    public static final Map<String, Member> MEMBERS = new HashMap<String, Member>();
+    public static final Map<String, InventoryItem> INVENTORY_ITEMS = new HashMap<String, InventoryItem>();
+    public static final Map<String, Club> CLUBS = new HashMap<String, Club>();
+    public static final Map<String, Company> COMPANIES = new HashMap<String, Company>();
     public static Map<String, Sale> SALES = new HashMap<String, Sale>();
 
 
@@ -34,23 +31,23 @@ public class Database
 
     public static BigDecimal getUnitPrice( String inventoryItemId )
     {
-        return getInventoryItems().get( inventoryItemId ).getUnitPrice();
+        return INVENTORY_ITEMS.get( inventoryItemId ).getUnitPrice();
     }
 
     public static String getInventoryItemName( String inventoryItemId )
     {
-        return getInventoryItems().get( inventoryItemId ).getName();
+        return INVENTORY_ITEMS.get( inventoryItemId ).getName();
     }
 
     public static Club getClub( String clubId )
     {
-        return getClubs().get( clubId );
+        return CLUBS.get( clubId );
     }
 
 
     public static BigDecimal getInventoryItemTaxRate( String inventoryItemId )
     {
-        return getInventoryItems().get( inventoryItemId ).getTax().getRate();
+        return INVENTORY_ITEMS.get( inventoryItemId ).getTax().getRate();
     }
 
     public static String getMemberName( String memberId )
@@ -60,7 +57,7 @@ public class Database
 
     public static InventoryItem getInventoryItem( String inventoryItemId )
     {
-        return getInventoryItems().get( inventoryItemId );
+        return INVENTORY_ITEMS.get( inventoryItemId );
     }
 
     public static Member getMember( String memberId )
@@ -91,7 +88,7 @@ public class Database
 
         for (int i = 0; i < randomNumberOfSaleItems; ++i)
         {
-            int randomIndex = RandomGenerator.getInt( 0, getInventoryItems().size() );
+            int randomIndex = RandomGenerator.getInt( 0, INVENTORY_ITEMS.size() );
             randomInventoryItems.add( getListOfInventoryItems().get( randomIndex ) );
         }
 
@@ -109,7 +106,7 @@ public class Database
 
         for (Club club : clubs)
         {
-            getClubs().put( club.getId(), club );
+            CLUBS.put( club.getId(), club );
         }
 
     }
@@ -121,7 +118,7 @@ public class Database
 
         for (Company company : companies)
         {
-            getCompanies().put( company.getId(), company );
+            COMPANIES.put( company.getId(), company );
         }
     }
 
@@ -142,7 +139,7 @@ public class Database
 
         for (InventoryItem item : inventoryItems)
         {
-            getInventoryItems().put( item.getId(), item );
+            INVENTORY_ITEMS.put( item.getId(), item );
         }
     }
 
@@ -201,7 +198,7 @@ public class Database
 
     public static List<Club> getListOfClubs()
     {
-        return new ArrayList<Club>( getClubs().values() );
+        return new ArrayList<Club>( CLUBS.values() );
     }
 
 
@@ -224,28 +221,15 @@ public class Database
 
     private static List<Company> getListOfCompanies()
     {
-        return new ArrayList<Company>( getCompanies().values() );
+        return new ArrayList<Company>( COMPANIES.values() );
     }
 
 
     private static List<InventoryItem> getListOfInventoryItems()
     {
-        return new ArrayList<InventoryItem>( getInventoryItems().values() );
+        return new ArrayList<InventoryItem>( INVENTORY_ITEMS.values() );
     }
 
 
-    public static Map<String, InventoryItem> getInventoryItems()
-    {
-        return inventoryItems;
-    }
 
-    private static Map<String, Company> getCompanies()
-    {
-        return companies;
-    }
-
-    public static Map<String, Club> getClubs()
-    {
-        return clubs;
-    }
 }

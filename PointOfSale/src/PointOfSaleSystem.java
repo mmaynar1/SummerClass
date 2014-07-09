@@ -168,7 +168,7 @@ public class PointOfSaleSystem
             FileWriter fileWriter = new FileWriter( file, APPEND_MODE );
             BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
 
-            for (InventoryItem inventoryItem : Database.getInventoryItems().values())
+            for (InventoryItem inventoryItem : Database.INVENTORY_ITEMS.values())
             {
                 bufferedWriter.write( inventoryItem.getTextRepresentation() );
                 bufferedWriter.newLine();
@@ -191,7 +191,7 @@ public class PointOfSaleSystem
         for (Sale sale : listOfSales)
         {
             System.out.println( sale );
-            System.out.println( sale.getTextRepresentation() );
+            //System.out.println( sale.getTextRepresentation() );
             System.out.println();
 
         }
@@ -203,10 +203,11 @@ public class PointOfSaleSystem
         serializeSales( listOfSales );
 
         //reports.createSales();
-        reports.generateDrawerSummary( getDrawers() );
+/*        reports.generateDrawerSummary( getDrawers() );
         reports.generateMemberReport( listOfSales );
         reports.generateSalesItemReport( listOfSales );
-        reports.generatePaymentMethodReport( listOfSales );
+        reports.generatePaymentMethodReport( listOfSales );*/
+        reports.clear();
     }
 
     public void serializeSales( List<Sale> sales )

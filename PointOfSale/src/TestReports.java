@@ -11,23 +11,25 @@ public class TestReports
         new TestReports().generateReports();
     }
 
+    public static final String ABC_CODE_PATTERN = "([A-Za-z]+)";
+    public static final String ANY_PATTERN = "(.+)";
+    public static final String SALE_ITEMS_PATTERN = "(.+)";//"((!(\\w{32})!(.+)!(\\w{32})!(.+))+)";
+    public static final String PAYMENT_DETAILS_PATTERN = "(.+)";//(@[A-Za-z \\-'\\.]+@.+@.+)+";
     public static final String TAX_RATE_PATTERN = "(.+)";
     public static final String MONEY_PATTERN = "(.+)";
     public static final String GUID_PATTERN = "(\\w{32})";
     public static final String NAME_PATTERN = "([A-Za-z \\-'\\.]+)";
+    public static final String QUANTITY_PATTERN = "(\\d{1,5})";
     public static final String CLUB_NUMBER_PATTERN = "([\\d]{4})";
     public static final String DELIMITER = ":";
 
-    private static final Map<String, Member> MEMBERS = new HashMap<String, Member>();
-    private static final Map<String, InventoryItem> INVENTORY_ITEMS = new HashMap<String, InventoryItem>();
-    private static final Map<String, Club> CLUBS = new HashMap<String, Club>();
-    private static final Map<String, Sale> SALES = new HashMap<String, Sale>();
     private static final Map<String, List<Drawer>> DRAWERS = new HashMap<String, List<Drawer>>();
 
     private String clubsPath;
     private String membersPath;
     private String drawersPath;
     private String inventoryItemsPath;
+    private String salesPath;
 
     public TestReports()
     {
@@ -37,6 +39,14 @@ public class TestReports
     private void generateReports()
     {
         populateCollections();
+
+        Reports reports = new Reports();
+        //todo
+        //reports.generateDrawerSummary( getDrawers() );
+        List<Sale> sales = new ArrayList<Sale>( Database.SALES.values() );
+        reports.generateMemberReport( sales );
+        reports.generateSalesItemReport( sales );
+        reports.generatePaymentMethodReport( sales );
     }
 
     private void populateCollections()
@@ -45,6 +55,7 @@ public class TestReports
         populateClubs();
         populateInventoryItems();
         populateDrawers();
+        populateSales();
     }
 
     private void populateDrawers()
@@ -80,7 +91,7 @@ public class TestReports
                     List<Drawer> drawers = DRAWERS.get( clubId );
                     if ( drawers == null )
                     {
-                        drawers = new ArrayList<Drawer>(  );
+                        drawers = new ArrayList<Drawer>();
                         drawers.add( drawer );
                         DRAWERS.put( clubId, drawers );
                     }
@@ -88,7 +99,7 @@ public class TestReports
                     {
                         DRAWERS.get( clubId ).add( drawer );
                     }
-                    System.out.println( drawer.getTextRepresentation() );
+                    //System.out.println( drawer.getTextRepresentation() );
                 }
 
                 line = reader.readLine();
@@ -126,7 +137,7 @@ public class TestReports
                     BigDecimal taxRate = new BigDecimal( matcher.group( 3 ) );
                     String id = matcher.group( 4 );
                     InventoryItem inventoryItem = new InventoryItem( inventoryItemName, unitPrice, new Tax( taxRate ), id );
-                    INVENTORY_ITEMS.put( id, inventoryItem );
+                    Database.INVENTORY_ITEMS.put( id, inventoryItem );
                     System.out.println( inventoryItem.getTextRepresentation() );
                 }
 
@@ -164,8 +175,8 @@ public class TestReports
                     String companyId = matcher.group( 3 );
                     String clubId = matcher.group( 4 );
                     Club club = new Club( clubName, clubNumber, companyId, clubId );
-                    CLUBS.put( clubId, club );
-                    System.out.println( club.getTextRepresentation() );
+                    Database.CLUBS.put( clubId, club );
+                    // System.out.println( club.getTextRepresentation() );
                 }
 
                 line = reader.readLine();
@@ -197,8 +208,8 @@ public class TestReports
                     String memberId = matcher.group( 1 );
                     String memberName = matcher.group( 2 );
                     Member member = new Member( memberName, memberId );
-                    MEMBERS.put( memberId, member );
-                    System.out.println( member.getTextRepresentation() );
+                    Database.MEMBERS.put( memberId, member );
+                    // System.out.println( member.getTextRepresentation() );
                 }
 
                 line = reader.readLine();
@@ -212,48 +223,126 @@ public class TestReports
     }
 
 
-    /*  public void createSales()
-          {
-              try
-              {
-                  BufferedReader reader = new BufferedReader( new FileReader( salesFile ) );
-                  Scanner scanner = new Scanner( reader );
+    public void populateSales()
+    {
+        try
+        {
+            BufferedReader reader = new BufferedReader( new FileReader( salesPath ) );
+
+            Pattern pattern = Pattern.compile( ":(\\w{32}):(\\w{32})!([!\\w\\.]+)#([#\\w\\.]+):(\\w{32}):(\\d{1,2}\\.\\d{2})" );
+/*
+            List<SaleItem> saleItems = new ArrayList<SaleItem>();
+            List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();*/
+            String line = reader.readLine();
+            while ( line != null )
+            {
+                Matcher matcher = pattern.matcher( line );
+
+                if ( matcher.matches() )
+                {
+                    String clubId = matcher.group( 1 );
+                    String memberId = matcher.group( 2 );
+                    String saleItemLine = matcher.group( 3 );
+                    String paymentDetailLine = matcher.group( 4 );
+                    String saleId = matcher.group( 5 );
+                    BigDecimal saleDiscountRate = new BigDecimal( matcher.group( 6 ) );
+
+                    //System.out.println();
+                    // System.out.println();
+
+                    List<SaleItem> saleItems = new ArrayList<SaleItem>(  parseSaleItemsLine( saleItemLine ));
+                    List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>(  parsePaymentDetailsToList( paymentDetailLine ));
+
+                    Sale sale = new Sale( clubId, memberId, saleItems, paymentDetails, saleId, saleDiscountRate );
+                    Database.SALES.put( sale.getId(), sale );
+                    //saleItems.clear();
+                    //paymentDetails.clear();
 
 
-                  final String GUID_PATTERN = "(\\w{32})";
+                }
+                line = reader.readLine();
+            }
+            reader.close();
+        }
+        catch (IOException exception)
+        {
+            throw new RuntimeException( "File could not be read" );
+        }
+    }
 
-                  Pattern pattern = Pattern.compile( GUID_PATTERN + Sale.DELIMITER + GUID_PATTERN + ".*" );
+    private List<PaymentDetail> parsePaymentDetailsToList( String paymentDetailLine )
+    {
+        List<PaymentDetail> paymentDetails = new ArrayList<PaymentDetail>();
+        String[] parts = paymentDetailLine.split( PaymentDetail.DELIMITER );
+        String paymentMethodAbcCode = "";
+        BigDecimal cost = BigDecimal.ZERO;
+        BigDecimal payment;
+        int paymentMethodDelimiterCount = 0;
+        for (int i = 0; i < parts.length; ++i)
+        {
+            ++paymentMethodDelimiterCount;
+            switch ( paymentMethodDelimiterCount )
+            {
+                case 1:
+                    paymentMethodAbcCode = parts[i];
+                    break;
+                case 2:
+                    cost = new BigDecimal( parts[i] );
+                    break;
+                case 3:
+                    payment = new BigDecimal( parts[i] );
+                    PaymentDetail paymentDetail = new PaymentDetail( paymentMethodAbcCode, cost, payment );
+                    paymentDetails.add( paymentDetail );
+                    paymentMethodDelimiterCount = 0;
+                    break;
+                default:
+                    throw new RuntimeException( "Invalid delimiter count" );
 
-                  int count = 1;
+            }
+            //System.out.println();
 
-                  while ( scanner.hasNext() )
-                  {
-                      String line = scanner.next();
-                      Matcher matcher = pattern.matcher( line );
+        }
+        return paymentDetails;
+    }
 
-                      if ( matcher.matches() )
-                      {
-                          String clubId = matcher.group( 1 );
-                          String memberId = matcher.group( 2 );
-                          Club club = new Club( clubId );
-                          Member member = Database.getMember( memberId );
-                          System.out.println( club.getClubNumber() + " " + club.getName() );
-                          System.out.println( member.getName() );
+    private List<SaleItem> parseSaleItemsLine( String saleItemLine )
+    {
+        List<SaleItem> saleItems = new ArrayList<SaleItem>();
+        String[] parts = saleItemLine.split( SaleItem.DELIMITER );
+        String inventoryItemId = "";
+        int quantity = 0;
+        String saleItemId = "";
+        BigDecimal discountRate;
+        int saleItemDelimiterCount = 0;
+        for (int i = 0; i < parts.length; i++)
+        {
+            ++saleItemDelimiterCount;
+            switch ( saleItemDelimiterCount )
+            {
+                case 1:
+                    inventoryItemId = parts[i];
+                    break;
+                case 2:
+                    quantity = Integer.parseInt( parts[i] );
+                    break;
+                case 3:
+                    saleItemId = parts[i];
+                    break;
+                case 4:
+                    discountRate = new BigDecimal( parts[i] );
+                    SaleItem saleItem = new SaleItem( inventoryItemId, quantity, discountRate, saleItemId );
+                    saleItems.add( saleItem );
+                    saleItemDelimiterCount = 0;
+                    break;
+                default:
+                    throw new RuntimeException( "Invalid delimiter count" );
 
-                      }
+            }
 
+        }
+        return saleItems;
+    }
 
-                      System.out.println( count + "  " + line );
-                      ++count;
-                      System.out.println();
-                      System.out.println();
-                  }
-              }
-              catch (IOException exception)
-              {
-                  throw new RuntimeException( "File could not be read" );
-              }
-          }*/
     private void configureFilePath()
     {
         Properties properties = new Properties();
@@ -270,6 +359,7 @@ public class TestReports
             inventoryItemsPath = properties.getProperty( "inventoryItems" );
             clubsPath = properties.getProperty( "clubs" );
             drawersPath = properties.getProperty( "drawers" );
+            salesPath = properties.getProperty( "sales" );
 
 
         }

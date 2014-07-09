@@ -1,0 +1,38 @@
+Event Type and Status Report
+Club                  Event Type            Status                Count                 
+Conway                Kick Boxing           Cancelled             81                    
+Conway                Kick Boxing           Complete              87                    
+Conway                Kick Boxing           Pending               96                    
+Conway                Personal Training     Cancelled             95                    
+Conway                Personal Training     Complete              72                    
+Conway                Personal Training     Pending               73                    
+Conway                Pilates               Cancelled             78                    
+Conway                Pilates               Complete              71                    
+Conway                Pilates               Pending               64                    
+Conway                Zumba                 Cancelled             81                    
+Conway                Zumba                 Complete              61                    
+Conway                Zumba                 Pending               74                    
+Searcy                Kick Boxing           Cancelled             90                    
+Searcy                Kick Boxing           Complete              79                    
+Searcy                Kick Boxing           Pending               75                    
+Searcy                Personal Training     Cancelled             83                    
+Searcy                Personal Training     Complete              74                    
+Searcy                Personal Training     Pending               84                    
+Searcy                Pilates               Cancelled             81                    
+Searcy                Pilates               Complete              75                    
+Searcy                Pilates               Pending               85                    
+Searcy                Zumba                 Cancelled             82                    
+Searcy                Zumba                 Complete              82                    
+Searcy                Zumba                 Pending               67                    
+Sherwood              Kick Boxing           Cancelled             87                    
+Sherwood              Kick Boxing           Complete              74                    
+Sherwood              Kick Boxing           Pending               72                    
+Sherwood              Personal Training     Cancelled             79                    
+Sherwood              Personal Training     Complete              73                    
+Sherwood              Personal Training     Pending               86                    
+Sherwood              Pilates               Cancelled             84                    
+Sherwood              Pilates               Complete              70                    
+Sherwood              Pilates               Pending               84                    
+Sherwood              Zumba                 Cancelled             85                    
+Sherwood              Zumba                 Complete              70                    
+Sherwood              Zumba                 Pending               91                    

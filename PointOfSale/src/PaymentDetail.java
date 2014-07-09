@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 
 public final class PaymentDetail
 {
-    public static final String DELIMITER = "@";
+    public static final String DELIMITER = "#";
 
     private final String paymentMethodAbcCode;
     private final BigDecimal cost;
@@ -21,8 +21,7 @@ public final class PaymentDetail
     {
         return DELIMITER + getPaymentMethodAbcCode() + DELIMITER +
                getCost() + DELIMITER +
-               getPayment() + DELIMITER +
-               getChange() + DELIMITER;
+               getPayment() ;
     }
 
 

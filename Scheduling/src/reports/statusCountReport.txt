@@ -1,0 +1,5 @@
+Status Count Report
+Status Name           Count                 
+Cancelled             1,006                 
+Complete              888                   
+Pending               951                   
