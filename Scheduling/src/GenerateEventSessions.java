@@ -14,9 +14,9 @@ public class GenerateEventSessions
         try
         {
             DAO dao = new DAO();
-            dao.printEventSessions( connection, "Event Sessions before generation" );
+            dao.printEventSessions( "Event Sessions before generation" );
             dao.createRandomEventSessions( connection );
-            dao.printEventSessions( connection, "Event Sessions after generation" );
+            dao.printEventSessions( "Event Sessions after generation" );
         }
         catch (Exception exception)
         {

@@ -1,4 +1,4 @@
-package ReportDetails;
+package reportdetails;
 
 public class StatusCountReportDetail
 {

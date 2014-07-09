@@ -1,7 +1,7 @@
-import ReportDetails.EventTypeAndStatusReportDetail;
-import ReportDetails.EventTypeReportDetail;
-import ReportDetails.MemberPendingEventsReportDetail;
-import ReportDetails.StatusCountReportDetail;
+import reportdetails.EventTypeAndStatusReportDetail;
+import reportdetails.EventTypeReportDetail;
+import reportdetails.MemberPendingEventsReportDetail;
+import reportdetails.StatusCountReportDetail;
 import utility.FileSupport;
 
 import java.io.FileInputStream;
@@ -104,8 +104,6 @@ public class Reports
                           FileSupport.leftJustify( detail.getEventTypeName(), WIDTH ) +
                           FileSupport.leftJustify( detail.getStatusName(), WIDTH ) +
                           FileSupport.leftJustify( detail.getCount() + "", WIDTH ) );
-
-
             }
 
             Properties properties = new Properties();

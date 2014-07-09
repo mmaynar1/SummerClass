@@ -1,7 +1,7 @@
-import ReportDetails.EventTypeAndStatusReportDetail;
-import ReportDetails.EventTypeReportDetail;
-import ReportDetails.MemberPendingEventsReportDetail;
-import ReportDetails.StatusCountReportDetail;
+import reportdetails.EventTypeAndStatusReportDetail;
+import reportdetails.EventTypeReportDetail;
+import reportdetails.MemberPendingEventsReportDetail;
+import reportdetails.StatusCountReportDetail;
 import utility.RandomGenerator;
 
 import java.sql.*;
@@ -10,97 +10,7 @@ import java.util.List;
 
 public class DAO
 {
-    public static void main( String[] args )
-    {
-        DAO demo = new DAO();
-        demo.go();
-        Reports reports = new Reports();
-        reports.generateEventTypeReport();
-        reports.generateEventTypeAndStatusReport();
-        reports.generateMemberPendingEventsReport();
-        reports.generateStatusCountReport();
-    }
-
-    private void go()
-    {
-        try
-        {
-            exerciseDatabase();
-        }
-        catch (Exception exception)
-        {
-            exception.printStackTrace();
-        }
-    }
-
-    private void exerciseDatabase() throws SQLException
-    {
-        try
-        {
-            //1
-            printEventTypes( "Event Types" );
-            System.out.println();
-
-            //4
-            String farahId = getMemberId( "Farah" );
-            String clubId3001 = getClubId( 3001 );
-            System.out.println( "Farah's event count at 3001" );
-            System.out.println( getEventsCount( farahId, clubId3001 ) );
-            System.out.println();
-
-            //5
-            System.out.println( "Farah's pending events before cancels" );
-            System.out.println( getPendingEventsCount( farahId ) );
-            cancelPendingEvents( farahId );
-            System.out.println( "Farah's pending events after cancels" );
-            System.out.println( getPendingEventsCount( farahId ) );
-            System.out.println();
-
-            //6
-            System.out.println( "Employees teaching kick boxing at 3002" );
-            System.out.println( getEmployees( "Kick Boxing", 3002 ) );
-            System.out.println();
-
-            //7
-            addHourToStartTime( "Pilates", 3000 );
-
-            //8
-            System.out.println( "Delete Ellen's events" );
-            System.out.println( "Count before" );
-            System.out.println( getEventsCount( "Ellen" ) );
-            deleteEvents( "Ellen" );
-            System.out.println( "Count after" );
-            System.out.println( getEventsCount( "Ellen" ) );
-            System.out.println();
-
-            //9
-            System.out.println();
-            String jackieMemberId = getMemberId( "Jackie" );
-            String clubId3000 = getClubId( 3000 );
-            System.out.println( "Events at 3000 before" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3000 ) );
-            System.out.println( "Events at 3001 before" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3001 ) );
-            deleteEvents( "Jackie", 3000 );
-            System.out.println( "Events at 3000 after delete" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3000 ) );
-            System.out.println( "Events at 3001 after delete" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3001 ) );
-            transferEventsAddingAnHour( "Jackie", 3001, 3000 );
-            System.out.println( "Events at 3000 after transfer" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3000 ) );
-            System.out.println( "Events at 3001 after transfer" );
-            System.out.println( getEventsCount( jackieMemberId, clubId3001 ) );
-
-        }
-        catch (Exception exception)
-        {
-            exception.printStackTrace();
-        }
-
-    }
-
-    private void transferEventsAddingAnHour( String memberFirstName, int fromClubNumber, int toClubNumber ) throws SQLException
+    public void transferEventsAddingAnHour( String memberFirstName, int fromClubNumber, int toClubNumber ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -120,16 +30,13 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
 
             Database.releaseConnection( connection );
         }
     }
 
-    private void deleteEvents( String memberFirstName, int clubNumber ) throws SQLException
+    public void deleteEvents( String memberFirstName, int clubNumber ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -149,16 +56,13 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
 
             Database.releaseConnection( connection );
         }
     }
 
-    private void deleteEvents( String memberFirstName ) throws SQLException
+    public void deleteEvents( String memberFirstName ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -177,56 +81,22 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
 
             Database.releaseConnection( connection );
         }
     }
 
-    private int getEventsCount( String memberFirstName ) throws SQLException
+    public int getEventsCount( String memberFirstName ) throws SQLException
     {
-        Connection connection = Database.getConnection();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        int count = 0;
-        try
-        {
+        String sql = "select count(*) as cnt\n" +
+                     "from eventSessions es\n" +
+                     "where es.m_id = (select m_id from members where m_first_name = ?)";
 
-            String sql = "select count(*) as cnt\n" +
-                         "from eventSessions es\n" +
-                         "where es.m_id = (select m_id from members where m_first_name = ?)";
-
-            statement = connection.prepareStatement( sql );
-            statement.setString( 1, memberFirstName );
-            resultSet = statement.executeQuery();
-            if ( resultSet.next() )
-            {
-                count = resultSet.getInt( "cnt" );
-            }
-
-        }
-        finally
-        {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
-        }
-
-        return count;
+        return getInteger( sql, "cnt", memberFirstName );
     }
 
-    private void addHourToStartTime( String eventTypeName, int clubNumber ) throws SQLException
+    public void addHourToStartTime( String eventTypeName, int clubNumber ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -248,16 +118,42 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
 
             Database.releaseConnection( connection );
         }
     }
 
-    private List<String> getEmployees( String eventTypeName, int clubNumber ) throws SQLException
+    public int getInteger( String sql, String columnLabel, String... parameters ) throws SQLException
+    {
+        Connection connection = Database.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        int count = 0;
+        try
+        {
+            statement = connection.prepareStatement( sql );
+
+            for (int index = 1; index <= parameters.length; ++index)
+            {
+                statement.setString( index, parameters[index - 1] );
+            }
+            resultSet = statement.executeQuery();
+            if ( resultSet.next() )
+            {
+                count = resultSet.getInt( columnLabel );
+            }
+        }
+        finally
+        {
+            close( connection, statement, resultSet );
+        }
+
+        return count;
+
+    }
+
+    public List<String> getEmployees( String eventTypeName, int clubNumber ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -283,61 +179,23 @@ public class DAO
         }
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
         return names;
     }
 
-    private int getPendingEventsCount( String memberId ) throws SQLException
+    public int getPendingEventsCount( String memberId ) throws SQLException
     {
-        Connection connection = Database.getConnection();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        int count = 0;
-        try
-        {
             String sql = "select count(*) as cnt from eventSessions es\n" +
                          "where es.m_id = ? \n" +
-                         "and es.s_id = (select s_id from statuses where s_abc_code = 'PEN' );";
-            statement = connection.prepareStatement( sql );
-            statement.setString( 1, memberId );
-            resultSet = statement.executeQuery();
-            if ( resultSet.next() )
-            {
-                count = resultSet.getInt( "cnt" );
-            }
+                         "and es.s_id = (select s_id from statuses where s_abc_code = ? )";
 
-        }
-        finally
-        {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
+            return getInteger( sql, "cnt", memberId, Statuses.pending.getAbcCode() );
 
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
-        }
-
-        return count;
     }
 
 
-    private void cancelPendingEvents( String memberId ) throws SQLException
+    public void cancelPendingEvents( String memberId ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -345,26 +203,18 @@ public class DAO
         try
         {
             String sql = "update eventSessions es\n" +
-                         "set es.s_id = (select s_id from statuses where s_abc_code = 'CAN')\n" +
+                         "set es.s_id = (select s_id from statuses where s_abc_code = ?)\n" +
                          "where es.m_id = ?\n" +
-                         "and es.s_id = (select s_id from statuses where s_abc_code = 'PEN')";
+                         "and es.s_id = (select s_id from statuses where s_abc_code = ?)";
             statement = connection.prepareStatement( sql );
-            statement.setString( 1, memberId );
+            statement.setString( 1, Statuses.cancelled.getAbcCode() );
+            statement.setString( 2, memberId );
+            statement.setString( 3, Statuses.pending.getAbcCode() );
             resultSet = statement.executeQuery();
         }
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
     }
 
@@ -396,55 +246,23 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
     }
 
 
-    private String getEventsCount( String memberId, String clubId ) throws SQLException
+    public int getEventsCount( String memberId, String clubId ) throws SQLException
     {
-        Connection connection = Database.getConnection();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        String count = null;
-        try
-        {
             String query = "select count(*) as cnt from\n" +
                            "eventSessions es \n" +
                            "join members m on m.m_id = es.m_id\n" +
                            "where m.m_id = ?\n" +
                            "and es.c_id = ?";
-            statement = connection.prepareStatement( query );
-            statement.setString( 1, memberId );
-            statement.setString( 2, clubId );
-            resultSet = statement.executeQuery();
 
-            if ( resultSet.next() )
-            {
-                count = resultSet.getString( "cnt" );
-            }
-        }
-        finally
-        {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
-        }
-        return count;
+        return getInteger( query, "cnt", memberId, clubId );
     }
 
-    private String getClubId( int clubNumber ) throws SQLException
+    public String getClubId( int clubNumber ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -469,24 +287,14 @@ public class DAO
 
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
 
         }
         return id;
     }
 
 
-    private String getMemberId( String firstName ) throws SQLException
+    public String getMemberId( String firstName ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
@@ -511,17 +319,7 @@ public class DAO
 
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
         return id;
     }
@@ -559,14 +357,10 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
 
     }
-
 
     public void printMembers( Connection connection, String caption ) throws SQLException
     {
@@ -604,15 +398,16 @@ public class DAO
         }
     }
 
-    public void printEventSessions( Connection connection, String caption ) throws SQLException
+    public void printEventSessions( String caption ) throws SQLException
     {
-        Statement statement = null;
+        Connection connection = Database.getConnection();
+        PreparedStatement statement = null;
         ResultSet resultSet = null;
         try
         {
             String query = "select es_id,es_start,m_id,e_id,s_id,et_id,c_id from eventSessions";
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery( query );
+            statement = connection.prepareStatement( query );
+            resultSet = statement.executeQuery();
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -632,29 +427,20 @@ public class DAO
         }
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            close( connection, statement, resultSet );
         }
     }
 
-
-    private void printEventTypes( String caption ) throws SQLException
+    public void printEventTypes( String caption ) throws SQLException
     {
         Connection connection = Database.getConnection();
-        Statement statement = null;
+        PreparedStatement statement = null;
         ResultSet resultSet = null;
         try
         {
             String query = "select et_id, et_name from eventTypes";
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery( query );
+            statement = connection.prepareStatement( query );
+            resultSet = statement.executeQuery();
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -669,31 +455,21 @@ public class DAO
         }
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
     }
 
     private void printEmployees( String caption ) throws SQLException
     {
         Connection connection = Database.getConnection();
-        Statement statement = null;
+        PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try
         {
             String query = "select e_id, e_first_name, e_last_name from employees";
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery( query );
+            statement = connection.prepareStatement( query );
+            resultSet = statement.executeQuery();
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -709,17 +485,7 @@ public class DAO
         }
         finally
         {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
     }
 
@@ -737,10 +503,7 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
     }
 
@@ -763,10 +526,7 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
     }
 
@@ -792,10 +552,7 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
     }
 
@@ -827,13 +584,18 @@ public class DAO
         }
         finally
         {
-            if ( statement != null )
-            {
-                statement.close();
-            }
+            safeClose( statement );
         }
 
         return result;
+    }
+
+    private void safeClose( PreparedStatement statement ) throws SQLException
+    {
+        if ( statement != null )
+        {
+            statement.close();
+        }
     }
 
     public List<EventTypeReportDetail> getEventTypeReportDetails() throws SQLException
@@ -844,38 +606,46 @@ public class DAO
         List<EventTypeReportDetail> details = new ArrayList<EventTypeReportDetail>();
         try
         {
-            String sql = "select c_name, et_name, count(*) as cnt  from eventSessions es\n" +
-                         "join eventTypes et on et.et_id = es.et_id\n" +
-                         "join clubs c on c.c_id = es.c_id\n" +
-                         "group by c_name, et_name\n" +
-                         "order by c_name, et_name";
+            String sql = "select c.c_name clubName,\n" +
+                         "et.et_name eventType,\n" +
+                         "(select count(*)\n" +
+                         "from eventSessions sub_es\n" +
+                         "where sub_es.c_id = c.c_id\n" +
+                         "and sub_es.et_id = et.et_id\n" +
+                         ") counts\n" +
+                         "from clubs c\n" +
+                         "join eventTypes et\n" +
+                         "join statuses s\n" +
+                         "group by clubName, eventType\n" +
+                         "order by clubName, eventType";
 
             statement = connection.prepareStatement( sql );
             resultSet = statement.executeQuery();
             while ( resultSet.next() )
             {
-                String clubName = resultSet.getString( "c_name" );
-                String eventTypeName = resultSet.getString( "et_name" );
-                int count = resultSet.getInt( "cnt" );
+                String clubName = resultSet.getString( "clubName" );
+                String eventTypeName = resultSet.getString( "eventType" );
+                int count = resultSet.getInt( "counts" );
                 details.add( new EventTypeReportDetail( clubName, eventTypeName, count ) );
             }
         }
         finally
         {
-
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
 
         return details;
+    }
+
+    private void close( Connection connection, PreparedStatement statement, ResultSet resultSet ) throws SQLException
+    {
+        if ( resultSet != null )
+        {
+            resultSet.close();
+        }
+        safeClose( statement );
+
+        Database.releaseConnection( connection );
     }
 
     public List<EventTypeAndStatusReportDetail> getEventTypeAndStatusReportDetails() throws SQLException
@@ -886,37 +656,34 @@ public class DAO
         List<EventTypeAndStatusReportDetail> details = new ArrayList<EventTypeAndStatusReportDetail>();
         try
         {
-            String sql = "select c_name, et_name, s_name, count(*) as cnt  from eventSessions es\n" +
-                         "join eventTypes et on et.et_id = es.et_id\n" +
-                         "join clubs c on c.c_id = es.c_id\n" +
-                         "join statuses s on s.s_id = es.s_id\n" +
-                         "group by c_name, et_name, s_name\n" +
-                         "order by c_name, et_name, s_name";
+            String sql = "select c.c_number clubNumber,\n" +
+                         "et.et_name eventType,\n" +
+                         "s.s_name eventStatus,\n" +
+                         "(select count(*)\n" +
+                         "from eventSessions sub_es\n" +
+                         "where sub_es.c_id = c.c_id\n" +
+                         "and sub_es.et_id = et.et_id\n" +
+                         "and sub_es.s_id = s.s_id\n" +
+                         ") counts\n" +
+                         "from clubs c\n" +
+                         "join eventTypes et\n" +
+                         "join statuses s\n" +
+                         "group by clubNumber, eventType, eventStatus";
 
             statement = connection.prepareStatement( sql );
             resultSet = statement.executeQuery();
             while ( resultSet.next() )
             {
-                String clubName = resultSet.getString( "c_name" );
-                String eventTypeName = resultSet.getString( "et_name" );
-                String statusName = resultSet.getString( "s_name" );
-                int count = resultSet.getInt( "cnt" );
-                details.add( new EventTypeAndStatusReportDetail( clubName, eventTypeName, statusName, count ) );
+                String clubNumber = resultSet.getString( "clubNumber" );
+                String eventTypeName = resultSet.getString( "eventType" );
+                String statusName = resultSet.getString( "eventStatus" );
+                int count = resultSet.getInt( "counts" );
+                details.add( new EventTypeAndStatusReportDetail( clubNumber, eventTypeName, statusName, count ) );
             }
         }
         finally
         {
-
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
 
         return details;
@@ -959,17 +726,7 @@ public class DAO
         }
         finally
         {
-
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
 
         return details;
@@ -983,34 +740,29 @@ public class DAO
         List<StatusCountReportDetail> details = new ArrayList<StatusCountReportDetail>();
         try
         {
-            String sql = "select s_name, format(count(*) ,0) as count\n" +
+            String sql = "select s_name,\n" +
+                         "(select format(count(*) ,0) \n" +
                          "from eventSessions es\n" +
-                         "join statuses s on s.s_id = es.s_id\n" +
+                         "where  es.s_id = s.s_id) as cnt\n" +
+                         "from statuses s \n" +
                          "group by s_name\n" +
-                         "order by s_name";
+                         "union\n" +
+                         "select 'All', format(count(*),0) as cnt\n" +
+                         "from eventSessions es \n" +
+                         "join statuses s on s.s_id = es.s_id";
 
             statement = connection.prepareStatement( sql );
             resultSet = statement.executeQuery();
             while ( resultSet.next() )
             {
                 String statusName = resultSet.getString( "s_name" );
-                String count = resultSet.getString( "count" );
+                String count = resultSet.getString( "cnt" );
                 details.add( new StatusCountReportDetail( statusName, count ) );
             }
         }
         finally
         {
-
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-            if ( statement != null )
-            {
-                statement.close();
-            }
-
-            Database.releaseConnection( connection );
+            close( connection, statement, resultSet );
         }
 
         return details;
