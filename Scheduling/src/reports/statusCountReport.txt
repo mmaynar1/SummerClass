@@ -1,6 +1,6 @@
 Status Count Report
 Status Name           Count                 
-Cancelled             321                   
-Complete              332                   
-Pending               278                   
-All                   931                   
+Cancelled             1,961                 
+Complete              1,888                 
+Pending               1,843                 
+All                   5,692                 

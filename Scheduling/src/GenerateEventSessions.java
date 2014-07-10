@@ -10,21 +10,16 @@ public class GenerateEventSessions
 
     private void go()
     {
-        Connection connection = Database.getConnection();
         try
         {
             DAO dao = new DAO();
             dao.printEventSessions( "Event Sessions before generation" );
-            dao.createRandomEventSessions( connection );
+            dao.createRandomEventSessions( );
             dao.printEventSessions( "Event Sessions after generation" );
         }
         catch (Exception exception)
         {
             exception.printStackTrace();
-        }
-        finally
-        {
-            Database.releaseConnection( connection );
         }
 
     }

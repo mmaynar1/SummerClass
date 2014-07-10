@@ -17,23 +17,20 @@ public class ReadWriteMembers
 
     private void go()
     {
-        Connection connection = Database.getConnection();
+
         try
         {
-            add( connection );
+            add(  );
         }
         catch (Exception exception)
         {
             exception.printStackTrace();
         }
-        finally
-        {
-            Database.releaseConnection( connection );
-        }
+
 
     }
 
-    private void add( Connection connection )
+    private void add(  )
     {
         try
         {
@@ -41,9 +38,9 @@ public class ReadWriteMembers
             properties.load( new FileInputStream( "input.properties" ) );
             List<Name> names = getNames( FileSupport.getText( properties.getProperty( "memberNames" ) ) );
             DAO dao = new DAO();
-            dao.printMembers( connection, "Members before add" );
-            dao.addMembers( connection, names );
-            dao.printMembers( connection, "Members after add" );
+            dao.printMembers(  "Members before add" );
+            dao.addMembers( names );
+            dao.printMembers(  "Members after add" );
         }
         catch (Exception exception)
         {

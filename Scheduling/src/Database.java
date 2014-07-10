@@ -1,7 +1,8 @@
 import java.io.FileInputStream;
-import java.lang.Class;import java.lang.Exception;import java.lang.String;import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.lang.Class;
+import java.lang.Exception;
+import java.lang.String;
+import java.sql.*;
 import java.util.Properties;
 
 final public class Database
@@ -36,11 +37,77 @@ final public class Database
 
             connection = DriverManager.getConnection( databaseUrl, databaseId, databasePassword );
         }
-        catch ( Exception exception )
+        catch (Exception exception)
         {
             exception.printStackTrace();
         }
 
         return connection;
+    }
+
+    /*private int readInt( String sql, Object... objects ) throws SQLException
+    {
+        ResultSet resultSet = read( sql, objects );
+        int result = 0;
+        try
+        {
+            if ( resultSet.next() )
+            {
+                result = resultSet.getInt( 1 );
+            }
+        }
+        finally
+        {
+            if ( resultSet != null )
+            {
+                resultSet.close();
+            }
+        }
+
+        return result;
+    }
+
+
+    private ResultSet read( String sql, Object... objects ) throws SQLException
+    {
+        Connection connection = Database.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try
+        {
+            statement = connection.prepareStatement( sql );
+
+            for (int index = 1; index <= objects.length; ++index)
+            {
+                statement.setString( index, objects[index - 1] + "" );
+            }
+
+            resultSet = statement.executeQuery();
+        }
+        finally
+        {
+            close( connection, statement, resultSet );
+        }
+
+        return resultSet;
+    }*/
+
+    private void close( Connection connection, PreparedStatement statement, ResultSet resultSet ) throws SQLException
+    {
+        if ( resultSet != null )
+        {
+            resultSet.close();
+        }
+        safeClose( statement );
+
+        Database.releaseConnection( connection );
+    }
+
+    private void safeClose( PreparedStatement statement ) throws SQLException
+    {
+        if ( statement != null )
+        {
+            statement.close();
+        }
     }
 }

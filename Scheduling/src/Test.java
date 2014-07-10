@@ -1,4 +1,6 @@
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test
 {
@@ -24,6 +26,17 @@ public class Test
         DAO dao = new DAO();
         try
         {
+
+            Name name1 = new Name( "Pokey", "Reese" );
+            Name name2 = new Name( "Kirby", "Puckett" );
+            List<Name> names = new ArrayList<Name>();
+            names.add( name1 );
+            names.add( name2 );
+            dao.addEmployees( names );
+
+            System.out.println( dao.getEmployees( "Pilates", 3000 ) );
+            dao.printMembers( "Members" );
+
             //1
             dao.printEventTypes( "Event Types" );
             System.out.println();

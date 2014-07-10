@@ -81,58 +81,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DAO.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="702" column="50" selection-start="23246" selection-end="23246" vertical-scroll-proportion="20.183487" vertical-offset="4350" max-vertical-offset="19375">
+            <state line="539" column="43" selection-start="18628" selection-end="18628" vertical-scroll-proportion="-11.52" vertical-offset="13187" max-vertical-offset="14200">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5358#5366#0" expanded="true" />
-                <element signature="e#19283#19306#0" expanded="true" />
-                <element signature="e#21182#21214#0" expanded="true" />
-                <element signature="e#22964#22997#0" expanded="true" />
-                <element signature="e#25051#25076#0" expanded="true" />
-                <marker date="1404925069667" expanded="true" signature="604:968" placeholder="insert into ..." />
-                <marker date="1404925069667" expanded="true" signature="661:968" placeholder="select a.* f..getGuid..." />
-                <marker date="1404925069667" expanded="true" signature="678:962" placeholder="select getGu..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="825:872" placeholder="select m_id ..members..." />
-                <marker date="1404925069667" expanded="true" signature="920:961" placeholder="select c_id ..clubs..." />
-                <marker date="1404925069667" expanded="true" signature="1642:1878" placeholder="delete from\..." />
-                <marker date="1404925069667" expanded="true" signature="1744:1791" placeholder="select m_id ..members..." />
-                <marker date="1404925069667" expanded="true" signature="1836:1877" placeholder="select c_id ..clubs..." />
-                <marker date="1404925069667" expanded="true" signature="2468:2618" placeholder="delete from\..." />
-                <marker date="1404925069667" expanded="true" signature="2570:2617" placeholder="select m_id ..members..." />
-                <marker date="1404925069667" expanded="true" signature="3026:3190" placeholder="select count..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="3142:3189" placeholder="select m_id ..members..." />
-                <marker date="1404925069667" expanded="true" signature="3510:3801" placeholder="update event..." />
-                <marker date="1404925069667" expanded="true" signature="5418:5803" placeholder="select disti..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="6391:6580" placeholder="select count..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="6532:6578" placeholder="select s_id ..statuses..." />
-                <marker date="1404925069667" expanded="true" signature="6946:7206" placeholder="update event..." />
-                <marker date="1404925069667" expanded="true" signature="7801:8324" placeholder="insert into ..." />
-                <marker date="1404925069667" expanded="true" signature="7907:8232" placeholder="select a.* f..getGuid..." />
-                <marker date="1404925069667" expanded="true" signature="7923:8232" placeholder="select getGu..members..." />
-                <marker date="1404925069667" expanded="true" signature="8734:8979" placeholder="select count..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="9335:9376" placeholder="select c_id ..clubs..." />
-                <marker date="1404925069667" expanded="true" signature="10178:10225" placeholder="select m_id ..members..." />
-                <marker date="1404925069667" expanded="true" signature="11223:11294" placeholder="insert into ..." />
-                <marker date="1404925069667" expanded="true" signature="11992:12043" placeholder="select m_id,..members..." />
-                <marker date="1404925069667" expanded="true" signature="13145:13211" placeholder="select es_id..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="14430:14467" placeholder="select et_id..eventTypes..." />
-                <marker date="1404925069667" expanded="true" signature="15319:15372" placeholder="select e_id,..employees..." />
-                <marker date="1404925069667" expanded="true" signature="16239:16301" placeholder="delete from ..." />
-                <marker date="1404925069667" expanded="true" signature="16689:16725" placeholder="delete from ..." />
-                <marker date="1404925069667" expanded="true" signature="17353:17406" placeholder="update emplo..." />
-                <marker date="1404925069667" expanded="true" signature="18219:18292" placeholder="insert into ..." />
-                <marker date="1404925069667" expanded="true" signature="19358:19959" placeholder="select c.c_n..clubs..." />
-                <marker date="1404925069667" expanded="true" signature="19469:19658" placeholder="select count..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="21266:21935" placeholder="select c.c_n..clubs..." />
-                <marker date="1404925069667" expanded="true" signature="21434:21679" placeholder="select count..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="23049:23864" placeholder="select conca..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="25128:25413" placeholder="select s_nam..statuses..." />
-                <marker date="1404925069667" expanded="true" signature="25128:25642" placeholder="select s_nam..." />
-                <marker date="1404925069667" expanded="true" signature="25175:25310" placeholder="select forma..eventSessions..." />
-                <marker date="1404925069667" expanded="true" signature="25482:25642" placeholder="select 'All'..eventSessions..." />
+                <element signature="e#3266#3274#0" expanded="true" />
+                <element signature="e#12150#12173#0" expanded="true" />
+                <element signature="e#13795#13827#0" expanded="true" />
+                <element signature="e#15542#15575#0" expanded="true" />
+                <element signature="e#17430#17455#0" expanded="true" />
+                <marker date="1404958016110" expanded="true" signature="18606:18709" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -141,7 +101,7 @@
       <file leaf-file-name="GenerateEventSessions.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GenerateEventSessions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="9" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="900">
+            <state line="17" column="60" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="775">
               <folding />
             </state>
           </provider>
@@ -150,7 +110,7 @@
       <file leaf-file-name="eventTypeAndStatusReport.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reports/eventTypeAndStatusReport.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="6" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
+            <state line="14" column="50" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
               <folding />
             </state>
           </provider>
@@ -168,7 +128,7 @@
       <file leaf-file-name="memberPendingEventsReport.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reports/memberPendingEventsReport.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="933" column="0" selection-start="123985" selection-end="123985" vertical-scroll-proportion="0.0" vertical-offset="23200" max-vertical-offset="23475">
+            <state line="5694" column="0" selection-start="757198" selection-end="757198" vertical-scroll-proportion="0.0" vertical-offset="132524" max-vertical-offset="142500">
               <folding />
             </state>
           </provider>
@@ -177,7 +137,7 @@
       <file leaf-file-name="statusCountReport.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reports/statusCountReport.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="44" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+            <state line="6" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
               <folding />
             </state>
           </provider>
@@ -186,17 +146,20 @@
       <file leaf-file-name="ReadWriteMembers.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ReadWriteMembers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="1" selection-start="1710" selection-end="1710" vertical-scroll-proportion="0.0" vertical-offset="1000" max-vertical-offset="1650">
+            <state line="19" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Test.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="9" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="2350">
-              <folding />
+            <state line="37" column="42" selection-start="1082" selection-end="1082" vertical-scroll-proportion="1.5391015" vertical-offset="0" max-vertical-offset="2675">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#855#861#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,7 +167,7 @@
       <file leaf-file-name="Database.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="5" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1200">
+            <state line="96" column="32" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="2850">
               <folding />
             </state>
           </provider>
@@ -242,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/Name.java" />
         <option value="$PROJECT_DIR$/src/generateEventSessions.java" />
         <option value="$PROJECT_DIR$/src/WriteDemo.java" />
-        <option value="$PROJECT_DIR$/src/ReadWriteMembers.java" />
         <option value="$PROJECT_DIR$/src/EventTypeReportDetail.java" />
         <option value="$PROJECT_DIR$/src/ReportDetails/EventTypeReportDetail.java" />
         <option value="$PROJECT_DIR$/src/utility/FileSupport.java" />
@@ -251,15 +213,17 @@
         <option value="$PROJECT_DIR$/src/ReportDetails/MemberPendingEventsReportDetail.java" />
         <option value="$PROJECT_DIR$/output.properties" />
         <option value="$PROJECT_DIR$/src/ReportDetails/StatusCountReportDetail.java" />
-        <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/EventTypes.java" />
         <option value="$PROJECT_DIR$/src/Statuses.java" />
         <option value="$PROJECT_DIR$/src/reportdetails/EventTypeReportDetail.java" />
         <option value="$PROJECT_DIR$/src/Reports.java" />
-        <option value="$PROJECT_DIR$/src/GenerateEventSessions.java" />
         <option value="$PROJECT_DIR$/src/reports/statusCountReport.txt" />
         <option value="$PROJECT_DIR$/src/reports/eventTypeAndStatusReport.txt" />
+        <option value="$PROJECT_DIR$/src/GenerateEventSessions.java" />
+        <option value="$PROJECT_DIR$/src/Database.java" />
+        <option value="$PROJECT_DIR$/src/ReadWriteMembers.java" />
         <option value="$PROJECT_DIR$/src/DAO.java" />
+        <option value="$PROJECT_DIR$/src/Test.java" />
       </list>
     </option>
   </component>
@@ -324,6 +288,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scheduling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scheduling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,6 +606,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9c788068-3851-4887-87e6-34a1d4bcc82a" name="Default" comment="" />
@@ -654,7 +641,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1433902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18261826" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28272828" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -792,14 +779,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GenerateEventSessions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="9" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="900">
+        <state line="17" column="60" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="775">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+        <state line="96" column="32" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="2850">
           <folding />
         </state>
       </provider>
@@ -819,21 +806,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReadWriteMembers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="1" selection-start="1710" selection-end="1710" vertical-scroll-proportion="0.0" vertical-offset="1000" max-vertical-offset="1650">
+        <state line="19" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="1575">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/reports/statusCountReport.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="9" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="2350">
+        <state line="6" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reports/memberPendingEventsReport.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="933" column="0" selection-start="123985" selection-end="123985" vertical-scroll-proportion="0.0" vertical-offset="23200" max-vertical-offset="23475">
+        <state line="5694" column="0" selection-start="757198" selection-end="757198" vertical-scroll-proportion="0.0" vertical-offset="142225" max-vertical-offset="142500">
           <folding />
         </state>
       </provider>
@@ -847,69 +834,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reports/eventTypeAndStatusReport.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="6" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reports/statusCountReport.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="44" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+        <state line="14" column="50" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="702" column="50" selection-start="23246" selection-end="23246" vertical-scroll-proportion="20.183487" vertical-offset="4350" max-vertical-offset="19375">
+        <state line="539" column="43" selection-start="18628" selection-end="18628" vertical-scroll-proportion="-11.52" vertical-offset="13187" max-vertical-offset="14200">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5358#5366#0" expanded="true" />
-            <element signature="e#19283#19306#0" expanded="true" />
-            <element signature="e#21182#21214#0" expanded="true" />
-            <element signature="e#22964#22997#0" expanded="true" />
-            <element signature="e#25051#25076#0" expanded="true" />
-            <marker date="1404925069667" expanded="true" signature="604:968" placeholder="insert into ..." />
-            <marker date="1404925069667" expanded="true" signature="661:968" placeholder="select a.* f..getGuid..." />
-            <marker date="1404925069667" expanded="true" signature="678:962" placeholder="select getGu..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="825:872" placeholder="select m_id ..members..." />
-            <marker date="1404925069667" expanded="true" signature="920:961" placeholder="select c_id ..clubs..." />
-            <marker date="1404925069667" expanded="true" signature="1642:1878" placeholder="delete from\..." />
-            <marker date="1404925069667" expanded="true" signature="1744:1791" placeholder="select m_id ..members..." />
-            <marker date="1404925069667" expanded="true" signature="1836:1877" placeholder="select c_id ..clubs..." />
-            <marker date="1404925069667" expanded="true" signature="2468:2618" placeholder="delete from\..." />
-            <marker date="1404925069667" expanded="true" signature="2570:2617" placeholder="select m_id ..members..." />
-            <marker date="1404925069667" expanded="true" signature="3026:3190" placeholder="select count..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="3142:3189" placeholder="select m_id ..members..." />
-            <marker date="1404925069667" expanded="true" signature="3510:3801" placeholder="update event..." />
-            <marker date="1404925069667" expanded="true" signature="5418:5803" placeholder="select disti..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="6391:6580" placeholder="select count..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="6532:6578" placeholder="select s_id ..statuses..." />
-            <marker date="1404925069667" expanded="true" signature="6946:7206" placeholder="update event..." />
-            <marker date="1404925069667" expanded="true" signature="7801:8324" placeholder="insert into ..." />
-            <marker date="1404925069667" expanded="true" signature="7907:8232" placeholder="select a.* f..getGuid..." />
-            <marker date="1404925069667" expanded="true" signature="7923:8232" placeholder="select getGu..members..." />
-            <marker date="1404925069667" expanded="true" signature="8734:8979" placeholder="select count..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="9335:9376" placeholder="select c_id ..clubs..." />
-            <marker date="1404925069667" expanded="true" signature="10178:10225" placeholder="select m_id ..members..." />
-            <marker date="1404925069667" expanded="true" signature="11223:11294" placeholder="insert into ..." />
-            <marker date="1404925069667" expanded="true" signature="11992:12043" placeholder="select m_id,..members..." />
-            <marker date="1404925069667" expanded="true" signature="13145:13211" placeholder="select es_id..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="14430:14467" placeholder="select et_id..eventTypes..." />
-            <marker date="1404925069667" expanded="true" signature="15319:15372" placeholder="select e_id,..employees..." />
-            <marker date="1404925069667" expanded="true" signature="16239:16301" placeholder="delete from ..." />
-            <marker date="1404925069667" expanded="true" signature="16689:16725" placeholder="delete from ..." />
-            <marker date="1404925069667" expanded="true" signature="17353:17406" placeholder="update emplo..." />
-            <marker date="1404925069667" expanded="true" signature="18219:18292" placeholder="insert into ..." />
-            <marker date="1404925069667" expanded="true" signature="19358:19959" placeholder="select c.c_n..clubs..." />
-            <marker date="1404925069667" expanded="true" signature="19469:19658" placeholder="select count..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="21266:21935" placeholder="select c.c_n..clubs..." />
-            <marker date="1404925069667" expanded="true" signature="21434:21679" placeholder="select count..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="23049:23864" placeholder="select conca..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="25128:25413" placeholder="select s_nam..statuses..." />
-            <marker date="1404925069667" expanded="true" signature="25128:25642" placeholder="select s_nam..." />
-            <marker date="1404925069667" expanded="true" signature="25175:25310" placeholder="select forma..eventSessions..." />
-            <marker date="1404925069667" expanded="true" signature="25482:25642" placeholder="select 'All'..eventSessions..." />
+            <element signature="e#3266#3274#0" expanded="true" />
+            <element signature="e#12150#12173#0" expanded="true" />
+            <element signature="e#13795#13827#0" expanded="true" />
+            <element signature="e#15542#15575#0" expanded="true" />
+            <element signature="e#17430#17455#0" expanded="true" />
+            <marker date="1404958016110" expanded="true" signature="18606:18709" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="42" selection-start="1082" selection-end="1082" vertical-scroll-proportion="1.5391015" vertical-offset="0" max-vertical-offset="2675">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#855#861#0" expanded="true" />
           </folding>
         </state>
       </provider>

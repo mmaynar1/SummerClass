@@ -1,14 +1,14 @@
 Event Type Report
 Club                  Event Type            Count                 
-Conway                Kick Boxing           82                    
-Conway                Personal Training     83                    
-Conway                Pilates               75                    
-Conway                Zumba                 65                    
-Searcy                Kick Boxing           88                    
-Searcy                Personal Training     73                    
-Searcy                Pilates               76                    
-Searcy                Zumba                 74                    
-Sherwood              Kick Boxing           83                    
-Sherwood              Personal Training     77                    
-Sherwood              Pilates               82                    
-Sherwood              Zumba                 73                    
+Conway                Kick Boxing           476                   
+Conway                Personal Training     492                   
+Conway                Pilates               443                   
+Conway                Zumba                 514                   
+Searcy                Kick Boxing           496                   
+Searcy                Personal Training     462                   
+Searcy                Pilates               477                   
+Searcy                Zumba                 468                   
+Sherwood              Kick Boxing           463                   
+Sherwood              Personal Training     435                   
+Sherwood              Pilates               475                   
+Sherwood              Zumba                 491                   
