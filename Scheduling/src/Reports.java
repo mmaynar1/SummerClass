@@ -35,7 +35,7 @@ public class Reports
     {
         try
         {
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             List<StatusCountReportDetail> details = dao.getStatusCountReportDetails();
             List<String> line = new ArrayList<String>();
             for (StatusCountReportDetail detail : details)
@@ -62,7 +62,7 @@ public class Reports
     {
         try
         {
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             List<MemberPendingEventsReportDetail> details = dao.getMemberPendingEventsReportDetails();
             List<String> line = new ArrayList<String>();
             for (MemberPendingEventsReportDetail detail : details)
@@ -95,7 +95,7 @@ public class Reports
     {
         try
         {
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             List<EventTypeAndStatusReportDetail> details = dao.getEventTypeAndStatusReportDetails();
             List<String> line = new ArrayList<String>();
             for (EventTypeAndStatusReportDetail detail : details)
@@ -122,7 +122,7 @@ public class Reports
     {
         try
         {
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             List<EventTypeReportDetail> details = dao.getEventTypeReportDetails();
             List<String> line = new ArrayList<String>();
             for (EventTypeReportDetail detail : details)

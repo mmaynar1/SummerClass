@@ -19,6 +19,69 @@ final public class Database
         }
     }
 
+    public int readInt( String sql, Object... objects ) throws SQLException
+    {
+        ResultSet resultSet = read( sql, objects );
+        int result = 0;
+        try
+        {
+            if ( resultSet.next() )
+            {
+                result = resultSet.getInt( 1 );
+            }
+        }
+        finally
+        {
+            close( resultSet );
+        }
+
+        return result;
+    }
+
+    public String readString( String sql, Object... objects ) throws SQLException
+    {
+        ResultSet resultSet = read( sql, objects );
+        String result = null;
+        try
+        {
+            if ( resultSet.next() )
+            {
+                result = resultSet.getString( 1 );
+            }
+        }
+        finally
+        {
+            close( resultSet );
+        }
+
+        return result;
+    }
+
+
+    public ResultSet read( String sql, Object... objects ) throws SQLException
+    {
+        Connection connection = Database.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try
+        {
+            statement = connection.prepareStatement( sql );
+
+            for (int index = 1; index <= objects.length; ++index)
+            {
+                statement.setString( index, objects[index - 1] + "" );
+            }
+
+            resultSet = statement.executeQuery();
+        }
+        finally
+        {
+            close( connection, statement, resultSet );
+        }
+
+        return resultSet;
+    }
+
     public static Connection getConnection()
     {
         Connection connection = null;
@@ -45,52 +108,28 @@ final public class Database
         return connection;
     }
 
-    /*private int readInt( String sql, Object... objects ) throws SQLException
-    {
-        ResultSet resultSet = read( sql, objects );
-        int result = 0;
-        try
-        {
-            if ( resultSet.next() )
-            {
-                result = resultSet.getInt( 1 );
-            }
-        }
-        finally
-        {
-            if ( resultSet != null )
-            {
-                resultSet.close();
-            }
-        }
-
-        return result;
-    }
-
-
-    private ResultSet read( String sql, Object... objects ) throws SQLException
+    public int write( String sql, String... parameters ) throws SQLException
     {
         Connection connection = Database.getConnection();
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
+        int rowsUpdated = 0;
         try
         {
             statement = connection.prepareStatement( sql );
-
-            for (int index = 1; index <= objects.length; ++index)
+            for (int index = 1; index <= parameters.length; ++index)
             {
-                statement.setString( index, objects[index - 1] + "" );
+                statement.setString( index, parameters[index - 1] );
             }
-
-            resultSet = statement.executeQuery();
+            rowsUpdated = statement.executeUpdate();
         }
         finally
         {
-            close( connection, statement, resultSet );
+            safeClose( statement );
+            Database.releaseConnection( connection );
         }
 
-        return resultSet;
-    }*/
+        return rowsUpdated;
+    }
 
     private void close( Connection connection, PreparedStatement statement, ResultSet resultSet ) throws SQLException
     {
@@ -108,6 +147,14 @@ final public class Database
         if ( statement != null )
         {
             statement.close();
+        }
+    }
+
+    private void close( ResultSet resultSet ) throws SQLException
+    {
+        if ( resultSet != null )
+        {
+            resultSet.close();
         }
     }
 }

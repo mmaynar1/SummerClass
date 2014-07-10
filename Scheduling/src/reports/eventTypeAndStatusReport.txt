@@ -1,38 +1,38 @@
 Event Type and Status Report
 Club                  Event Type            Status                Count                 
-3000                  Kick Boxing           Cancelled             163                   
-3000                  Kick Boxing           Complete              147                   
-3000                  Kick Boxing           Pending               153                   
-3000                  Personal Training     Cancelled             142                   
-3000                  Personal Training     Complete              161                   
-3000                  Personal Training     Pending               132                   
-3000                  Pilates               Cancelled             164                   
-3000                  Pilates               Complete              161                   
-3000                  Pilates               Pending               150                   
-3000                  Zumba                 Cancelled             158                   
-3000                  Zumba                 Complete              157                   
-3000                  Zumba                 Pending               176                   
-3001                  Kick Boxing           Cancelled             180                   
-3001                  Kick Boxing           Complete              150                   
-3001                  Kick Boxing           Pending               146                   
-3001                  Personal Training     Cancelled             172                   
-3001                  Personal Training     Complete              162                   
-3001                  Personal Training     Pending               158                   
-3001                  Pilates               Cancelled             151                   
-3001                  Pilates               Complete              153                   
-3001                  Pilates               Pending               139                   
-3001                  Zumba                 Cancelled             170                   
-3001                  Zumba                 Complete              167                   
-3001                  Zumba                 Pending               177                   
-3002                  Kick Boxing           Cancelled             168                   
-3002                  Kick Boxing           Complete              174                   
-3002                  Kick Boxing           Pending               154                   
-3002                  Personal Training     Cancelled             167                   
-3002                  Personal Training     Complete              144                   
-3002                  Personal Training     Pending               151                   
-3002                  Pilates               Cancelled             168                   
-3002                  Pilates               Complete              147                   
-3002                  Pilates               Pending               162                   
-3002                  Zumba                 Cancelled             158                   
-3002                  Zumba                 Complete              165                   
-3002                  Zumba                 Pending               145                   
+3000                  Kick Boxing           Cancelled             21                    
+3000                  Kick Boxing           Complete              29                    
+3000                  Kick Boxing           Pending               18                    
+3000                  Personal Training     Cancelled             28                    
+3000                  Personal Training     Complete              31                    
+3000                  Personal Training     Pending               23                    
+3000                  Pilates               Cancelled             25                    
+3000                  Pilates               Complete              33                    
+3000                  Pilates               Pending               30                    
+3000                  Zumba                 Cancelled             30                    
+3000                  Zumba                 Complete              12                    
+3000                  Zumba                 Pending               31                    
+3001                  Kick Boxing           Cancelled             21                    
+3001                  Kick Boxing           Complete              18                    
+3001                  Kick Boxing           Pending               30                    
+3001                  Personal Training     Cancelled             33                    
+3001                  Personal Training     Complete              24                    
+3001                  Personal Training     Pending               21                    
+3001                  Pilates               Cancelled             33                    
+3001                  Pilates               Complete              25                    
+3001                  Pilates               Pending               29                    
+3001                  Zumba                 Cancelled             31                    
+3001                  Zumba                 Complete              25                    
+3001                  Zumba                 Pending               22                    
+3002                  Kick Boxing           Cancelled             25                    
+3002                  Kick Boxing           Complete              24                    
+3002                  Kick Boxing           Pending               30                    
+3002                  Personal Training     Cancelled             34                    
+3002                  Personal Training     Complete              27                    
+3002                  Personal Training     Pending               20                    
+3002                  Pilates               Cancelled             33                    
+3002                  Pilates               Complete              33                    
+3002                  Pilates               Pending               25                    
+3002                  Zumba                 Cancelled             32                    
+3002                  Zumba                 Complete              23                    
+3002                  Zumba                 Pending               24                    

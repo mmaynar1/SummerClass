@@ -8,8 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAO
+public class Dao
 {
+    public static final Database DATABASE = new Database();
+
     public void transferEventsAddingAnHour( String memberFirstName, int fromClubNumber, int toClubNumber ) throws SQLException
     {
         String sql = "insert into eventSessions\n" +
@@ -17,7 +19,7 @@ public class DAO
                      "where es.m_id = (select m_id from members where m_first_name = ?)\n" +
                      "and es.c_id = (select c_id from clubs where c_number = ?)) as a";
 
-        update( sql, getClubId( toClubNumber ), memberFirstName, fromClubNumber + "" );
+        DATABASE.write( sql, getClubId( toClubNumber ), memberFirstName, fromClubNumber + "" );
     }
 
     public void deleteEvents( String memberFirstName, int clubNumber ) throws SQLException
@@ -27,7 +29,7 @@ public class DAO
                      "where m_id = (select m_id from members where m_first_name = ?)\n" +
                      "and c_id = (select c_id from clubs where c_number = ?)";
 
-        update( sql, memberFirstName, clubNumber + "" );
+        DATABASE.write( sql, memberFirstName, clubNumber + "" );
     }
 
     public void deleteEvents( String memberFirstName ) throws SQLException
@@ -36,7 +38,7 @@ public class DAO
                      "eventSessions\n" +
                      "where m_id = (select m_id from members where m_first_name = ?)";
 
-        update( sql, memberFirstName );
+        DATABASE.write( sql, memberFirstName );
     }
 
     public int getEventsCount( String memberFirstName ) throws SQLException
@@ -45,7 +47,7 @@ public class DAO
                      "from eventSessions es\n" +
                      "where es.m_id = (select m_id from members where m_first_name = ?)";
 
-        return readInt( sql, memberFirstName );
+        return DATABASE.readInt( sql, memberFirstName );
     }
 
     public void addHourToStartTime( String eventTypeName, int clubNumber ) throws SQLException
@@ -55,30 +57,7 @@ public class DAO
                      "where es.et_id = (select et_id from eventTypes where et_name = ?)\n" +
                      "and es.c_id = (select c_id from clubs where c_number = ?)";
 
-        update( sql, eventTypeName, clubNumber + "" );
-    }
-
-    private int update( String sql, String... parameters ) throws SQLException
-    {
-        Connection connection = Database.getConnection();
-        PreparedStatement statement = null;
-        int rowsUpdated = 0;
-        try
-        {
-            statement = connection.prepareStatement( sql );
-            for (int index = 1; index <= parameters.length; ++index)
-            {
-                statement.setString( index, parameters[index - 1] );
-            }
-            rowsUpdated = statement.executeUpdate();
-        }
-        finally
-        {
-            safeClose( statement );
-            Database.releaseConnection( connection );
-        }
-
-        return rowsUpdated;
+        DATABASE.write( sql, eventTypeName, clubNumber + "" );
     }
 
     private List<String> getStrings( ResultSet resultSet, String columnLabel ) throws SQLException
@@ -103,7 +82,7 @@ public class DAO
                      "where et_name = ?\n" +
                      "and c_number = ?";
 
-        ResultSet resultSet = read( sql, eventTypeName, clubNumber );
+        ResultSet resultSet = DATABASE.read( sql, eventTypeName, clubNumber );
         return getStrings( resultSet, "name" );
 
     }
@@ -114,70 +93,7 @@ public class DAO
                      "where es.m_id = ? \n" +
                      "and es.s_id = (select s_id from statuses where s_abc_code = ? )";
 
-        return readInt( sql, memberId, Statuses.pending.getAbcCode() );
-    }
-
-    private int readInt( String sql, Object... objects ) throws SQLException
-    {
-        ResultSet resultSet = read( sql, objects );
-        int result = 0;
-        try
-        {
-            if ( resultSet.next() )
-            {
-                result = resultSet.getInt( 1 );
-            }
-        }
-        finally
-        {
-            close( resultSet );
-        }
-
-        return result;
-    }
-
-    private String readString( String sql, Object... objects ) throws SQLException
-    {
-        ResultSet resultSet = read( sql, objects );
-        String result = null;
-        try
-        {
-            if ( resultSet.next() )
-            {
-                result = resultSet.getString( 1 );
-            }
-        }
-        finally
-        {
-            close( resultSet );
-        }
-
-        return result;
-    }
-
-
-    private ResultSet read( String sql, Object... objects ) throws SQLException
-    {
-        Connection connection = Database.getConnection();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        try
-        {
-            statement = connection.prepareStatement( sql );
-
-            for (int index = 1; index <= objects.length; ++index)
-            {
-                statement.setString( index, objects[index - 1] + "" );
-            }
-
-            resultSet = statement.executeQuery();
-        }
-        finally
-        {
-            close( connection, statement, resultSet );
-        }
-
-        return resultSet;
+        return DATABASE.readInt( sql, memberId, Statuses.pending.getAbcCode() );
     }
 
     public void cancelPendingEvents( String memberId ) throws SQLException
@@ -187,7 +103,7 @@ public class DAO
                      "where es.m_id = ?\n" +
                      "and es.s_id = (select s_id from statuses where s_abc_code = ?)";
 
-        update( sql, Statuses.cancelled.getAbcCode(), memberId, Statuses.pending.getAbcCode() );
+        DATABASE.write( sql, Statuses.cancelled.getAbcCode(), memberId, Statuses.pending.getAbcCode() );
     }
 
     public void createRandomEventSessions() throws SQLException
@@ -203,7 +119,7 @@ public class DAO
                      "order by rand()) a\n" +
                      "limit 1000";
 
-        update( sql );
+        DATABASE.write( sql );
     }
 
 
@@ -215,19 +131,19 @@ public class DAO
                      "where m.m_id = ?\n" +
                      "and es.c_id = ?";
 
-        return readInt( sql, memberId, clubId );
+        return DATABASE.readInt( sql, memberId, clubId );
     }
 
     public String getClubId( int clubNumber ) throws SQLException
     {
         String sql = "select c_id from clubs where c_number = ?";
-        return readString( sql, clubNumber );
+        return DATABASE.readString( sql, clubNumber );
     }
 
     public String getMemberId( String firstName ) throws SQLException
     {
         String sql = "select m_id from members where m_first_name = ?";
-        return readString( sql, firstName );
+        return DATABASE.readString( sql, firstName );
     }
 
 
@@ -244,7 +160,7 @@ public class DAO
         String sql = "insert into members (m_id, m_first_name, m_last_name) values( ?, ?, ? )";
 
         String memberId = RandomGenerator.getGuid();
-        int rowsUpdated = update( sql, memberId, firstName, lastName );
+        int rowsUpdated = DATABASE.write( sql, memberId, firstName, lastName );
 
         if ( rowsUpdated != 1 )
         {
@@ -258,7 +174,7 @@ public class DAO
         try
         {
             String sql = "select m_id, m_first_name, m_last_name from members";
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -284,7 +200,7 @@ public class DAO
         try
         {
             String sql = "select es_id,es_start,m_id,e_id,s_id,et_id,c_id from eventSessions";
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -315,7 +231,7 @@ public class DAO
         try
         {
             String sql = "select et_id, et_name from eventTypes";
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -341,7 +257,7 @@ public class DAO
         try
         {
             String sql = "select e_id, e_first_name, e_last_name from employees";
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
 
             System.out.println( "\n" + caption );
             int index = 1;
@@ -358,14 +274,6 @@ public class DAO
         finally
         {
             close( resultSet );
-        }
-    }
-
-    private void safeClose( PreparedStatement statement ) throws SQLException
-    {
-        if ( statement != null )
-        {
-            statement.close();
         }
     }
 
@@ -388,7 +296,7 @@ public class DAO
                          "group by clubName, eventType\n" +
                          "order by clubName, eventType";
 
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
             while ( resultSet.next() )
             {
                 String clubName = resultSet.getString( "clubName" );
@@ -403,14 +311,6 @@ public class DAO
         }
 
         return details;
-    }
-
-    private void close( Connection connection, PreparedStatement statement, ResultSet resultSet ) throws SQLException
-    {
-        close( resultSet );
-        safeClose( statement );
-
-        Database.releaseConnection( connection );
     }
 
     public List<EventTypeAndStatusReportDetail> getEventTypeAndStatusReportDetails() throws SQLException
@@ -433,7 +333,7 @@ public class DAO
                          "join statuses s\n" +
                          "group by clubNumber, eventType, eventStatus";
 
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
             while ( resultSet.next() )
             {
                 String clubNumber = resultSet.getString( "clubNumber" );
@@ -479,7 +379,7 @@ public class DAO
                          "join statuses s on s.s_id = es.s_id\n" +
                          "order by member_name, c_number, es_start";
 
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
             while ( resultSet.next() )
             {
                 String memberName = resultSet.getString( "member_name" );
@@ -516,7 +416,7 @@ public class DAO
                          "from eventSessions es \n" +
                          "join statuses s on s.s_id = es.s_id";
 
-            resultSet = read( sql );
+            resultSet = DATABASE.read( sql );
             while ( resultSet.next() )
             {
                 String statusName = resultSet.getString( "s_name" );

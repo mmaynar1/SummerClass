@@ -1,5 +1,3 @@
-import java.sql.Connection;
-
 public class GenerateEventSessions
 {
     public static void main( String[] args )
@@ -12,7 +10,7 @@ public class GenerateEventSessions
     {
         try
         {
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             dao.printEventSessions( "Event Sessions before generation" );
             dao.createRandomEventSessions( );
             dao.printEventSessions( "Event Sessions after generation" );

@@ -23,7 +23,7 @@ public class Test
 
     public void exerciseDatabase() throws SQLException
     {
-        DAO dao = new DAO();
+        Dao dao = new Dao();
         try
         {
 

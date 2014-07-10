@@ -1,7 +1,6 @@
 import utility.FileSupport;
 
 import java.io.FileInputStream;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +36,7 @@ public class ReadWriteMembers
             Properties properties = new Properties();
             properties.load( new FileInputStream( "input.properties" ) );
             List<Name> names = getNames( FileSupport.getText( properties.getProperty( "memberNames" ) ) );
-            DAO dao = new DAO();
+            Dao dao = new Dao();
             dao.printMembers(  "Members before add" );
             dao.addMembers( names );
             dao.printMembers(  "Members after add" );
