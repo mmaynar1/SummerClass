@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amortization Calculator - Mitch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <script src="utility.js"></script>
+</head>
+<body id="page" onload="var schedule = new Schedule(); schedule.go();">
+<div class="align">
+    <div class="params">
+        <span>Amount Borrowed: </span><span id="amountBorrowed"></span><br>
+        <span>Annual Interest Rate: </span><span id="annualInterestRate"></span><span>%</span><br>
+        <span>Term in Years: </span><span id="termInYears"></span><br>
+    </div>
+    <div class="againButton">
+        <input type="button" value="Again!" onclick="window.location.reload()">
+    </div>
+    <table id="schedule" border="1">
+        <tr>
+            <th>Payment #</th>
+            <th>Monthly Payment</th>
+            <th>Interest</th>
+            <th>Principal</th>
+            <th>Total Interest</th>
+            <th>Total Principal</th>
+            <th>Balance</th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

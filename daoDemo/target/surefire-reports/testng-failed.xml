@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Command line suite]">
+  <test name="Command line test(failed)" preserve-order="true">
+    <classes>
+      <class name="com.summerclass.integrationtest.AjaxTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="beforeClass"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="beforeMethod"/>
+          <include name="afterClass"/>
+        </methods>
+      </class>
+      <class name="com.summerclass.integrationtest.EventTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="beforeClass"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="beforeMethod"/>
+          <include name="afterClass"/>
+        </methods>
+      </class>
+      <class name="com.summerclass.integrationtest.StringSupportTest">
+        <methods>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="beforeClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class>
+      <class name="com.summerclass.integrationtest.ControllerTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="testAddEventTypeNoName"/>
+          <include name="testAddEmployee"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="beforeClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testAddEventType"/>
+          <include name="beforeMethod"/>
+          <include name="afterClass"/>
+        </methods>
+      </class>
+      <class name="com.summerclass.integrationtest.ClubTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="beforeClass"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="afterClass"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

@@ -1,0 +1,106 @@
+.board td
+{
+    font-size: 75px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+.title
+{
+    color: floralwhite;
+    font-size: 60px;
+    margin-left: 41%;
+}
+
+table.board td, tr
+{
+    border: gray solid 3px;
+}
+
+.board
+{
+    margin-left: 4%;
+}
+
+.score
+{
+    border: red solid 3px;
+    color: floralwhite;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.container
+{
+    width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 8%;
+
+}
+
+.arrows input
+{
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+}
+
+.arrows
+{
+    margin-left: 4%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.scoreBox
+{
+    margin-left: 41%;
+}
+
+.gameOver
+{
+    font-size: 50px;
+    color: red;
+    margin-left: 34%;
+}
+
+body
+{
+    background-color: lightgray;
+}
+
+.directions
+{
+    color: floralwhite;
+    margin-left: 6%;
+    margin-top: 63px;
+    font-size: 18px;
+    float: left;
+}
+
+#newGame, #undo
+{
+    text-align: center;
+    color: gray;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background-color: floralwhite;
+    border: 2px solid lightgray;
+    border-radius: 5%;
+}
+#undo
+{
+    margin-top: 15px;
+}
+.gameButtons
+{
+    margin-top: 45px;
+    float: left;
+    margin-left: 8%;
+}

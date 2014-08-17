@@ -1,0 +1,9 @@
+com\summerclass\integrationtest\ControllerTest.class
+com\summerclass\integrationtest\ClubTest.class
+com\summerclass\integrationtest\ControllerDao.class
+com\summerclass\integrationtest\AjaxTest.class
+com\summerclass\integrationtest\StringSupportTest.class
+com\summerclass\integrationtest\SpringIntegrationTest.class
+com\summerclass\integrationtest\TestConfiguration.class
+com\summerclass\integrationtest\EventTest.class
+com\summerclass\integrationtest\ControllerDaoImpl.class

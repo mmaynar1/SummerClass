@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="3" time="3.827" errors="0" skipped="0" tests="29" name="TestSuite">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_51\jre\bin"/>
+    <property name="java.vm.version" value="24.51-b03"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="idea.launcher.port" value="7533"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\dev\summerclass\daoDemo"/>
+    <property name="java.runtime.version" value="1.7.0_51-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_51\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\dennyw\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 8"/>
+    <property name="classworlds.conf" value="C:\Program Files\apache-maven-3.0.5\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Python34\;C:\Program Files\Python34\Scripts;C:\Program Files\Java\jdk1.6.0_43\bin;C:\app\dennyw\product\11.2.0\client_2;C:\app\dennyw\product\11.2.0\client_1;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\apache-maven-3.0.5\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\unix;C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.2"/>
+    <property name="user.home" value="C:\Users\dennyw"/>
+    <property name="user.timezone" value="America/Chicago"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.0.1\bin"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="dennyw"/>
+    <property name="java.class.path" value="C:\Program Files\apache-maven-3.0.5\boot\plexus-classworlds-2.4.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.0.1\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_51\jre"/>
+    <property name="sun.java.command" value="com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_51"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_51\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_51\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_51\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_51\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\apache-maven-3.0.5"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase time="0.097" classname="com.summerclass.integrationtest.AjaxTest" name="testCountCharacters"/>
+  <testcase time="0.271" classname="com.summerclass.integrationtest.AjaxTest" name="testGetEmployees"/>
+  <testcase time="0.009" classname="com.summerclass.integrationtest.AjaxTest" name="testLogin"/>
+  <testcase time="0.002" classname="com.summerclass.integrationtest.AjaxTest" name="testMeaningOfLife"/>
+  <testcase time="0.001" classname="com.summerclass.integrationtest.AjaxTest" name="testReverse"/>
+  <testcase time="0.067" classname="com.summerclass.integrationtest.ClubTest" name="getClubIdFailure"/>
+  <testcase time="0.007" classname="com.summerclass.integrationtest.ClubTest" name="testGetClub"/>
+  <testcase time="0.006" classname="com.summerclass.integrationtest.ClubTest" name="testGetClubNumbers"/>
+  <testcase time="0.009" classname="com.summerclass.integrationtest.ClubTest" name="testGetClubSafe"/>
+  <testcase time="0.002" classname="com.summerclass.integrationtest.ClubTest" name="testGetClubs"/>
+  <testcase time="0.002" classname="com.summerclass.integrationtest.ClubTest" name="testGetCount"/>
+  <testcase time="0.003" classname="com.summerclass.integrationtest.ClubTest" name="testGetIdAndNumber"/>
+  <testcase time="0.004" classname="com.summerclass.integrationtest.ClubTest" name="testGetIds"/>
+  <testcase time="0.008" classname="com.summerclass.integrationtest.ClubTest" name="testGetName"/>
+  <testcase time="0.008" classname="com.summerclass.integrationtest.ClubTest" name="testGetNameSafe"/>
+  <testcase time="0.004" classname="com.summerclass.integrationtest.ControllerTest" name="testAddEmployee">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;302&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEmployee(ControllerTest.java:70)
+</failure>
+    <system-out>Request: /addEmployee.spr
+</system-out>
+  </testcase>
+  <testcase time="0.002" classname="com.summerclass.integrationtest.ControllerTest" name="testAddEventType">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;302&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventType(ControllerTest.java:56)
+</failure>
+    <system-out>Request: /addEventType.spr
+</system-out>
+  </testcase>
+  <testcase time="0.001" classname="com.summerclass.integrationtest.ControllerTest" name="testAddEventTypeNoName">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;302&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName(ControllerTest.java:44)
+</failure>
+    <system-out>Request: /addEventType.spr
+</system-out>
+  </testcase>
+  <testcase time="0.568" classname="com.summerclass.integrationtest.EventTest" name="testCreateEvents"/>
+  <testcase time="0.107" classname="com.summerclass.integrationtest.EventTest" name="testDeleteEmployeeEvents"/>
+  <testcase time="0.064" classname="com.summerclass.integrationtest.EventTest" name="testDeleteEvents"/>
+  <testcase time="0.022" classname="com.summerclass.integrationtest.EventTest" name="testGetAll"/>
+  <testcase time="0.012" classname="com.summerclass.integrationtest.EventTest" name="testGetEvent"/>
+  <testcase time="0.015" classname="com.summerclass.integrationtest.EventTest" name="testGetRandomEventByStatus"/>
+  <testcase time="0.004" classname="com.summerclass.integrationtest.EventTest" name="testGetRandomEventId"/>
+  <testcase time="0.069" classname="com.summerclass.integrationtest.EventTest" name="testUpdateStatus"/>
+  <testcase time="0" classname="com.summerclass.integrationtest.StringSupportTest" name="testAssertions"/>
+  <testcase time="0" classname="com.summerclass.integrationtest.StringSupportTest" name="testNegativeGuid"/>
+  <testcase time="0" classname="com.summerclass.integrationtest.StringSupportTest" name="testPositiveGuid"/>
+</testsuite>

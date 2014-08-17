@@ -1,0 +1,194 @@
+
+<!-- Add a simple image -->
+
+<html>
+<head>
+
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/dhtmlxcommon.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/dhtmlxgrid.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/dhtmlxgridcell.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/dhtmlxgrid_export.js' type='text/javascript'></script>
+
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_form.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_mcol.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_ssc.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_start.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_splt.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_nxml.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/ext/dhtmlxgrid_selection.js' type='text/javascript'></script>
+
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_tree.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_3but.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_acheck.js' type='text/javascript'></script>
+<%--<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_calendar.js' type='text/javascript'></script>--%>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_cntr.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_context.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_dhxcalendar.js' type='text/javascript'></script>
+<script src='../dhtmlxSuite/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_grid.js' type='text/javascript'></script>
+
+<script src='../javascript/random.js' type='text/javascript'></script>
+
+<link rel="STYLESHEET" type="text/css" href="../dhtmlxSuite/dhtmlxGrid/codebase/dhtmlxgrid.css">
+
+<script type="text/javascript">
+	var grid;
+
+	function getRandomRows()
+	{
+	    var i;
+	    var rows = [];
+	
+	    for ( i = 0; i < 300; ++i )
+	    {
+	        rows.push( { message: getRandomMessage(), name: getRandomName(), total: getRandomTotal(), club: getRandomClub(),
+                             count: getRandomInteger( 100, 500 ) } );
+	    }
+	
+	    return rows;
+	}
+	
+	function repeatString( value, count )
+	{
+	   var result = value;
+	   var i;
+	   for ( i = 1; i < count; ++i )
+	   {
+	      result += ",";
+	      result += value;
+	   }
+	
+	   return result;
+	}
+	
+        function goCount( total, name, count, club, message )
+	{
+	   alert( name + " " + total + " " + count + " " + club + " " + message );
+	}
+
+      /**
+       * Serializes arguments as a string to be concatenated into a dynamically generated function call.
+       * Takes either a string used to delimit any string arguments and an array of arguments to serialize,
+       * or just an array of arguments to serialize with the string delimiter automatically being "
+       * @return {String}
+       */
+      function createArgumentsString()
+      {
+         var argumentsString;
+
+         if ( arguments.length == 2 && 
+              typeof arguments[0] === 'string' && 
+              ( typeof arguments[1] === 'object' || typeof arguments[1] === 'array' ) )
+	 {
+            argumentsString = _createArgumentsString( arguments[0], arguments[1] );
+         }
+         else 
+	 {
+            argumentsString = _createArgumentsString( '"', arguments );
+         }
+
+         return argumentsString;
+      }
+
+      function _createArgumentsString( stringDelimiter, unserializedArguments ) 
+      {
+         var serializedArguments = [];
+
+         for ( var i = 0; i < unserializedArguments.length; ++i ) 
+	 {
+            var argument = unserializedArguments[i];
+            var argumentType = typeof argument;
+
+            switch ( argumentType ) 
+	    {
+               case 'string':
+                  serializedArguments.push( stringDelimiter + argument + stringDelimiter );
+                  break;
+               case 'undefined':
+                  serializedArguments.push("null");
+                  break;
+               default:
+                  if ( argument === null ) 
+                  {
+                     serializedArguments.push("null");
+                  }
+                  else 
+                  {
+                     serializedArguments.push( argument.toString() );
+                  }
+            }
+         }
+
+         return serializedArguments.join( "," );
+      }
+
+      function createInvocationString( method, stringDelimiter, values ) 
+      {
+         return method.getName() + '(' + createArgumentsString( stringDelimiter, values ) + ')';
+      }
+
+	Function.prototype.getName = function()   // globally give functions a getName property
+	{
+   		return (/function ([^(]*)/).exec( this+"" )[1];
+	};
+
+        function getLink( text, method, values )
+	{
+           return text + "^javascript:" + createInvocationString( method, "\"", values ) + "^_self";
+	}
+
+	function loadGrid()
+	{
+	    var rows = getRandomRows();
+	    var account;
+	    var values = [];
+	    var i;
+            var link;
+            var image;
+	    grid = new dhtmlXGridObject( 'grid' );
+	    var header = 'Message,User,Total,Club,Count,Image';
+	    var columns = header.split( "," ).length;
+	
+	    grid.setHeader( header, null, ["text-align:left;", 
+                                           "text-align:left;", 
+                                           "text-align:right; padding-right: 15px;", 
+                                           "text-align:left;",
+                                           "text-align:left;",
+                                           "text-align:center;"] );
+	    grid.setColSorting( 'str,str,int,int,int,na' );
+	    grid.setInitWidths( "500,*,100,75,100,75" );
+            grid.setColTypes( "ro,ro,ro,ro,link,img" );
+	    grid.setColAlign( "left,left,right,left,left,center" );
+	    grid.enableAlterCss( "even_row", "odd_row" );
+	    grid.enableMultiline(true);
+	    grid.enableTooltips( "false,false,true,true,false,false" );
+	    grid.setImagePath( "../dhtmlxSuite/dhtmlxGrid/codebase/imgs/" );
+	    grid.setColVAlign( repeatString( "top", columns ) );
+	    grid.init();
+	
+	    for ( i = 0; i < rows.length; ++i )
+	    {
+	       account = rows[i];
+               link = getLink( account.count, goCount, [account.total, account.name, account.count, account.club, account.message] );
+               image = "../dhtmlxSuite/dhtmlxGrid/codebase/imgs/true.gif";
+	       values.push( [ account.message, account.name, account.total, account.club, link, image ] ); 
+	    }
+	
+	    grid.parse( values, "jsarray" );
+	
+	    for ( i = 0; i < rows.length; ++i )
+	    {
+	       grid.setCellTextStyle(i + 1, 2, "color: blue; padding-right: 15px;");
+	    }
+	}
+</script>
+
+</head>
+
+<body onload="loadGrid()">
+   <div id="grid" style="width: 900px; height: 400px; border: 1 solid gray;"/>
+</body>
+
+</html>

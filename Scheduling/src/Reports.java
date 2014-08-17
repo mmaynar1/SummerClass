@@ -1,3 +1,4 @@
+import database.Dao;
 import reportdetails.EventTypeAndStatusReportDetail;
 import reportdetails.EventTypeReportDetail;
 import reportdetails.MemberPendingEventsReportDetail;

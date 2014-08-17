@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script type="text/javascript" src="c:/temp/common.js"></script>
+		<script type="text/javascript" src="c:/temp/schedule.js"></script>
+		<script type="text/javascript" src="c:/temp/loan.js"></script>
+
+		<script type="text/javascript">
+
+		var common = new Common();
+
+		function main()
+		{
+			var principal = common.getWholeNumber( "Enter the principal in whole numbers between ", 10000, 100000 );
+			var rate = 0;
+			var years = 0;
+			var schedule;
+
+			if ( principal )
+			{
+				rate = common.getWholeNumber( "Enter the rate in whole numbers between ", 1, 10 );
+			}
+			if ( principal && rate )
+			{
+				years = common.getWholeNumber( "Enter the years in whole numbers between ", 5, 30 );
+			}
+
+			if ( principal && rate && years )
+			{
+				schedule = new Schedule( principal, rate, years );
+				schedule.print();
+			}
+			else
+			{
+				document.write( "User cancelled" );
+			}
+		}
+		</script>
+	</head>
+
+	<body onload="main()"></body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mitch - Calculator</title>
+    <script type="text/javascript" src="js/Display.js"></script>
+    <script type="text/javascript">
+        var page;
+        function initialize()
+        {
+            page = { display: new Display() };
+        }
+    </script>
+    <link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="initialize();">
+<div class="container">
+    <div>&nbsp;</div>
+    <div class="displayContainer">
+        <div id="display">Welcome to the Calculator.</div>
+    </div>
+    <div>&nbsp;</div>
+    <div class="buttonsContainer">
+        <table id="buttons">
+            <tr>
+                <td><input id="1" type="button" value="1" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="2" type="button" value="2" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="3" type="button" value="3" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="addition" type="button" value="+" onclick="page.display.addOperatorToDisplay(this.id)"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input id="4" type="button" value="4" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="5" type="button" value="5" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="6" type="button" value="6" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="negative" type="button" value="-" onclick="page.display.addNegative()"/></td>
+            </tr>
+            <tr>
+                <td><input id="7" type="button" value="7" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="8" type="button" value="8" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="9" type="button" value="9" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="multiplication" type="button" value="x"
+                           onclick="page.display.addOperatorToDisplay(this.id)"/></td>
+            </tr>
+            <tr>
+                <td><input id="0" type="button" value="0" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="decimal" type="button" value="." onclick="page.display.addDecimal()"/></td>
+                <td><input id="clear" type="button" value="CLEAR" onclick="page.display.clear()"/></td>
+                <td><input id="division" type="button" value="&#247;" onclick="page.display.addOperatorToDisplay(this.id)"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1"></td>
+               <td><input id="delete" type="button" value="DELETE;" onclick="page.display.backspace()"/></td>
+                <td><input id="pi" type="button" value="&#928;" onclick="page.display.addNumberToDisplay(this.id)"/></td>
+                <td><input id="equals" type="button" value="=" onclick="page.display.evaluate()"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>jQuery DemoM</title>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+    <style type="text/css">
+        .word
+        {
+            font-size: 18px;
+            border: 1px solid gray;
+        }
+
+        .big
+        {
+            font-size: 60px;
+        }
+
+        .error
+        {
+            color: red;
+        }
+
+        .link
+        {
+            text-decoration: underline;
+            cursor: pointer;
+            color: blue;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hover
+        {
+            background-color: yellow;;
+        }
+
+        .box
+        {
+            display: inline-block;
+            border: 1px solid blue;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // add function to $
+        (function($) {
+            $.maxHeight = function( elements ) {
+                var max = 0;
+                $.each( elements, function()
+                {
+                    var height = parseInt($(this).css('height'));
+                    max = Math.max( max, height );
+                } );
+                return max;
+            } ;
+        } )(jQuery);
+
+        // add function to $
+        (function($) {
+            $.maxWidth = function( elements ) {
+                var max = 0;
+                $.each( elements, function()
+                {
+                    var width = parseInt($(this).css('width'));
+                    max = Math.max( max, width );
+                } );
+                return max;
+            } ;
+        } )(jQuery);
+
+        $(document).ready(function ()
+        {
+            /*
+            if ( $('#bye').hasClass( 'link' ) )
+            {
+                alert( 'bye is a link' );
+            }
+            */
+
+            /*
+            var wowObject = $('td:contains("Wow")');
+            wowObject.parent().next().remove();
+            */
+
+
+            /*
+            var statesDom = $('#states')[0];
+            statesDom.options.add( new Option( 'Missouri', 'MO' ) );
+            statesDom.options.add( new Option( 'Tennessee', 'TN' ) );
+            */
+
+            /*
+            var bye = $('#bye');
+            var key = 'theKey';
+            var value = { 'title': 'Hello there', total: 999, worked: true } ;
+            bye.data( key, value );
+            var readValue = bye.data( key );
+            alert( readValue.title + ' ' + readValue.total + ' ' + readValue.worked );
+            */
+
+            /*
+            var boxes = $('.box');
+            boxes.css( 'width', $.maxWidth( boxes ) + 'px' );
+            boxes.css( 'height', $.maxHeight( boxes ) + 'px' );
+            */
+
+            /*
+            // insertBefore, prependTo, appendTo, insertAfter
+            $('<a href="#top">Top</a>').insertBefore( 'table' );
+            $('<a href="#top">Top</a>').insertAfter( 'table' );
+            $('<a id="top"></a>').prependTo( 'body' );
+            */
+
+            /*
+            // size buttons to max width
+            var maxWidth = 0;
+            var buttons = $('input[type="button"]');
+            buttons.each(function ()
+            {
+                var width = parseInt($(this).css('width'));
+                maxWidth = Math.max( maxWidth, width );
+            });
+            buttons.css('width', maxWidth + "px");
+            */
+
+            // setTimeout( function() { $('#bye').trigger( 'click' ); }, 1000 );
+
+            //$('td').hover( function() { $(this).addClass( 'hover' ); }, function() { $(this).removeClass( 'hover' ); } );
+
+            // setInterval( function() { $('div').toggleClass( 'big' );},  1000 );
+
+            /*
+             var sayHello = function() { alert( 'Hello' ); };
+             $('#hello').bind( 'click', sayHello).addClass( 'link' );
+             $('span').bind( 'mouseover', sayHello ).addClass( 'link' );
+             $('div' ).bind( 'mouseout', sayHello ).addClass( 'link' );
+             $('td:contains("Wow")').click( sayHello).addClass( 'link' );
+             // unbind
+             */
+
+            /*
+             var wowObject = $('td:contains("Wow")');
+             wowObject.css( 'font-size', '30px' );
+             wowObject.parent().next().children('td:eq(1)').css( 'font-size', '30px' );
+             var wowDom = wowObject.get(0);
+             wowDom.innerHTML = 'Wow!!!';
+             var bangDom = document.getElementById( 'bang' );
+             var bangObject = $( bangDom );
+             bangObject.html( 'Bang!!!!!').css( 'font-size', '28px' );
+             */
+
+            /*
+             // enabled
+             var selected = $('input:enabled');   // disabled
+             var count = selected.length;
+             var names = [];
+             selected.each( function() { names.push( $(this).attr( 'name' ) ); } );
+             $('#checkBoxResults').html( 'enabled count = ' + count + ' names = ' + names.join( ',' ) );
+             */
+
+            /*
+             // checked
+             var selected = $('input:checked');
+             var count = selected.length;
+             var names = [];
+             selected.each( function() { names.push( $(this).attr( 'name' ) ); } );
+             $('#checkBoxResults').html( 'selected count = ' + count + ' names = ' + names.join( ',' ) );
+             */
+
+            //$('#zebraStuff tr:odd').css( 'color', 'blue' );
+            //$('#zebraStuff tr:even').css( 'color', 'green' );
+
+            //var firstName = $('input[name="firstName"]').val( 'Selectable' );
+            //$('#nameContainer').html( firstName.val() );
+
+            //$('span').addClass( 'big' );
+            //$('span').addClass( 'error' );
+            //$('div').removeClass( 'word' );
+
+            //$('div').css( 'color', 'red' );
+
+            //$('p').css( 'color', 'red').css( 'background-color', 'yellow' );
+
+            //$('span').css( { 'border': '1px solid blue', 'padding': '5px' });
+
+            //$('#firstDiv').html( 'New text in first div' );
+
+            //$('div:last').css( 'font-size', '44px' );
+            //$('div:first').css( 'font-size', '34px' );
+            //$('div:gt(2)').css( 'font-size', '34px' );
+            //$('div:eq(2)').css( 'font-size', '44px' );
+            //$('div:lt(2)').css( 'font-size', '54px' );
+
+            //$('.word').css( 'border', '5px solid cyan' );
+
+            $('div.word').css( 'border', '5px solid green' );
+        });
+    </script>
+</head>
+<body>
+
+<a href="http://learn.jquery.com/using-jquery-core/traversing/">traversing</a>
+<br/>
+<a href="http://api.jquery.com/category/utilities/">utilities</a>
+<br/>
+<select id="states" name="states">
+    <option value="AR">Arkansas</option>
+    <option value="TX">Texas</option>
+</select>
+<hr/>
+<div class='box' style="height:  50px;">Short Short Short Short</div>
+<div class='box' style="height: 100px;">Medium</div>
+<div class='box' style="height: 150px;">Tall</div>
+<hr/>
+<div id="bye" class="link" onclick="alert( 'Bye' );">Bye</div>
+<div id='hello'>Hello</div>
+<br/>
+Check Boxes
+<div id="checkBoxResults" style="border: 1px solid gray; color: magenta;"></div>
+<br/>
+<input type="checkbox" name="check_1" checked/><br/>
+<input type="checkbox" disabled name="check_2"/><br/>
+<input type="checkbox" name="check_3" checked/><br/>
+<input type="checkbox" name="check_4"/><br/>
+<input type="checkbox" disabled name="check_5"/><br/>
+<input type="checkbox" name="check_6"/><br/>
+<input type="checkbox" name="check_7"/><br/>
+<input type="checkbox" disabled name="check_8" checked/><br/>
+<hr/>
+<table border="1">
+    <tr><td>11</td><td>12</td></tr>
+</table>
+<hr/>
+<div id="firstDiv" class="word">First Div</div>
+<div class="word">Second Div</div>
+<div class="word">Third Div</div>
+<div>Fourth Div</div>
+<div>Fifth Div</div>
+<span>First Span</span>
+<span class="word">Second Span</span>
+<span>Third Span</span>
+<span>Fourth Span</span>
+<span>Fifth Span</span>
+
+<p>First P</p>
+
+<p>Second P</p>
+
+<p>Third P</p>
+
+<p>Fourth P</p>
+
+<p>Fifth P</p>
+<input type="button" onclick="jQuery('#dog').hide()" value="Hide Dog"/>
+<input type="button" onclick="$('#dog').show()" value="Show Dog"/>
+<input type="button" onclick="$('#dog').fadeIn( 3000 )" value="Real Slow Fade In Dog"/>
+<input type="button" onclick="$('#dog').fadeIn( 'slow' )" value="Slow Fade In Dog"/>
+<input type="button" onclick="$('#dog').fadeIn( 'fast' )" value="Fast Fade In Dog"/>
+<input type="button" onclick="$('#dog').fadeOut( 'slow' )" value="Fade Out Dog"/>
+<input type="button" onclick="$('#dog').attr( 'src', 'logo.jpg' )" value="Change To Logo"/>
+<input type="button" onclick="$('#dog').attr( 'src', 'dog.jpg' )" value="Change To Dog"/>
+
+<br/>
+<img id='dog' src="dog.jpg" style="width: 500px; height: 400px;"/>
+<br/>
+<input type="text" name="firstName"/>
+<br/>
+Name: <span id="nameContainer"></span>
+<br/>
+Zebra Table
+<table id="zebraStuff" border="1">
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td id="bang">Bang</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td>Wow</td>
+        <td>Two</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td>Man</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+function bye()
+{
+   alert( 'Bye' );
+}

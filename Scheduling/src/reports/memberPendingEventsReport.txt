@@ -1,13 +1,5 @@
 Member Pending Events Report
 Member                Club Number           Event Type Name       Employee Name         Start Date Time       Status Name           
-Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
-Andy McNeely          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
-Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
-Andy McNeely          3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Complete              
-Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
-Andy McNeely          3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Andy McNeely          3000                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
-Andy McNeely          3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Pending               
 Andy McNeely          3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Cancelled             
 Andy McNeely          3000                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Complete              
 Andy McNeely          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Complete              
@@ -16,8 +8,16 @@ Andy McNeely          3000                  Zumba                 Leon Theprofes
 Andy McNeely          3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Andy McNeely          3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Pending               
 Andy McNeely          3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Andy McNeely          3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Pending               
-Andy McNeely          3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Cancelled             
+Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
+Andy McNeely          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
+Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
+Andy McNeely          3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Complete              
+Andy McNeely          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
+Andy McNeely          3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
+Andy McNeely          3000                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
+Andy McNeely          3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Pending               
+Andy McNeely          3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Cancelled             
+Andy McNeely          3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Pending               
 Andy McNeely          3001                  Zumba                 Marty McFly           07/10/2014 08:28 AM   Pending               
 Andy McNeely          3001                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Andy McNeely          3001                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Pending               
@@ -60,19 +60,19 @@ Andy McNeely          3002                  Zumba                 Pam Beasley   
 Andy McNeely          3002                  Pilates               Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Andy McNeely          3002                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Andy McNeely          3002                  Pilates               Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
-Billy Madison         3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Billy Madison         3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
-Billy Madison         3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Pending               
 Billy Madison         3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3000                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Complete              
 Billy Madison         3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Pending               
 Billy Madison         3000                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Complete              
-Billy Madison         3000                  Pilates               Pam Beasley           07/10/2014 09:29 AM   Pending               
-Billy Madison         3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
-Billy Madison         3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Complete              
-Billy Madison         3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Pending               
+Billy Madison         3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
+Billy Madison         3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
+Billy Madison         3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Pending               
+Billy Madison         3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Complete              
+Billy Madison         3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Pending               
+Billy Madison         3000                  Pilates               Pam Beasley           07/10/2014 11:29 AM   Pending               
+Billy Madison         3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Complete              
 Billy Madison         3001                  Pilates               Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3001                  Pilates               Ray Orbison           07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3001                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Pending               
@@ -112,13 +112,6 @@ Billy Madison         3002                  Pilates               Todd Jones    
 Billy Madison         3002                  Pilates               Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Billy Madison         3002                  Pilates               Nathan Lockwood       07/10/2014 08:29 AM   Pending               
 Billy Madison         3002                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Bob Barker            3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Complete              
-Bob Barker            3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
-Bob Barker            3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
-Bob Barker            3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
-Bob Barker            3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Pending               
-Bob Barker            3000                  Zumba                 Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
-Bob Barker            3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
 Bob Barker            3000                  Zumba                 Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 Bob Barker            3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Pending               
 Bob Barker            3000                  Zumba                 Kenneth Maynard       07/10/2014 08:29 AM   Complete              
@@ -127,8 +120,15 @@ Bob Barker            3000                  Kick Boxing           Kenneth Maynar
 Bob Barker            3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Bob Barker            3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Pending               
 Bob Barker            3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
-Bob Barker            3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Pending               
-Bob Barker            3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
+Bob Barker            3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Complete              
+Bob Barker            3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
+Bob Barker            3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
+Bob Barker            3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
+Bob Barker            3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Pending               
+Bob Barker            3000                  Zumba                 Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
+Bob Barker            3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
+Bob Barker            3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Pending               
+Bob Barker            3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
 Bob Barker            3001                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
 Bob Barker            3001                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Pending               
 Bob Barker            3001                  Pilates               Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
@@ -158,23 +158,23 @@ Bob Barker            3002                  Kick Boxing           Leon Theprofes
 Bob Barker            3002                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Bob Barker            3002                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Pending               
 Bob Barker            3002                  Pilates               Pokey Reese           07/10/2014 08:29 AM   Complete              
-Charles Bronson       3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Cancelled             
-Charles Bronson       3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
-Charles Bronson       3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
-Charles Bronson       3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
-Charles Bronson       3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Pending               
-Charles Bronson       3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
-Charles Bronson       3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
 Charles Bronson       3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Charles Bronson       3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Charles Bronson       3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
 Charles Bronson       3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 Charles Bronson       3000                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Cancelled             
-Charles Bronson       3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Pending               
-Charles Bronson       3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Cancelled             
-Charles Bronson       3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Cancelled             
-Charles Bronson       3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
-Charles Bronson       3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
+Charles Bronson       3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Cancelled             
+Charles Bronson       3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
+Charles Bronson       3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
+Charles Bronson       3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
+Charles Bronson       3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Pending               
+Charles Bronson       3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
+Charles Bronson       3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
+Charles Bronson       3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Complete              
+Charles Bronson       3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
+Charles Bronson       3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Pending               
+Charles Bronson       3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Cancelled             
+Charles Bronson       3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Cancelled             
 Charles Bronson       3001                  Pilates               Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Charles Bronson       3001                  Pilates               Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Charles Bronson       3001                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
@@ -214,13 +214,6 @@ Charles Bronson       3002                  Pilates               Samuel L. Jack
 Charles Bronson       3002                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
 Charles Bronson       3002                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Complete              
 Charles Bronson       3002                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Cosmo Kramer          3000                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Pending               
-Cosmo Kramer          3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Pending               
-Cosmo Kramer          3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
-Cosmo Kramer          3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Pending               
-Cosmo Kramer          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Cosmo Kramer          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
-Cosmo Kramer          3000                  Kick Boxing           Kirby Puckett         07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
@@ -230,13 +223,20 @@ Cosmo Kramer          3000                  Zumba                 Pam Beasley   
 Cosmo Kramer          3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3000                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Complete              
 Cosmo Kramer          3000                  Zumba                 Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
-Cosmo Kramer          3000                  Pilates               Kenneth Maynard       07/10/2014 09:29 AM   Complete              
-Cosmo Kramer          3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Complete              
-Cosmo Kramer          3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
-Cosmo Kramer          3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Pending               
-Cosmo Kramer          3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
-Cosmo Kramer          3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Complete              
-Cosmo Kramer          3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Cancelled             
+Cosmo Kramer          3000                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Pending               
+Cosmo Kramer          3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Pending               
+Cosmo Kramer          3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
+Cosmo Kramer          3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Pending               
+Cosmo Kramer          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
+Cosmo Kramer          3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
+Cosmo Kramer          3000                  Kick Boxing           Kirby Puckett         07/10/2014 08:29 AM   Pending               
+Cosmo Kramer          3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Pending               
+Cosmo Kramer          3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
+Cosmo Kramer          3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Complete              
+Cosmo Kramer          3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Cancelled             
+Cosmo Kramer          3000                  Pilates               Kenneth Maynard       07/10/2014 11:29 AM   Complete              
+Cosmo Kramer          3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Complete              
+Cosmo Kramer          3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Cancelled             
 Cosmo Kramer          3001                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3001                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Cosmo Kramer          3001                  Kick Boxing           Kirby Puckett         07/10/2014 08:29 AM   Complete              
@@ -273,6 +273,12 @@ Cosmo Kramer          3002                  Kick Boxing           Opie Griffith 
 Cosmo Kramer          3002                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Pending               
 Cosmo Kramer          3002                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
 Cosmo Kramer          3002                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
+Dan Marino            3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Pending               
+Dan Marino            3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
+Dan Marino            3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Cancelled             
+Dan Marino            3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Complete              
+Dan Marino            3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
+Dan Marino            3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
 Dan Marino            3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Complete              
 Dan Marino            3000                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
 Dan Marino            3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
@@ -280,18 +286,12 @@ Dan Marino            3000                  Kick Boxing           Todd Jones    
 Dan Marino            3000                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Dan Marino            3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Dan Marino            3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
-Dan Marino            3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Pending               
-Dan Marino            3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
-Dan Marino            3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Dan Marino            3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Complete              
-Dan Marino            3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Dan Marino            3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
-Dan Marino            3000                  Pilates               Pokey Reese           07/10/2014 09:29 AM   Pending               
-Dan Marino            3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Complete              
-Dan Marino            3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Complete              
-Dan Marino            3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Pending               
-Dan Marino            3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Pending               
-Dan Marino            3000                  Pilates               Kenneth Maynard       07/10/2014 09:29 AM   Cancelled             
+Dan Marino            3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Pending               
+Dan Marino            3000                  Pilates               Kenneth Maynard       07/10/2014 11:29 AM   Cancelled             
+Dan Marino            3000                  Pilates               Pokey Reese           07/10/2014 11:29 AM   Pending               
+Dan Marino            3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Complete              
+Dan Marino            3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Complete              
+Dan Marino            3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Pending               
 Dan Marino            3001                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Complete              
 Dan Marino            3001                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Dan Marino            3001                  Pilates               Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
@@ -332,24 +332,24 @@ Dan Marino            3002                  Zumba                 Pokey Reese   
 Dan Marino            3002                  Pilates               Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Dan Marino            3002                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Cancelled             
 Dan Marino            3002                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
-Darth Vader           3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Darth Vader           3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Cancelled             
-Darth Vader           3000                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Cancelled             
-Darth Vader           3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
-Darth Vader           3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Darth Vader           3000                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Darth Vader           3000                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Darth Vader           3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
 Darth Vader           3000                  Kick Boxing           Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Darth Vader           3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Darth Vader           3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Complete              
-Darth Vader           3000                  Pilates               Kirby Puckett         07/10/2014 09:29 AM   Complete              
-Darth Vader           3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
-Darth Vader           3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Pending               
-Darth Vader           3000                  Pilates               Kirby Puckett         07/10/2014 09:29 AM   Pending               
-Darth Vader           3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Cancelled             
-Darth Vader           3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Pending               
-Darth Vader           3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Pending               
+Darth Vader           3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Complete              
+Darth Vader           3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Cancelled             
+Darth Vader           3000                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Cancelled             
+Darth Vader           3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
+Darth Vader           3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
+Darth Vader           3000                  Pilates               Kirby Puckett         07/10/2014 11:29 AM   Pending               
+Darth Vader           3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Cancelled             
+Darth Vader           3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Pending               
+Darth Vader           3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Pending               
+Darth Vader           3000                  Pilates               Kirby Puckett         07/10/2014 11:29 AM   Complete              
+Darth Vader           3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
+Darth Vader           3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Pending               
 Darth Vader           3001                  Pilates               Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
 Darth Vader           3001                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
 Darth Vader           3001                  Pilates               Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
@@ -389,20 +389,20 @@ Darth Vader           3002                  Pilates               Leon Theprofes
 Darth Vader           3002                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
 Darth Vader           3002                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
 Darth Vader           3002                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Cancelled             
+Elaine Benes          3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
+Elaine Benes          3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Pending               
+Elaine Benes          3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
+Elaine Benes          3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
+Elaine Benes          3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
 Elaine Benes          3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Pending               
 Elaine Benes          3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Pending               
 Elaine Benes          3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Pending               
 Elaine Benes          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Complete              
-Elaine Benes          3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
-Elaine Benes          3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Pending               
-Elaine Benes          3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Complete              
-Elaine Benes          3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
-Elaine Benes          3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
-Elaine Benes          3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
-Elaine Benes          3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Complete              
-Elaine Benes          3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Cancelled             
-Elaine Benes          3000                  Pilates               Pam Beasley           07/10/2014 09:29 AM   Pending               
-Elaine Benes          3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Cancelled             
+Elaine Benes          3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Complete              
+Elaine Benes          3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Cancelled             
+Elaine Benes          3000                  Pilates               Pam Beasley           07/10/2014 11:29 AM   Pending               
+Elaine Benes          3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Cancelled             
+Elaine Benes          3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Cancelled             
 Elaine Benes          3001                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 Elaine Benes          3001                  Pilates               Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Elaine Benes          3001                  Zumba                 Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
@@ -431,18 +431,18 @@ Elaine Benes          3002                  Kick Boxing           Samuel L. Jack
 Elaine Benes          3002                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Complete              
 Elaine Benes          3002                  Pilates               Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 Elaine Benes          3002                  Pilates               Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Farah Fawcett         3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Complete              
-Farah Fawcett         3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Farah Fawcett         3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Complete              
 Farah Fawcett         3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3000                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Farah Fawcett         3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Complete              
+Farah Fawcett         3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Complete              
+Farah Fawcett         3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3000                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
-Farah Fawcett         3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Cancelled             
-Farah Fawcett         3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Cancelled             
-Farah Fawcett         3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Cancelled             
+Farah Fawcett         3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Cancelled             
+Farah Fawcett         3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Cancelled             
+Farah Fawcett         3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Cancelled             
 Farah Fawcett         3001                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Complete              
 Farah Fawcett         3001                  Pilates               Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3001                  Pilates               Ray Orbison           07/10/2014 08:29 AM   Complete              
@@ -479,19 +479,19 @@ Farah Fawcett         3002                  Pilates               Venus Flytrap 
 Farah Fawcett         3002                  Pilates               Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3002                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 Farah Fawcett         3002                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
-George Costanza       3000                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Pending               
-George Costanza       3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Cancelled             
-George Costanza       3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
-George Costanza       3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 George Costanza       3000                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 George Costanza       3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
 George Costanza       3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Pending               
 George Costanza       3000                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Complete              
 George Costanza       3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
 George Costanza       3000                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Pending               
-George Costanza       3000                  Pilates               Pam Beasley           07/10/2014 09:29 AM   Pending               
-George Costanza       3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Complete              
-George Costanza       3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Complete              
+George Costanza       3000                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Pending               
+George Costanza       3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Cancelled             
+George Costanza       3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
+George Costanza       3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
+George Costanza       3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Complete              
+George Costanza       3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Complete              
+George Costanza       3000                  Pilates               Pam Beasley           07/10/2014 11:29 AM   Pending               
 George Costanza       3001                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 George Costanza       3001                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Pending               
 George Costanza       3001                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Cancelled             
@@ -527,13 +527,6 @@ George Costanza       3002                  Personal Training     Kenneth Maynar
 George Costanza       3002                  Pilates               Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 George Costanza       3002                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Complete              
 Gloria Esteban        3000                  Zumba                 Pam Beasley           07/10/2014 08:28 AM   Pending               
-Gloria Esteban        3000                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Pending               
-Gloria Esteban        3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
-Gloria Esteban        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Gloria Esteban        3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
-Gloria Esteban        3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
-Gloria Esteban        3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Complete              
-Gloria Esteban        3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
 Gloria Esteban        3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
 Gloria Esteban        3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Complete              
 Gloria Esteban        3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Pending               
@@ -541,9 +534,16 @@ Gloria Esteban        3000                  Kick Boxing           Samuel L. Jack
 Gloria Esteban        3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Gloria Esteban        3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Pending               
 Gloria Esteban        3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Complete              
-Gloria Esteban        3000                  Pilates               Kirby Puckett         07/10/2014 09:29 AM   Pending               
-Gloria Esteban        3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Pending               
-Gloria Esteban        3000                  Pilates               Pam Beasley           07/10/2014 09:29 AM   Pending               
+Gloria Esteban        3000                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Pending               
+Gloria Esteban        3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
+Gloria Esteban        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
+Gloria Esteban        3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
+Gloria Esteban        3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
+Gloria Esteban        3000                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Complete              
+Gloria Esteban        3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
+Gloria Esteban        3000                  Pilates               Pam Beasley           07/10/2014 11:29 AM   Pending               
+Gloria Esteban        3000                  Pilates               Kirby Puckett         07/10/2014 11:29 AM   Pending               
+Gloria Esteban        3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Pending               
 Gloria Esteban        3001                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Pending               
 Gloria Esteban        3001                  Pilates               Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Gloria Esteban        3001                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Complete              
@@ -577,18 +577,18 @@ Gloria Esteban        3002                  Pilates               Todd Jones    
 Gloria Esteban        3002                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Complete              
 Gloria Esteban        3002                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Gloria Esteban        3002                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
-Heather Graham        3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
 Heather Graham        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Heather Graham        3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Pending               
 Heather Graham        3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Pending               
 Heather Graham        3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
 Heather Graham        3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Pending               
-Heather Graham        3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
-Heather Graham        3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Complete              
-Heather Graham        3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Cancelled             
-Heather Graham        3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Complete              
-Heather Graham        3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Pending               
-Heather Graham        3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Pending               
+Heather Graham        3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Pending               
+Heather Graham        3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Complete              
+Heather Graham        3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Pending               
+Heather Graham        3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Pending               
+Heather Graham        3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Complete              
+Heather Graham        3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Complete              
+Heather Graham        3000                  Pilates               Samuel L. Jackson     07/10/2014 11:29 AM   Cancelled             
 Heather Graham        3001                  Pilates               Pam Beasley           07/10/2014 08:29 AM   Pending               
 Heather Graham        3001                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Heather Graham        3001                  Zumba                 Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
@@ -618,10 +618,6 @@ Heather Graham        3002                  Pilates               Todd Jones    
 Heather Graham        3002                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Heather Graham        3002                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Heather Graham        3002                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
-Isis Notarealname     3000                  Zumba                 Todd Jones            07/10/2014 08:29 AM   Pending               
-Isis Notarealname     3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Complete              
-Isis Notarealname     3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Complete              
-Isis Notarealname     3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Isis Notarealname     3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
 Isis Notarealname     3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Complete              
 Isis Notarealname     3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Complete              
@@ -629,10 +625,14 @@ Isis Notarealname     3000                  Zumba                 Kirby Puckett 
 Isis Notarealname     3000                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Cancelled             
 Isis Notarealname     3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Complete              
 Isis Notarealname     3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
-Isis Notarealname     3000                  Pilates               Pokey Reese           07/10/2014 09:29 AM   Pending               
-Isis Notarealname     3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Cancelled             
-Isis Notarealname     3000                  Pilates               Todd Jones            07/10/2014 09:29 AM   Cancelled             
-Isis Notarealname     3000                  Pilates               Kenneth Maynard       07/10/2014 09:29 AM   Pending               
+Isis Notarealname     3000                  Zumba                 Todd Jones            07/10/2014 08:29 AM   Pending               
+Isis Notarealname     3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Complete              
+Isis Notarealname     3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Complete              
+Isis Notarealname     3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
+Isis Notarealname     3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Cancelled             
+Isis Notarealname     3000                  Pilates               Todd Jones            07/10/2014 11:29 AM   Cancelled             
+Isis Notarealname     3000                  Pilates               Kenneth Maynard       07/10/2014 11:29 AM   Pending               
+Isis Notarealname     3000                  Pilates               Pokey Reese           07/10/2014 11:29 AM   Pending               
 Isis Notarealname     3001                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
 Isis Notarealname     3001                  Pilates               Marty McFly           07/10/2014 08:29 AM   Complete              
 Isis Notarealname     3001                  Zumba                 Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
@@ -665,9 +665,6 @@ Isis Notarealname     3002                  Zumba                 Marty McFly   
 Isis Notarealname     3002                  Pilates               Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Isis Notarealname     3002                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Pending               
 Isis Notarealname     3002                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Jackie Robinson       3000                  Zumba                 Marty McFly           07/10/2014 09:29 AM   Cancelled             
-Jackie Robinson       3000                  Kick Boxing           Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
-Jackie Robinson       3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Pending               
 Jackie Robinson       3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
 Jackie Robinson       3000                  Personal Training     Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
 Jackie Robinson       3000                  Kick Boxing           Venus Flytrap         07/10/2014 09:29 AM   Cancelled             
@@ -679,6 +676,9 @@ Jackie Robinson       3000                  Kick Boxing           Samuel L. Jack
 Jackie Robinson       3000                  Zumba                 Kenneth Maynard       07/10/2014 09:29 AM   Cancelled             
 Jackie Robinson       3000                  Personal Training     Todd Jones            07/10/2014 09:29 AM   Complete              
 Jackie Robinson       3000                  Pilates               Kirby Puckett         07/10/2014 09:29 AM   Pending               
+Jackie Robinson       3000                  Zumba                 Marty McFly           07/10/2014 09:29 AM   Cancelled             
+Jackie Robinson       3000                  Kick Boxing           Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
+Jackie Robinson       3000                  Pilates               Samuel L. Jackson     07/10/2014 09:29 AM   Pending               
 Jackie Robinson       3001                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Complete              
 Jackie Robinson       3001                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Jackie Robinson       3001                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
@@ -709,21 +709,21 @@ Jackie Robinson       3002                  Personal Training     Kenneth Maynar
 Jackie Robinson       3002                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
 Jackie Robinson       3002                  Pilates               Opie Griffith         07/10/2014 08:29 AM   Complete              
 Jackie Robinson       3002                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
+Jerry Seinfeld        3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
+Jerry Seinfeld        3000                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Pending               
+Jerry Seinfeld        3000                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Complete              
+Jerry Seinfeld        3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Pending               
+Jerry Seinfeld        3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Pending               
+Jerry Seinfeld        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
+Jerry Seinfeld        3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
 Jerry Seinfeld        3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
 Jerry Seinfeld        3000                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Cancelled             
 Jerry Seinfeld        3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
 Jerry Seinfeld        3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Jerry Seinfeld        3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Pending               
-Jerry Seinfeld        3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Jerry Seinfeld        3000                  Personal Training     Pam Beasley           07/10/2014 08:29 AM   Pending               
-Jerry Seinfeld        3000                  Personal Training     Pokey Reese           07/10/2014 08:29 AM   Complete              
-Jerry Seinfeld        3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Pending               
-Jerry Seinfeld        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Jerry Seinfeld        3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Pending               
-Jerry Seinfeld        3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
-Jerry Seinfeld        3000                  Pilates               Kenneth Maynard       07/10/2014 09:29 AM   Cancelled             
-Jerry Seinfeld        3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Complete              
-Jerry Seinfeld        3000                  Pilates               Kirby Puckett         07/10/2014 09:29 AM   Complete              
+Jerry Seinfeld        3000                  Pilates               Kirby Puckett         07/10/2014 11:29 AM   Complete              
+Jerry Seinfeld        3000                  Pilates               Kenneth Maynard       07/10/2014 11:29 AM   Cancelled             
+Jerry Seinfeld        3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Complete              
 Jerry Seinfeld        3001                  Pilates               Leon Theprofessional  07/10/2014 08:29 AM   Complete              
 Jerry Seinfeld        3001                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Complete              
 Jerry Seinfeld        3001                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
@@ -760,14 +760,6 @@ Jerry Seinfeld        3002                  Zumba                 Venus Flytrap 
 Jerry Seinfeld        3002                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
 Jerry Seinfeld        3002                  Zumba                 Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
 Jerry Seinfeld        3002                  Pilates               Todd Jones            07/10/2014 08:29 AM   Complete              
-Lance Stephenson      3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
-Lance Stephenson      3000                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
-Lance Stephenson      3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Pending               
-Lance Stephenson      3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Pending               
-Lance Stephenson      3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
-Lance Stephenson      3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
-Lance Stephenson      3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
-Lance Stephenson      3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
 Lance Stephenson      3000                  Zumba                 Pam Beasley           07/10/2014 08:29 AM   Pending               
 Lance Stephenson      3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Complete              
 Lance Stephenson      3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Pending               
@@ -775,13 +767,21 @@ Lance Stephenson      3000                  Personal Training     Kirby Puckett 
 Lance Stephenson      3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Complete              
 Lance Stephenson      3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
 Lance Stephenson      3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
-Lance Stephenson      3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Cancelled             
-Lance Stephenson      3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Pending               
-Lance Stephenson      3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
-Lance Stephenson      3000                  Pilates               Pokey Reese           07/10/2014 09:29 AM   Cancelled             
-Lance Stephenson      3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Complete              
-Lance Stephenson      3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Cancelled             
-Lance Stephenson      3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Complete              
+Lance Stephenson      3000                  Personal Training     Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
+Lance Stephenson      3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
+Lance Stephenson      3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Pending               
+Lance Stephenson      3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Pending               
+Lance Stephenson      3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
+Lance Stephenson      3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
+Lance Stephenson      3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
+Lance Stephenson      3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
+Lance Stephenson      3000                  Pilates               Pokey Reese           07/10/2014 11:29 AM   Cancelled             
+Lance Stephenson      3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Complete              
+Lance Stephenson      3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Cancelled             
+Lance Stephenson      3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Complete              
+Lance Stephenson      3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Cancelled             
+Lance Stephenson      3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Pending               
+Lance Stephenson      3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Complete              
 Lance Stephenson      3001                  Personal Training     Nathan Lockwood       07/10/2014 08:29 AM   Pending               
 Lance Stephenson      3001                  Zumba                 Pokey Reese           07/10/2014 08:29 AM   Cancelled             
 Lance Stephenson      3001                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Cancelled             
@@ -817,25 +817,25 @@ Lance Stephenson      3002                  Pilates               Leon Theprofes
 Lance Stephenson      3002                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Lance Stephenson      3002                  Pilates               Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Lance Stephenson      3002                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Cancelled             
-Lando Calrissian      3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
-Lando Calrissian      3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Pending               
-Lando Calrissian      3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Complete              
-Lando Calrissian      3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
-Lando Calrissian      3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Lando Calrissian      3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Cancelled             
-Lando Calrissian      3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Complete              
 Lando Calrissian      3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Complete              
+Lando Calrissian      3000                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Complete              
 Lando Calrissian      3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Lando Calrissian      3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Pending               
 Lando Calrissian      3000                  Zumba                 Marty McFly           07/10/2014 08:29 AM   Complete              
 Lando Calrissian      3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Complete              
 Lando Calrissian      3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Pending               
-Lando Calrissian      3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Pending               
-Lando Calrissian      3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Complete              
-Lando Calrissian      3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
-Lando Calrissian      3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Complete              
-Lando Calrissian      3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Complete              
-Lando Calrissian      3000                  Pilates               Pam Beasley           07/10/2014 09:29 AM   Pending               
+Lando Calrissian      3000                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Complete              
+Lando Calrissian      3000                  Kick Boxing           Kenneth Maynard       07/10/2014 08:29 AM   Pending               
+Lando Calrissian      3000                  Personal Training     Leon Theprofessional  07/10/2014 08:29 AM   Complete              
+Lando Calrissian      3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Cancelled             
+Lando Calrissian      3000                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Pending               
+Lando Calrissian      3000                  Pilates               Pam Beasley           07/10/2014 11:29 AM   Pending               
+Lando Calrissian      3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Pending               
+Lando Calrissian      3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Complete              
+Lando Calrissian      3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
+Lando Calrissian      3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Complete              
+Lando Calrissian      3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Complete              
 Lando Calrissian      3001                  Zumba                 Leon Theprofessional  07/10/2014 08:29 AM   Complete              
 Lando Calrissian      3001                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Lando Calrissian      3001                  Pilates               Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
@@ -867,9 +867,6 @@ Lando Calrissian      3002                  Pilates               Ray Orbison   
 Lando Calrissian      3002                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Lando Calrissian      3002                  Pilates               Todd Jones            07/10/2014 08:29 AM   Pending               
 Lando Calrissian      3002                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Cancelled             
-Luke Skywalker        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
-Luke Skywalker        3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
-Luke Skywalker        3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
 Luke Skywalker        3000                  Personal Training     Kirby Puckett         07/10/2014 08:29 AM   Complete              
 Luke Skywalker        3000                  Personal Training     Kenneth Maynard       07/10/2014 08:29 AM   Pending               
 Luke Skywalker        3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Cancelled             
@@ -879,12 +876,15 @@ Luke Skywalker        3000                  Kick Boxing           Kirby Puckett 
 Luke Skywalker        3000                  Personal Training     Todd Jones            07/10/2014 08:29 AM   Complete              
 Luke Skywalker        3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Complete              
 Luke Skywalker        3000                  Kick Boxing           Opie Griffith         07/10/2014 08:29 AM   Complete              
-Luke Skywalker        3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Cancelled             
-Luke Skywalker        3000                  Pilates               Leon Theprofessional  07/10/2014 09:29 AM   Cancelled             
-Luke Skywalker        3000                  Pilates               Pokey Reese           07/10/2014 09:29 AM   Complete              
-Luke Skywalker        3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Pending               
-Luke Skywalker        3000                  Pilates               Kenneth Maynard       07/10/2014 09:29 AM   Complete              
-Luke Skywalker        3000                  Pilates               Ray Orbison           07/10/2014 09:29 AM   Complete              
+Luke Skywalker        3000                  Kick Boxing           Nathan Lockwood       07/10/2014 08:29 AM   Complete              
+Luke Skywalker        3000                  Personal Training     Ray Orbison           07/10/2014 08:29 AM   Complete              
+Luke Skywalker        3000                  Kick Boxing           Samuel L. Jackson     07/10/2014 08:29 AM   Complete              
+Luke Skywalker        3000                  Pilates               Pokey Reese           07/10/2014 11:29 AM   Complete              
+Luke Skywalker        3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Pending               
+Luke Skywalker        3000                  Pilates               Kenneth Maynard       07/10/2014 11:29 AM   Complete              
+Luke Skywalker        3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Complete              
+Luke Skywalker        3000                  Pilates               Ray Orbison           07/10/2014 11:29 AM   Cancelled             
+Luke Skywalker        3000                  Pilates               Leon Theprofessional  07/10/2014 11:29 AM   Cancelled             
 Luke Skywalker        3001                  Personal Training     Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
 Luke Skywalker        3001                  Kick Boxing           Todd Jones            07/10/2014 08:29 AM   Pending               
 Luke Skywalker        3001                  Kick Boxing           Venus Flytrap         07/10/2014 08:29 AM   Complete              
@@ -917,9 +917,6 @@ Luke Skywalker        3002                  Personal Training     Ray Orbison   
 Luke Skywalker        3002                  Kick Boxing           Pokey Reese           07/10/2014 08:29 AM   Complete              
 Luke Skywalker        3002                  Kick Boxing           Leon Theprofessional  07/10/2014 08:29 AM   Pending               
 Luke Skywalker        3002                  Kick Boxing           Ray Orbison           07/10/2014 08:29 AM   Cancelled             
-Rachel Green          3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
-Rachel Green          3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
-Rachel Green          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
 Rachel Green          3000                  Zumba                 Venus Flytrap         07/10/2014 08:29 AM   Cancelled             
 Rachel Green          3000                  Zumba                 Opie Griffith         07/10/2014 08:29 AM   Cancelled             
 Rachel Green          3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Complete              
@@ -927,10 +924,13 @@ Rachel Green          3000                  Kick Boxing           Opie Griffith 
 Rachel Green          3000                  Zumba                 Nathan Lockwood       07/10/2014 08:29 AM   Cancelled             
 Rachel Green          3000                  Kick Boxing           Marty McFly           07/10/2014 08:29 AM   Cancelled             
 Rachel Green          3000                  Personal Training     Opie Griffith         07/10/2014 08:29 AM   Cancelled             
-Rachel Green          3000                  Pilates               Opie Griffith         07/10/2014 09:29 AM   Cancelled             
-Rachel Green          3000                  Pilates               Nathan Lockwood       07/10/2014 09:29 AM   Pending               
-Rachel Green          3000                  Pilates               Marty McFly           07/10/2014 09:29 AM   Cancelled             
-Rachel Green          3000                  Pilates               Venus Flytrap         07/10/2014 09:29 AM   Pending               
+Rachel Green          3000                  Personal Training     Marty McFly           07/10/2014 08:29 AM   Cancelled             
+Rachel Green          3000                  Zumba                 Kirby Puckett         07/10/2014 08:29 AM   Cancelled             
+Rachel Green          3000                  Zumba                 Ray Orbison           07/10/2014 08:29 AM   Pending               
+Rachel Green          3000                  Pilates               Marty McFly           07/10/2014 11:29 AM   Cancelled             
+Rachel Green          3000                  Pilates               Venus Flytrap         07/10/2014 11:29 AM   Pending               
+Rachel Green          3000                  Pilates               Opie Griffith         07/10/2014 11:29 AM   Cancelled             
+Rachel Green          3000                  Pilates               Nathan Lockwood       07/10/2014 11:29 AM   Pending               
 Rachel Green          3001                  Kick Boxing           Pam Beasley           07/10/2014 08:29 AM   Pending               
 Rachel Green          3001                  Pilates               Samuel L. Jackson     07/10/2014 08:29 AM   Pending               
 Rachel Green          3001                  Pilates               Pokey Reese           07/10/2014 08:29 AM   Complete              

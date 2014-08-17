@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <style type="text/css">
+        .center
+        {
+            border: 5px solid black;
+            display: table-cell;
+        }
+
+        .myBox
+        {
+            border: 1px solid red;
+            width: 300px;;
+            height: 200px;
+        }
+
+        .vertical-align-outer
+        {
+            display: table;
+        }
+
+        .vertical-align-middle
+        {
+            display: table-cell;
+            vertical-align: middle; /* top, bottom */
+        }
+
+        .vertical-align-inner
+        {
+            text-align: center; /* left, right */
+        }
+
+        .columnLeft, .columnRight, .columnMiddle
+        {
+            float: left;
+            height: 120px;
+            background-color: cyan;
+            width: 33%;
+        }
+
+        .columnMiddle
+        {
+            background-color: yellow;
+            width: 34%;
+        }
+
+        .full
+        {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bar
+        {
+            background-color: lightgray;
+            color: blue;
+            font-size: 18px;
+            text-align: center;
+            padding: 5px;
+            clear: both;
+        }
+
+        .border
+        {
+            border: 1px solid red;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .reverseVideo
+        {
+            color: red;
+            background-color: cyan;
+        }
+
+        .short
+        {
+            height: 50px;
+        }
+
+        .tall
+        {
+            height: 200px;
+        }
+
+        .crazy
+        {
+            position: absolute;
+            top: 15px;
+            left: 1200px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 150px;
+            border: 3px dashed red;
+            color: blue;
+        }
+
+        /*<table>*/
+        .table
+        {
+          display: table;
+        }
+
+        /*<tr*/
+        .row
+        {
+          display: table-row;
+        }
+
+        /*<td>*/
+        .column
+        {
+          display: table-cell;
+          width: 100px;
+          height: 100px;
+          border: 1px solid blue;
+          padding: 1em;
+        }
+    </style>
+
+    <title>Vertical Align Demo</title>
+</head>
+
+<body style="padding: 10px;">
+<div class="border reverseVideo tall">border reverseVideo tall</div>
+<div class="border reverseVideo short">border reverseVideo short</div>
+
+<div class="crazy">
+    This is in the upper right
+</div>
+<hr/>
+
+<div style="border: 1px solid red; background-color: cyan; color: red; width: 400px; height: 300px; text-align: center; vertical-align: middle;">
+    Some Text
+</div>
+<br/>
+
+<div class="table">
+    <div class="row">
+        <div class="column">
+            One
+        </div>
+        <div class="column">
+            Two
+        </div>
+        <div class="column">
+            Three
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            One
+        </div>
+        <div class="column" style="height: 400px;">
+            Two Two Two Two
+        </div>
+        <div class="column">
+            Three
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            One
+        </div>
+        <div class="column">
+            Two
+        </div>
+        <div class="column" style="width: 200px;">
+             sdlfjsd klfjsd fklsdj flksdj flksdjf klsdjf sdklfj sdklfj sdklfj sdklfj sdklfj sdklfjsd klfjsd fkljsd fkljsd flksdjf klsdjf lsdjf sdklfjasd klfjsd fljsd f
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+
+<span style="display: table; border: 5px solid red;">
+    <div style="display: table-row;">
+        <div class="center" style="text-align: left; vertical-align: top;">
+            Top Left sdklfjsd lfjsd fkljsd fljsd flsdj flksdjf lsdjf sdlfjsd
+        </div>
+        <div class="center" style="text-align: center; vertical-align: top;">
+            <br/>
+            <br/>
+            <br/>
+            Top Center
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div class="center" style="text-align: right; vertical-align: top;">
+            Top Right
+        </div>
+    </div>
+    <div style="display: table-row;">
+        <div class="center" style="text-align: left; vertical-align: middle;">
+            Middle Left
+        </div>
+        <div class="center" style="text-align: center; vertical-align: middle;">
+            <br/>
+            <br/>
+            <br/>
+            Middle Center sdlfjsdklfjsd lkfjsd klfjsd lfjsd klfjsd lfjsd fsd
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div class="center" style="text-align: right; vertical-align: middle;">
+            Middle Right flsdkf sdklfj sdklfjsd lkfjsd lf
+        </div>
+    </div>
+    <div style="display: table-row;">
+        <div class="center" style="text-align: left; vertical-align: bottom;">
+            Bottom Left
+        </div>
+        <div class="center" style="text-align: center; vertical-align: bottom;">
+            <br/>
+            <br/>
+            <br/>
+            Bottom Center
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div class="center" style="text-align: right; vertical-align: bottom;">
+            Bottom Right
+        </div>
+    </div>
+    <div style="display: table-row;">
+        <div class="center" style="text-align: left; vertical-align: bottom;">
+            Bottom Left
+        </div>
+        <div class="center" style="text-align: center; vertical-align: bottom;">
+            <span style="display: table; border: 5px solid red;">
+                <div style="display: table-row;">
+                    <div class="center" style="text-align: left; vertical-align: top;">
+                        Top Left sdklfjsd lfjsd fkljsd fljsd flsdj flksdjf lsdjf sdlfjsd
+                    </div>
+                    <div class="center" style="text-align: center; vertical-align: top;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        Top Center
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="center" style="text-align: right; vertical-align: top;">
+                        Top Right
+                    </div>
+                </div>
+                <div style="display: table-row;">
+                    <div class="center" style="text-align: left; vertical-align: middle;">
+                        Middle Left
+                    </div>
+                    <div class="center" style="text-align: center; vertical-align: middle;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        Middle Center sdlfjsdklfjsd lkfjsd klfjsd lfjsd klfjsd lfjsd fsd
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="center" style="text-align: right; vertical-align: middle;">
+                        Middle Right flsdkf sdklfj sdklfjsd lkfjsd lf
+                    </div>
+                </div>
+                <div style="display: table-row;">
+                    <div class="center" style="text-align: left; vertical-align: bottom;">
+                        Bottom Left
+                    </div>
+                    <div class="center" style="text-align: center; vertical-align: bottom;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        Bottom Center
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="center" style="text-align: right; vertical-align: bottom;">
+                        Bottom Right
+                    </div>
+                </div>
+                <div style="display: table-row;">
+                    <div class="center" style="text-align: left; vertical-align: bottom;">
+                        Bottom Left
+                    </div>
+                    <div class="center" style="text-align: center; vertical-align: bottom;">
+
+                    </div>
+                    <div class="center" style="text-align: right; vertical-align: bottom;">
+                        Bottom Right
+                    </div>
+                </div>
+
+            </span>
+        </div>
+        <div class="center" style="text-align: right; vertical-align: bottom;">
+            Bottom Right
+        </div>
+    </div>
+
+</span>
+
+<hr/>
+<div class="vertical-align-outer myBox" style="background-color: yellow;">
+    <div class="vertical-align-middle">
+        <div class="vertical-align-inner">
+            Horizontally and
+            <br/>
+            Vertically Centered
+        </div>
+    </div>
+</div>
+<hr/>
+
+Table Version
+<table style="width: 1410px; padding: 0; margin: 0; border: 5px solid black;" cellspacing="0" cellpadding="0">
+    <tr>
+        <td colspan="3" align="center" class="bar" style="">This goes all the way across in the center</td>
+    </tr>
+    <tr>
+        <td width="33%" align="left" valign="top" style="background-color: cyan; height: 120px;">
+            Top Left
+        </td>
+        <td width="34%" align="center" valign="top" style="background-color: yellow; height: 120px;">
+            Top Center
+        </td>
+        <td width="33%" align="right" valign="top" style="background-color: cyan; height: 120px;">
+            Top Right
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" valign="top" class="bar" style="height: 50px; text-align: left; color: white; background-color: red;">
+            This too goes all the way across on the left
+        </td>
+    </tr>
+    <tr>
+        <td width="33%" align="left" valign="middle" style="background-color: cyan; height: 120px;">
+            Middle Left
+        </td>
+        <td width="34%" align="center" valign="middle" style="background-color: yellow; height: 120px;">
+            Middle Center
+        </td>
+        <td width="33%" align="right" valign="middle" style="background-color: cyan; height: 120px;">
+            Middle Right
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: right;" class="bar">This goes all the way across on the right</td>
+    </tr>
+    <tr>
+        <td width="33%" align="left" valign="bottom" style="background-color: cyan; height: 120px;">
+            Bottom Left
+        </td>
+        <td width="34%" align="center" valign="bottom" style="background-color: yellow; height: 120px;">
+            Bottom Center
+        </td>
+        <td width="33%" align="right" valign="bottom" style="background-color: cyan; height: 120px;">
+            Bottom Right
+        </td>
+    </tr>
+</table>
+<hr/>
+Nested Div Version
+<div style="border: 5px solid black; width: 1400px;; padding: 0; margin: 0; height: 482px;">
+    <div class="bar">
+        This goes all the way across in the center
+    </div>
+    <div class="columnLeft">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: top;">
+                <div class="vertical-align-inner" style="text-align: left;">
+                    Top Left
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnMiddle">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: top;">
+                <div class="vertical-align-inner">
+                    Top Center
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnRight">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: top;">
+                <div class="vertical-align-inner" style="text-align: right;">
+                    Top Right
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bar" style="text-align: left; background-color: red; color: white; height: 50px;">
+        This too goes all the way across on the left
+    </div>
+    <div class="columnLeft">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle">
+                <div class="vertical-align-inner" style="text-align: left;">
+                    Middle Left
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnMiddle">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: middle;">
+                <div class="vertical-align-inner" style="text-align: center;">
+                    Middle Center
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnRight">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle">
+                <div class="vertical-align-inner" style="text-align: right;">
+                    Middle Right
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bar" style="text-align: right;">
+        This too goes all the way across on the right
+    </div>
+    <div class="columnLeft">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: bottom;">
+                <div class="vertical-align-inner" style="text-align: left;">
+                    Bottom Left
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnMiddle">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: bottom;">
+                <div class="vertical-align-inner">
+                    Bottom Center
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnRight">
+        <div class="vertical-align-outer full">
+            <div class="vertical-align-middle" style="vertical-align: bottom;">
+                <div class="vertical-align-inner" style="text-align: right;">
+                    Bottom Right
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+Last line
+</body>
+</html>

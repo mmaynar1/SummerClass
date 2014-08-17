@@ -1,0 +1,99 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<title>JS Demo</title>
+		<script type="text/javascript">
+
+		function getRandom( maxValue )
+		{
+			return Math.floor( Math.random() * maxValue );
+		}
+
+		</script>
+
+		<style type="text/css">
+			span
+			{
+				padding: 10px;
+				border: 1px solid gray;
+				color: blue;
+				background-color: yellow;
+				overflow: hidden;
+			}
+
+            div
+            {
+                color: red;
+                background-color: lightcyan;
+                font-size: 18px;
+                padding: 10px;
+            }
+
+		</style>
+	</head>
+
+	<body>
+		<br/>
+		<br/>
+		<span id="firstOperand"></span>
+		<span id="operator"></span>
+		<span id="secondOperand"></span>
+		<span id="equal">=</span>
+		<span id="result"></span>
+		<br/>
+		<br/>
+        <div id="grid">some text here</div>
+
+		<script type="text/javascript">
+			var BR = "<br/>";
+            var text = '';
+			text += BR + "Squares and Cubes" + BR;
+			text += 1 + " " + ( 1 * 1 ) + " " + ( 1 * 1 * 1 ) + BR;
+			text += 2 + " " + ( 2 * 2 ) + " " + ( 2 * 2 * 2 ) + BR;
+			text += 3 + " " + ( 3 * 3 ) + " " + ( 3 * 3 * 3 ) + BR;
+			text += BR + BR;
+            document.getElementById( 'grid').innerHTML = text;
+            document.write( text );
+
+			var firstOperand = getRandom( 11 );
+			var secondOperand = getRandom( 11 );
+			var operator = getRandom( 4 );
+			var operatorDisplayed;
+			var result;
+
+			if ( operator === 0 )
+			{
+				operatorDisplayed = "-";
+				result = firstOperand - secondOperand;
+			}
+			else if ( operator === 1 )
+			{
+				operatorDisplayed = "+";
+				result = firstOperand + secondOperand;
+			}
+			else if ( operator === 2 )
+			{
+				operatorDisplayed = "*";
+				result = firstOperand * secondOperand;
+			}
+			else if ( operator === 3 )
+			{
+				operatorDisplayed = "/";
+				result = Math.round( firstOperand / secondOperand );
+			}
+			else
+			{
+				operatorDisplayed = "?";
+				result = "Error";
+			}
+
+			document.getElementById( 'firstOperand' ).innerHTML = firstOperand;
+			document.getElementById( 'operator' ).innerHTML = operatorDisplayed;
+			document.getElementById( 'secondOperand' ).innerHTML = secondOperand;
+			document.getElementById( 'result' ).innerHTML = result;
+
+		</script>
+	</body>
+</html>

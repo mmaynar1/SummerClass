@@ -1,0 +1,159 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<script>
+			function printLine( line )
+			{
+				document.write( ( line || '' ) + "<br/>" );
+			}
+
+			function printArray( caption, array )
+			{
+				var i;
+				printLine( caption );
+				for ( i = 0; i < array.length; ++i )
+				{
+					printLine( i + " " + array[i] );
+				}
+				printLine( "" );
+			}
+
+			function main()
+			{
+				var value;
+				var totals;
+				var index;
+				var combined;
+				var delimiter;
+				var others;
+				var i;
+				var startingIndex;
+				var numberToRemove;
+				var afterLastIndex;
+				var field;
+
+				totals = new Array();
+				totals[0] = 'Zero';
+				totals[1] = 'One';
+				totals[10] = 'Ten';
+				printArray( "After setting 0, 1, 10", totals );
+
+				totals = new Array( "A", "B", "C", "D" );
+				printArray( "newArray with values", totals );
+
+				totals = [ 10, 'Hi', 3.6, false ];
+				printArray( "Initialized Array", totals );
+
+				value = 9999;
+				totals.push( value );   // add on the back end
+				printArray( "After push " + value, totals );
+
+				value = 1111;
+				totals.unshift( value );   // add on the front end
+				printArray( "After unshift " + value, totals );
+
+				value = 42;
+				totals[ totals.length ] = value;
+				printArray( "After index based add " + value, totals );
+
+				value = 123;
+				totals[2] = value;
+				printArray( "After index based update of element 2 " + value, totals );
+
+				value = totals.pop();
+				printLine( "pop returned " + value );
+				printArray( "After pop", totals );
+
+				value = totals.shift();
+				printLine( "shift returned " + value );
+				printArray( "After shift", totals );
+
+				totals = [ 1, 2, 3 ];
+				printArray( "After reassign", totals );
+
+				value = totals[1];
+				printLine( "index 1 returned " + value );
+				printArray( "After index based access ", totals );
+
+				totals = [ 1, 7, 5, 2, 3, 4, 6 ] ;
+				printArray( "Before integer sort", totals );
+				totals.sort();
+				printArray( "After integer sort", totals );
+
+				totals = [ "CHARLES", "BOB", "EATHAN", "ANDY" ] ;
+				printArray( "Before alpha sort", totals );
+				totals.sort();
+				printArray( "After alpha sort", totals );
+
+				totals = [ 1, 2, 3 ];
+				printArray( "before reverse", totals );
+				totals.reverse();
+				printArray( "after reverse", totals );
+
+				index = totals.indexOf( "CHARLES" );
+				printLine( "indexOf( 'CHARLES' ) returned " + index );   // need document type for this
+				printLine();
+
+				delimiter = "<->";
+				combined = totals.join( delimiter );
+				printLine( "totals.join('" + delimiter + "' ) = " + combined );
+				printLine();
+
+				others = combined.split( delimiter );
+				printArray( "after split", others );
+
+				totals = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+				printArray( "new array", totals );
+				startingIndex = 2;
+				numberToRemove = 3;
+				totals.splice( startingIndex, numberToRemove );
+				printArray( "after splice " + startingIndex + ", " + numberToRemove, totals );
+
+				totals = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+				printArray( "new array", totals );
+				afterLastIndex = 6;
+				others = totals.slice( startingIndex, afterLastIndex );
+				printArray( "array from slice " + startingIndex + ", " + afterLastIndex, others );
+
+				totals = [];
+				totals.push( { name: 'Bob', age: 42 } );
+				totals.push( { name: 'Dan', age: 32 } );
+				totals.push( { name: 'Amy', age: 22 } );
+				printLine( "Name: " + totals[1].name );
+				printLine();
+
+				totals = [ 1, 2, 3 ];
+				totals[ 'yes' ] = 'No';
+				totals[3] = 4;
+				printArray( "using index of yes", totals );
+				printLine( "value of index 1 = " + totals[1] );
+				printLine( "value of index yes = " + totals['yes'] );
+				printLine( "length of totals = " + totals.length );
+				printLine( "Using 'in'" );
+				for ( value in totals )
+				{
+					printLine( "value = " + value );
+				}
+				printLine( "type of totals = " + typeof totals );
+				printLine();
+
+				totals = { name: "Bob", age: 42, id: 123456789 } ;
+				for ( field in totals )
+				{
+					printLine( "name = " + field + " value = " + totals[ field ] );
+				}
+				printLine( "total.name = " + totals.name );
+				printLine( "type of totals = " + typeof totals );
+				printLine();
+
+				totals = Array(16).join("What" * "does" * "it do?") + " Batman!"; 
+				printLine( totals );
+			}
+		</script>
+	</head>
+
+	<body onload="main();">
+	</body>
+</html>

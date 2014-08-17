@@ -1,0 +1,91 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function roundToTwoDecimals(value)
+        {
+            var roundedValue = 0;
+            if (value)
+            {
+                roundedValue = Math.round((value + 0.00001) * 100) / 100;
+            }
+
+            return roundedValue;
+        }
+
+
+        function writeCell(value)
+        {
+            if (value === undefined || value === '')
+            {
+                value = '&nbsp;';
+            }
+            document.write("<td>" + value + "</td>");
+        }
+
+        function writeRow(firstValue, secondValue)
+        {
+            document.write("<tr>");
+            writeCell(firstValue);
+            writeCell(secondValue);
+            document.write("</tr>");
+        }
+
+        function writeTable()
+        {
+            document.write("<table border='1'>");
+            writeRow("Color", "Value");
+            writeRow("Red", "#FF0000");
+            document.write("</table>");
+        }
+
+        function writeLink(caption, href)
+        {
+            document.write("<a href='" + href + "'>" + caption + "</a><br/><br/>");
+        }
+
+        function writeLinks()
+        {
+            writeLink('Calculating Loan Payment', 'http://www.wikihow.com/Calculate-a-Loan-Payment');
+            writeLink('More Stuff', 'http://homeguides.sfgate.com/calculate-principal-interest-mortgage-2409.html');
+        }
+
+        function demoMathMethods()
+        {
+            document.write("<br/><br/>");
+
+            document.write("pow(2,3) = " + Math.pow(2, 3));
+
+            document.write("<br/><br/>");
+
+            document.write("roundToTwoDecimals(12.3451234545) = " + roundToTwoDecimals(12.3451234545));
+        }
+
+        function writeBruteForceTable()
+        {
+            document.write( "<table border='1'>" +
+                            "<tr><td>1</td><td>11</td><td>111</td></tr>" +
+                            "<tr><td>2</td><td>22</td><td>222</td></tr>" +
+                            "<tr><td>3</td><td>33</td><td>333</td></tr>" +
+                            "<tr><td>4</td><td>44</td><td>444</td></tr>" +
+                            "<tr><td>5</td><td>55</td><td>555</td></tr>" +
+                            "<tr><td>6</td><td>66</td><td>666</td></tr>" +
+                            "</table><br/><br/>");
+        }
+        function main()
+        {
+            writeBruteForceTable();
+
+            writeLinks();
+
+            writeTable();
+
+            demoMathMethods();
+        }
+
+
+    </script>
+</head>
+
+<body onload="main();">
+</body>
+</html>

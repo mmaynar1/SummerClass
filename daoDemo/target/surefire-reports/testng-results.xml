@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="3" total="29" passed="26">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="2558" started-at="2014-08-14T08:36:03Z" finished-at="2014-08-14T08:36:05Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="2558" started-at="2014-08-14T08:36:03Z" finished-at="2014-08-14T08:36:05Z">
+      <class name="com.summerclass.integrationtest.ControllerTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7" started-at="2014-08-14T08:36:04Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEmployee() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEmployee() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="FAIL" signature="testAddEmployee()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="testAddEmployee" duration-ms="2" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Status expected:<200> but was:<302>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEmployee(ControllerTest.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="beforeClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEmployee() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testAddEmployee STATUS:FAILURE METHOD:ControllerTest.testAddEmployee()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventType() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventType() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="FAIL" signature="testAddEventType()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="testAddEventType" duration-ms="2" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Status expected:<200> but was:<302>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventType(ControllerTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventType() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testAddEventType STATUS:FAILURE METHOD:ControllerTest.testAddEventType()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="FAIL" signature="testAddEventTypeNoName()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="testAddEventTypeNoName" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Status expected:<200> but was:<302>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName(ControllerTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="afterClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testAddEventTypeNoName STATUS:FAILURE METHOD:ControllerTest.testAddEventTypeNoName()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.summerclass.integrationtest.ControllerTest@7f04eeb6]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+      </class>
+      <class name="com.summerclass.integrationtest.EventTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="6" started-at="2014-08-14T08:36:04Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="testCreateEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testCreateEvents" duration-ms="568" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testCreateEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testCreateEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testCreateEvents STATUS:SUCCESS METHOD:EventTest.testCreateEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEmployeeEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEmployeeEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testDeleteEmployeeEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testDeleteEmployeeEvents" duration-ms="107" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testCreateEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testDeleteEmployeeEvents STATUS:SUCCESS METHOD:EventTest.testDeleteEmployeeEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEmployeeEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testDeleteEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testDeleteEvents" duration-ms="64" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testDeleteEvents()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testDeleteEvents STATUS:SUCCESS METHOD:EventTest.testDeleteEvents()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetAll()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testGetAll" duration-ms="21" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetAll()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetAll()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetAll STATUS:SUCCESS METHOD:EventTest.testGetAll()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetEvent()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetAll()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetEvent()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testGetEvent" duration-ms="11" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetEvent()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetEvent STATUS:SUCCESS METHOD:EventTest.testGetEvent()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventByStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetEvent()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventByStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetRandomEventByStatus()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testGetRandomEventByStatus" duration-ms="14" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventByStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetRandomEventByStatus STATUS:SUCCESS METHOD:EventTest.testGetRandomEventByStatus()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventId()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventId()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetRandomEventId()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testGetRandomEventId" duration-ms="4" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetRandomEventId STATUS:SUCCESS METHOD:EventTest.testGetRandomEventId()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testGetRandomEventId()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testUpdateStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testUpdateStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testUpdateStatus()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="testUpdateStatus" duration-ms="70" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testUpdateStatus STATUS:SUCCESS METHOD:EventTest.testUpdateStatus()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.EventTest.testUpdateStatus()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.summerclass.integrationtest.EventTest@3d959415]" name="afterClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+      </class>
+      <class name="com.summerclass.integrationtest.StringSupportTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2014-08-14T08:36:05Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="beforeClass" is-config="true" duration-ms="3" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="testAssertions()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="testAssertions" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testAssertions()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testAssertions()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testNegativeGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testAssertions()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testAssertions STATUS:SUCCESS METHOD:StringSupportTest.testAssertions()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testNegativeGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testNegativeGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testNegativeGuid()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="testNegativeGuid" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testNegativeGuid STATUS:SUCCESS METHOD:StringSupportTest.testNegativeGuid()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testPositiveGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testPositiveGuid()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="testPositiveGuid" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testPositiveGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="afterMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testPositiveGuid STATUS:SUCCESS METHOD:StringSupportTest.testPositiveGuid()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="afterClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.StringSupportTest@272d0e49]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:05Z" finished-at="2014-08-14T08:36:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.StringSupportTest.testPositiveGuid()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+      </class>
+      <class name="com.summerclass.integrationtest.ClubTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7" started-at="2014-08-14T08:36:04Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="getClubIdFailure()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="getClubIdFailure" duration-ms="68" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.getClubIdFailure()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.getClubIdFailure()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClub()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.getClubIdFailure()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClub()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: getClubIdFailure STATUS:SUCCESS METHOD:ClubTest.getClubIdFailure()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetClub()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetClub" duration-ms="7" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClub()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetClub STATUS:SUCCESS METHOD:ClubTest.testGetClub()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubNumbers()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubNumbers()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetClubNumbers()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetClubNumbers" duration-ms="6" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetClubNumbers STATUS:SUCCESS METHOD:ClubTest.testGetClubNumbers()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubNumbers()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetClubSafe()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetClubSafe" duration-ms="9" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubs()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetClubs()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetClubs" duration-ms="3" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubs()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetClubSafe STATUS:SUCCESS METHOD:ClubTest.testGetClubSafe()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetClubs STATUS:SUCCESS METHOD:ClubTest.testGetClubs()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetCount()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetCount()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetClubs()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetCount()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetCount" duration-ms="2" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIdAndNumber()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetCount()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetCount STATUS:SUCCESS METHOD:ClubTest.testGetCount()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIdAndNumber()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetIdAndNumber()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetIdAndNumber" duration-ms="3" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetIdAndNumber STATUS:SUCCESS METHOD:ClubTest.testGetIdAndNumber()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIds()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetIds()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetIds" duration-ms="4" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIdAndNumber()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIds()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetName()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetName()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetName()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetName" duration-ms="8" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetIds()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetIds STATUS:SUCCESS METHOD:ClubTest.testGetIds()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetNameSafe()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="testGetNameSafe" duration-ms="8" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetNameSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetName STATUS:SUCCESS METHOD:ClubTest.testGetName()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetName()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetNameSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.ClubTest.testGetNameSafe()]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetNameSafe STATUS:SUCCESS METHOD:ClubTest.testGetNameSafe()[pri:0, instance:com.summerclass.integrationtest.ClubTest@1cd42fe0]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+      </class>
+      <class name="com.summerclass.integrationtest.AjaxTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="7" started-at="2014-08-14T08:36:03Z" finished-at="2014-08-14T08:36:03Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="1117" started-at="2014-08-14T08:36:03Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testCountCharacters() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testCountCharacters()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="testCountCharacters" duration-ms="98" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testCountCharacters() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testCountCharacters() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testCountCharacters STATUS:SUCCESS METHOD:AjaxTest.testCountCharacters()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testGetEmployees() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testGetEmployees()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="testGetEmployees" duration-ms="271" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testGetEmployees() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testLogin() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testGetEmployees() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="testLogin" duration-ms="9" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testGetEmployees STATUS:SUCCESS METHOD:AjaxTest.testGetEmployees()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testLogin() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testLogin() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testLogin STATUS:SUCCESS METHOD:AjaxTest.testLogin()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testMeaningOfLife() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testMeaningOfLife() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testMeaningOfLife()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="testMeaningOfLife" duration-ms="2" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testReverse() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testReverse() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testMeaningOfLife STATUS:SUCCESS METHOD:AjaxTest.testMeaningOfLife()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testMeaningOfLife() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="testReverse()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="testReverse" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterClass" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.summerclass.integrationtest.AjaxTest.testReverse() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="afterMethod" is-config="true" duration-ms="0" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: testReverse STATUS:SUCCESS METHOD:AjaxTest.testReverse()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]]
+]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.summerclass.integrationtest.AjaxTest@45458db]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2014-08-14T08:36:04Z" finished-at="2014-08-14T08:36:04Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

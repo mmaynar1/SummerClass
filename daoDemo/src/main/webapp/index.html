@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+    <title>Main Menu</title>
+    <link rel='stylesheet' type='text/css' href='stylesheets/demo.css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery.ui.timepicker.css">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery-migrate-1.2.1.js"></script>
+    <script type='text/javascript' src='javascript/jquery-blockUI-2.35.min.js' ></script>
+
+    <script type="text/javascript" src="javascript/json2.js"></script>
+    <script type="text/javascript" src="javascript/common.js"></script>
+    <script type="text/javascript" src="javascript/jquery.ui.timepicker.js"></script>
+
+    <script type='text/javascript' src='dwr/engine.js'></script>
+    <script type='text/javascript' src='dwr/interface/MemberRpc.js'></script>
+
+    <script type="text/javascript">
+        function reverse()
+        {
+            var source = $('#stuff').val();
+
+            $.ajax({ url: 'ajax/reverseString.spr',
+                     data: { 'source': source },
+                     dataType: 'text',
+                     success: reverseCallback });
+        }
+
+        function count()
+        {
+            var idName = {};
+            idName.id = '42';
+            idName.name = 'life ...';
+
+            var stringData = JSON.stringify( idName );
+            alert( "stringData = (" + stringData + ")" );
+
+            $.ajax({ url: 'ajax/countCharacters.spr',
+                     contentType:'application/json',
+                     dataType: 'json',
+                     data: stringData,
+                     success: function( count ) { debugger; alert( count ); } });
+        }
+
+        function life()
+        {
+            $.ajax({ url: 'ajax/meaningOfLife.spr',
+                     dataType: 'json',
+                     success: lifeCallback });
+        }
+
+        function lifeCallback( idName )
+        {
+            alert( idName.id + " " + idName.name );
+        }
+
+        function reverseCallback(results)
+        {
+            $('#reversedContainer').html(results);
+        }
+
+        function showEmployees()
+        {
+            $.ajax({ url: 'ajax/getEmployees.spr',
+                     dataType: 'json',
+                     success: showEmployeesCallback });
+        }
+
+        function showEmployeesCallback( employees )
+        {
+            $('#employeeTableContainer').html('');
+
+            var table = $('<table style="width: 100%;" border="1" cellpadding="5" cellspacng="0"/>');
+            var i;
+            var employee;
+
+            for ( i = 0; i < employees.length; ++i )
+            {
+                employee = employees[i];
+                table.append( '<tr><td width="50%">' + employee.firstName + '</td><td width="50%">' + employee.lastName + '</td></tr>' );
+            }
+
+            $('#employeeTableContainer').append(table).fadeIn( 1500 );
+        }
+
+        function login()
+        {
+            $.ajax({ url: 'ajax/login.spr',
+                     dataType: 'json',
+                     data: { userName: 'user1', password: 'asdf1234' },
+                     success: loginCallback });
+        }
+
+        function loginCallback( loggedIn )
+        {
+            if (loggedIn === true )
+                alert("logged in");
+            else
+                alert("log in failed");
+        }
+
+        function logLine()
+        {
+            MemberRpc.logLine( "This is a line", logLineCallback );
+        }
+
+        function logLineCallback( results )
+        {
+            alert( "MemberRpc.logLine callback: " + results );
+        }
+
+        function getClubName()
+        {
+            var idName = { id: '3001', name: '?' } ;
+            MemberRpc.getClub( idName, getClubNameCallback );
+        }
+
+        function getClubNameCallback( club )
+        {
+            if ( club )
+            {
+                alert( club.name );
+            }
+            else
+            {
+                alert( "getClub failed" );
+            }
+        }
+
+        function showDialog()
+        {
+            $('#confirmContents').html( '<ol><li>One</li><li>Two</li></ol>' );
+
+            $( "#confirmDelete" ).dialog({
+                modal: true,
+                title: "Are you sure?",
+                buttons: { "YES": function() { alert( 'Doing it' );  $( this ).dialog( "close" ); },
+                           "NO":  function() { $( this ).dialog( "close" ); }
+                         }
+            });
+        }
+
+        var page = { ajaxError: function ajaxError(response)
+                                {
+                                    alert("AJAX Error: status = " + response.status + " " + response.statusText );
+                                },
+                     ajaxStart: function()
+                                {
+                                    $.blockUI( { message: null} );
+                                    page.startAjax = new Date();
+                                },
+                     ajaxStop: function()
+                               {
+                                   $.unblockUI();
+
+                                   page.stopAjax = new Date();
+                                   var elapsedTime = page.stopAjax - page.startAjax;
+                                   $('#ajaxTime').html( elapsedTime + ' ms' );
+                               } };
+
+        $(document).ready(function ()
+        {
+            $( document).ajaxError( page.ajaxError).ajaxStart( page.ajaxStart).ajaxStop( page.ajaxStop );
+
+            $.ajaxSetup({ type: 'POST', timeout: 10000, cache: false });
+
+            $('#birthDate').datepicker();
+
+            $('#time').timepicker({
+                showPeriod: true,
+                showLeadingZero: true,
+                minutes: {
+                      starts: 0,                // First displayed minute
+                      ends: 45,                 // Last displayed minute
+                      interval: 15,              // Interval of displayed minutes
+                      manual: []                // Optional extra entries for minutes
+                  }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="header">Main Menu</div>
+<img src="images/logo.jpg">
+<div id="confirmDelete" style="display:none;">
+    <div id="confirmContents"></div>
+</div>
+<br/>
+Employees
+<div id="employeeTableContainer" style="display: none; border: 1px solid darkgrey; width: 300px; height: 150px; overflow: auto;"></div>
+<hr/>
+<hr/>
+<table>
+    <tr>
+        <td>String:</td>
+        <td><input id='stuff' name='stuff' type="text" value='some text goes here' maxlength="50"/></td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td><input id='birthDate' name='birthDate' type="text" value='' maxlength="10"/></td>
+    </tr>
+    <tr>
+        <td>Time:</td>
+        <td><input id='time' name='time' type="text" value='' maxlength="10"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" value="Reverse" onclick="reverse()"/>
+            <input type="button" value="Life" onclick="life()"/>
+            <input type="button" value="Count" onclick="count()"/>
+            <input type="button" value="Login" onclick="login()"/>
+            <input type="button" value="Show Employees" onclick="showEmployees()"/>
+            <input type="button" value="Log Line" onclick="logLine()"/>
+            <input type="button" value="Get Club Name" onclick="getClubName()"/>
+            <input type="button" value="Show Dialog" onclick="showDialog()"/>
+        </td>
+    </tr>
+    <tr>
+        <td>Reversed String:</td>
+        <td>
+            <div id="reversedContainer"></div>
+        </td>
+    </tr>
+</table>
+<hr/>
+ajax time = <span id="ajaxTime"/>
+<hr/>
+<a href="hi.spr">Hi</a>
+<br/>
+<a href="addEventType.spr">Add Event Type</a>
+<br/>
+<a href="addEmployee.spr">Add Employee</a>
+<br/>
+<a href="helloUrl.spr">Hello</a>
+<br/>
+<a href="newMember.html">Add Member</a>
+<br/>
+<a href="showMembers.html">Show Members</a>
+<br/>
+<a href="showEventTypes.action">Event Types</a>
+<br/>
+<a href="grid/grid0.html">Grid 0</a>
+<br/>
+<a href="grid/grid1.html">Grid 1</a>
+<br/>
+<a href="grid/grid2.html">Grid 2</a>
+<br/>
+<a href="grid/grid3.html">Grid 3</a>
+<br/>
+<a href="grid/grid4.html">Grid 4</a>
+<br/>
+<a href="grid/grid5.html">Grid 5</a>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+
+<style>
+
+</style>
+
+<script>
+	var BR = "<br/>";
+</script>
+
+</head>
+
+<body>
+	<h1>Loops</h1>
+	<script>
+		document.write( "parseInt " + ( parseInt( "100sfsdfd.123" ) + 1 ) + BR );
+		document.write( "parseFloat " + ( parseFloat( "100.123asdfsdf" ) + 1 ) + BR );
+
+		document.write( BR + "Simple For loop" + BR );
+		var i;
+		for ( i = 1; i < 5; ++i )
+		{
+			document.write( i + " " + ( i * i ) + " " + ( i * i * i ) + BR );
+		}
+
+		document.write( BR + "Complex For loop" + BR );
+		var someText;
+		for ( i = 10, someText = 'selectable';
+		      i < 50 && someText >= 'selectable';
+                      i += 2, someText += "x" )
+		{
+			document.write( i + " " + ( i * i ) + " " + ( i * i * i ) + " " + someText + BR );
+			++i;
+		}
+
+		document.write( BR + "Simple While loop" + BR );
+		someText = 'x';
+		while ( someText.length < 10 )
+		{
+			document.write( someText + BR );
+			someText += 'x';
+		}
+
+		
+		document.write( BR + "Simple For loop" + BR );
+		for ( someText = 'x'; someText.length < 10; someText += 'x')
+		{
+			document.write( someText + BR );
+		}
+
+		document.write( BR + "Simple Do While loop" + BR );
+		someText = 'x';
+		do 
+		{
+			document.write( someText + BR );
+			someText += 'x';
+		} while ( someText.length < 10 );
+
+	</script>
+</body>
+</html>
+

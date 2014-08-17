@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <display-name>DataTrak Core</display-name>
+
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <display-name>DWR Servlet</display-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>FATAL</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showEventTypes</servlet-name>
+        <servlet-class>com.summerclass.servlet.ShowEventTypes</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>showEventTypes</servlet-name>
+        <url-pattern>/showEventTypes.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showMembers</servlet-name>
+        <servlet-class>com.summerclass.servlet.ShowMembers</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>showMembers</servlet-name>
+        <url-pattern>/showMembers.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newMember</servlet-name>
+        <servlet-class>com.summerclass.servlet.NewMember</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newMember</servlet-name>
+        <url-pattern>/newMember.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newMemberAction</servlet-name>
+        <servlet-class>com.summerclass.servlet.NewMemberAction</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newMemberAction</servlet-name>
+        <url-pattern>/newMember.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SpringDispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>com.summerclass.configuration.SpringConfiguration</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SpringDispatcher</servlet-name>
+        <url-pattern>*.spr</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

@@ -1,0 +1,93 @@
+body {
+    background: black;
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+    padding: 15px;
+}
+
+.header {
+    display: inline-block;
+    text-align: left;
+    width: 80%;
+}
+.logout {
+    display: inline-block;
+    text-align: right;
+    width: 10%;
+}
+
+.container {
+    background: #AAA;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 36pt;
+}
+
+h1, h2 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #fff84e;
+}
+
+a:visited {
+    color: blueviolet;
+}
+
+select {
+    border: 1px solid black;
+    box-shadow: 1px 1px black;
+    margin: 5px;
+    font-size: 14pt;
+}
+
+input[type=button] {
+    border: none;
+    background: #b4a208;
+    color: white;
+    font-size: 18pt;
+    font-weight: bold;
+    box-shadow: 2px 2px black;
+}
+
+input[type=button]:active {
+    box-shadow: none;
+}
+
+input[type=text], input[type=password] {
+    border: 2px solid black;
+    background: white;
+    font-size: 14pt;
+    box-shadow: none;
+}
+
+table {
+    vertical-align: top;
+    text-align: center;
+    margin: 0 auto;
+}
+
+td, th {
+    text-align: center;
+    padding: 5px 6px 10px 6px;
+}
+
+.twoSpan {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#successMessage {
+    color: red;
+}

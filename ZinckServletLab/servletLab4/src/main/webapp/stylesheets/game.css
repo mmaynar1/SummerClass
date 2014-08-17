@@ -1,0 +1,61 @@
+.gameContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.positioner {
+    margin: auto;
+    width: 900px
+}
+.gameContainer {
+    background-color: #cbac8c;
+    padding: 1px;
+    width: 580px;
+}
+
+.imageContainer {
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.name {
+    width: 90px;
+    height: 90px;
+}
+
+.info {
+    background-color: grey;
+    color: white;
+    font-family: "arial";
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.grid {
+    background-color: sandybrown;
+}
+
+.tile {
+    vertical-align: middle;
+}
+
+.instructions {
+    font-size: 25px;
+}
+
+.customizations {
+    font-size: 20px;
+    height: 570px;
+    vertical-align: super;
+}
+
+.currentValue
+{
+    color: darkorange;
+}
+
+.currentDisplay
+{
+    color: lightgray;
+}

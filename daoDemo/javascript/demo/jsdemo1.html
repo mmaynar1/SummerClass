@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+    <script>
+        var BR = "<br/>";
+
+        function write( label, value )
+        {
+            document.write( label + " " + value + BR );
+        }
+    </script>
+</head>
+
+<body>
+	<h1>What is true?</h1>
+	<script>
+        var array = [1, 3, '454', 5465.7897];
+        array.total = 42;
+        array.something = 'sfsdfsdf';
+        array[ 'xxx' ] = 'yyyy';
+        array.fun = function() { alert( "keith's idea" ); } ;
+        alert( typeof array.fun );
+
+        for ( var x in array )
+        {
+            document.write( eval( array[x] ) + BR );
+        }
+
+        /*
+
+        document.write( Array(16).join("lol" - 2) + " Batman!" );
+        document.write( BR );
+		document.write( 'Using ==' + BR );
+		write( '1 == 1', 1 == 1 );
+		write( "'1' == '1'", '1' == '1' );
+		write( "'1' == 1", '1' == 1 );
+		write( "1 == '1'", 1 == '1' );
+		document.write( BR );
+
+		document.write( 'Using ===' + BR );
+		write( '1 === 1', 1 === 1 );
+		write( "'1' === '1'", '1' === '1' );
+		write( "'1' === 1", '1' === 1 );
+		write( "1 === '1'", 1 === '1' );
+		document.write( BR );
+
+
+		if ( 1 )
+		{
+			document.write( "1 is true" + BR );
+		}
+		if ( '1' )
+		{
+			document.write( "'1' is true" + BR );
+		}
+		if ( 2 )
+		{
+			document.write( "2 is true" + BR );
+		}
+		if ( '2' )
+		{
+			document.write( "'2' is true" + BR );
+		}	
+		if ( 0 )
+		{
+			document.write( "0 is true" + BR );
+		}
+		else
+		{
+			document.write( "0 is NOT true" + BR );
+		}
+		if ( '0' )
+		{
+			document.write( "'0' is true" + BR );
+		}
+		if ( null )
+		{
+			document.write( "null is true" + BR );
+		}
+		else
+		{
+			document.write( "null is NOT true" + BR );
+		}
+		if ( undefined )
+		{
+			document.write( "undefined is true" + BR );
+		}
+		else
+		{
+			document.write( "undefined is NOT true" + BR );
+		}
+		if ( ' ' )
+		{
+			document.write( "' ' is true" + BR );
+		}
+		if ( '' )
+		{
+			document.write( "'' is true" + BR );
+		}
+		else
+		{
+			document.write( "'' is NOT true" + BR );
+		}
+		if ( 1.2 )
+		{
+			document.write( "1.2 is true" + BR );
+		}
+
+		if ( ( 10 > 5) && ('X' != 'x') )
+		{
+			document.write( "( ( 10 > 5) && ('X' != 'x') ) is true" + BR );
+		}
+		if ( ( 5 > 10) || ('X' != 'x') )
+		{
+			document.write( "( ( 5 > 10) || ('X' != 'x') ) is true" + BR );
+		}
+		if ( !( 5 > 10) )
+		{
+			document.write( "!( 5 > 10) is true" + BR );
+		}
+
+        document.write( " 1 / 0 = " + ( 1 / 0) + BR );
+
+		var a = 'SDFDS';
+		switch ( a )
+		{
+			case 'U':
+				// fall through
+			case 'Z':
+				break;
+			case 'x':
+				document.write( "little X" + BR );
+				// fall through
+			case 'X':
+				document.write( "big X" + BR );
+				// fall through
+			case 'UUU':
+				document.write( "UUU" + BR );
+			case 'SDFDS':
+				document.write( "SDFDS" + BR );
+				break;
+			case 'y':
+				// fall through
+			case 'Y':
+				document.write( "Y" + BR );
+				break;
+			default:
+				document.write( "Not X or Y" + BR );
+				break;
+		}
+
+		window.alert( "This is an alert" );
+
+		var deleteFile = window.confirm( "Do you want to delete this file?" );
+		if ( deleteFile )
+		{
+			document.write( "Delete the file" + BR );
+		}
+		else
+		{
+			document.write( "Do NOT Delete the file" + BR );
+		}
+
+		var lastName = window.prompt( "Enter the name" );
+		if ( lastName )
+		{
+			document.write( "lastName = " + lastName + BR );
+		}
+
+		var total = window.prompt( "Enter a number between 2 and 6" );
+		alert( "total = " + total );
+		*/
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+    <head>
+        <title>Inherit Demo</title>
+        <script type="text/javascript" src="utility2.js"></script>
+        <script type="text/javascript" src="inherit2.js"></script>
+        <script type="text/javascript">
+            function initialize()
+            {
+                var car = new Car();
+                car.increaseSpeed();
+                car.sayDescription();
+                car.saySpeed();
+                car.sayLocation();
+                car.setLocation( 100, 50 );
+                car.sayLocation();
+                car.sayName();
+            }
+        </script>
+    </head>
+    <body onload="initialize()">
+    </body>
+</html>

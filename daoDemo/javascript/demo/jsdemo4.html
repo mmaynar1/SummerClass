@@ -1,0 +1,129 @@
+<html>
+<head>
+    <script type="text/javascript">
+        try
+        {
+            this.fingerprint = new ActiveXObject('FingerprintScanner4500.FingerprintScanner4500Main');
+        }
+        catch (exception)
+        {
+            alert("this.fingerprint : " + this.fingerprint + " ,Exception occurred while trying to create Active X Object: " + exception);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var lineCount = 1;
+
+        function main()
+        {
+            hide('dog');
+        }
+
+        function setContainer()
+        {
+            setHtml('container', 'This message only appears when you are over the Three');
+        }
+
+        function clearContainer()
+        {
+            setHtml('container', 'You were once over the three');
+        }
+
+        function addHtml(id, html)
+        {
+            var element = document.getElementById(id);
+            element.innerHTML += ( html + lineCount + "<br/>" );
+            ++lineCount;
+        }
+
+        function setHtml(id, html)
+        {
+            document.getElementById(id).innerHTML = html;
+        }
+
+        function toggle(id)
+        {
+            var element = document.getElementById(id);
+            if (element.style.display === 'none')
+            {
+                show(element);
+            }
+            else
+            {
+                hide(element);
+            }
+        }
+
+        // operator overloading
+        function hide(value)
+        {
+            if (typeof value === 'string')
+            {
+                document.getElementById(value).style.display = 'none';
+            }
+            else
+            {
+                value.style.display = 'none';
+            }
+        }
+
+
+        // operator overloading
+        function show(value)
+        {
+            if (typeof value === 'string')
+            {
+                document.getElementById(value).style.display = 'inline';
+            }
+            else
+            {
+                value.style.display = 'inline';
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        span {
+            font-size: 24px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            color: red;
+            background-color: yellow;
+        }
+
+        #three, #add {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #output {
+            height: 190px;
+            width: 200px;
+            border: 5px solid cyan;
+            color: green;
+            background-color: white;
+            overflow: auto;
+            padding: 5px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body onload="main();">
+<span id="add" onclick="addHtml('output', 'Line')">Add</span><span>Two</span>
+		<span id="three" onmouseover="setContainer();"
+              onmouseout="clearContainer();"
+              onclick="toggle('dog');">
+			Show
+		</span>
+<span>Four</span>
+<span>Five</span>
+<br/>
+<br/>
+
+<div id="container"></div>
+<img id="dog" alt='' src="dog.jpg"></img>
+<span id="output"></span>
+</body>
+</html>

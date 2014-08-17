@@ -1,0 +1,440 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>26/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Aug 14 08:36:03 CDT 2014</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2558 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.summerclass.integrationtest.ControllerTest.testAddEmployee()'><b>testAddEmployee</b><br>Test class: com.summerclass.integrationtest.ControllerTest</td>
+<td><div><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEmployee(ControllerTest.java:70)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace596319588", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace596319588'><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEmployee(ControllerTest.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</pre></div></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ControllerTest@7f04eeb6</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ControllerTest.testAddEventType()'><b>testAddEventType</b><br>Test class: com.summerclass.integrationtest.ControllerTest</td>
+<td><div><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventType(ControllerTest.java:56)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1516179874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1516179874'><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventType(ControllerTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</pre></div></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ControllerTest@7f04eeb6</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName()'><b>testAddEventTypeNoName</b><br>Test class: com.summerclass.integrationtest.ControllerTest</td>
+<td><div><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName(ControllerTest.java:44)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1155489111", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1155489111'><pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;302&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName(ControllerTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:169)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:181)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:684)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:883)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1208)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:758)
+	at org.testng.TestRunner.run(TestRunner.java:613)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1137)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1062)
+	at org.testng.TestNG.run(TestNG.java:974)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</pre></div></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ControllerTest@7f04eeb6</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.getClubIdFailure()'><b>getClubIdFailure</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.StringSupportTest.testAssertions()'><b>testAssertions</b><br>Test class: com.summerclass.integrationtest.StringSupportTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.StringSupportTest@272d0e49</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.AjaxTest.testCountCharacters()'><b>testCountCharacters</b><br>Test class: com.summerclass.integrationtest.AjaxTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.AjaxTest@45458db</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testCreateEvents()'><b>testCreateEvents</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testDeleteEmployeeEvents()'><b>testDeleteEmployeeEvents</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testDeleteEvents()'><b>testDeleteEvents</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testGetAll()'><b>testGetAll</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetClub()'><b>testGetClub</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetClubNumbers()'><b>testGetClubNumbers</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetClubSafe()'><b>testGetClubSafe</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetClubs()'><b>testGetClubs</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetCount()'><b>testGetCount</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.AjaxTest.testGetEmployees()'><b>testGetEmployees</b><br>Test class: com.summerclass.integrationtest.AjaxTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.AjaxTest@45458db</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testGetEvent()'><b>testGetEvent</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetIdAndNumber()'><b>testGetIdAndNumber</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetIds()'><b>testGetIds</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetName()'><b>testGetName</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.ClubTest.testGetNameSafe()'><b>testGetNameSafe</b><br>Test class: com.summerclass.integrationtest.ClubTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.ClubTest@1cd42fe0</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testGetRandomEventByStatus()'><b>testGetRandomEventByStatus</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testGetRandomEventId()'><b>testGetRandomEventId</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.AjaxTest.testLogin()'><b>testLogin</b><br>Test class: com.summerclass.integrationtest.AjaxTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.AjaxTest@45458db</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.AjaxTest.testMeaningOfLife()'><b>testMeaningOfLife</b><br>Test class: com.summerclass.integrationtest.AjaxTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.AjaxTest@45458db</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.StringSupportTest.testNegativeGuid()'><b>testNegativeGuid</b><br>Test class: com.summerclass.integrationtest.StringSupportTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.StringSupportTest@272d0e49</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.StringSupportTest.testPositiveGuid()'><b>testPositiveGuid</b><br>Test class: com.summerclass.integrationtest.StringSupportTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.StringSupportTest@272d0e49</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.AjaxTest.testReverse()'><b>testReverse</b><br>Test class: com.summerclass.integrationtest.AjaxTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.AjaxTest@45458db</td></tr>
+<tr>
+<td title='com.summerclass.integrationtest.EventTest.testUpdateStatus()'><b>testUpdateStatus</b><br>Test class: com.summerclass.integrationtest.EventTest</td>
+<td></td>
+<td>0</td>
+<td>com.summerclass.integrationtest.EventTest@3d959415</td></tr>
+</table><p>
+</body>
+</html>

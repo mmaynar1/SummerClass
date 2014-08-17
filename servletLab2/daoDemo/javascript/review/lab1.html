@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Jon - JS Lab 1</title>
+    <link rel="stylesheet" href="resources/styles/lab1.css" type="text/css"/>
+    <script src="resources/js/lab1.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="equation">
+        <span id="firstInt"></span>
+        <span id="operator"></span>
+        <span id="secondInt"></span>
+        <span id="equals">=</span>
+        <span id="answer"></span>
+    </div>
+    <div id="roots">
+        <table>
+            <thead>
+                <th>Value</th>
+                <th>Square</th>
+                <th>Cube</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span id="firstValue"></span>
+                    </td>
+                    <td>
+                        <span id="firstSquare"></span>
+                    </td>
+                    <td>
+                        <span id="firstCube"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="secondValue"></span>
+                    </td>
+                    <td>
+                        <span id="secondSquare"></span>
+                    </td>
+                    <td>
+                        <span id="secondCube"></span>
+                    </td>
+                </tr>
+                <tr>
+                     <td>
+                         <span id="answerValue"></span>
+                     </td>
+                     <td>
+                         <span id="answerSquare"></span>
+                     </td>
+                     <td>
+                         <span id="answerCube"></span>
+                     </td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+    <input type="button" onclick="initialize()" value="Do Work!"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+.header
+{
+    font-size: 24px;
+    color: blue;
+    border: 3px solid darkgreen;
+}
+
+li
+{
+    text-size: 24px;
+    color: red;
+    background-color: yellow;
+}

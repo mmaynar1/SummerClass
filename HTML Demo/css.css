@@ -1,0 +1,72 @@
+.blue
+{
+	border: 5px solid blue;
+	display: inline-block;
+}
+.red
+{
+	border: 5px solid red;
+	display: inline-block;
+}
+.yellow
+{
+	border: 5px solid yellow;
+	display: inline-block;
+}
+.green
+{
+	border: 5px solid green;
+	display: inline-block;
+}
+padding
+{
+	padding: 25px;
+}
+margin
+{
+	margin: 25px;
+}
+.scaled
+{
+	width: 150px;
+	height: 150px;
+}
+#s1
+{
+	background-color: green;
+	color: blue;
+	font-size: 10em;
+}
+#s2
+{
+	color: green;
+		font-size: 5em;
+}
+#s3
+{
+	color: yellow;
+		font-size: 3em;
+}
+#s4
+{
+	background-color: yellow;
+	color: magenta;
+	font-size: 2em;
+}
+#s5
+{
+	color: green;
+		font-size: 5em;
+}
+#s6
+{
+	background-color: black;
+	color: white;
+		font-size: 7em;
+}
+#s7
+{
+	background-color: yellow;
+	color: black;
+		font-size: 3em;
+}

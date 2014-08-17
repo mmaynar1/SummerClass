@@ -1,0 +1,18 @@
+body
+{
+    background-color: lightsteelblue;
+}
+.input
+{
+    float: left;
+}
+.banner
+{
+    margin: 0 25px;
+    float: left;
+}
+.createEventButton
+{
+    margin: 130px 0 0 0 ;
+    clear: both;
+}

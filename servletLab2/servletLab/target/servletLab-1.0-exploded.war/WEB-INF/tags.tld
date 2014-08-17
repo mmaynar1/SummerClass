@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee">
+    <tlib-version>2.0</tlib-version>
+    <short-name>tags</short-name>
+    <uri>tags</uri>
+
+    <tag>
+        <name>output</name>
+        <tag-class>com.summerclass.tag.Output</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+           <name>comboBox</name>
+           <tag-class>com.summerclass.tag.ComboBox</tag-class>
+           <body-content>empty</body-content>
+           <attribute>
+               <name>idNames</name>
+               <required>true</required>
+               <rtexprvalue>true</rtexprvalue>
+           </attribute>
+        <attribute>
+            <name>selectIdName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+       </tag>
+
+
+    <tag>
+        <name>header</name>
+        <tag-class>com.summerclass.tag.Header</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>header</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>orderedList</name>
+        <tag-class>com.summerclass.tag.OrderedList</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>caption</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>clubs</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

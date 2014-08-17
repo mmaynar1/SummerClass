@@ -1,0 +1,240 @@
+<html>
+<head>
+</head>
+
+<body onload="main()">
+<script type="text/javascript">
+
+
+    function rawObject()
+    {
+        var car = {};
+
+        car.print = function(line)
+        {
+            document.write(line + "<br/>");
+        };
+
+        car.doors = 3;
+        car.print("doors = " + car.doors);
+        car.print("doors = " + car['doors']);
+
+        car['windows'] = ( car.doors - 1 ) * 2;
+        car.print("windows = " + car.windows);
+        car.print("windows = " + car['windows'] );
+
+        car.honk = function()
+        {
+            // car.print( "Blow the horn" );
+            this.print("Blow the horn " + this.doors + ' ' + ( this.tyler = 'Storm' ) );
+        };
+
+        car.honk();
+        car.honk();
+        car.honk();
+        car.honk();
+        car.print( car.tyler );
+
+        car.year = '2010';
+        car.miles = 87345;
+        car.year = '2012';
+        car.make = 'Ford';
+        car.model = 'Escort';
+        car.owners = ['andy', 'selectable', 'charles'];
+        car.details = function ()
+        {
+            this.print(this.make + ": " + this.model + " " + this.year + " " + this.miles + " (miles), owners: " + this.owners );
+        };
+        car.details();
+
+        var engine = {};
+        engine.cylinders = 8;
+        engine.cubicInches = 440;
+        car.engine = engine;
+
+        document.write( "cylinders = " + car.engine.cylinders );
+        document.write( "<br/>" );
+        document.write( "<br/>" );
+    }
+
+    function sayHello()
+    {
+        // var this = {};   using new
+        document.write( "<br/>Hello<br/>" );
+        this.title = 'Tristan';
+        return this;
+    }
+
+    function rawObjectShortHand()
+    {
+        var plane = { type: 'Fighter',
+                      'engine type': ' RollsRoyce',
+                      horsepower: 5000,
+                      nightVision: false,
+                      changeEngine : function( engine ) { this['engine type'] = engine ; } } ;
+
+        document.write( plane.type + ' ' + plane['engine type'] + ' ' + plane.horsepower + ' ' + plane.nightVision );
+        document.write( "<br/>" );
+        plane.changeEngine( 'Briggs and Stratten' );
+        document.write( plane.type + ' ' + plane['engine type'] + ' ' + plane.horsepower + ' ' + plane.nightVision );
+        document.write( "<br/>" );
+    }
+
+    function Car(make, model, color)
+    {
+        this.tomato = ( arguments[3] === undefined ? 'red' : arguments[3] );
+        this.color = ( color === undefined ? 'cyan' : color );
+        this.make = make;
+        this.model = model;
+        this.doors = 4;
+        this.miles = "?";
+        this.year = "?";
+
+        this.print = function (line)
+        {
+            document.write(line + "<br/>");
+        };
+        this.honk = function ()
+        {
+            this.print("Blow the horn")
+        };
+        this.setDoors = function (doors)
+        {
+            this.doors = doors;
+        };
+        this.setYear = function (year)
+        {
+            this.year = year;
+        };
+        this.setMiles = function (miles)
+        {
+            this.miles = miles;
+        };
+        this.getMiles = function ()
+        {
+            return this.miles;
+        };
+        this.details = function ()
+        {
+            this.print(this.make + ": " + this.model + " " + this.year + " " + this.miles + " (miles)");
+        };
+
+        return this;
+    }
+
+    Truck.prototype.loadCargo = function ()
+    {
+        this.print("Truck load cargo quickly " + this.doors );
+    };
+
+    function Truck(make, model)
+    {
+        var self = this;
+        var that = this;
+
+        self.make = make;
+        self.model = model;
+        self.doors = 4;
+        self.miles = "?";
+        self.year = "?";
+
+        this.print = function (line)
+        {
+            document.write(line + "<br/>");
+        };
+        self.honk = function ()
+        {
+            self.print("Blow the horn")
+        };
+        that.setDoors = function (doors)
+        {
+            self.doors = doors;
+        };
+        self.setYear = function (year)
+        {
+            self.year = year;
+        };
+        self.setMiles = function (miles)
+        {
+            self.miles = miles;
+        };
+        self.details = function ()
+        {
+            self.print(self.make + ": " + self.model + " " + self.year + " " + self.miles + " (miles)");
+        };
+    }
+
+    function classObject()
+    {
+        var car = new Car('Chevy', "Nova", "Blue", "big and juicy" );
+        car.print( car.color );
+
+        car.setMiles(55000);
+        car.print("indirect access miles = " + car.getMiles());
+        car.honk();
+        car.details();
+        car.print("direct access miles = " + car.miles);
+    }
+
+    function selfObject()
+    {
+        var vehicle = new Truck('Ford', "F150");
+        vehicle.setMiles(255000);
+        vehicle.honk();
+        vehicle.details();
+        vehicle.loadCargo();
+
+        // adding more stuff
+        vehicle.type = 'Off Road';
+        vehicle.go = function ()
+        {
+            this.print("Go go go " + this.type);
+        };
+        vehicle.go();
+    }
+
+    function demonstrateCollection()
+    {
+        debugger;
+        var i;
+        var cars = [];
+
+        cars.push( new Car( 'Ford', 'Escort' ) );
+        cars.push( new Car( 'Ford', 'Mustang' ) );
+        cars.push( new Car( 'Ford', 'LTD' ) );
+        cars.push( new Car( 'Ford', 'Focus' ) );
+
+        cars[2].details = function() { alert( "no" ); } ;
+
+        for ( i = 0; i < cars.length; ++i )
+        {
+            cars[i].details();
+        }
+    }
+
+    function main()
+    {
+    var something = new sayHello();
+    document.write( "something = " + something.title );
+    document.write( "<br/>" );
+
+    //Car();   // no no no no no
+
+    document.write("Raw Object" + "<br/>");
+    rawObject();
+
+    document.write("Raw Object/Short hand" + "<br/>");
+    rawObjectShortHand();
+
+    document.write("<br/>" + "Using Class" + "<br/>");
+    classObject();
+
+    document.write("<br/>" + "Using Class/Prototype (self)" + "<br/>");
+    selfObject();
+
+    document.write("<br/>" + "Collection" + "<br/>");
+    demonstrateCollection();
+    }
+</script>
+</body>
+</html>

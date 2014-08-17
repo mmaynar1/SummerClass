@@ -1,0 +1,200 @@
+
+<html>
+	<head>
+		<script type="text/javascript" src="c:/temp/includefile.js"></script>
+		<script type="text/javascript">
+			var firstValue;
+			var secondValue;
+			var useFirstValue;
+			var operation;
+
+			function setHtml( id, message )
+			{
+				if ( message === undefined )
+				{
+					message = '';
+				}
+				document.getElementById( id ).innerHTML = message;
+			}
+
+			function showError( message )
+			{
+				setHtml( 'errorContainer', message );
+			}
+
+			function hide( value )
+			{
+				if ( typeof value === 'string' )
+				{
+					document.getElementById( value ).style.display = 'none';	
+				}
+				else
+				{
+					value.style.display = 'none';
+				}
+			}
+
+			function show( value )
+			{
+				if ( typeof value === 'string' )
+				{
+					document.getElementById( value ).style.display = 'inline';
+				}
+				else
+				{
+					value.style.display = 'inline';
+				}
+			}
+
+			function addHtml( id, value )
+			{
+				var element = document.getElementById( id );
+				element.innerHTML += value;
+                                element.scrollTop = element.scrollHeight;
+			}
+
+			function operator( value )
+			{
+				var BR = "<br/>";
+
+				if ( useFirstValue )
+				{
+					useFirstValue = false;
+					operation = value;
+					addHtml( 'tape', BR + value + BR );
+				}
+				else
+				{
+					switch ( operation )
+					{
+						case '+':
+							addAnswer( BR, firstValue + secondValue );
+							break;
+					}
+					reset();
+				}
+			}
+
+			function addAnswer( BR, answer )
+			{
+				addHtml( 'tape', BR + '&nbsp;= ' + answer + BR );
+			}
+
+			function reset()
+			{
+					useFirstValue = true;
+					firstValue = 0;
+					secondValue = 0;
+					operation = null;
+			}
+
+			function addDigit( value )
+			{
+				if ( useFirstValue )
+				{
+					if ( firstValue === null )
+					{
+						firstValue = value;
+         					addHtml( 'tape', value + '' );
+					}
+					else if ( ( firstValue + '' ).length < 6 )
+					{
+						firstValue *= 10;
+						firstValue += value;
+						addHtml( 'tape', value + '' );
+    					}
+					else
+					{
+						showError( "Too big a value" );
+					}
+				}
+				else
+				{
+					if ( secondValue === null )
+					{
+						secondValue = value;
+         					addHtml( 'tape', value + '' );
+					}
+					else if ( ( secondValue + '' ).length < 6 )
+					{
+						secondValue *= 10;
+						secondValue += value;
+						addHtml( 'tape', value + '' );
+    					}
+					else
+					{
+						showError( "Too big a value" );
+					}
+				}
+			}
+
+			function showValue( id, value )
+			{
+				setHtml( id, value );
+				show( id );
+			}
+		</script>
+
+		<style type="text/css">
+			.digit
+			{
+				width: 50px;
+				height: 25px;
+				color: blue;
+				background-color: white;
+				font-size: 24px;
+				border: 1px solid darkgray;
+				margin: 5px;
+				text-align: center;
+			}
+
+			#tape
+			{
+				width: 178px;
+				height: 200px;
+				color: black;
+				background-color: white;
+				font-size: 18px;
+				border: 1px solid darkgray;
+				margin: 5px;
+				overflow: auto;
+			}
+
+			#errorContainer
+			{
+				width: 178px;
+				height: 50px;
+				color: red;
+				background-color: white;
+				font-size: 24px;
+				border: 1px solid darkgray;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body onload="reset();">
+		<div id="tape"></div>
+		<span onclick="addDigit(7);" class="digit">7</span>
+		<span onclick="addDigit(8);" class="digit">8</span>
+		<span onclick="addDigit(9);" class="digit">9</span>
+		<span onclick="operator('+')" class="digit">+</span>
+		<span onmouseover="showValue( 'debug', 'First Operand = ' + firstValue );" onmouseout="hide('debug');">First Value</span>
+		<br/>
+		<span onclick="addDigit(4);" class="digit">4</span>
+		<span onclick="addDigit(5);" class="digit">5</span>
+		<span onclick="addDigit(6);" class="digit">6</span>
+		<span onclick="operator('-')" class="digit">-</span>
+		<span onmouseover="showValue( 'debug', 'Second Operand = ' + secondValue );" onmouseout="hide('debug');">Second Value</span>
+		<br/>
+		<span onclick="addDigit(1);" class="digit">1</span>
+		<span onclick="addDigit(2);" class="digit">2</span>
+		<span onclick="addDigit(3);" class="digit">3</span>
+		<span onclick="operator('*')" class="digit">*</span>
+		<br/>
+		<span onclick="addDigit(0);" class="digit">0</span>
+		<br/>
+		<div id="errorContainer"></div>
+		<div id='debug'></div>
+	</body>
+</html>

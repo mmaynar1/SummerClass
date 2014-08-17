@@ -1,0 +1,31 @@
+#schedule
+{
+    background-color: lavender;
+    clear: both;
+}
+table#schedule tr td
+{
+    padding: 5px;
+}
+.align
+{
+    width: 590px;
+    margin: 0 auto;
+}
+#page
+{
+    background-color: seashell;
+}
+.params
+{
+    float: left;
+}
+.againButton input
+{
+    float: right;
+    height: 50px;
+    width: 150px;
+}
+
+
+

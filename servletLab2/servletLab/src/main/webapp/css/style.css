@@ -1,0 +1,27 @@
+body
+{
+    background-color: lightsteelblue;
+    font-size: 14pt;
+}
+.input
+{
+    float: left;
+}
+select
+{
+    width: 200px;
+    font-size: 14pt;
+}
+.banner
+{
+    background-color: gainsboro;
+}
+.createEventButton
+{
+    margin: 25px 0 0 0 ;
+    clear: both;
+}
+.onPage
+{
+
+}

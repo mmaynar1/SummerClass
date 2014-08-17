@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mitch Lab 3</title>
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<a href="http://www.freeformatter.com/html-validator.html">HTML Validator</a>
+<hr>
+
+<form action="x">
+    <fieldset>
+        <legend>Login</legend>
+        <table>
+            <tr>
+                <td>
+                    <label for="userName">User Name:</label>
+                </td>
+                <td>
+                    <input type="text" maxLength="10" id="userName" name="userName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password:</label>
+                </td>
+                <td>
+                    <input type="password" maxLength="10" id="password" name="password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="deleteTemporaryFiles">Delete Temporary Files:</label>
+                </td>
+                <td>
+                    <input type="checkbox" checked id="deleteTemporaryFiles" name="deleteTemporaryFiles"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="preferredServer">Preferred Server:</label>
+                </td>
+                <td>
+                    <select id="preferredServer" name="preferredServer" size="1">
+                        <option value="IN">Indiana</option>
+                        <option value="NY">New York</option>
+                        <option value="TX">Texas</option>
+                        <option value="AR">Arkansas</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="preferredValidation">Preferred Validation:</label>
+                </td>
+                <td>
+                    <select id="preferredValidation" name="preferredValidation" size="4">
+                        <option value="0">Fast</option>
+                        <option value="1">Precise</option>
+                        <option value="2">Thorough</option>
+                        <option value="3">Crazy</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Gender:
+                </td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+                    <input type="radio" id="notSpecified" name="gender" value="Not Specified"><label for="notSpecified"> Not Specified</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="comments">Comment:</label>
+                </td>
+                <td>
+                    <textarea id="comments" name="comments" rows="7" cols="25">Write comments</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Submit" onclick="'log in'">
+                    <input type="button" value="Cancel" onclick="nope">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+
+<div class="grid_7">
+    <h1>More Random Text Formatting</h1>
+    <p class="blueText">
+        Can you tell <strong>strong</strong> from <b>bold</b>?<br>
+        Can you tell <em>em</em> from <i>italic</i>?<br>
+        <small>This is small</small>
+    </p>
+</div>
+<div class="grid_5">
+    <h1>Definitions</h1>
+    <p>
+        Fixed Interval<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billed fixed amount per period (weekly, monthly, quarterly)<br>
+        <span class="blueText">Custom Interval</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billed a variable amount per period( weekly, monthly, quarterly)<br>
+        Open Monthly<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billed once per month, amount based on usage
+    </p>
+</div>
+<div class="grid_9">
+    <h1>Entities</h1>
+    <p>
+        The &gt; and &lt; and &amp; characters are hard to display.<br>
+        Here are some other useful characters &copy; &reg; &trade;
+    </p>
+</div>
+
+<div class="grid_12">
+<h1>IFrame</h1>
+<iframe height="500px" width="100%" src="http://www.cnn.com"/>
+</div>
+
+</body>
+</html>

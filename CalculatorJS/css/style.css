@@ -1,0 +1,41 @@
+#buttons input
+{
+    width: 150px;
+    height: 150px;
+    border-bottom: black 3px solid;
+    border-right: black 3px solid;
+}
+#display
+{
+    font-size: 1.5em;
+}
+input[type=button]
+{
+    font-size: 30px;
+    font-family: 'Syncopate', arial, sans-serif;
+}
+.container
+{
+    border: red solid 20px;
+    border-radius: 5%;
+    background-color: darkgray;
+    width: 620px;
+    margin: 0 auto;
+}
+.displayContainer
+{
+    border: black solid 5px;
+    border-radius: 2%;
+    background-color: lightgray;
+    width:610px;
+    height: 100px;
+    float: left;
+}
+.buttonsContainer
+{
+    clear: both;
+}
+body
+{
+    background-color: lightsteelblue;
+}

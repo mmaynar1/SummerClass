@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 29, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 3.825 sec <<< FAILURE!
+testAddEmployee(com.summerclass.integrationtest.ControllerTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEmployee(ControllerTest.java:70)
+testAddEventType(com.summerclass.integrationtest.ControllerTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventType(ControllerTest.java:56)
+testAddEventTypeNoName(com.summerclass.integrationtest.ControllerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<302>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:549)
+	at org.springframework.test.web.servlet.MockMvc.applyDefaultResultActions(MockMvc.java:159)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:136)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult1(ControllerTest.java:115)
+	at com.summerclass.integrationtest.ControllerTest.verifyControllerResult(ControllerTest.java:79)
+	at com.summerclass.integrationtest.ControllerTest.testAddEventTypeNoName(ControllerTest.java:44)

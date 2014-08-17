@@ -1,0 +1,158 @@
+
+<html>
+	<head>
+		<script type="text/javascript">
+			function getNumber( message, minimum, maximum )
+			{
+				var inputNumber;
+				
+				do
+				{
+					inputNumber = prompt( message );
+					if ( ( inputNumber.length > 0 ) && ( ( parseInt( inputNumber ) + "" ) != inputNumber ) )
+					{
+						inputNumber = maximum + 1;
+					}
+				} while ( inputNumber != null && ( inputNumber < minimum || inputNumber > maximum ) );
+		
+				return inputNumber;
+			}
+		
+			function roundToTwoDecimals( value )
+			{
+				var roundedValue = 0;
+				if ( value )
+				{
+					roundedValue = Math.round((value + 0.00001) * 100) / 100;
+				}
+		
+				return roundedValue;
+			}
+		
+			function writeCell( value )
+			{
+				if ( value === undefined || value === '' )
+				{
+					value = '&nbsp;';
+				}
+				document.write( "<td>" + value + "</td>" );
+			}
+		
+			// periodInterestRate = rate / 100 / paymentsPerYear = 6 / 100 / 12
+			// paymentCount = years * paymentsPerYear = 30 * 12
+			function calculatePayment( principal, periodInterestRate, paymentCount )
+			{
+				return roundToTwoDecimals( (principal * ( periodInterestRate / ( 1 - Math.pow( 1 + periodInterestRate, -1 * paymentCount ) ) ) ) );
+			}
+		
+		
+			function writePaymentTable( principal, rate, years )
+			{
+				var paymentsPerYear = 12;
+				var paymentCount = years * paymentsPerYear;
+				var periodInterestRate = rate / 100 / paymentsPerYear;
+				var payment = calculatePayment( principal, periodInterestRate, paymentCount );
+				var i;
+				var interestPortion;
+				var principalPortion;
+				var totalInterestPaid = 0;
+				var totalPrincipalPaid = 0;
+                var totalPaid = 0;
+		
+				document.write( "<h1>Home Loan Principal/Interest Payment Schedule</h1>" );
+				document.write( "<table border='1'>" );
+				document.write( "<tr>" );
+				writeCell( "Payment #" );
+				writeCell( "Beginning Balance" );
+				writeCell( "Payment" );
+				writeCell( "Interest Portion" );
+				writeCell( "Principal Portion" );
+				writeCell( "Ending Balance" );
+				document.write( "</tr>" );
+		
+				for ( i = 0; i < paymentCount; ++i )
+				{
+					if ( ( i + 1 ) == paymentCount )
+					{
+						principalPortion = roundToTwoDecimals( principal );
+						if ( principalPortion > payment )
+						{
+							interestPortion = payment - principalPortion;
+						}
+						else
+						{
+							interestPortion = 0;
+						}
+						payment = principalPortion + interestPortion;
+						totalInterestPaid += interestPortion;
+						totalPrincipalPaid += principalPortion;
+					}
+					else
+					{
+						interestPortion = roundToTwoDecimals( principal * periodInterestRate );
+						totalInterestPaid += interestPortion;
+						principalPortion = roundToTwoDecimals( payment - interestPortion );
+						totalPrincipalPaid += principalPortion;
+					}
+                    totalPaid += payment;
+		
+					document.write( "<tr>" );
+					writeCell( i + 1 );
+					writeCell( roundToTwoDecimals( principal ) );
+					writeCell( payment );
+					writeCell( interestPortion );
+					writeCell( principalPortion );
+					if ( ( i + 1 ) == paymentCount )
+					{
+						principal = 0;
+					}
+					else
+					{
+						principal -= principalPortion;	
+					}
+					writeCell( roundToTwoDecimals( principal ) );
+					document.write( "</tr>" );
+				}
+		
+				document.write( "<tr>" );
+				writeCell( "Total" );
+				writeCell( "" );
+				writeCell( roundToTwoDecimals( totalPaid ) );
+				writeCell( roundToTwoDecimals( totalInterestPaid ) );
+				writeCell( roundToTwoDecimals( totalPrincipalPaid ) );
+				writeCell("" );
+				document.write( "</tr>" );
+		
+				document.write( "</table>" );
+			}
+		
+			function main()
+			{
+				var principal = getNumber( "Enter the principle in whole numbers between 10,000 100,000", 10000, 100000 );
+				var rate;
+				var years;
+			
+				if ( principal )
+				{
+					rate = getNumber( "Enter the rate in whole numbers between 1 and 10", 1, 10 );
+				}
+				if ( rate )
+				{
+					years = getNumber( "Enter the years in whole numbers between 1 and 30", 1, 30 );
+				}
+				if ( years )
+				{
+					writePaymentTable( principal, rate, years );
+				}
+				else
+				{
+					document.write( "User aborted process" );
+				}
+			}
+		
+		</script>
+	</head>
+
+	<body onload="main()">
+	</body>
+</html>

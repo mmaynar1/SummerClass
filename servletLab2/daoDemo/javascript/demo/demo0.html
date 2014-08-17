@@ -1,0 +1,50 @@
+
+<html>
+    <head>
+        <title>JavaScript Demo</title>
+
+        <style type="text/css">
+            span
+            {
+                border: 1px solid red;
+                background-color: cyan;
+                color: red;
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            function start()
+            {
+                var BR = '<br/>';
+                var i;
+                var minValue = 99999999;
+                var maxValue = -1;
+                var randomValue;
+
+                for ( i = 0; i < 1000000; ++i )
+                {
+                    randomValue = Math.random();
+                    maxValue = Math.max( maxValue, randomValue );
+                    minValue = Math.min( minValue, randomValue );
+                }
+
+                setValueById( 'minContainer', minValue );
+                setValueById( 'maxContainer', maxValue );
+            }
+
+            function setValueById( id, value )
+            {
+                document.getElementById( id ).innerHTML = value;
+            }
+        </script>
+    </head>
+
+    <body onload="start()">
+        <span id="minContainer">aaa</span>
+        <span id="maxContainer">bbb</span>
+    </body>
+</html>

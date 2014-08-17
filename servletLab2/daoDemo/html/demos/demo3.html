@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+http://www.w3schools.com/tags/tag_doctype.asp
+-->
+<html>
+	<head>
+		<title>Demo 3</title>
+
+        <!-- file:///C:/dev/summerclass/daoDemo/html/demo3.html -->
+
+		<style>
+		</style>
+	</head>
+	<body>
+        <a href="http://www.freeformatter.com/html-validator.html">HTML Validator</a>
+        <br/>
+        <strong>Strong/bold</strong>
+        <em>Emphasized/italics</em>
+        <small>Small</small>
+
+        <dl>
+            <dt>Java</dt><dd>Define Java</dd>
+            <dt>C++</dt><dd>A real language</dd>
+        </dl>
+
+        HTML Entities &nbsp; &lt; &gt; &amp; &cent; &pound; &copy; &reg;
+        <hr/>
+        <a href="http://www.w3schools.com/html/html_entities.asp">HTML Entities</a>
+        <hr/>
+
+        <table>
+            <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td><input id='firstName'
+                           name='firstName'
+                           type="text"
+                           value="Bob" maxlength="50" style="width: 200px;"/></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input id='password' name="password" type="password" maxlength="25" style="width: 200px;"/></td>
+            </tr>
+            <tr>
+                <td valign="top">Print Option:</td>
+                <td>
+                    <input type="radio" name="option1" value="1">Option 1
+                    <br/>
+                    <input type="radio" name="option1" value="2">Option 2
+                </td>
+            </tr>
+            <tr>
+                <td>Send Email:</td>
+                <td><input name='sendEmail' id="sendEmail" style="padding: 0; margin: 0;" checked="1" type="checkbox"></td>
+            </tr>
+            <tr>
+                <td valign="top">Email Option:</td>
+                <td>
+                    <input type="radio" name="option2" value="3">Option 3
+                    <br/>
+                    <input type="radio" name="option2" value="4" checked="1">Option 4
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Event Type:</label></td>
+                <td>
+                    <select  size="3" id="eventType" name="eventType" style="width: 200px;">
+                        <option value="sdfasdfasdfsdfasdf">Kick Boxing</option>
+                        <option value="asdfsdfasdfasdfafb">Pilates</option>
+                        <option value="p">PT</option>
+                        <option value="s">Zumba</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Note:</td>
+                <td>
+                    <textarea rows="12" cols="90" id="" name="">this is the note</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Submit" onclick="alert('submit it');"/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <iframe src="http://www.espn.go.com"
+                style="border: 1px solid gray; width: 400px; height: 300px; overflow: auto;"/>
+	</body>
+</html>

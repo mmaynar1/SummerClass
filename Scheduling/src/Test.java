@@ -1,3 +1,6 @@
+import database.Dao;
+import domain.Name;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
